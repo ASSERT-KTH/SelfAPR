@@ -9,10 +9,10 @@ def getResults(bugindex,preds):
         print(bugId,buggyFile,lineNo,action)
         
         #compile script location
-        scriptdir = '/home/heye/ganrepair/bears-benchmark/myscripts'
+        scriptdir = '/Users/sophie/Documents/SUPRE/bears-benchmark/customizedBearScript'
         os.chdir(scriptdir)
-        print('now in the dir:'+scriptdir )
-        repodir = '/home/heye/ganrepair/Bears_Training'
+        print('now in the dir:'+scriptdir)
+        repodir = '/Users/sophie/Documents/SUPRE/Bears_Training'
         checkoutstring = 'python2.7 checkout_bug.py  --bugId  '+ bugId + '  --workspace '+ repodir
         #customized script to allow test running
         compilestring = 'python2.7 mycompile_bug.py  --bugId  '+ bugId + '  --workspace '+ repodir
@@ -131,6 +131,25 @@ def getInfoFromIndex(bugIndex):
     
     return bugname,buggyFile,lineNo,action
 
+
+def checkout72Projects():
+    #Those project are 
+    # Bears-2 FasterXML-jackson-databind
+    # Bears-27 INRIA-spoon
+    # Bears-84 spring-projects-spring-data-commons
+    # Bears-98 traccar-traccar
+    # Bears-140 2018swecapstone-h2ms
+    # Bears-142 Activiti-Activiti
+    # Bears-144 aicis-fresco
+    # Bears-149 apache-incubator-dubbo
+    # Bears-153 apache-incubator-servicecomb-java-chassis
+    # Bears-155 apache-jackrabbit-oak
+    # Bears-156 Blazebit-blaze-persistence
+    # Bears-157 CorfuDB-CorfuDB
+    # Bears-158 cpesch-RouteConverter
+    # Bears-159 debezium-debezium
+    # Bears-165 dhis2-dhis2-core
+    # Bears-166 EnMasseProject-enmasse
 
 if __name__ == '__main__':
     now = datetime.datetime.now()
