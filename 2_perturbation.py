@@ -1,0 +1,43 @@
+#!/usr/bin/python
+import sys, os, time, subprocess,fnmatch, shutil, csv,re, datetime
+
+
+
+def perturb(bugId,repodir,rootdir):
+    projectPath=repodir+'/'+bugId
+    traveProject(projectPath)
+    
+
+
+
+def traveProject(projectPath):
+    listdirs = os.listdir(projectPath)
+    for f in listdirs:
+        if 'src' in f or 'src' in projectPath and 'test' not in projectPath:
+            pattern = '*.java'
+            p = os.path.join(projectPath, f)
+            if os.path.isfile(p):
+                if 'test' not in p and fnmatch.fnmatch(f, pattern): 
+                    print(p)
+                    #call spoon based Java pertubation programs.
+                    callstr = 'java -jar ./perturbation/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar '
+                    callstr+=p
+                    os.system(callstr)
+
+            else:
+                traveProject(p)
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    bugIds = ['Bears-2']
+    rootdir= '/Users/sophie/Documents/SUPRE'
+    repodir = '/Users/sophie/Documents/SUPRE/Bears_Training'
+
+    for bugId in bugIds:
+        perturb(bugId,repodir,rootdir)
