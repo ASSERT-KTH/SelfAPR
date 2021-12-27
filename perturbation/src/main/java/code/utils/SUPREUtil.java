@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 
 import spoon.reflect.cu.SourcePosition;
 
-public class Util {
+public class SUPREUtil {
 	public static String getSpecificLine(SourcePosition position,int line) {
 		String targetFile = position.getFile().toString();
 		String target="";
@@ -16,9 +16,24 @@ public class Util {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-
-		
+		}		
 		return target;
 	}	
+	
+	
+	public static int getRandomInt(int max) {
+		return (int) ((Math.random() * (max - 0)) + 0);
+	}
+	
+	
+	public static double getRandomDouble() {
+		return Math.random();
+	}
+	
+	
+	
+	
+	
+	
+	
 }

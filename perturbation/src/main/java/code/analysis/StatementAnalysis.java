@@ -9,8 +9,10 @@ public class StatementAnalysis {
 
 	public static void getPerturbated(List<CtStatement> states, int methStart, int methEnd) {
 		
+		if (methEnd>methStart) {
 		for(CtStatement st : states) {
 			RandomPerturb.randomPerturb(st,"statement",methStart,methEnd);		
+		}
 		}
 	}
 

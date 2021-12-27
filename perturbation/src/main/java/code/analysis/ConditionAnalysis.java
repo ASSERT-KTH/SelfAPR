@@ -3,8 +3,8 @@ package code.analysis;
 import java.util.HashMap;
 import java.util.List;
 
+import code.output.result.PerturbResult;
 import code.perturbation.RandomPerturb;
-import code.result.PerturbResult;
 import spoon.reflect.code.CtExpression;
 import spoon.reflect.code.CtStatement;
 import spoon.support.reflect.code.CtIfImpl;

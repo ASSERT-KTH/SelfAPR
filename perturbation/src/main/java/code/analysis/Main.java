@@ -37,11 +37,27 @@ public class Main {
 	 * @param args
 	 *            provides input path of java source files
 	 */
-
+	
+	public static String path="";
+	
 	public static void main(String[] args) {		
-		sourceReader("/Users/sophie/Documents/d4jtest-specification/chart26b/source/org/jfree/chart/axis/Axis.java");
+		
+//		sourceReader(args[0]);	
+		path = "/Users/sophie/Documents/SUPRE/Bears_Training/Bears-2/src/main/java/com/fasterxml/jackson/databind/jsontype/NamedType.java";		
+		sourceReader(path);
 	}
 
+	
+	
+	
+	
+	public static String getPathDir() {
+		return path;
+	}
+	
+	
+	
+	
 	/**
 	 * 
 	 * @param path

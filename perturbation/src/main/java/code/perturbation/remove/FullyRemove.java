@@ -1,14 +1,14 @@
-package code.remove;
+package code.perturbation.remove;
 
 import java.util.HashMap;
 import java.util.Random;
 
-import code.result.PerturbResult;
-import code.utils.Util;
+import code.output.result.PerturbResult;
+import code.utils.SUPREUtil;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
 
-public class FullyRemoveCond {
+public class FullyRemove {
 
 	/**
 	 * In this function, we remove only the condition 
@@ -16,6 +16,7 @@ public class FullyRemoveCond {
              return false;
        - }
 	 * 
+	 * or one line of code insider of condition (type=statement)
 	 * @param exp
 	 * @param type
 	 * @return
@@ -50,7 +51,7 @@ public class FullyRemoveCond {
 			}
 			lineNo2 = lineNo1 + count + "";
 			
-			groundTruth = Util.getSpecificLine(exp.getPosition(), lineNo1);
+			groundTruth = SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1);
 			groundTruth = groundTruth.trim();
 			String lastChar = groundTruth.substring(groundTruth.length() - 1);
 
@@ -82,7 +83,7 @@ public class FullyRemoveCond {
 				int randStatementNo = rand.nextInt(statementNo-1);
 				lineNo1 = lineNo1+randStatementNo;			
 				
-				groundTruth = Util.getSpecificLine(exp.getPosition(), lineNo1);
+				groundTruth = SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1);
 				groundTruth = groundTruth.trim();
 
 				map.put("lineNo1", lineNo1 + "");
@@ -104,7 +105,9 @@ public class FullyRemoveCond {
 				PerturbResult.getCorruptedResult(map);								
 			}
 		} else if ("statement".equals(type)) {
-			groundTruth = Util.getSpecificLine(exp.getPosition(), lineNo1);
+			
+			
+			groundTruth = SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1);
 			groundTruth = groundTruth.trim();
 
 			map.put("lineNo1", lineNo1 + "");

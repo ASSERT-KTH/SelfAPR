@@ -1,4 +1,4 @@
-package code.remove;
+package code.perturbation.remove;
 
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
@@ -13,7 +13,7 @@ import java.lang.Math;
 import java.util.HashMap;
 import java.util.List;
 
-import code.utils.Util;
+import code.utils.SUPREUtil;
 
 
 public class Remove {
@@ -24,11 +24,24 @@ public class Remove {
 		int end=0;
 
 		double r = Math.random();
+		
+	//	partial remove conditions
+		if(r>0.5) {
+			PartialRemoveCond.remove(exp, type, methStart,methEnd);
+		} else {
+			FullyRemove.remove(exp, type, methStart,methEnd);	
+		}
+		
 	
-//		fully remove condition
-		FullyRemoveCond.remove(exp, type, methStart,methEnd);		
-		
-		
+//		fully remove
+//		if(r>0.8) {
+//		FullyRemoveCond.remove(exp, type, methStart,methEnd);	
+//		}
+//		
+//		
+
+//		
+//		
 	}
 	
 	

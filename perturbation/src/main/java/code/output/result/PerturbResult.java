@@ -1,4 +1,4 @@
-package code.result;
+package code.output.result;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+
+import code.analysis.Main;
 
 public class PerturbResult {
 
@@ -48,7 +50,24 @@ public class PerturbResult {
 				
 		
 //		copy targetFile
-		String filename = "/Users/sophie/Documents/d4jtest-specification/perturb.txt";
+		String filename = Main.getPathDir();
+		filename = filename.replace("Bears-", "Perturbation-Bears-");
+		
+		
+		String dir = (String) filename.subSequence(0,filename.lastIndexOf("/"));
+		//create this new patch and file
+		File outDir = new File(dir);
+		File outFile = new File(filename);
+		try {
+			outDir.mkdirs();
+			outFile.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		
 		
 		
 		Boolean exist = existInFile(filename,emsembleStr);
