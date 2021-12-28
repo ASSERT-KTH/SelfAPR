@@ -37,6 +37,9 @@ public class FullyRemove {
 		String targetFile = exp.getPosition().getFile().getAbsolutePath();
 		String[] parent = exp.getParent().toString().split("\\n");
 		
+		
+		
+		
 		double r = Math.random();
 
 		
@@ -45,7 +48,6 @@ public class FullyRemove {
 			//perturbation 1:  remove conditions	
 			if (r>0.5 && "cond".equals(type) ) {
 			String last = parent[parent.length - 1];
-			System.out.println(parent[parent.length - 1]);
 			if ("}".equals(last)) {
 				count = parent.length - 1;
 			}

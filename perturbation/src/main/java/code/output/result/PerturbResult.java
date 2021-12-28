@@ -48,7 +48,7 @@ public class PerturbResult {
 							+groundTruth;
 				
 				
-		
+		System.out.println(emsembleStr);
 //		copy targetFile
 		String filename = Main.getPathDir();
 		filename = filename.replace("Bears-", "Perturbation-Bears-");

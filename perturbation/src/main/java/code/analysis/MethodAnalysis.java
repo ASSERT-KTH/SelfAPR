@@ -36,13 +36,11 @@ public class MethodAnalysis {
 			    if (conditions.size()>0) {
 			    	ConditionAnalysis.getPerturbated(conditions,methStart,methEnd);				    	
 			    } else if(states.size()>0) {
-			    	    System.out.println(states);			
 				    	StatementAnalysis.getPerturbated(states,methStart,methEnd);				    				    	
 			    }
 			    				
 			}
 		}						
-	    System.out.println(position);			
 	}
 	}
 	}

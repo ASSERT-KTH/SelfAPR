@@ -22,6 +22,7 @@ import spoon.reflect.declaration.CtVariable;
 import spoon.reflect.visitor.Filter;
 import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.code.CtIfImpl;
+import spoon.support.reflect.reference.CtExecutableReferenceImpl;
 
 /**
  * Entrance of spoon checker
@@ -43,7 +44,8 @@ public class Main {
 	public static void main(String[] args) {		
 		
 //		sourceReader(args[0]);	
-		path = "/Users/sophie/Documents/SUPRE/Bears_Training/Bears-2/src/main/java/com/fasterxml/jackson/databind/jsontype/NamedType.java";		
+		path = "/Users/sophie/Documents/SUPRE/Bears_Training/Bears-2/src/main/java/com/fasterxml/jackson/databind/node/DecimalNode.java";		
+		System.out.println(path);
 		sourceReader(path);
 	}
 
@@ -80,11 +82,28 @@ public class Main {
 		String variableInfo = Variables.getVariables(variablesList);		
 		System.out.println(variableInfo);
 		
+		
+		
+		//Get executables
+
+		Executables.analysis(rootElement);
+		
+		
+		
+		
 		//Get method signature
 		List<CtMethod> methodList = rootElement.getElements(new TypeFilter<CtMethod>(CtMethod.class));					
 			
 		String methodInfo=MethodSignature.getMethodSignature(methodList);	
 		System.out.println(methodInfo);		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		//Data corruption
 		MethodAnalysis.analysis(methodList,variableInfo,methodInfo);

@@ -9,10 +9,10 @@ public class Replace {
 		// TODO Auto-generated method stub
 		
 		if(type.contains("cond")) {
-			ReplaceCond.replace(st, type, methEnd, methEnd);				
+			ReplaceCond.replace(st, type, methStart, methEnd);				
 		}
 		else if (type.contains("statement")) {
-			ReplaceStatement.replace(st, type, methEnd, methEnd);
+			ReplaceStatement.replace(st, type, methStart, methEnd);
 		}
 		
 	}

@@ -19,14 +19,13 @@ import code.utils.SUPREUtil;
 public class Remove {
 
 	public static void  remove(CtCodeElement exp, String type, int methStart, int methEnd) {		
-		String corruptCode = "";		
 		
-		int end=0;
-
-		double r = Math.random();
+		double r = SUPREUtil.getRandomDouble();
 		
 	//	partial remove conditions
-		if(r>0.5) {
+		if(r>0.8 && type.contains("cond")) {
+			FullyRemoveCondBlock.remove(exp, type, methStart, methEnd);
+		}else if(r>0.4) {
 			PartialRemoveCond.remove(exp, type, methStart,methEnd);
 		} else {
 			FullyRemove.remove(exp, type, methStart,methEnd);	
