@@ -3,16 +3,21 @@ package code.analysis;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
+import code.perturbation.PerturbActions;
+import code.utils.SUPREUtil;
+import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
 import spoon.reflect.declaration.CtNamedElement;
 import spoon.reflect.declaration.CtVariable;
 import spoon.reflect.reference.CtTypeReference;
 
 public class Variables {
-
+	 static String _variableinfo = "";
 	 static List<CtVariable> _variablesList;
-	 static HashMap<String,List<String>> map = new HashMap<String,List<String>>();
+	 static HashMap<String,Set<String>> map = new HashMap<String,Set<String>>();
 	
 	public static String getRandomVariables(CtExpression var) {
 		if (var==null) {
@@ -24,56 +29,87 @@ public class Variables {
 		
 		} else {
 			try {
+			HashMap<String,Set<String>>	map2 = map;
 			String type = var.getType().toString();
-			String origValue= ((CtNamedElement) var).getSimpleName();
+			type = SUPREUtil.getSimpleVarName(type);
+			
+			String origValue= SUPREUtil.getSimpleVarName(var.toString());
 
 			for(String key : map.keySet()) {
 				if(key.equals(type)) {
-					List<String> values =map.get(key);	
+					Set<String> values =map.get(key);	
 					for (String v: values) {
+						v = (String) values.toArray()[SUPREUtil.getRandomInt(values.size()-1)];
 						if(!v.equals(origValue)) {
 							return v;
 						}
 					}
 				}
 			} } catch(Exception e) {	
-				return  _variablesList.get(0).getSimpleName();
+				return  SUPREUtil.randomReturnElement();
 			}
 			
-			return  _variablesList.get(0).getSimpleName();
+			return  SUPREUtil.randomReturnElement();
 		}
 	}
 	
 	
 	
-	static String getVariables(List<CtVariable> variablesList) {
+	static void getVariables(List<CtVariable> variablesList) {
 		_variablesList = variablesList;
 		String variableInfo = "";
 		for (CtVariable variable : variablesList) {
 			String variableType = variable.getType().getSimpleName();
 			String variableName = variable.getSimpleName();
 			if(!map.containsKey(variableType)) {
-				List<String> lst = new ArrayList<String>();
+				Set<String> lst = new TreeSet<String>();
 				lst.add(variableName);
 				map.put(variableType, lst);
 			}else {
-				List<String> lst= map.get(variableType);
+				Set<String> lst= map.get(variableType);
 				lst.add(variableName);
 				map.put(variableType, lst);
 			}		
 		}
 		
 		for(String key : map.keySet()) {
-			List<String> values =map.get(key);	
+			Set<String> values =map.get(key);	
 			String valStr = "";
 			for(String s:values) {
 				valStr+=" "+s+" ";
 			}
 			
-			variableInfo+= " [VTYPE] "+key+valStr;
+			_variableinfo+= " [VTYPE] "+key+valStr;
 		}
-			
-		return variableInfo;
 		
+		
+		//perturb
+		for (CtVariable variable : variablesList) {
+			
+			System.out.print(variable);
+
+			System.out.print(variable);
+			
+			int start = variable.getPosition().getLine();
+			int end = variable.getPosition().getEndLine();
+
+			
+			PerturbActions.randomPerturb(variable,"declaration",start,end);	
+
+			
+			
+			
+			
+		}
+		
+		
+		
+			
+		
+	}
+	
+	
+	public static String getVariableInfo(){
+		return _variableinfo;
 	}
 }

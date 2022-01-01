@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import code.output.result.PerturbResult;
+import code.perturbation.OperatorPerturbation;
 import code.utils.SUPREUtil;
 import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtCodeElement;
@@ -30,26 +31,28 @@ public class ReplaceCond {
 			String origOpKind = logicOperator.getKind().toString();
 			String origOperator = SUPREUtil.getOperatorValue(origOpKind);
 			double r = SUPREUtil.getRandomDouble();
-			if(r>0.7) {
+			if(r>0.6 && operators.size()>0) {
 				//we perturb operators only
-				String perturbedOperator = SUPREUtil.getRandomLogicOperator(origOperator);
 				
-				perturbCode=groundTruth.replace(origOperator, perturbedOperator);
+				
+				perturbCode = OperatorPerturbation.perturb(st);
 				
 				
 			}else if (r>0.4) {
 				//we perturb left
 				CtExpression left = logicOperator.getLeftHandOperand();
-				perturbCode=groundTruth.replace(left.toString()+" ", SUPREUtil.getRandomVariable(left)+" ");
+				String leftstr = SUPREUtil.getSimpleVarName(left.toString());
+				leftstr = SUPREUtil.getSimpleVarName(leftstr);
+				
+				perturbCode=groundTruth.replace(leftstr+" ", SUPREUtil.getRandomVariable(left)+" ");
 				
 			} else if(r>0.0) {
 				//we perturb right
 				CtExpression right = logicOperator.getRightHandOperand();
 				
 				String rightstr = right.toString();
-				if(rightstr.contains(".")) {
-					rightstr=rightstr.substring(rightstr.lastIndexOf(".")+1);
-				}
+				rightstr = SUPREUtil.getSimpleVarName(rightstr);
+				
 				perturbCode=groundTruth.replace(rightstr+" ",SUPREUtil.randomReturnElement()+"");
 
 

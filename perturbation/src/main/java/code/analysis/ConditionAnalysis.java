@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import code.output.result.PerturbResult;
-import code.perturbation.RandomPerturb;
+import code.perturbation.PerturbActions;
 import spoon.reflect.code.CtExpression;
 import spoon.reflect.code.CtStatement;
 import spoon.support.reflect.code.CtIfImpl;
@@ -21,21 +21,20 @@ public class ConditionAnalysis {
     		
     		
     		//condition statement		
-    		 RandomPerturb.randomPerturb(condition,"cond",methStart,methEnd);   		
+    		 PerturbActions.randomPerturb(condition,"cond",methStart,methEnd);   		
 		//then statement
 		 CtStatement thenstm = cond.getThenStatement();	
-//		 if (thenstm!=null) {
-//	    		RandomPerturb.randomPerturb(thenstm,"statement",methStart,methEnd);   		
-//		 }
+		 if (thenstm!=null) {
+	    		PerturbActions.randomPerturb(thenstm,"statement",methStart,methEnd);   		
+		 }
 		 
 		 
 		 
     		//else statement
 	    CtStatement elsestm = cond.getElseStatement();	
 	    if(elsestm!=null) {
-	    	
+    			PerturbActions.randomPerturb(elsestm,"statement",methStart,methEnd);   		
 	    }
-		System.out.println(thenstm);	
     	}											
 		return null;		
 	}

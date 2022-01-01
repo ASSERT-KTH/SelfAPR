@@ -7,6 +7,7 @@ import code.output.result.PerturbResult;
 import code.utils.SUPREUtil;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
+import spoon.reflect.declaration.CtElement;
 
 public class FullyRemove {
 
@@ -19,9 +20,9 @@ public class FullyRemove {
 	 * or one line of code insider of condition (type=statement)
 	 * @param exp
 	 * @param type
-	 * @return
+	 * @returns
 	 */
-	public static void remove(CtCodeElement exp, String type, int methodStart, int methodEnd) {
+	public static void remove(CtElement exp, String type, int methodStart, int methodEnd) {
 
 		HashMap<String, String> map = new HashMap<String, String>();
 		int lineNo1 = exp.getPosition().getLine();

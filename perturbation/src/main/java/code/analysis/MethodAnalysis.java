@@ -12,7 +12,7 @@ import spoon.support.reflect.code.CtReturnImpl;
 
 public class MethodAnalysis {
 
-	public static void analysis(List<CtMethod> methodList,String variableInfo, String methodInfo) {
+	public static void analysis(List<CtMethod> methodList) {
 	for(CtMethod method: methodList) {
 		SourcePosition position = method.getPosition();
 		int methStart = position.getLine();

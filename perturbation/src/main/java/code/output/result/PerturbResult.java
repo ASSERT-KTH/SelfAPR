@@ -38,6 +38,14 @@ public class PerturbResult {
 
 		
 		
+		if(groundTruth==null || line1==null) {
+			return;
+		}
+		
+		
+		line1 =line1.trim();
+		groundTruth =groundTruth.trim();
+
 		
 		String emsembleStr = action+"^"+methodStart+"^"+methodEnd+"^"
 							+lineNo1+"^"+line1+"^"

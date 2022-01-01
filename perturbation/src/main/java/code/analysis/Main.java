@@ -16,6 +16,7 @@ import spoon.reflect.code.CtExpression;
 import spoon.reflect.code.CtStatement;
 import spoon.reflect.cu.SourcePosition;
 import spoon.reflect.declaration.CtClass;
+import spoon.reflect.declaration.CtConstructor;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.CtVariable;
@@ -44,7 +45,9 @@ public class Main {
 	public static void main(String[] args) {		
 		
 //		sourceReader(args[0]);	
-		path = "/Users/sophie/Documents/SUPRE/Bears_Training/Bears-2/src/main/java/com/fasterxml/jackson/databind/node/DecimalNode.java";		
+		path = "/Users/sophie/Documents/SUPRE/Bears_Training/Bears-2/src/main/java/com/fasterxml/jackson/databind/node/DecimalNode.java";				
+		path = "/Users/sophie/Documents/SUPRE/Bears_Training/Bears-2/src/main/java/com/fasterxml/jackson/databind/ObjectWriter.java";
+		
 		System.out.println(path);
 		sourceReader(path);
 	}
@@ -53,7 +56,7 @@ public class Main {
 	
 	
 	
-	public static String getPathDir() {
+	public static String getPathDir ( ) {
 		return path;
 	}
 	
@@ -71,7 +74,7 @@ public class Main {
 		spoon.getEnvironment().setNoClasspath(true);
 		
 		spoon.addInputResource(path);
-		spoon.buildModel();
+		spoon.buildModel ( ) ;
 		// Get the root element of spoon elements
 		CtElement rootElement = spoon.getModel().getRootPackage()
 				.getElements(new TypeFilter<CtElement>(CtElement.class)).get(0);		
@@ -79,34 +82,27 @@ public class Main {
 		//Get variables
 		List<CtVariable> variablesList = rootElement.getElements(new TypeFilter<CtVariable>(CtVariable.class));
 
-		String variableInfo = Variables.getVariables(variablesList);		
-		System.out.println(variableInfo);
+		Variables.getVariables ( variablesList ) ;		
 		
 		
 		
 		//Get executables
 
-		Executables.analysis(rootElement);
+		Constructors.analysis ( rootElement ) ;
+		StatementAnalysis.analysis(rootElement);
 		
-		
-		
+				
 		
 		//Get method signature
-		List<CtMethod> methodList = rootElement.getElements(new TypeFilter<CtMethod>(CtMethod.class));					
+		List<CtMethod> methodList = rootElement.getElements(new TypeFilter<CtMethod>(CtMethod.class));		
+
 			
 		String methodInfo=MethodSignature.getMethodSignature(methodList);	
-		System.out.println(methodInfo);		
-		
-		
-		
-		
-		
-		
-		
+		System.out.println( methodInfo );		
 		
 		
 		//Data corruption
-		MethodAnalysis.analysis(methodList,variableInfo,methodInfo);
+		MethodAnalysis.analysis(methodList);
 		
 		
 

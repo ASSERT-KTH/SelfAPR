@@ -5,6 +5,7 @@ import java.util.HashMap;
 import code.output.result.PerturbResult;
 import code.utils.SUPREUtil;
 import spoon.reflect.code.CtCodeElement;
+import spoon.reflect.declaration.CtElement;
 
 public class FullyRemoveCondBlock {
 
@@ -18,7 +19,7 @@ public class FullyRemoveCondBlock {
 	 * @param type
 	 * @return
 	 */
-	public static void remove(CtCodeElement exp, String type, int methodStart, int methodEnd) {
+	public static void remove(CtElement exp, String type, int methodStart, int methodEnd) {
 
 		HashMap<String, String> map = new HashMap<String, String>();
 		int lineNo1 = exp.getPosition().getLine();

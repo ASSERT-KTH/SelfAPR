@@ -18,7 +18,7 @@ import code.utils.SUPREUtil;
 
 public class Remove {
 
-	public static void  remove(CtCodeElement exp, String type, int methStart, int methEnd) {		
+	public static void  remove(CtElement exp, String type, int methStart, int methEnd) {		
 		
 		double r = SUPREUtil.getRandomDouble();
 		

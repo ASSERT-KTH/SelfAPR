@@ -22,7 +22,8 @@ def traveProject(projectPath):
                     #call spoon based Java pertubation programs.
                     callstr = 'java -jar ./perturbation/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar '
                     callstr+=p
-                    os.system(callstr)
+                    # os.system(callstr)
+                    print(p)
 
             else:
                 traveProject(p)
