@@ -5,6 +5,7 @@ import java.util.List;
 import code.analysis.MethodSignature;
 import code.utils.SUPREUtil;
 import spoon.reflect.code.CtCodeElement;
+import spoon.reflect.declaration.CtElement;
 import spoon.reflect.reference.CtExecutableReference;
 import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.code.CtConstructorCallImpl;
@@ -13,7 +14,7 @@ import spoon.support.reflect.code.CtVariableReadImpl;
 
 public class ConstructorPerturbation {
 
-	public static String perturb(CtCodeElement st,String groundTruth)  {
+	public static String perturb(CtElement st,String groundTruth)  {
 		System.out.println("...perturbing constructors......perturbing constructors.....perturbing constructors.........");
 		double r = SUPREUtil.getRandomDouble();
 		String corruptedCode = null;
@@ -35,15 +36,21 @@ public class ConstructorPerturbation {
 		List<CtConstructorCallImpl> constructors = st.getElements(constructorfilter);
 		List<CtVariableReadImpl> arguments = st.getElements(argumentsfilter);
 		List<CtInvocationImpl> invocations = st.getElements(invocationfilter);
-
+		CtExecutableReference construct =  null;
 		
-		CtConstructorCallImpl constructor = constructors.get(SUPREUtil.getRandomInt(constructors.size() - 1));
-		CtExecutableReference construct = constructor.getExecutable();
+		if(constructors!=null && constructors.size()>0) {
+		CtConstructorCallImpl constructor = constructors.get(0);		
+		if(constructor!=null) {
+			construct = constructor.getExecutable();
+		}
+		}
 		
 		
 	//invocations
 		
 	if(r> 0.4 && constructors.size()>0) {
+
+
 		int i = SUPREUtil.getRandomInt(constructors.size());
 		CtConstructorCallImpl inv = constructors.get(i);
 		List<CtVariableReadImpl> vars= inv.getElements(argumentsfilter);
@@ -151,7 +158,7 @@ public class ConstructorPerturbation {
 		
 		else if (arguments.size()>0) {
 			//4. mix replace constructor and arguments
-
+			if(construct!=null) {
 			String executableStr = SUPREUtil.getSimpleExecName(construct.toString());
 			String newConstruct = MethodSignature.getRandomClass(executableStr);
 			corruptedCode = groundTruth.replace(executableStr, newConstruct);
@@ -161,7 +168,7 @@ public class ConstructorPerturbation {
 			origin = SUPREUtil.getSimpleVarName(origin);
 			String randomVar = SUPREUtil.getRandomVariable(arguments.get(i));
 			corruptedCode = corruptedCode.replace(origin, origin+", "+randomVar);			
-			
+			}
 		} 	
 
 		
@@ -171,21 +178,19 @@ public class ConstructorPerturbation {
 		
 		else {
 			//5. replace constructor
+			if(construct!=null) {
 			String executableStr = SUPREUtil.getSimpleExecName(construct.toString());
 			String newConstruct = MethodSignature.getRandomClass(executableStr);
 			corruptedCode = groundTruth.replace(executableStr, newConstruct);
 			System.out.print("");
+			}
 		}
 		
 		
 		
 		System.out.println(".groundTruth"+groundTruth);
 		System.out.println(".corruptedCode"+corruptedCode);
-		
-		
-		if(corruptedCode==null) {
-			perturb(st,groundTruth);
-		}
+				
 	
 		return corruptedCode;
 	}

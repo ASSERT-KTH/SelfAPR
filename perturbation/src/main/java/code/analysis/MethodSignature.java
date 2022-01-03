@@ -15,12 +15,115 @@ public class MethodSignature {
 	
 	public static String _methodInfo="";
 	public static LinkedHashSet<String> _constructClassSet = new LinkedHashSet<String>();
-	public static HashMap<Integer,HashMap<String,LinkedHashSet<String>>> _methSearch=  new HashMap<Integer,HashMap<String,LinkedHashSet<String>>>();	
-	public static HashMap<String,LinkedHashSet<String>> _methList= new HashMap<String,LinkedHashSet<String>>();
+	
+	/**
+	 * key: number of parameters
+	 * values: key method names; value: parameters type split by space
+	 */
+	
+	public static HashMap<Integer,HashMap<String,LinkedHashSet<String>>> _methByParamSize=  new HashMap<Integer,HashMap<String,LinkedHashSet<String>>>();		
+	
+	/**
+	 * key: method names
+	 * values: parameters type split by space
+	 */
+	public static HashMap<String,LinkedHashSet<String>> _methByNameAndParams= new HashMap<String,LinkedHashSet<String>>();
+	
+	/**
+	 * key: return type
+	 * value: method names
+	 */
+	public static HashMap<String,LinkedHashSet<String>> _methodByReturnType= new HashMap<String,LinkedHashSet<String>>();
+	
+	
+	/**
+	 * key: method names
+	 * value:  return type
+	 */
+	public static HashMap<String,LinkedHashSet<String>> _methodByMethodNames= new HashMap<String,LinkedHashSet<String>>();
 
 	
 	
+	public static String getMethodTypeByName(String methName) {
+		if(_methodByMethodNames.size()==0 || methName==null) {
+			return null;
+		} 
+		
+		LinkedHashSet<String> types= _methodByMethodNames.get(methName);
+		
+		if(types!=null && types.size()>0) {
+			return (String) types.toArray()[0];		
+		} else {
+			return null;
+		}	
+	}
+
+		
+	public static String getMethodByType(String origType, String origMethodName) {
+		String methName = "";
+		if(_methodByReturnType.size()==0 || origType==null) {
+			return null;
+		} 
+		
+	   LinkedHashSet<String> sets = _methodByReturnType.get(origType);
+	   
+	   if (sets!=null && sets.size()>0) {
+		int i = SUPREUtil.getRandomInt(sets.size());
+		methName = (String) sets.toArray()[i];
+		   if(methName.equals(origMethodName)) {
+		   if(i>0) {
+			   methName = (String) sets.toArray()[i-1];
+			}else { 
+				if (i+1<sets.size()) {
+				methName = (String) sets.toArray()[i+1];
+				}else {
+					methName =  null;
+				}
+			}
+		   }
+	   }
+	   
+	   if(methName!=null && !"".equals(methName) ) {
+		   LinkedHashSet<String>  params=  _methByNameAndParams.get(methName);
+		   int i = SUPREUtil.getRandomInt(params.size());
+		    String paramStr = (String) params.toArray()[i];
+		    
+		    methName+=" ( ";
+		    //Now we construct a method call
+
+		    if(!" ".equals(paramStr) && !"".equals(paramStr) ) {
+		    String[] paramList = paramStr.split(" ");
+		    for(String t : paramList) {
+		    	if(!"".equals(t)) {
+		    String var = 	Variables.getRandomVariablesByStringType(t);		    	
+		    	methName+=var+" , ";  
+		    	} 
+		    }
+		    methName = (String) methName.subSequence(0, methName.lastIndexOf(",")) + ")";
+		    } else {
+		    	methName += " )";
+		    }
+		    
+		    
+		    return methName;
+		    
+	   }
+	   
+		
+		return methName;
+	}
+	
+	
+	
+	
+	
+	
+	
 	public static String getRandomClass(String orig){
+		
+		if(_constructClassSet.size()==0) {
+			return null;
+		}
 		
 		int i = SUPREUtil.getRandomInt(_constructClassSet.size()-1);
 		String s = (String) _constructClassSet.toArray()[i];
@@ -46,17 +149,19 @@ public class MethodSignature {
 public static String getRandomMethodWithSameParam(String origKey,int param){
 	String target="";
 	double maxScore=0;
-	HashMap<String,LinkedHashSet<String>> map = _methSearch.get(param);
+	HashMap<String,LinkedHashSet<String>> map = _methByParamSize.get(param);
 		for(String keys : map.keySet()) {
-			if(!keys.equals(origKey)) {
-				if(SUPREUtil.getRandomDouble()>0.7) {
-					return keys;
-				}
+			if(!keys.equals(origKey)) {				
 				double score = EditDistance.similarity(keys, origKey);
 				if (score > maxScore) {
 					maxScore = score;
 					target = keys;
-				}				
+				}	
+				
+				if(SUPREUtil.getRandomDouble()>0.7 && maxScore>0.7) {
+					return keys;
+				}
+				
 			}
 		}			
 		return target;
@@ -92,20 +197,52 @@ public static String getRandomMethodWithSameParam(String origKey,int param){
 			} 
 			
 			
-			// update _methList
-			if (_methList.containsKey(simpleName)) {
-				LinkedHashSet<String> lhset = _methList.get(simpleName);
+			// update _methByNameAndParams
+			if (_methByNameAndParams.containsKey(simpleName)) {
+				LinkedHashSet<String> lhset = _methByNameAndParams.get(simpleName);
 				lhset.add(parameters);
-				_methList.put(simpleName, lhset);
+				_methByNameAndParams.put(simpleName, lhset);
 			}else {
 				LinkedHashSet<String> lhset = new LinkedHashSet<String>();
 				lhset.add(parameters);
-				_methList.put(simpleName, lhset);
-				
+				_methByNameAndParams.put(simpleName, lhset);				
 			}
 			
-			if(_methSearch.containsKey(paramList.size())){
-				HashMap<String,LinkedHashSet<String>> m =   _methSearch.get(paramList.size());
+			
+			//_methodByReturnType
+			if (_methodByReturnType.containsKey(returnType)) {
+				LinkedHashSet<String> lhset = _methodByReturnType.get(returnType);
+				lhset.add(simpleName);
+				_methodByReturnType.put(returnType, lhset);
+			}else {
+				LinkedHashSet<String> lhset = new LinkedHashSet<String>();
+				lhset.add(simpleName);
+				_methodByReturnType.put(returnType, lhset);				
+			}
+			
+			
+			
+			
+			
+			//_methodByName and ReturnType
+			if (_methodByMethodNames.containsKey(simpleName)) {
+				LinkedHashSet<String> lhset = _methodByMethodNames.get(simpleName);
+				lhset.add(returnType);
+				_methodByMethodNames.put(simpleName, lhset);
+			}else {
+				LinkedHashSet<String> lhset = new LinkedHashSet<String>();
+				lhset.add(returnType);
+				_methodByMethodNames.put(simpleName, lhset);				
+			}
+			
+			
+			
+			
+			
+			
+			
+			if(_methByParamSize.containsKey(paramList.size())){
+				HashMap<String,LinkedHashSet<String>> m =   _methByParamSize.get(paramList.size());
 				LinkedHashSet<String> lhset = new LinkedHashSet<String>();
 
 				if (m.containsKey(simpleName)) {
@@ -122,7 +259,7 @@ public static String getRandomMethodWithSameParam(String origKey,int param){
 				LinkedHashSet<String> lhset = new LinkedHashSet<String>();
 				lhset.add(parameters);	
 				m.put(simpleName, lhset);
-				_methSearch.put(paramList.size(), m);				
+				_methByParamSize.put(paramList.size(), m);				
 			}
 			
 			
@@ -133,8 +270,8 @@ public static String getRandomMethodWithSameParam(String origKey,int param){
 					
 			}
 		
-			for(String key : _methList.keySet()) {
-				LinkedHashSet<String> lhset = _methList.get(key);
+			for(String key : _methByNameAndParams.keySet()) {
+				LinkedHashSet<String> lhset = _methByNameAndParams.get(key);
 				for(String methodParam:lhset) {
 					_methodInfo += " [METHOD] "+key +" "+methodParam;
 				}

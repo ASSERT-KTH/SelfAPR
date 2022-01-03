@@ -15,15 +15,14 @@ import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.code.CtBinaryOperatorImpl;
 import spoon.support.reflect.code.CtIfImpl;
 
-public class ReplaceCond {
+public class ReplaceCondition {
 
-	public static void replace(CtCodeElement st, String type, int methStart, 
-			int methEnd) {
+	public static void perturb(CtElement st, int methStart, 
+			int methEnd, String groundTruth, int lineNo1,
+			String lineNo2, String lineNo3) {
 		TypeFilter<CtBinaryOperatorImpl> bOfilter = new TypeFilter<CtBinaryOperatorImpl>(CtBinaryOperatorImpl.class);
 
-		int lineNo1 = st.getPosition().getLine();
-		String groundTruth = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1);
-		String perturbCode = "";
+		String perturbCode = null;
 		
 		List<CtBinaryOperatorImpl> operators = st.getElements(bOfilter);
 		for(CtBinaryOperatorImpl logicOperator:operators) {
@@ -33,12 +32,11 @@ public class ReplaceCond {
 			double r = SUPREUtil.getRandomDouble();
 			if(r>0.6 && operators.size()>0) {
 				//we perturb operators only
+							
+				perturbCode = OperatorPerturbation.perturb(st,groundTruth);
 				
 				
-				perturbCode = OperatorPerturbation.perturb(st);
-				
-				
-			}else if (r>0.4) {
+			}else if (perturbCode == null && r>0.4) {
 				//we perturb left
 				CtExpression left = logicOperator.getLeftHandOperand();
 				String leftstr = SUPREUtil.getSimpleVarName(left.toString());

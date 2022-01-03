@@ -9,6 +9,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import com.alibaba.fastjson.JSON;
+
+import code.perturbation.PerturbActions;
 import spoon.Launcher;
 import spoon.SpoonAPI;
 import spoon.reflect.code.CtBlock;
@@ -23,6 +25,7 @@ import spoon.reflect.declaration.CtVariable;
 import spoon.reflect.visitor.Filter;
 import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.code.CtIfImpl;
+import spoon.support.reflect.declaration.CtFieldImpl;
 import spoon.support.reflect.reference.CtExecutableReferenceImpl;
 
 /**
@@ -81,8 +84,10 @@ public class Main {
 		
 		//Get variables
 		List<CtVariable> variablesList = rootElement.getElements(new TypeFilter<CtVariable>(CtVariable.class));
+		List<CtFieldImpl> filedList = rootElement.getElements(new TypeFilter<CtFieldImpl>(CtFieldImpl.class));
 
-		Variables.getVariables ( variablesList ) ;		
+
+		Variables.getVariables (variablesList ) ;		
 		
 		
 		
@@ -90,7 +95,13 @@ public class Main {
 
 		Constructors.analysis ( rootElement ) ;
 		StatementAnalysis.analysis(rootElement);
+		AssignmentAnalysis.analysis(rootElement);
+
 		
+		
+		List<CtConstructor> constructors = rootElement.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));					
+		List<CtConstructor> constructorList = rootElement.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));		
+
 				
 		
 		//Get method signature
@@ -102,10 +113,9 @@ public class Main {
 		
 		
 		//Data corruption
-		MethodAnalysis.analysis(methodList);
 		
 		
-
+		PerturbActions.perturb(filedList,constructorList,methodList);
 		
 		
 	}		

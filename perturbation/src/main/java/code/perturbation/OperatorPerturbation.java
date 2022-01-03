@@ -6,50 +6,67 @@ import code.utils.SUPREUtil;
 import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
+import spoon.reflect.declaration.CtElement;
 import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.code.CtBinaryOperatorImpl;
 
 public class OperatorPerturbation {
 
-	public static String perturb(CtCodeElement st) {
+	public static String perturb(CtElement st, String groundTruth) {
 
-		System.out.println("...perturbing operators...........perturbing operators.....perturbing operators.........");
-		
 		String corruptedCode = null;
-		int lineNo1 = st.getPosition().getLine();
-		String groundTruth = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1);
-		if(groundTruth==null) {
-			return null;
-		}
-		
+
 		double r = SUPREUtil.getRandomDouble();
 		TypeFilter<CtBinaryOperatorImpl> bOfilter = new TypeFilter<CtBinaryOperatorImpl>(CtBinaryOperatorImpl.class);
 		List<CtBinaryOperatorImpl> operators = st.getElements(bOfilter);
-		
-		if(operators.size()==0) {
+
+		if (operators.size() == 0) {
 			return null;
 		}
-		
-		
+
 		CtBinaryOperatorImpl logicOperator = null;
 		if (operators.size() > 0) {
 			logicOperator = operators.get(SUPREUtil.getRandomInt(operators.size()));
 		}
 
-		
-		
-		if(r>0.6 && groundTruth.contains("?")) {
-			corruptedCode = groundTruth.split("\\?")[0]+";";
-			if(SUPREUtil.getRandomDouble()>0.5 && logicOperator!=null) {
+		/**
+		 * a = (b op c) ? d: e;
+		 * 
+		 */
+		if (groundTruth.contains("?")) {
+			// after : a = e;
+			if (r > 0.3 && groundTruth.contains("=") && groundTruth.contains(":")) {
+				String start = groundTruth.split("\\=")[0];
+				String end = groundTruth.split("\\:")[1];
+				corruptedCode = start + " = " + end;
+			}
+
+			// a = d;
+			else if (r > 0.2 && groundTruth.contains("=") && groundTruth.contains(":")) {
+				String start = groundTruth.split("\\=")[0];
+				String end = groundTruth.split("\\?")[1];
+				if (end.contains(":")) {
+					end = end.split("\\:")[0];
+					corruptedCode = start + " = " + end + ";";
+				} 
+			}else {
+					// before ? a = b op c;
+					corruptedCode = groundTruth.split("\\?")[0] + ";";
+				}
+			}
+
+			if (SUPREUtil.getRandomDouble() > 0.5 && logicOperator != null) {
 				String origOpKind = logicOperator.getKind().toString();
 				String origOperator = SUPREUtil.getOperatorValue(origOpKind);
 				String perturbedOperator = SUPREUtil.getRandomLogicOperator(origOperator);
-				corruptedCode = corruptedCode.replace(origOperator, perturbedOperator);
+				if(corruptedCode==null) {
+					corruptedCode = groundTruth.replace(origOperator, perturbedOperator);
+				}else {
+					corruptedCode = corruptedCode.replace(origOperator, perturbedOperator);
+				}
 			}
-			
-			corruptedCode=corruptedCode;
-		}
-		
+
+
 		/**
 		 * 
 		 * we care about && and || in statement
@@ -118,7 +135,7 @@ public class OperatorPerturbation {
 			r = SUPREUtil.getRandomDouble();
 			if (logicOperator.getKind().equals(BinaryOperatorKind.EQ)) {
 				double threshold = groundTruth.contains("null") ? 0.2 : 0.5;
-				if (r > threshold ) {
+				if (r > threshold) {
 					perturbedOperator = "!=";
 					corruptedCode = groundTruth.replace(origOperator, perturbedOperator);
 				} else if (corruptedCode == null & logicOperator.getKind().equals(BinaryOperatorKind.NE)) {
@@ -154,7 +171,7 @@ public class OperatorPerturbation {
 			} else {
 				// replace both
 				corruptedCode = groundTruth.replace(leftStr, SUPREUtil.getRandomVariable(left));
-				corruptedCode = groundTruth.replace(rightStr, SUPREUtil.getRandomVariable(right));
+				corruptedCode = corruptedCode.replace(rightStr, SUPREUtil.getRandomVariable(right));
 			}
 
 		}

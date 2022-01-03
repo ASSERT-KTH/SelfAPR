@@ -70,7 +70,7 @@ public class ReplaceReturnStatement {
 		
 		
 		if(r>0.7 && ops.size()>0 && corruptedCode == null) {
-			corruptedCode = OperatorPerturbation.perturb(st);
+			corruptedCode = OperatorPerturbation.perturb(st,groundTruth);
 		}
 		if( r>0.5 && invocations.size()>0 && corruptedCode == null ) {
 	     //return element w/o binary operator

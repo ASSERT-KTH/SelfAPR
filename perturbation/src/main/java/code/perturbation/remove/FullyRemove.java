@@ -22,14 +22,12 @@ public class FullyRemove {
 	 * @param type
 	 * @returns
 	 */
-	public static void remove(CtElement exp, String type, int methodStart, int methodEnd) {
+	public static void remove(CtElement exp, String type, int methodStart, int methodEnd, String groundTruth, int lineNo1, String lineNo2, String lineNo3) {
 
 		HashMap<String, String> map = new HashMap<String, String>();
-		int lineNo1 = exp.getPosition().getLine();
-		String groundTruth = "";
+
 		
 		int count = 0;
-		String lineNo2 = "";
 
 		if(exp == null || exp.getPosition()==null || exp.getPosition().getFile()==null) {
 			return;
@@ -44,7 +42,7 @@ public class FullyRemove {
 		double r = Math.random();
 
 		
-		if ("cond".equals(type)) {
+		if ("condition".equals(type)) {
 			
 			//perturbation 1:  remove conditions	
 			if (r>0.5 && "cond".equals(type) ) {
@@ -64,7 +62,7 @@ public class FullyRemove {
 
 				map.put("lineNo1", lineNo1 + "");
 				map.put("lineNo2", lineNo2 + "");
-				map.put("lineNo3", "");
+				map.put("lineNo3", lineNo2+"");
 				map.put("lineNo4", "");
 				map.put("lineNo5", "");
 				map.put("line1", "");
@@ -91,7 +89,7 @@ public class FullyRemove {
 
 				map.put("lineNo1", lineNo1 + "");
 				map.put("lineNo2", lineNo2 + "");
-				map.put("lineNo3", "");
+				map.put("lineNo3", lineNo2+"");
 				map.put("lineNo4", "");
 				map.put("lineNo5", "");
 				map.put("line1", "");
@@ -107,7 +105,7 @@ public class FullyRemove {
 
 				PerturbResult.getCorruptedResult(map);								
 			}
-		} else if ("statement".equals(type)) {
+		} else if ("statement".equals(type) || "assignment".equals(type)) {
 			
 			
 			groundTruth = SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1);
@@ -115,7 +113,7 @@ public class FullyRemove {
 
 			map.put("lineNo1", lineNo1 + "");
 			map.put("lineNo2", lineNo2 + "");
-			map.put("lineNo3", "");
+			map.put("lineNo3", lineNo3+"");
 			map.put("lineNo4", "");
 			map.put("lineNo5", "");
 			map.put("line1", "");

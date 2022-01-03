@@ -33,6 +33,16 @@ public class SUPREUtil {
 		
 		target = target.replace("(", " ( ");
 		target = target.replace(")", " ) ");
+		
+		
+		//remove comments
+		if (target.contains("//")) {
+			target = target.split("//")[0];
+		}
+		
+		
+		
+		
 		return target;
 		
 		} else {
@@ -42,7 +52,8 @@ public class SUPREUtil {
 	
 	
 	public static int getRandomInt(int max) {
-		return (int) ((Math.random() * (max - 0)) + 0);
+		int i = (int) ((Math.random() * (max - 0)) + 0);
+		return i;
 	}
 	
 	
@@ -194,22 +205,20 @@ public class SUPREUtil {
 	
 	
 	public static int getArgsSize(CtCodeElement inv) {
-	TypeFilter<CtLiteralImpl> literalfilter = new TypeFilter<CtLiteralImpl>(
-			CtLiteralImpl.class);
-	TypeFilter<CtVariableReadImpl> argumentsfilter = new TypeFilter<CtVariableReadImpl>(
-			CtVariableReadImpl.class);
-	
-	List<CtVariableReadImpl> vars= inv.getElements(argumentsfilter);
-	List<CtLiteralImpl> literals= inv.getElements(literalfilter);
-	
-	return vars.size()+literals.size();
+		String invStr = inv.toString().split("\\(")[1];
+		invStr = inv.toString().split("\\)")[0];
+		if(invStr.length()==0) {
+			return 0;
 
-
-	
-	
-	
-	
-	
+		}
+		
+		if(invStr.contains(",")) {
+			String[] commas = invStr.split("\\,");
+			return commas.length;
+			
+		}else {
+			return 0;
+		}	
 }
 	
 }

@@ -116,7 +116,7 @@ public class ReplaceStatement {
 		}
 		
 		else if (r>0.5 && operators.size()>0) {
-			perturbCode = OperatorPerturbation.perturb(st);
+			perturbCode = OperatorPerturbation.perturb(st,groundTruth);
 		}
 
 		
