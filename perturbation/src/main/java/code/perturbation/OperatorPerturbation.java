@@ -162,16 +162,29 @@ public class OperatorPerturbation {
 
 			if (r > 0.7) {
 				// replace left
-				corruptedCode = groundTruth.replace(leftStr, SUPREUtil.getRandomVariable(left));
+				String newleft = SUPREUtil.getRandomVariable(left);
+				if(newleft!=null && !"".equals(newleft)) {
+				corruptedCode = groundTruth.replace(leftStr, newleft);
+				}
 
 			} else if (r > 0.35) {
 				// replace right
-				corruptedCode = groundTruth.replace(rightStr, SUPREUtil.getRandomVariable(right));
-
+				String newright = SUPREUtil.getRandomVariable(right);
+				if(newright!=null && !"".equals(newright)) {
+				corruptedCode = groundTruth.replace(rightStr, newright);
+				}
+				
+				
 			} else {
 				// replace both
-				corruptedCode = groundTruth.replace(leftStr, SUPREUtil.getRandomVariable(left));
-				corruptedCode = corruptedCode.replace(rightStr, SUPREUtil.getRandomVariable(right));
+				String newleft = SUPREUtil.getRandomVariable(left);
+				if(newleft!=null && !"".equals(newleft)) {
+				corruptedCode = groundTruth.replace(leftStr, newleft);
+				}
+				String newright = SUPREUtil.getRandomVariable(right);
+				if(newright!=null && !"".equals(newright) && corruptedCode!=null) {
+				corruptedCode = corruptedCode.replace(rightStr, newright);
+				}
 			}
 
 		}

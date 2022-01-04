@@ -57,14 +57,54 @@ public class LiteralPertubation {
 			 perturbCode = groundTruth.replace(value+"", randLong+"");		 
 		 }
 		 
+		 else if(type.contains("double")) {
+			 String randLong = value+"";
+			 if(randLong.contains("D") || randLong.contains("d")) {
+				 if(SUPREUtil.getRandomDouble()>0.5) {
+				 randLong = randLong.replace("D", "");
+				 randLong = randLong.replace("d", "");
+				 }else {
+					 randLong = randLong.replace("D", "f");
+					 randLong = randLong.replace("d", "f"); 
+				 }
+			 } else if(r>0.5) {
+				 randLong = SUPREUtil.getRandomInt(5)+".0d";
+			 } else {
+				 randLong = value+"D";
+			 }
+			 perturbCode = groundTruth.replace(value+"", randLong+"");		 
+		 }
+		 
+		 
+		 else if(type.contains("double")) {
+			 String randLong = value+"";
+			 if(randLong.contains("F") || randLong.contains("f")) {
+				 if(SUPREUtil.getRandomDouble()>0.2) {
+				 randLong = randLong.replace("F", "");
+				 randLong = randLong.replace("f", "");
+				 }
+			 } else if(r>0.5) {
+				 randLong = SUPREUtil.getRandomInt(5)+"";
+			 } 
+			 perturbCode = groundTruth.replace(value+"", randLong+"");		 
+		 }
+		 
+		 
 		 
 		 
 		 
 		 else if(type.contains("string")) {
 			 
 		 }
-		 else if(type.contains("boolean")) {
-			 
+		 
+		 
+		 else if(type.contains("boolean")) {			 
+			 String randBoolean = value+"";
+			 if(randBoolean.contains("true") ) {
+				 perturbCode = groundTruth.replace(value+"", "false");		
+			 }else if (randBoolean.contains("false")) {
+				 perturbCode = groundTruth.replace(value+"", "true");		
+			 }			 
 		 } else {
 			 
 		 }

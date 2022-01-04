@@ -18,7 +18,7 @@ import spoon.reflect.reference.CtTypeReference;
 
 public class Variables {
 	 static String _variableinfo = "";
-	 static List<CtVariable> _variablesList;
+	 static List<CtVariable> _variablesList = new ArrayList<CtVariable>();
 	 static HashMap<String,Set<String>> _variableByTypeMap= new HashMap<String,Set<String>>();
 	 
 	 
@@ -118,7 +118,6 @@ public class Variables {
 				if(key.equals(type)) {
 					Set<String> values =_variableByTypeMap.get(key);	
 					for (String v: values) {
-						v = (String) values.toArray()[SUPREUtil.getRandomInt(values.size()-1)];
 						if(!v.equals(origValue)) {
 							return v;
 						}

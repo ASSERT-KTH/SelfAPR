@@ -57,8 +57,55 @@ public class PerturbActions {
 	public static void perturb(List<CtFieldImpl> fieldList, List<CtConstructor> constructorList,
 			List<CtMethod> methodList) {
 		 fieldPerturb(fieldList);
-		constructorPerturb(constructorList);
+		 constructorPerturb(constructorList);
+		 methodPerturb(methodList);
 
+	}
+
+	private static void methodPerturb(List<CtMethod> methodList) {
+		for (CtMethod cons : methodList) {
+
+			SourcePosition position = cons.getPosition();
+			int methStart = position.getLine();
+			int methEnd = position.getEndLine();
+
+			CtBlock block = cons.getBody();
+			if (block != null) {
+				List<CtStatement> statements = block.getStatements();
+				for (CtStatement st : statements) {
+
+					TypeFilter<CtIfImpl> condfilter = new TypeFilter<CtIfImpl>(CtIfImpl.class);
+					TypeFilter<CtReturnImpl> returnfilter = new TypeFilter<CtReturnImpl>(CtReturnImpl.class);
+					TypeFilter<CtStatement> statesFilter = new TypeFilter<CtStatement>(CtStatement.class);
+					List<CtStatement> states = st.getElements(statesFilter);
+
+					// conditions
+					List<CtIfImpl> conditions = st.getElements(condfilter);
+					if (conditions.size() > 0) {
+						for(CtIfImpl cond: conditions ) {
+						PerturbActions.randomPerturb(cond, "condition", methStart, methEnd);
+						}
+
+					} else if (states.size() > 0) {
+						// CtAssignmentImpl
+						
+						TypeFilter<CtAssignmentImpl> assignmentfilter = new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class);
+						List<CtAssignmentImpl> assignments = st.getElements(assignmentfilter);
+						
+						if(assignments.size()>0) {
+							PerturbActions.randomPerturb(st, "assignment", methStart, methEnd);
+						}else {
+							PerturbActions.randomPerturb(st, "statement", methStart, methEnd);
+
+						}
+
+						
+
+					}
+
+				}}}
+			
+		
 	}
 
 	public static void fieldPerturb(List<CtFieldImpl> fieldList) {
@@ -100,6 +147,9 @@ public class PerturbActions {
 						
 						if(assignments.size()>0) {
 							PerturbActions.randomPerturb(st, "assignment", methStart, methEnd);
+						}else {
+							PerturbActions.randomPerturb(st, "statement", methStart, methEnd);
+
 						}
 
 						

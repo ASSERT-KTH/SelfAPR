@@ -95,7 +95,7 @@ public class Main {
 
 		Constructors.analysis ( rootElement ) ;
 		StatementAnalysis.analysis(rootElement);
-		AssignmentAnalysis.analysis(rootElement);
+		StatementAnalysis.analysis(rootElement);
 
 		
 		

@@ -150,7 +150,12 @@ public static String getRandomMethodWithSameParam(String origKey,int param){
 	String target="";
 	double maxScore=0;
 	HashMap<String,LinkedHashSet<String>> map = _methByParamSize.get(param);
-		for(String keys : map.keySet()) {
+		
+	if(map == null) {
+		return null;
+	}
+	
+	for(String keys : map.keySet()) {
 			if(!keys.equals(origKey)) {				
 				double score = EditDistance.similarity(keys, origKey);
 				if (score > maxScore) {
@@ -261,19 +266,22 @@ public static String getRandomMethodWithSameParam(String origKey,int param){
 				m.put(simpleName, lhset);
 				_methByParamSize.put(paramList.size(), m);				
 			}
-			
-			
-			
-			
-			
-			
-					
+						
 			}
 		
-			for(String key : _methByNameAndParams.keySet()) {
+		
+		
+		
+			
+		
+		for(String key : _methByNameAndParams.keySet()) {
 				LinkedHashSet<String> lhset = _methByNameAndParams.get(key);
+				
+				LinkedHashSet<String> types = _methodByMethodNames.get(key);
+
+				
 				for(String methodParam:lhset) {
-					_methodInfo += " [METHOD] "+key +" "+methodParam;
+					_methodInfo += " [METHOD] "+ types.toArray()[0]+ " "+key +" "+methodParam;
 				}
 			}
 			

@@ -40,6 +40,10 @@ public class SUPREUtil {
 			target = target.split("//")[0];
 		}
 		
+		if (target.contains("/*")) {
+			target = target.split("/*")[0];
+		}
+		
 		
 		
 		

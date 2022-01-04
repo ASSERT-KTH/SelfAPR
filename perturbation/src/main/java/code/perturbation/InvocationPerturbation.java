@@ -8,6 +8,7 @@ import code.utils.SUPREUtil;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.reference.CtExecutableReference;
+import spoon.reflect.reference.CtTypeReference;
 import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.code.CtConstructorCallImpl;
 import spoon.support.reflect.code.CtInvocationImpl;
@@ -22,7 +23,6 @@ public class InvocationPerturbation {
 			return null;
 		}
 
-		System.out.println(groundTruth);
 
 		/**
 		 * filter invocation and arguments
@@ -30,28 +30,31 @@ public class InvocationPerturbation {
 		 */
 		TypeFilter<CtVariableReadImpl> argumentsfilter = new TypeFilter<CtVariableReadImpl>(CtVariableReadImpl.class);
 		TypeFilter<CtInvocationImpl> invocationfilter = new TypeFilter<CtInvocationImpl>(CtInvocationImpl.class);
-		List<CtVariableReadImpl> arguments = st.getElements(argumentsfilter);
 		List<CtInvocationImpl> invocations = st.getElements(invocationfilter);
 
 		if (invocations.size() > 0) {
 			int i = SUPREUtil.getRandomInt(invocations.size());
 			CtInvocationImpl inv = invocations.get(i);
 			CtExecutableReference exc = inv.getExecutable();
+			List<CtVariableReadImpl> arguments = inv.getElements(argumentsfilter);
 
 			
 			
 			
-			if(SUPREUtil.getRandomDouble() > 0.0) {
+			if(SUPREUtil.getRandomDouble() > 0.2) {
 				
 				String excStr = SUPREUtil.getSimpleExecName(exc.toString());
 				String  targetType = MethodSignature.getMethodTypeByName(excStr);
 				if(targetType!=null) {
 					String  newMethod = MethodSignature . getMethodByType (targetType, excStr);
+					if(newMethod!=null && "".equals(newMethod)) {
 					String start = groundTruth.split(excStr)[0];
-					String end = groundTruth.split("\\)")[1];				
+					int lst = groundTruth.lastIndexOf(")");
+					String end = (String) groundTruth.subSequence(lst, groundTruth.length()-1);
+
 					corruptedCode = start+ " "+newMethod+" "+end;				
 					System.out.print("");
-
+					}
 				}
 
 				
@@ -61,25 +64,57 @@ public class InvocationPerturbation {
 			
 			// replace invocation with same param
 
-			else if (corruptedCode == null && arguments.size() == 0 || SUPREUtil.getRandomDouble() > 0.3) {
-
+			else if (corruptedCode == null || SUPREUtil.getRandomDouble() > 0.85 ) {
 				String excStr = SUPREUtil.getSimpleExecName(exc.toString());
 				int argSize = SUPREUtil.getArgsSize(inv);
 				String corruptedExe = MethodSignature.getRandomMethodWithSameParam(excStr, argSize);
+				if(corruptedExe!=null &&excStr!=null &&  !"".equals(corruptedExe)) {
 				corruptedCode = groundTruth.replace(excStr, corruptedExe);
+				}
 			}
 
-			// replace arguments
-			if ((arguments.size() > 0 && SUPREUtil.getRandomDouble() > 0.7) || corruptedCode == null) {
-				i = SUPREUtil.getRandomInt(arguments.size() - 1);
+			
+			// replace argument with the same type argument
+			if ((arguments.size() > 0 && SUPREUtil.getRandomDouble() > 0.7) || (arguments.size() > 0 && corruptedCode == null)) {
+				i = SUPREUtil.getRandomInt(arguments.size() );
+				if (i==0 && arguments.size()>1) {
+					i = arguments.size()-1;
+				}
+					
+
 				CtVariableReadImpl arg = arguments.get(i);
 				String varStr = SUPREUtil.getSimpleVarName(arg.toString());
 				String corruptedVar = Variables.getRandomVariables(arg);
-				corruptedCode = groundTruth . replace(varStr, corruptedVar);
+				if(corruptedVar!=null && !"".equals(corruptedVar)) {
+				corruptedCode = groundTruth . replaceFirst(varStr, corruptedVar);
+				}
 				} 
 			
+			
+			// replace argument with the same type invocation
 
-			if ((arguments.size() > 1 && SUPREUtil.getRandomDouble() > 0.8 && groundTruth.contains(",")) || corruptedCode == null) {
+			if ((arguments.size() > 0 && SUPREUtil.getRandomDouble() > 0.7) || (arguments.size() > 0 && corruptedCode == null)) {
+				i = SUPREUtil.getRandomInt(arguments.size());
+				
+				if (i==0 && arguments.size()>1) {
+					i = arguments.size()-1;
+				}
+				
+				CtVariableReadImpl arg = arguments.get(i);
+				String varStr = SUPREUtil.getSimpleVarName(arg.toString());			
+				CtTypeReference type = arg.getType();		
+				String typeStr = SUPREUtil.getSimpleVarName(type.toString());	
+				String corruptedVar =  MethodSignature . getMethodByType (typeStr, null);
+				if(corruptedVar!=null && !"".equals(corruptedVar)) {
+				corruptedCode = groundTruth .replaceFirst(varStr, corruptedVar);
+				}
+				} 
+			
+			
+			
+			
+
+			if ((arguments.size() > 1 && SUPREUtil.getRandomDouble() > 0.85 && groundTruth.contains(",")) || (arguments.size() > 1 && corruptedCode == null)) {
 				// minus one argument
 				String start;
 				String end;
@@ -117,17 +152,19 @@ public class InvocationPerturbation {
 			
 			
 			
-			if ((SUPREUtil.getRandomDouble() > 0.9 && arguments.size() > 0) || corruptedCode == null) {
+			if ((SUPREUtil.getRandomDouble() > 0.9 && arguments.size() > 0) || (arguments.size() > 0 && corruptedCode == null)) {
 				// add one more parameter
-
 				 i = SUPREUtil.getRandomInt(arguments.size());
 				String origin = arguments.get(i).toString();
 				origin = SUPREUtil.getSimpleVarName(origin);
 				String randomVar = SUPREUtil.getRandomVariable(arguments.get(i));
+				
+				if(randomVar!=null && !"".equals(randomVar)) {
 				if (corruptedCode == null) {
 					corruptedCode = groundTruth.replace(origin, origin + ", " + randomVar);
 				} else {
 					corruptedCode = corruptedCode.replace(origin, origin + ", " + randomVar);
+				}
 				}
 			}
 		}
