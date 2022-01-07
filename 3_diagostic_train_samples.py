@@ -18,7 +18,7 @@ def traveProject(bugId,projectPath,repodir):
                 with open(p,'r') as perturbFile:
                     lines = perturbFile.readlines()
                     if len(lines)>1:
-                        # for k in range(1,len(lines)):
+                        for k in range(1,len(lines)):
                             line = lines[k]
                             constructTrainSample(bugId, line, p, repodir, lines[0])
                 break
