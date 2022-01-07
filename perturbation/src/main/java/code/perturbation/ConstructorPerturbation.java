@@ -62,14 +62,18 @@ public class ConstructorPerturbation {
 		
 		String corruptedExe = MethodSignature.getRandomClass(excStr);
 		
-		if(groundTruth.contains(excStr)) {
+		if(groundTruth.contains(excStr) && corruptedExe!=null) {
 		corruptedCode = groundTruth.replace(excStr, corruptedExe);
 		
 		if(vars.size()>0 && SUPREUtil.getRandomDouble()>0.5) {
 			CtVariableReadImpl ctv = vars.get(SUPREUtil.getRandomInt(vars.size()));
 			String ctvStr = SUPREUtil.getSimpleVarName(ctv.toString());
+			if(corruptedCode!=null && corruptedCode.contains(ctvStr)) {
 			String randomVar = Variables.getRandomVariables(ctv);
+			if(randomVar!=null && ! "".equals(randomVar)) {
 			corruptedCode = corruptedCode.replace(ctvStr, randomVar);
+			}
+			}
 		} 		
 		
 		}

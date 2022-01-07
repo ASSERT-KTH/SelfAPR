@@ -39,7 +39,6 @@ public class TypePerturbation {
 				} else {
 					//remove type
 					if(groundTruth.contains(origType) ) {
-
 					perturbCode = groundTruth.replace(origType, "");
 					}
 				}

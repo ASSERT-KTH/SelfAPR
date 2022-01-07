@@ -49,11 +49,13 @@ public class InvocationPerturbation {
 							String later = groundTruth.split(excStr)[1];
 							String end = "";
 							int lst = later.indexOf(")");
+							if(later.length()> 2 && lst>2) {
 							String check = later.substring(2, lst);
 							if (check.contains("(")) {
 								lst = later.indexOf(")");
 								later = later.substring(lst + 1, later.length());
 								lst = later.indexOf(")");
+							} 
 							}
 
 							end = (String) later.subSequence(lst + 1, later.length());
@@ -86,11 +88,12 @@ public class InvocationPerturbation {
 						String end = "";
 						int lst = later.indexOf(")");
 						String check = later.substring(2, lst);
+						if(later.length()> 2 && lst>2) {
 						if (check.contains("(")) {
 							lst = later.indexOf(")");
 							later = later.substring(lst + 1, later.length());
 							lst = later.indexOf(")");
-						}
+						}}
 
 						end = (String) later.subSequence(lst + 1, later.length());
 

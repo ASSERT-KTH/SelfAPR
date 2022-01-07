@@ -46,8 +46,11 @@ public class Main {
 	
 	public static String path="";
 	
+	
 	public static void main(String[] args) {		
 		path = args[0];
+//		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/Bears-2/src/main/java/com/fasterxml/jackson/databind/AbstractTypeResolver.java";
+
 		sourceReader(path);	
 	}
 
@@ -108,8 +111,16 @@ public class Main {
 		String methodInfo=MethodSignature.getMethodSignature(methodList);	
 		
 		
+		String classinfo="[CLASS] ";
+		List<CtClass> classList = rootElement.getElements(new TypeFilter<CtClass>(CtClass.class));				
+		for(CtClass c : classList) {
+			classinfo += c.getSimpleName();
+		}
+		
+		
+		
 		//write the context info in the first row
-		PerturbResult.getCorruptedResultContext(variableinfo+" "+methodInfo) ;
+		PerturbResult.getCorruptedResultContext(classinfo+" "+ variableinfo+" "+methodInfo) ;
 		
 		
 		//Data corruption		

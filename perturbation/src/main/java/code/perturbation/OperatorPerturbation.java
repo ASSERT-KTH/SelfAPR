@@ -165,7 +165,9 @@ public class OperatorPerturbation {
 			if (groundTruth.contains("instanceof") && r > 0.2) {
 				// the right hand is a class
 				String newConstruct = MethodSignature.getRandomClass(rightStr);
+				if(groundTruth.contains(leftStr) && newConstruct!=null) {
 				corruptedCode = groundTruth.replaceFirst(leftStr, newConstruct);
+				}
 
 			}
 
@@ -178,7 +180,7 @@ public class OperatorPerturbation {
 					newleft = Variables.getRandomVariables(left);
 				}
 
-				if (newleft != null && !"".equals(newleft) && !"null".equals(newleft)) {
+				if ( groundTruth.contains(leftStr) &&   newleft != null && !"".equals(newleft) && !"null".equals(newleft)) {
 					corruptedCode = groundTruth.replaceFirst(leftStr, newleft);
 				}
 
@@ -197,7 +199,7 @@ public class OperatorPerturbation {
 					}
 				}
 
-				if (newright != null && !"".equals(newright)) {
+				if (  groundTruth.contains(rightStr) &&   newright != null && !"".equals(newright)) {
 					corruptedCode = groundTruth.replace(rightStr, newright);
 				}
 

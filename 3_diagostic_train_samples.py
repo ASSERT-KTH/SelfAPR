@@ -17,10 +17,10 @@ def traveProject(bugId,projectPath,repodir):
                 print(p)
                 with open(p,'r') as perturbFile:
                     lines = perturbFile.readlines()
-                    # for k in range(1,len(lines)):
-                    for k in range(1,2):
-                        line = lines[k]
-                        constructTrainSample(bugId, lines[87], p, repodir, lines[0])
+                    if len(lines)>1:
+                        # for k in range(1,len(lines)):
+                            line = lines[k]
+                            constructTrainSample(bugId, line, p, repodir, lines[0])
                 break
         else:
             traveProject(bugId,p,repodir)
@@ -28,7 +28,6 @@ def traveProject(bugId,projectPath,repodir):
 
 def constructTrainSample(bugId,line,targetfile,repodir,metaInfo):
 
-    metaInfo = metaInfo.replace(' [VTYPE] ','')
     metaInfo = metaInfo.replace('  ','').replace('\r','').replace('\n','')
     sample=''
     cxt=''
@@ -41,7 +40,7 @@ def constructTrainSample(bugId,line,targetfile,repodir,metaInfo):
     curruptCode =  infos[0]
     cxtStart = infos[6]
     cxtEnd = infos[7]
-    groundTruth = infos[9]
+    groundTruth = infos[8]
     groundTruth = groundTruth.replace('  ','').replace('\r','').replace('\n','')
     #get context info
     if cxtStart not in '' and cxtEnd not in '':
@@ -57,7 +56,7 @@ def constructTrainSample(bugId,line,targetfile,repodir,metaInfo):
     # # resume the original file
     os.system("mv "+repodir+"/"+filename +"  "+originFile)
 
-    sample+='[BUGGY] ' + curruptCode + '[CONTEXT]' + cxt +' '+diagnosticMsg+' [VTYPE] '+ metaInfo
+    sample+='[BUGGY] ' + curruptCode + '[CONTEXT]' + cxt +' '+diagnosticMsg+'  '+ metaInfo
 
     with open(repodir+'/train.csv','a')  as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 

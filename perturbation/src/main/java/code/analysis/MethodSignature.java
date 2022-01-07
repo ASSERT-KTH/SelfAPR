@@ -160,8 +160,10 @@ public class MethodSignature {
 		} else {
 			if (i > 0) {
 				s = (String) _constructClassSet.toArray()[i - 1];
-			} else {
+			} else if(_constructClassSet.toArray().length>1){
 				s = (String) _constructClassSet.toArray()[i + 1];
+			} else {
+				s = null;
 			}
 			return s;
 
