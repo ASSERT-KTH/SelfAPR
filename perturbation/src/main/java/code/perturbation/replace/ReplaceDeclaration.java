@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import code.output.result.PerturbResult;
 import code.perturbation.ConstructorPerturbation;
-import code.perturbation.LiteralPertubation;
+import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
 import code.perturbation.TypePerturbation;
 import code.utils.SUPREUtil;
@@ -26,13 +26,13 @@ public class ReplaceDeclaration {
 		 */
 
 		if (r > 0.2 && perturbCode == null) {
-			perturbCode = LiteralPertubation.perturb(st, groundTruth);
+			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
 		}
-		
+
 		if (r > 0.3 && perturbCode == null) {
 			perturbCode = ConstructorPerturbation.perturb(st, groundTruth);
 		}
-				
+
 		// replace type
 		if (perturbCode == null) {
 			perturbCode = TypePerturbation.perturb(st, groundTruth);
@@ -47,20 +47,12 @@ public class ReplaceDeclaration {
 
 		}
 		// remove instantiation
-		if (groundTruth.contains("=") && ( perturbCode==null || r > 0.7) ) {
+		if (groundTruth.contains("=") && (perturbCode == null || r > 0.5)) {
 			r = SUPREUtil.getRandomDouble();
-			if (perturbCode == null) {
-				if(r>0.5) {
+			if (r > 0.5) {
 				perturbCode = groundTruth.split("=")[0] + ";";
-				}else {
-					perturbCode = groundTruth.split("=")[0] + " = null ;";
-				}
-			} else if (SUPREUtil.getRandomDouble() > 0.5) {
-				if(r>0.5) {
-				perturbCode = perturbCode.split("=")[0] + ";";
-				}else {
-					perturbCode = perturbCode.split("=")[0] + " = null ;";
-				}
+			} else {
+				perturbCode = groundTruth.split("=")[0] + " = null ;";
 			}
 		}
 

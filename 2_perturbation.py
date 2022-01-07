@@ -22,7 +22,7 @@ def traveProject(projectPath):
                     #call spoon based Java pertubation programs.
                     callstr = 'java -jar ./perturbation/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar '
                     callstr+=p
-                    # os.system(callstr)
+                    os.system(callstr)
                     print(p)
 
             else:
@@ -38,7 +38,7 @@ def traveProject(projectPath):
 if __name__ == '__main__':
     bugIds = ['Bears-2']
     rootdir= '/Users/sophie/Documents/SUPRE'
-    repodir = '/Users/sophie/Documents/SUPRE/Bears_Training'
+    repodir = rootdir+'/PerturbProjects'
 
     for bugId in bugIds:
         perturb(bugId,repodir,rootdir)

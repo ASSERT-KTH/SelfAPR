@@ -23,7 +23,6 @@ public class InvocationPerturbation {
 			return null;
 		}
 
-
 		/**
 		 * filter invocation and arguments
 		 * 
@@ -33,138 +32,115 @@ public class InvocationPerturbation {
 		List<CtInvocationImpl> invocations = st.getElements(invocationfilter);
 
 		if (invocations.size() > 0) {
-			int i = SUPREUtil.getRandomInt(invocations.size());
-			CtInvocationImpl inv = invocations.get(i);
+			CtInvocationImpl inv = invocations.get(0);
 			CtExecutableReference exc = inv.getExecutable();
 			List<CtVariableReadImpl> arguments = inv.getElements(argumentsfilter);
 
-			
-			
-			
-			if(SUPREUtil.getRandomDouble() > 0.2) {
-				
+			// replace the overloaded method
+			if (r > 0.2) {
 				String excStr = SUPREUtil.getSimpleExecName(exc.toString());
-				String  targetType = MethodSignature.getMethodTypeByName(excStr);
-				if(targetType!=null) {
-					String  newMethod = MethodSignature . getMethodByType (targetType, excStr);
-					if(newMethod!=null && "".equals(newMethod)) {
-					String start = groundTruth.split(excStr)[0];
-					int lst = groundTruth.lastIndexOf(")");
-					String end = (String) groundTruth.subSequence(lst, groundTruth.length()-1);
+				int argSize = SUPREUtil.getArgsSize(inv);
+				if (groundTruth.contains(excStr)) {
+					String newMethod = MethodSignature.getOverridingMethods(excStr, argSize);
 
-					corruptedCode = start+ " "+newMethod+" "+end;				
-					System.out.print("");
+					if (newMethod != null && !"".equals(newMethod)) {
+						if (newMethod != null && !"".equals(newMethod)) {
+							String start = groundTruth.split(excStr)[0];
+							String later = groundTruth.split(excStr)[1];
+							String end = "";
+							int lst = later.indexOf(")");
+							String check = later.substring(2, lst);
+							if (check.contains("(")) {
+								lst = later.indexOf(")");
+								later = later.substring(lst + 1, later.length());
+								lst = later.indexOf(")");
+							}
+
+							end = (String) later.subSequence(lst + 1, later.length());
+
+							corruptedCode = start + " " + newMethod + " " + end;
+							System.out.print("");
+						}
+
 					}
 				}
-
-				
-				
 			}
-			
-			
-			// replace invocation with same param
 
-			else if (corruptedCode == null || SUPREUtil.getRandomDouble() > 0.85 ) {
+			// replace invocation method that returns the same type
+
+			if (SUPREUtil.getRandomDouble() > 0.75 || corruptedCode == null) {
+
+				if (corruptedCode != null && SUPREUtil.getRandomDouble() > 0.5) {
+					groundTruth = corruptedCode;
+				}
+
+				String excStr = SUPREUtil.getSimpleExecName(exc.toString());
+				String targetType = MethodSignature.getMethodTypeByName(excStr);
+				if (targetType != null && groundTruth.contains(excStr)) {
+					String newMethod = MethodSignature.getMethodByType(targetType, excStr);
+					if (newMethod != null && !"".equals(newMethod)) {
+						
+						
+						String start = groundTruth.split(excStr)[0];
+						String later = groundTruth.split(excStr)[1];
+						String end = "";
+						int lst = later.indexOf(")");
+						String check = later.substring(2, lst);
+						if (check.contains("(")) {
+							lst = later.indexOf(")");
+							later = later.substring(lst + 1, later.length());
+							lst = later.indexOf(")");
+						}
+
+						end = (String) later.subSequence(lst + 1, later.length());
+
+						corruptedCode = start + " " + newMethod + " " + end;
+						
+											
+						System.out.print("");
+					}
+				}
+			}
+
+	
+
+			// replace argument with the same type invocation
+
+			if ((arguments.size() > 0 && SUPREUtil.getRandomDouble() > 0.8)
+					|| (arguments.size() > 0 && corruptedCode == null)) {
+
+				int i = SUPREUtil.getRandomInt(arguments.size());
+				if (i == 0 && arguments.size() > 1) {
+					i = arguments.size() - 1;
+				}
+				CtVariableReadImpl arg = arguments.get(i);
+
+				if (corruptedCode != null && SUPREUtil.getRandomDouble() > 0.5) {
+					groundTruth = corruptedCode;
+				}
+
+				if (groundTruth.contains(arg.toString())) {
+					String varStr = SUPREUtil.getSimpleVarName(arg.toString());
+					CtTypeReference type = arg.getType();
+					if(groundTruth.contains(" "+varStr)) {
+					String typeStr = SUPREUtil.getSimpleVarName(type.toString());
+					String corruptedVar = MethodSignature.getMethodByType(typeStr, null);
+					if (corruptedVar != null && !"".equals(corruptedVar)) {
+						corruptedCode = groundTruth.replaceFirst(" "+varStr, corruptedVar);
+					}
+					}
+				}
+			}
+
+			// replace invocation with most similar method name in literature and same
+			// parameters
+
+			if (corruptedCode == null && SUPREUtil.getRandomDouble() > 0.6) {
 				String excStr = SUPREUtil.getSimpleExecName(exc.toString());
 				int argSize = SUPREUtil.getArgsSize(inv);
 				String corruptedExe = MethodSignature.getRandomMethodWithSameParam(excStr, argSize);
-				if(corruptedExe!=null &&excStr!=null &&  !"".equals(corruptedExe)) {
-				corruptedCode = groundTruth.replace(excStr, corruptedExe);
-				}
-			}
-
-			
-			// replace argument with the same type argument
-			if ((arguments.size() > 0 && SUPREUtil.getRandomDouble() > 0.7) || (arguments.size() > 0 && corruptedCode == null)) {
-				i = SUPREUtil.getRandomInt(arguments.size() );
-				if (i==0 && arguments.size()>1) {
-					i = arguments.size()-1;
-				}
-					
-
-				CtVariableReadImpl arg = arguments.get(i);
-				String varStr = SUPREUtil.getSimpleVarName(arg.toString());
-				String corruptedVar = Variables.getRandomVariables(arg);
-				if(corruptedVar!=null && !"".equals(corruptedVar)) {
-				corruptedCode = groundTruth . replaceFirst(varStr, corruptedVar);
-				}
-				} 
-			
-			
-			// replace argument with the same type invocation
-
-			if ((arguments.size() > 0 && SUPREUtil.getRandomDouble() > 0.7) || (arguments.size() > 0 && corruptedCode == null)) {
-				i = SUPREUtil.getRandomInt(arguments.size());
-				
-				if (i==0 && arguments.size()>1) {
-					i = arguments.size()-1;
-				}
-				
-				CtVariableReadImpl arg = arguments.get(i);
-				String varStr = SUPREUtil.getSimpleVarName(arg.toString());			
-				CtTypeReference type = arg.getType();		
-				String typeStr = SUPREUtil.getSimpleVarName(type.toString());	
-				String corruptedVar =  MethodSignature . getMethodByType (typeStr, null);
-				if(corruptedVar!=null && !"".equals(corruptedVar)) {
-				corruptedCode = groundTruth .replaceFirst(varStr, corruptedVar);
-				}
-				} 
-			
-			
-			
-			
-
-			if ((arguments.size() > 1 && SUPREUtil.getRandomDouble() > 0.85 && groundTruth.contains(",")) || (arguments.size() > 1 && corruptedCode == null)) {
-				// minus one argument
-				String start;
-				String end;
-				String mid;
-
-				if (corruptedCode == null) {
-					start = groundTruth.split("\\(")[0];
-					end = groundTruth.split("\\)")[1];
-					mid = groundTruth.split("\\(")[1];
-				} else {
-					start = corruptedCode.split("\\(")[0];
-					end = corruptedCode.split("\\)")[1];
-					mid = corruptedCode.split("\\(")[1];
-				}
-
-				mid = mid.split("\\)")[0];
-				String arg0 = "";
-				 i = SUPREUtil.getRandomInt(arguments.size());
-				arg0 = arguments.get(i).toString();
-
-				if (mid.contains(arg0 + ",")) {
-					mid = mid.replace(arg0 + ",", " ");
-				} else if (mid.contains("," + arg0)) {
-					mid = mid.replace("," + arg0, " ");
-				} else if (mid.contains(arg0 + " ,")) {
-					mid = mid.replace(arg0 + " ,", " ");
-				} else if (mid.contains(", " + arg0)) {
-					mid = mid.replace(", " + arg0, " ");
-				} else {
-					mid = mid.replace(arg0, " ");
-				}
-				corruptedCode = start + " ( " + mid + " ) " + end;
-			}
-
-			
-			
-			
-			if ((SUPREUtil.getRandomDouble() > 0.9 && arguments.size() > 0) || (arguments.size() > 0 && corruptedCode == null)) {
-				// add one more parameter
-				 i = SUPREUtil.getRandomInt(arguments.size());
-				String origin = arguments.get(i).toString();
-				origin = SUPREUtil.getSimpleVarName(origin);
-				String randomVar = SUPREUtil.getRandomVariable(arguments.get(i));
-				
-				if(randomVar!=null && !"".equals(randomVar)) {
-				if (corruptedCode == null) {
-					corruptedCode = groundTruth.replace(origin, origin + ", " + randomVar);
-				} else {
-					corruptedCode = corruptedCode.replace(origin, origin + ", " + randomVar);
-				}
+				if (corruptedExe != null && excStr != null && !"".equals(corruptedExe)) {
+					corruptedCode = groundTruth.replace(excStr, corruptedExe);
 				}
 			}
 		}

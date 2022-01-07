@@ -7,7 +7,7 @@ import code.analysis.AssignmentAnalysis;
 import code.analysis.Variables;
 import code.output.result.PerturbResult;
 import code.perturbation.InvocationPerturbation;
-import code.perturbation.LiteralPertubation;
+import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
 import code.perturbation.OperatorPerturbation;
 import code.perturbation.TypePerturbation;
@@ -30,89 +30,86 @@ public class ReplaceAssignment {
 		 */
 		double r = SUPREUtil.getRandomDouble();
 
+		if (groundTruth.contains("valueSerializer = ser;")) {
+			System.out.print("");
+		}
+
 		/**
 		 * We try to perturb the operators
 		 */
-		
+
 		perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		
-		
-		
-		//replace with similar invocation
+
+		// replace with similar invocation
 		if (perturbCode == null) {
-			perturbCode = InvocationPerturbation.perturb(st, groundTruth);	
+			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
 		}
-		
-		
-		//replace with similar assignments
+
+		// replace with similar assignments
 		if (perturbCode == null) {
-			List<CtFieldReadImpl> assignmentList = st.getElements(new TypeFilter<CtFieldReadImpl>(CtFieldReadImpl.class));
-			if(assignmentList.size()>0) {
-			
-			String assignment = assignmentList.get(0).toString();
-		
-			String perturbAssignment = AssignmentAnalysis.getSimilarAssignment(assignment);
-			perturbCode = groundTruth.replace(assignment, perturbAssignment);
-			System.out.print("");
+			List<CtFieldReadImpl> assignmentList = st
+					.getElements(new TypeFilter<CtFieldReadImpl>(CtFieldReadImpl.class));
+			if (assignmentList.size() > 0) {
+
+				String assignment = assignmentList.get(0).toString();
+
+				if (groundTruth.contains(assignment)) {
+
+					String perturbAssignment = AssignmentAnalysis.getSimilarAssignment(assignment);
+					if (perturbAssignment != null) {
+						perturbCode = groundTruth.replace(assignment, perturbAssignment);
+					}
+
+				}
+				System.out.print("");
 
 			}
-						
+
 		}
-		
-		//replace with similar variables
+
+		// replace with similar variables
 		if (perturbCode == null) {
-			List<CtVariableReadImpl> varaibleList = st.getElements(new TypeFilter<CtVariableReadImpl>(CtVariableReadImpl.class));
+			List<CtVariableReadImpl> varaibleList = st
+					.getElements(new TypeFilter<CtVariableReadImpl>(CtVariableReadImpl.class));
 			List assignedList = st.getElements(new TypeFilter<CtVariableWriteImpl>(CtVariableWriteImpl.class));
-			if(assignedList.size()==0) {
+			if (assignedList.size() == 0) {
 				assignedList = st.getElements(new TypeFilter<CtFieldWriteImpl>(CtFieldWriteImpl.class));
 			}
-			
-			if(varaibleList.size()>0 && assignedList.size()>0) {			
-				
-			String var = SUPREUtil.getSimpleVarName(varaibleList.get(0).toString());
-				
-			CtElement a = varaibleList.get(0);
-			CtElement b = (CtElement) assignedList.get(0);
-			String perturbVar =	Variables.getRandomVariablesForAssignment(a,b);
 
-			String start = groundTruth.split("\\=")[0];
-			String end = groundTruth.split("\\=")[1];
+			if (varaibleList.size() > 0 && assignedList.size() > 0) {
 
-			perturbCode = start + "= " +end.replace(var, perturbVar);
-			System.out.print("");
+				String var = SUPREUtil.getSimpleVarName(varaibleList.get(0).toString());
 
+				CtElement a = varaibleList.get(0);
+				CtElement b = (CtElement) assignedList.get(0);
+				String perturbVar = Variables.getRandomVariablesForAssignment(a, b);
+				if (perturbVar == null || "".equals(perturbVar)) {
+					perturbVar = "null";
+				}
+				if (groundTruth.contains("=")) {
+					String start = groundTruth.split("\\=")[0];
+					String end = groundTruth.split("\\=")[1];
+					if (end != null) {
+						perturbCode = start + "= " + end.replace(var, perturbVar);
+					}
+				}
 			}
-						
-		}
 
-		
-		
-		
-		
+		}
 
 		/**
 		 * We try to perturb the literals
 		 */
 
 		if (perturbCode == null) {
-			perturbCode = LiteralPertubation.perturb(st, groundTruth);
-		} 
-		
+			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
+		}
 
 		// replace type
 		if (perturbCode == null) {
-				perturbCode = TypePerturbation.perturb(st, groundTruth);		
-		} 
+			perturbCode = TypePerturbation.perturb(st, groundTruth);
+		}
 
-		
-		
-		
-
-		
-		
-		
-		
-		
 		// remove assignment
 		if (perturbCode == null && groundTruth.contains("=")) {
 			r = SUPREUtil.getRandomDouble();
@@ -120,7 +117,7 @@ public class ReplaceAssignment {
 				perturbCode = groundTruth.split("=")[0] + ";";
 			} else if (r > 0.5) {
 				perturbCode = groundTruth.split("=")[0] + " = null ;";
-			} else{
+			} else {
 				perturbCode = groundTruth.split("=")[0] + " =  " + groundTruth.split("=")[0] + ";";
 			}
 

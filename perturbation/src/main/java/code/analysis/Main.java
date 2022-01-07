@@ -10,6 +10,7 @@ import java.util.Set;
 
 import com.alibaba.fastjson.JSON;
 
+import code.output.result.PerturbResult;
 import code.perturbation.PerturbActions;
 import spoon.Launcher;
 import spoon.SpoonAPI;
@@ -46,17 +47,17 @@ public class Main {
 	public static String path="";
 	
 	public static void main(String[] args) {		
-		
-//		sourceReader(args[0]);	
-		path = "/Users/sophie/Documents/SUPRE/Bears_Training/Bears-2/src/main/java/com/fasterxml/jackson/databind/node/DecimalNode.java";				
-		path = "/Users/sophie/Documents/SUPRE/Bears_Training/Bears-2/src/main/java/com/fasterxml/jackson/databind/ObjectWriter.java";
-		
-		System.out.println(path);
-		sourceReader(path);
+		path = args[0];
+		sourceReader(path);	
 	}
 
 	
 	
+	
+// note
+//	.size() +/ randomInt
+//	.length() +/- randomInt
+// for loop
 	
 	
 	public static String getPathDir ( ) {
@@ -87,7 +88,7 @@ public class Main {
 		List<CtFieldImpl> filedList = rootElement.getElements(new TypeFilter<CtFieldImpl>(CtFieldImpl.class));
 
 
-		Variables.getVariables (variablesList ) ;		
+		String variableinfo = Variables.getVariables (variablesList ) ;		
 		
 		
 		
@@ -97,24 +98,21 @@ public class Main {
 		StatementAnalysis.analysis(rootElement);
 		StatementAnalysis.analysis(rootElement);
 
-		
-		
+				
 		List<CtConstructor> constructors = rootElement.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));					
 		List<CtConstructor> constructorList = rootElement.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));		
-
 				
 		
 		//Get method signature
-		List<CtMethod> methodList = rootElement.getElements(new TypeFilter<CtMethod>(CtMethod.class));		
-
-			
+		List<CtMethod> methodList = rootElement.getElements(new TypeFilter<CtMethod>(CtMethod.class));				
 		String methodInfo=MethodSignature.getMethodSignature(methodList);	
-		System.out.println( methodInfo );		
 		
 		
-		//Data corruption
+		//write the context info in the first row
+		PerturbResult.getCorruptedResultContext(variableinfo+" "+methodInfo) ;
 		
 		
+		//Data corruption		
 		PerturbActions.perturb(filedList,constructorList,methodList);
 		
 		

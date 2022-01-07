@@ -35,11 +35,11 @@ public class PerturbActions {
 			return;
 		}
 
-		if (type.contains("declaration")) {
+		if (type.contains("declaration") || type.contains("return")) {
 			Replace.replace(st, type, methStart, methEnd);
 		}
 
-		else if (r > 0.0) {
+		else if (r > 0.5) {
 			Replace.replace(st, type, methStart, methEnd);
 		} else {
 			Remove.remove(st, type, methStart, methEnd);
@@ -75,7 +75,6 @@ public class PerturbActions {
 				for (CtStatement st : statements) {
 
 					TypeFilter<CtIfImpl> condfilter = new TypeFilter<CtIfImpl>(CtIfImpl.class);
-					TypeFilter<CtReturnImpl> returnfilter = new TypeFilter<CtReturnImpl>(CtReturnImpl.class);
 					TypeFilter<CtStatement> statesFilter = new TypeFilter<CtStatement>(CtStatement.class);
 					List<CtStatement> states = st.getElements(statesFilter);
 
@@ -89,14 +88,19 @@ public class PerturbActions {
 					} else if (states.size() > 0) {
 						// CtAssignmentImpl
 						
-						TypeFilter<CtAssignmentImpl> assignmentfilter = new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class);
-						List<CtAssignmentImpl> assignments = st.getElements(assignmentfilter);
+						List<CtAssignmentImpl> assignments = st.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));						
+						List<CtReturnImpl> returns = st.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
+						
+						
 						
 						if(assignments.size()>0) {
 							PerturbActions.randomPerturb(st, "assignment", methStart, methEnd);
-						}else {
+						}
+						else if(returns.size()>0) {
+							PerturbActions.randomPerturb(st, "return", methStart, methEnd);
+						}					
+						else {																											
 							PerturbActions.randomPerturb(st, "statement", methStart, methEnd);
-
 						}
 
 						

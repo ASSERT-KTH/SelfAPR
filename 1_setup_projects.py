@@ -14,7 +14,7 @@ def setup(bugId,repodir,rootdir):
 # Buggy program -> Correct programs
 def applyHumanPatch(bugId,repodir,rootdir):
     os.chdir(rootdir)
-    patchPath = repodir+'/HumanBearsPatch/'+bugId+'.diff'
+    patchPath = rootdir+'/HumanBearsPatch/'+bugId+'.diff'
     targetFile=''
     with open(patchPath) as f:
         firstLine=f.readlines()[0]
@@ -53,7 +53,10 @@ def compileBug(bugId,repodir):
 if __name__ == '__main__':
     bugIds = ['Bears-2']
     rootdir= '/Users/sophie/Documents/SUPRE'
-    repodir = '/Users/sophie/Documents/SUPRE/Bears_Training'
+    repodir = rootdir+'/PerturbProjects'
 
     for bugId in bugIds:
+        if not os.path.exists(repodir):
+            os.system("mkdir -p "+repodir)
+
         setup(bugId,repodir,rootdir)

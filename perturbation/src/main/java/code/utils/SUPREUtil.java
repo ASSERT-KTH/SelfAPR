@@ -34,7 +34,7 @@ public class SUPREUtil {
 		target = target.replace("(", " ( ");
 		target = target.replace(")", " ) ");
 		
-		
+		target = target.trim();
 		//remove comments
 		if (target.contains("//")) {
 			target = target.split("//")[0];
@@ -45,6 +45,17 @@ public class SUPREUtil {
 		}
 		
 		
+		if (target.startsWith("*")) {
+			target = "";
+		}
+		
+		if(target.contains("throw") && target.contains("Exception (") && target.contains(")")) {
+			String before = target.split("\\(")[0];
+			
+			int lst = target.lastIndexOf(")");
+			String after = target.substring(lst+1, target.length());
+			target = before+" (\" \") "+after;
+		}
 		
 		
 		return target;
@@ -112,8 +123,8 @@ public class SUPREUtil {
 	
 	
 	public static String getRandomActionOperator(String orig) {
-		String[] bos = {"<<",">>",">>>","+","-","*","/","%"};		
-		int rint = getRandomInt(7);
+		String[] bos = {"+","-","*","/","<<",">>","/",">>>","+","-","%","*","/"};		
+		int rint = getRandomInt(13);
 		if (!bos[rint].contains(orig)) {
 			return " "+bos[rint]+" ";
 		} else {
@@ -153,10 +164,6 @@ public class SUPREUtil {
 	}
 	
 	
-	public static String getRandomVariable(CtExpression var) {
-		return Variables.getRandomVariables(var);
-	}
-	
 	
 	public static String randomReturnElement() {
 		
@@ -165,13 +172,11 @@ public class SUPREUtil {
 		
 		String[] lst = {"false","true","null","this"};
 		
-		if(r>0.5) {
+		if(r>0.3) {
 			randV=lst[SUPREUtil.getRandomInt(3)];
-		} else if (r>0.3) {
+		} else  {
 			randV = getRandomInt(3)+"";
-		} else {
-			randV = getRandomVariable(null);
-		}
+		} 
 
 		return randV;
 		

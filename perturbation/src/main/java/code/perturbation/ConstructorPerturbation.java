@@ -3,6 +3,7 @@ package code.perturbation;
 import java.util.List;
 
 import code.analysis.MethodSignature;
+import code.analysis.Variables;
 import code.utils.SUPREUtil;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.declaration.CtElement;
@@ -15,10 +16,8 @@ import spoon.support.reflect.code.CtVariableReadImpl;
 public class ConstructorPerturbation {
 
 	public static String perturb(CtElement st,String groundTruth)  {
-		System.out.println("...perturbing constructors......perturbing constructors.....perturbing constructors.........");
 		double r = SUPREUtil.getRandomDouble();
 		String corruptedCode = null;
-		int lineNo1 = st.getPosition().getLine();
 		if(groundTruth==null) {
 			return null;
 		}
@@ -48,7 +47,7 @@ public class ConstructorPerturbation {
 		
 	//invocations
 		
-	if(r> 0.4 && constructors.size()>0) {
+	if( constructors.size()>0) {
 
 
 		int i = SUPREUtil.getRandomInt(constructors.size());
@@ -63,21 +62,24 @@ public class ConstructorPerturbation {
 		
 		String corruptedExe = MethodSignature.getRandomClass(excStr);
 		
-		
+		if(groundTruth.contains(excStr)) {
 		corruptedCode = groundTruth.replace(excStr, corruptedExe);
 		
 		if(vars.size()>0 && SUPREUtil.getRandomDouble()>0.5) {
 			CtVariableReadImpl ctv = vars.get(SUPREUtil.getRandomInt(vars.size()));
 			String ctvStr = SUPREUtil.getSimpleVarName(ctv.toString());
-			String randomVar = SUPREUtil.getRandomVariable(ctv);
+			String randomVar = Variables.getRandomVariables(ctv);
 			corruptedCode = corruptedCode.replace(ctvStr, randomVar);
-		} 								
+		} 		
+		
+		}
 	}
 		
 		
 	//arguments	
 	else if(r>0.6 && arguments.size()>1) {
 			//1. switch the positions of arguments
+			if(groundTruth.contains("(") && groundTruth.contains(")")) {
 			String start = groundTruth.split("\\(")[0];
 			String end = groundTruth.split("\\)")[1];
 			String mid = groundTruth.split("\\(")[1];
@@ -102,17 +104,22 @@ public class ConstructorPerturbation {
 			mid = mid.replace(arg1tmp, arg0);
 			
 			corruptedCode = start+" ( "+mid+" ) "+end;
+			}
 					
 		} else if(r>0.5 && arguments.size()>0) {	
 			//2. replace with different arguments
 			int i = SUPREUtil.getRandomInt(arguments.size());
 			String origin = arguments.get(i).toString();
+			if(groundTruth.contains(origin))
+
 			origin = SUPREUtil.getSimpleVarName(origin);
-			String randomVar = SUPREUtil.getRandomVariable(arguments.get(i));
+			String randomVar = Variables.getRandomVariables(arguments.get(i));
+			if(randomVar!=null &&!"".equals(randomVar) ) {
 			corruptedCode = groundTruth.replace(origin, randomVar);	
-			
-		} 
+			}
+		}
 		
+			
 		else if(r>0.2 && arguments.size()>1 && invocations.size()>0 && groundTruth.contains(",")) {
 			//2. minus one argument
 
@@ -150,7 +157,7 @@ public class ConstructorPerturbation {
 			int i = SUPREUtil.getRandomInt(arguments.size());
 			String origin = arguments.get(i).toString();
 			origin = SUPREUtil.getSimpleVarName(origin);
-			String randomVar = SUPREUtil.getRandomVariable(arguments.get(i));
+			String randomVar = Variables.getRandomVariables(arguments.get(i));
 			corruptedCode = groundTruth.replace(origin, origin+", "+randomVar);			
 		}
 		
@@ -166,15 +173,11 @@ public class ConstructorPerturbation {
 			int i = SUPREUtil.getRandomInt(arguments.size());
 			String origin = arguments.get(i).toString();
 			origin = SUPREUtil.getSimpleVarName(origin);
-			String randomVar = SUPREUtil.getRandomVariable(arguments.get(i));
+			String randomVar = Variables.getRandomVariables(arguments.get(i));
 			corruptedCode = corruptedCode.replace(origin, origin+", "+randomVar);			
 			}
 		} 	
-
-		
-		
-			
-		
+	
 		
 		else {
 			//5. replace constructor
@@ -186,10 +189,6 @@ public class ConstructorPerturbation {
 			}
 		}
 		
-		
-		
-		System.out.println(".groundTruth"+groundTruth);
-		System.out.println(".corruptedCode"+corruptedCode);
 				
 	
 		return corruptedCode;

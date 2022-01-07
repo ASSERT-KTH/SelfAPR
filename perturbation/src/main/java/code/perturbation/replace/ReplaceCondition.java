@@ -6,10 +6,11 @@ import java.util.List;
 import code.output.result.PerturbResult;
 import code.perturbation.ConstructorPerturbation;
 import code.perturbation.InvocationPerturbation;
-import code.perturbation.LiteralPertubation;
+import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
 import code.perturbation.OperatorPerturbation;
 import code.perturbation.TypePerturbation;
+import code.perturbation.VariablePerturbation;
 import code.utils.SUPREUtil;
 import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtCodeElement;
@@ -23,7 +24,7 @@ import spoon.support.reflect.code.CtIfImpl;
 public class ReplaceCondition {
 
 	public static void perturb(CtElement st, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3) {
+			String lineNo2, String lineNo3, int count) {
 
 		String perturbCode = null;
 		/**
@@ -31,132 +32,157 @@ public class ReplaceCondition {
 		 */
 		double r = SUPREUtil.getRandomDouble();
 
+
+
 		/**
 		 * Invocation
 		 */
 		if (perturbCode == null) {
 			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
-		} 
+		}
 
 		/**
 		 * operators
 		 */
 		if (perturbCode == null) {
 			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		} 
+		} else if (SUPREUtil.getRandomDouble() > 0.6) {
+			perturbCode = OperatorPerturbation.perturb(st, perturbCode);
+		}
 
 		/**
 		 * Literal
 		 */
 		if (perturbCode == null) {
-			perturbCode = LiteralPertubation.perturb(st, groundTruth);
-		} 
+			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
+		} else if (SUPREUtil.getRandomDouble() > 0.6) {
+			perturbCode = LiteralPerturbation.perturb(st, perturbCode);
+		}
+
+		/**
+		 * Variables
+		 */
+		
+		if (perturbCode == null) {
+			perturbCode = VariablePerturbation.perturb(st, groundTruth);
+		} else if (SUPREUtil.getRandomDouble() > 0.9) {
+			perturbCode = VariablePerturbation.perturb(st, perturbCode);
+		}
 		
 		
-		//remove && || !
 		
-		if(SUPREUtil.getRandomDouble()>0.2 && groundTruth.contains("if")) {		
-			
+		
+		// remove && || !
+
+		if (SUPREUtil.getRandomDouble() > 0.5 && groundTruth.contains("if")) {
+
 			if (perturbCode == null) {
 				perturbCode = groundTruth;
 			}
-		
+
 			/**
 			 * 
-			 * split condition with &&
+			 * split condition with && and ||
 			 */
-			if(perturbCode.contains("&&") ) {
-				// left
-				String left  =  perturbCode.split("&&")[0];
-				// right
-				String right  =  perturbCode.split("&&")[1];
-				//end
-				String end  =  ") {";
-				if(right.contains(")")) {
-				 end  =  ")"+right.split("\\)")[1];
+			if (perturbCode.contains("||") || perturbCode.contains("&&")) {
+				String sepStr = "";
+				if (perturbCode.contains("||")) {
+					sepStr = "||";
+				} else if (perturbCode.contains("&&")) {
+					sepStr = "&&";
 				}
-				//begin
-				String begin  =  left.split("\\(")[0] + "(";
 
-				if(SUPREUtil.getRandomDouble()>0.5) {
-				//remove right
-				perturbCode = left+end;
-				} else {			
-				//remove left
-				perturbCode = begin+right;
-				}			
-			}  
-				
-			/**
-			 * 
-			 * split condition with &&
-			 */
-			if(perturbCode.contains("||") ) {
 				// left
-				String left  =  perturbCode.split("||")[0];
-				// right
-				String right  =  perturbCode.split("||")[1];
-				//end
-				String end  =  ") {";
-				if(right.contains(")")) {
-				 end  =  ")"+right.split("\\)")[1];
-				}
-				//begin
-				String begin  =  left.split("\\(")[0] + "(";
+				int sep = perturbCode.indexOf(sepStr);
+				String left = (String) perturbCode.subSequence(0, sep) + ")";
 
-				if(SUPREUtil.getRandomDouble()>0.5) {
-				//remove right
-				perturbCode = left+end;
-				} else {			
-				//remove left
-				perturbCode = begin+right;
-				}			
-			}  
-			
-					
-			/**
-			 * add remove !
-			 */
-			if((perturbCode.contains("equals")|| perturbCode.contains("contains"))&& SUPREUtil.getRandomDouble()>0.3) {
-				if(perturbCode.contains("!")) {
-					perturbCode = perturbCode.replace("!", "");
-				}else {
-					perturbCode = perturbCode.replace("if (", "if ( !");
-				}			
+				// right
+				String right = (String) perturbCode.subSequence(sep + 2, perturbCode.length());
+
+				// begin
+				int sep2 = left.indexOf("(");
+				String begin = left.substring(0, sep2) + "(";
+
+				// end
+				int sepblock = right.indexOf("{");
+				int rightlen = right.length();
+				if(sepblock>-1 && rightlen>-1) {
+				String end = right.substring(sepblock, rightlen);
+
+				if (SUPREUtil.getRandomDouble() > 0.5) {
+					// remove right
+					perturbCode = left + " " + end;
+				} else {
+					// remove left
+					perturbCode = begin + " " + right;
+				}
 			}
-	}else if (groundTruth.contains("else") && groundTruth.contains("if") && (SUPREUtil.getRandomDouble()>0.3||perturbCode == null)) {
-		if (perturbCode == null) {
-			perturbCode = groundTruth;
+			}
+
 		}
-		if(SUPREUtil.getRandomDouble()>0.5) {
-		perturbCode = perturbCode.replace("else", "");
-		}else {
-			perturbCode = "else {" + perturbCode.substring(perturbCode.lastIndexOf("{"));
+
+		/**
+		 * add remove !
+		 */
+		if ((perturbCode == null || groundTruth.equals(perturbCode)) || SUPREUtil.getRandomDouble() > 0.85) {
+
+			if (perturbCode == null || groundTruth.equals(perturbCode)) {
+				perturbCode = groundTruth;
+			}
+
+			if ((perturbCode.contains("equals") || perturbCode.contains("contains"))) {
+
+				
+
+				if (SUPREUtil.getRandomDouble() > 0.6) {
+					if (perturbCode.contains("equals")) {
+						perturbCode.replace("equals", "contains");
+					} else if (perturbCode.contains("contains")) {
+						perturbCode.replace("contains", "equals");
+					}
+
+				}
+
+			}
+			
 		}
 		
 		
-		
-	}
-			
-			
-			
-			
-			
-			
-	
-		
-		
-		
-		
-		
+		if(groundTruth.equals(perturbCode))
+		if (perturbCode.contains("!")) {
+			if (SUPREUtil.getRandomDouble() > 0.4) {
+				perturbCode = perturbCode.replace("!", "");
+			}
+		} else if(!perturbCode.contains("!")  && groundTruth.equals(perturbCode)){
+			perturbCode = perturbCode.replace("if (", "if ( !");
+		}
 		
 		
 
+		if (groundTruth.contains("else") && groundTruth.contains("if")
+				&& (SUPREUtil.getRandomDouble() > 0.2 || perturbCode == null)) {
+			if (perturbCode == null) {
+				perturbCode = groundTruth;
+			}
+			if (SUPREUtil.getRandomDouble() > 0.5) {
+				perturbCode = perturbCode.replace("else", "");
+			} else {
+				String before = perturbCode.split("else")[0];
+				perturbCode = before + " else " + perturbCode.substring(perturbCode.indexOf("{"), perturbCode.length());
+			}
+
+		}
+
+		
+		
+		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
+			perturb( st, methStart, methEnd,  groundTruth, lineNo1,
+					lineNo2, lineNo3,count+1);
+		} else {					
 		HashMap<String, String> map = new HashMap<String, String>();
-
-		map.put("lineNo1", lineNo1 + "");
-		map.put("lineNo2", "");
-		map.put("lineNo3", "");
+		map.put("lineNo1", lineNo1+"");
+		map.put("lineNo2", lineNo2+"");
+		map.put("lineNo3", lineNo3+"");
 		map.put("lineNo4", "");
 		map.put("lineNo5", "");
 		map.put("line1", perturbCode);
@@ -171,6 +197,8 @@ public class ReplaceCondition {
 		System.out.println("replace condition");
 
 		PerturbResult.getCorruptedResult(map);
+		
+		}
 
 	}
 
