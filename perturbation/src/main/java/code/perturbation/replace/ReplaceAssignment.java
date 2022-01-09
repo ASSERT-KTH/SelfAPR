@@ -10,6 +10,7 @@ import code.perturbation.InvocationPerturbation;
 import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
 import code.perturbation.OperatorPerturbation;
+import code.perturbation.SimilarityPerturbation;
 import code.perturbation.TypePerturbation;
 import code.utils.SUPREUtil;
 import spoon.reflect.declaration.CtElement;
@@ -23,7 +24,7 @@ import spoon.support.reflect.code.CtVariableWriteImpl;
 public class ReplaceAssignment {
 
 	public static void perturb(CtElement st, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3) {
+			String lineNo2, String lineNo3,String lineNo4) {
 		String perturbCode = null;
 		/**
 		 * This is a random number to decide the perturbation
@@ -34,37 +35,56 @@ public class ReplaceAssignment {
 			System.out.print("");
 		}
 
+	
+
 		/**
-		 * We try to perturb the operators
+		 * operators
+		 */
+		if (perturbCode == null) {
+			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
+		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = OperatorPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
+		}
+		
+		
+		/**
+		 * We try to perturb the literals
 		 */
 
-		perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-
-		// replace with similar invocation
+		/**
+		 * Literal
+		 */
 		if (perturbCode == null) {
-			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
+			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
+		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
 		}
+				
+		
+
+	
 
 		// replace with similar assignments
-		if (perturbCode == null) {
-			List<CtFieldReadImpl> assignmentList = st
-					.getElements(new TypeFilter<CtFieldReadImpl>(CtFieldReadImpl.class));
-			if (assignmentList.size() > 0) {
-
-				String assignment = assignmentList.get(0).toString();
-
-				if (groundTruth.contains(assignment)) {
-
-					String perturbAssignment = AssignmentAnalysis.getSimilarAssignment(assignment);
-					if (perturbAssignment != null) {
-						perturbCode = groundTruth.replace(assignment, perturbAssignment);
-					}
-
-				}
+		/**
+		 * similarity perturbation on the single line
+		 */
+		if("".equals(lineNo2)) {
+			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.8) {
 				System.out.print("");
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"assignment");
+				System.out.print("");
+				
+				if(newperturbCode!=null && !"".equals(newperturbCode)) {
+					perturbCode = newperturbCode+" ;";
+				}
 
-			}
-
+			}		
 		}
 
 		// replace with similar variables
@@ -97,13 +117,7 @@ public class ReplaceAssignment {
 
 		}
 
-		/**
-		 * We try to perturb the literals
-		 */
 
-		if (perturbCode == null) {
-			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
-		}
 
 		// replace type
 		if (perturbCode == null) {
@@ -128,7 +142,7 @@ public class ReplaceAssignment {
 		map.put("lineNo1", lineNo1 + "");
 		map.put("lineNo2", lineNo2 + "");
 		map.put("lineNo3", lineNo3 + "");
-		map.put("lineNo4", "");
+		map.put("lineNo4",lineNo4);
 		map.put("lineNo5", "");
 		map.put("line1", perturbCode);
 		map.put("line2", "");

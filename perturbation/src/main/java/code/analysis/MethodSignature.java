@@ -44,7 +44,7 @@ public class MethodSignature {
 		if (_methByNameAndParams.size() == 0 || methName == null || "".equals(methName)) {
 			return null;
 		}
-		
+
 		return constructInvocation( methName, params); 
 				
 	}
@@ -55,16 +55,34 @@ public class MethodSignature {
 	
 	public static String constructInvocation(String methName,Integer paramSize) {
 		
+		String paramStr=null;
+		String exec = ExecutableAnalysis.getExecutables(methName,paramSize);
 		LinkedHashSet<String> params = _methByNameAndParams.get(methName);
 		
-		if(params==null) {
+		
+			
+		if(exec==null) {
+			if(params==null) {
 			return null;
+			}
+		} else {
+			System.out.println(exec);
+
+			methName = exec.split("@@")[0];
+			String sub = exec.substring(exec.indexOf("@@"), exec.length());
+			if(sub.length()>2) {
+			paramStr = exec.split("@@")[1];		
+			} else {
+				paramStr="";
+			}
 		}
 		
+
+
 		
-		String paramStr=null;
 		
 		
+		if(paramStr==null) {
 		int i = SUPREUtil.getRandomInt(params.size());
 		paramStr = (String) params.toArray()[i];
 	    
@@ -76,7 +94,7 @@ public class MethodSignature {
 				break;
 			}				
 		}
-	}
+	} }
 
 		methName += " ( ";
 		// Now we construct a method call
@@ -87,6 +105,9 @@ public class MethodSignature {
 			for (String t : paramList) {
 				if (!"".equals(t)) {
 					String var = Variables.getRandomVariablesByStringType(t);
+					if("".equals(var) || var==null) {
+						return null;
+					}
 					methName += var + " , ";
 				}
 			}
@@ -131,7 +152,7 @@ public class MethodSignature {
 		if (sets != null && sets.size() > 0) {
 			// find the most similar
 			for (String st : sets) {
-				if (!st.equals(origMethodName)) {
+				if ( (origMethodName!=null && !st.equals(origMethodName)) || origMethodName == null) {
 					double score = EditDistance.similarity(st, origMethodName);
 					if (score > maxScore) {
 						methName = st;
@@ -195,8 +216,13 @@ public class MethodSignature {
 		}
 		return target;
 	}
+	
+	
 
-	static String getMethodSignature(List<CtMethod> methodList) {
+
+	
+
+	public static String getMethodSignature(List<CtMethod> methodList) {
 
 		for (CtMethod method : methodList) {
 			String signature = method.getSignature();

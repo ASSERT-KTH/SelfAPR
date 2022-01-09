@@ -7,6 +7,7 @@ import code.output.result.PerturbResult;
 import code.perturbation.InvocationPerturbation;
 import code.perturbation.LiteralPerturbation;
 import code.perturbation.OperatorPerturbation;
+import code.perturbation.SimilarityPerturbation;
 import code.perturbation.VariablePerturbation;
 import code.utils.SUPREUtil;
 import spoon.reflect.code.BinaryOperatorKind;
@@ -22,7 +23,7 @@ import spoon.support.reflect.code.CtVariableReadImpl;
 public class ReplaceReturn {
 
 	public static void perturb(CtElement st, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3, int count) {
+			String lineNo2, String lineNo3, String lineNo4,int count) {
 		
 		String perturbCode = null;
 		/**
@@ -31,15 +32,8 @@ public class ReplaceReturn {
 		double r = SUPREUtil.getRandomDouble();
 		
 		
-		if (groundTruth.contains("if  ( noType )  {")) {
+		if (groundTruth.contains("return vchecker;")) {
 			System.out.print("");
-		}
-
-		/**
-		 * Invocation
-		 */
-		if (perturbCode == null && r>0.4) {
-			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
 		}
 
 		/**
@@ -47,8 +41,11 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.6) {
-			perturbCode = OperatorPerturbation.perturb(st, perturbCode);
+		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = OperatorPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
 		}
 
 		/**
@@ -56,8 +53,11 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.5) {
-			perturbCode = LiteralPerturbation.perturb(st, perturbCode);
+		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
 		}
 		
 		/**
@@ -65,16 +65,49 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = VariablePerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.9) {
-			perturbCode = VariablePerturbation.perturb(st, perturbCode);
+		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = VariablePerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
 		}
+		
+		
+		/**
+		 * Invocation
+		 */
+		if (perturbCode == null) {
+			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
+		}else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
+		}
+
+		
+		/**
+		 * similarity perturbation on the single line
+		 */
+		if("".equals(lineNo2)) {
+			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.8) {
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"return");
+				
+				if(newperturbCode!=null && !"".equals(newperturbCode)) {
+					perturbCode = newperturbCode+" ;";
+				}
+				
+			}		
+		}
+		
+		
 		
 		
 				
 			
 		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
 			perturb( st, methStart, methEnd,  groundTruth, lineNo1,
-					lineNo2, lineNo3,count+1);
+					lineNo2, lineNo3,lineNo4, count+1);
 		} else {
 			
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -83,7 +116,7 @@ public class ReplaceReturn {
 		map.put("lineNo1", lineNo1 + "");
 		map.put("lineNo2", lineNo2 + "");
 		map.put("lineNo3", lineNo3);
-		map.put("lineNo4", "");
+		map.put("lineNo4", lineNo4);
 		map.put("lineNo5", "");
 		map.put("line1", perturbCode);
 		map.put("line2", "");
@@ -96,7 +129,7 @@ public class ReplaceReturn {
 		map.put("repairAction", "[REPLACE]");
 		map.put("targetFile", "");
 
-		System.out.print("replace return");
+		System.out.println("replace return");
 		PerturbResult.getCorruptedResult(map);	
 		
 		}	

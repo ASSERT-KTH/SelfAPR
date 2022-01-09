@@ -12,6 +12,7 @@ import com.alibaba.fastjson.JSON;
 
 import code.output.result.PerturbResult;
 import code.perturbation.PerturbActions;
+import code.perturbation.SimilarityPerturbation;
 import spoon.Launcher;
 import spoon.SpoonAPI;
 import spoon.reflect.code.CtBlock;
@@ -48,18 +49,17 @@ public class Main {
 	
 	
 	public static void main(String[] args) {		
-		path = args[0];
-//		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/Bears-2/src/main/java/com/fasterxml/jackson/databind/AbstractTypeResolver.java";
+//		path = args[0];
+		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/Bears-2/src/main/java/com/fasterxml/jackson/databind/ObjectWriter.java";
 
 		sourceReader(path);	
 	}
-
 	
 	
 	
 // note
 //	.size() +/ randomInt
-//	.length() +/- randomInt
+//	.length +/- randomInt  hashArea.length + 4
 // for loop
 	
 	
@@ -80,52 +80,57 @@ public class Main {
 		final SpoonAPI spoon = new Launcher();
 		spoon.getEnvironment().setNoClasspath(true);
 		
-		spoon.addInputResource(path);
+		spoon . addInputResource(path);
 		spoon.buildModel ( ) ;
 		// Get the root element of spoon elements
 		CtElement rootElement = spoon.getModel().getRootPackage()
 				.getElements(new TypeFilter<CtElement>(CtElement.class)).get(0);		
 		
-		//Get variables
-		List<CtVariable> variablesList = rootElement.getElements(new TypeFilter<CtVariable>(CtVariable.class));
-		List<CtFieldImpl> filedList = rootElement.getElements(new TypeFilter<CtFieldImpl>(CtFieldImpl.class));
-
-
-		String variableinfo = Variables.getVariables (variablesList ) ;		
-		
-		
-		
-		//Get executables
-
-		Constructors.analysis ( rootElement ) ;
-		StatementAnalysis.analysis(rootElement);
-		StatementAnalysis.analysis(rootElement);
-
-				
-		List<CtConstructor> constructors = rootElement.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));					
-		List<CtConstructor> constructorList = rootElement.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));		
-				
-		
-		//Get method signature
-		List<CtMethod> methodList = rootElement.getElements(new TypeFilter<CtMethod>(CtMethod.class));				
-		String methodInfo=MethodSignature.getMethodSignature(methodList);	
 		
 		
 		String classinfo="[CLASS] ";
 		List<CtClass> classList = rootElement.getElements(new TypeFilter<CtClass>(CtClass.class));				
 		for(CtClass c : classList) {
 			classinfo += c.getSimpleName();
-		}
+			ClassAnalysis.analysis(c);
+			SimilarityPerturbation.analysis(c);
+		
+		//Get variables
+		List<CtVariable> variablesList = c.getElements(new TypeFilter<CtVariable>(CtVariable.class));
+		List<CtFieldImpl> filedList = c.getElements(new TypeFilter<CtFieldImpl>(CtFieldImpl.class));
+
+
+		Variables.getFiles (filedList ) ;		
+		
+		
+		
+		//Get executables
+
+		Constructors . analysis ( c ) ;
+		ExecutableAnalysis.analysis(c);
+
+				
+		List<CtConstructor> constructors = c.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));					
+		List<CtConstructor> constructorList = c.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));		
+				
+		
+		//Get method signature
+		List<CtMethod> methodList = c.getElements(new TypeFilter<CtMethod>(CtMethod.class));				
+		String methodInfo=MethodSignature.getMethodSignature(methodList);	
+		
+		
+
 		
 		
 		
 		//write the context info in the first row
-		PerturbResult.getCorruptedResultContext(classinfo+" "+ variableinfo+" "+methodInfo) ;
+//		PerturbResult.getCorruptedResultContext(classinfo+" "+ variableinfo+" "+methodInfo) ;
 		
 		
 		//Data corruption		
 		PerturbActions.perturb(filedList,constructorList,methodList);
 		
+		}
 		
 	}		
 }

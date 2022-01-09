@@ -13,7 +13,7 @@ import spoon.reflect.declaration.CtElement;
 public class ReplaceDeclaration {
 
 	public static void perturb(CtElement st, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3) {
+			String lineNo2, String lineNo3, String lineNo4) {
 		String perturbCode = null;
 		/**
 		 * This is a random number to decide the perturbation
@@ -39,13 +39,17 @@ public class ReplaceDeclaration {
 		} else if (SUPREUtil.getRandomDouble() > 0.6) {
 			perturbCode = TypePerturbation.perturb(st, perturbCode);
 		}
+		
+		
 		// modifier
 		if (perturbCode == null) {
 			perturbCode = ModifiersPerturbation.perturb(st, groundTruth);
 		} else if (SUPREUtil.getRandomDouble() > 0.7) {
 			perturbCode = ModifiersPerturbation.perturb(st, perturbCode);
-
 		}
+		
+		
+		
 		// remove instantiation
 		if (groundTruth.contains("=") && (perturbCode == null || r > 0.5)) {
 			r = SUPREUtil.getRandomDouble();
@@ -61,7 +65,7 @@ public class ReplaceDeclaration {
 		map.put("lineNo1", lineNo1 + "");
 		map.put("lineNo2", lineNo2 + "");
 		map.put("lineNo3", lineNo3 + "");
-		map.put("lineNo4", "");
+		map.put("lineNo4", lineNo4);
 		map.put("lineNo5", "");
 		map.put("line1", perturbCode);
 		map.put("line2", "");

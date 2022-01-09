@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 
 import code.analysis.Main;
+import code.analysis.Variables;
 
 public class PerturbResult {
 
@@ -49,13 +50,15 @@ public class PerturbResult {
 			methodEnd="";
 		}		
 		
+		String meta = Variables.getVariableInfo();
+		
 		String emsembleStr = line1+"^"+lineNo1+"^"
 							+lineNo2+"^"
 							+lineNo3+"^"
 							+lineNo4+"^"
 							+lineNo5+"^"
 							+methodStart+"^"+methodEnd+"^"
-							+ action +" "+groundTruth;
+							+ action +" "+groundTruth+"^"+meta;
 				
 				
 		System.out.println(emsembleStr);

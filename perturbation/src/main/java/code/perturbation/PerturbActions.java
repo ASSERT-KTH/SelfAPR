@@ -3,7 +3,10 @@ package code.perturbation;
 import java.util.HashMap;
 import java.util.List;
 
+import code.analysis.MethodSignature;
 import code.analysis.StatementAnalysis;
+import code.analysis.Variables;
+import code.perturbation.add.AddStatement;
 import code.perturbation.remove.Remove;
 import code.perturbation.replace.Replace;
 import code.utils.SUPREUtil;
@@ -19,6 +22,7 @@ import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.CtVariable;
 import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.code.CtAssignmentImpl;
+import spoon.support.reflect.code.CtForEachImpl;
 import spoon.support.reflect.code.CtIfImpl;
 import spoon.support.reflect.code.CtReturnImpl;
 import spoon.support.reflect.declaration.CtFieldImpl;
@@ -35,15 +39,25 @@ public class PerturbActions {
 			return;
 		}
 
-		if (type.contains("declaration") || type.contains("return")) {
-			Replace.replace(st, type, methStart, methEnd);
-		}
+//		if (type.contains("declaration") || type.contains("return") ) {
+//			Replace.replace(st, type, methStart, methEnd);
+//		}
 
-		else if (r > 0.5) {
-			Replace.replace(st, type, methStart, methEnd);
-		} else {
+		else 
+			if (type.contains("condition") && r>0.0) {
 			Remove.remove(st, type, methStart, methEnd);
+		}	
+		
+		else if( type.contains("statement") ){
+			AddStatement.addStatement(st, type, methStart, methEnd);
 		}
+		
+		
+//		else if (r > 0.99) {
+//			Replace.replace(st, type, methStart, methEnd);
+//		} else {
+//			Remove.remove(st, type, methStart, methEnd);
+//		}
 
 	}
 
@@ -56,20 +70,23 @@ public class PerturbActions {
 	 */
 	public static void perturb(List<CtFieldImpl> fieldList, List<CtConstructor> constructorList,
 			List<CtMethod> methodList) {
-		 fieldPerturb(fieldList);
-		 constructorPerturb(constructorList);
+//		 fieldPerturb(fieldList);
+//		 constructorPerturb(constructorList);
 		 methodPerturb(methodList);
 
 	}
 
 	private static void methodPerturb(List<CtMethod> methodList) {
-		for (CtMethod cons : methodList) {
+		for (CtMethod method : methodList) {
+			List<CtVariable> variablesList = method.getElements(new TypeFilter<CtVariable>(CtVariable.class));
+			Variables.getVariables (variablesList ) ;	
+			StatementAnalysis.analysis(method);
 
-			SourcePosition position = cons.getPosition();
+			SourcePosition position = method.getPosition();
 			int methStart = position.getLine();
 			int methEnd = position.getEndLine();
 
-			CtBlock block = cons.getBody();
+			CtBlock block = method.getBody();
 			if (block != null) {
 				List<CtStatement> statements = block.getStatements();
 				for (CtStatement st : statements) {
@@ -80,19 +97,52 @@ public class PerturbActions {
 
 					// conditions
 					List<CtIfImpl> conditions = st.getElements(condfilter);
-					if (conditions.size() > 0) {
+					List<CtForEachImpl> fors = st.getElements(new TypeFilter<CtForEachImpl>(CtForEachImpl.class));
+
+					
+					 if (fors.size() > 0) {
+						for(CtForEachImpl foreach: fors ) {
+							methStart = foreach.getParent().getPosition().getLine();
+							methEnd = foreach.getParent().getPosition().getEndLine();
+						PerturbActions.randomPerturb(foreach, "for", methStart, methEnd);
+						}
+					 }
+					
+					else if (conditions.size() > 0) {
 						for(CtIfImpl cond: conditions ) {
-						PerturbActions.randomPerturb(cond, "condition", methStart, methEnd);
+							int blockStart = cond.getParent().getPosition().getLine();
+							int endStart = cond.getParent().getPosition().getEndLine();
+							
+							if( blockStart != endStart ) {
+								methStart = blockStart;
+								methEnd = endStart;
+							}
+							
+							CtStatement statement = cond.getElseStatement();
+							if(statement!=null) {
+								PerturbActions.randomPerturb(statement, "condition", methStart, methEnd);
+							}
+							Object con = cond.getCondition();
+							PerturbActions.randomPerturb(cond, "condition", methStart, methEnd);
+
+							
 						}
 
 					} else if (states.size() > 0) {
 						// CtAssignmentImpl
+						int pos= st.getPosition().getLine();
+						int blockStart = st.getParent().getPosition().getLine();
+						int endStart = st.getParent().getPosition().getEndLine();
+						
+						if( blockStart <pos && endStart>pos) {
+							methStart = blockStart;
+							methEnd = endStart;
+						}
+						
 						
 						List<CtAssignmentImpl> assignments = st.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));						
 						List<CtReturnImpl> returns = st.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
-						
-						
-						
+											
 						if(assignments.size()>0) {
 							PerturbActions.randomPerturb(st, "assignment", methStart, methEnd);
 						}

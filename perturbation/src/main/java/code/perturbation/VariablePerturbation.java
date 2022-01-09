@@ -1,5 +1,8 @@
 package code.perturbation;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import code.analysis.MethodSignature;
@@ -13,27 +16,39 @@ import spoon.support.reflect.code.CtVariableReadImpl;
 public class VariablePerturbation {
 
 	public static String perturb(CtElement st, String groundTruth) {
-		List<CtVariableReadImpl> arguments = st
+		List<CtVariableReadImpl> argumentsDuplicates = st
 				.getElements(new TypeFilter<CtVariableReadImpl>(CtVariableReadImpl.class));
 		String corruptedCode = null;
 
+		  List<CtVariableReadImpl> arguments = new ArrayList<CtVariableReadImpl>(new LinkedHashSet<CtVariableReadImpl>(argumentsDuplicates));
+		
+		
+		
 		// replace argument with the same type argument
 		if (arguments.size() > 0 && SUPREUtil.getRandomDouble() > 0.3) {
 			int i = SUPREUtil.getRandomInt(arguments.size());
-
-			if (i == 0 && arguments.size() > 1) {
+            int j=i;
+			if (arguments.size() > 1) {
+				while(i==j) {
 				i = SUPREUtil.getRandomInt(arguments.size());
+				}
 			}
 
 			CtVariableReadImpl arg = arguments.get(i);
+			CtVariableReadImpl argAnother = arguments.get(j);
+
 			String varStr = SUPREUtil.getSimpleVarName(arg.toString());
 
-			if (groundTruth.contains(" " + varStr)) {
+			if (groundTruth.contains(" " + varStr) || groundTruth.contains( varStr+" " ) ) {
 				
-				String corruptedVar = Variables.getRandomVariables(arg);
+				String corruptedVar = Variables.getRandomVariablesForAssignment(arg,argAnother);
 
 				if (corruptedVar != null && !"".equals(corruptedVar)) {
-					corruptedCode = groundTruth.replaceFirst(" " + varStr, corruptedVar);
+					if(groundTruth.contains(" " + varStr)) {
+					corruptedCode = groundTruth.replaceFirst(" " + varStr, " "+corruptedVar);
+					} else {
+						corruptedCode = groundTruth.replaceFirst(varStr+" " , corruptedVar+" ");
+					}
 				}
 			}
 		}

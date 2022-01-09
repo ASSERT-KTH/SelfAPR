@@ -21,58 +21,67 @@ import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.declaration.CtFieldImpl;
 
 public class Variables {
-	static String _variableinfo = "";
-	static List<CtVariable> _variablesList = new ArrayList<CtVariable>();
+	// static List<CtVariable> _variablesList = new ArrayList<CtVariable>();
 	/**
 	 * key: type value: a set of variable names
 	 */
 	static HashMap<String, Set<String>> _variableByTypeMap = new HashMap<String, Set<String>>();
 
+	static HashMap<String, Set<String>> _fieldByTypeMap = new HashMap<String, Set<String>>();
+
 	public static String getRandomVariablesForAssignment(CtElement var1, CtElement var2) {
 
-		String type = "";
-
+		String type = null;
+		String target = null;
+		double maxScore = 0;
+		int count = 0;
 		if (var1 == null || var2 == null) {
-			int vsize = _variablesList.size();
-			int randint = (int) (Math.random() * (vsize - 1) + 1);
-			CtVariable randV = _variablesList.get(randint);
-			return randV.getSimpleName();
+			return null;
+		} 
+		
+		if(((CtTypedElement) var1).getType()==null) {
+			return null;
+		}
+		
+		type = ((CtTypedElement) var1).getType().toString();
 
-		} else {
-			try {
-				
-				if(SUPREUtil.getRandomDouble()>0.15) {
-				type = ((CtTypedElement) var1).getType().toString();
+		try {
+
+			if (type!=null && SUPREUtil.getRandomDouble() > 0.15) {
 				type = SUPREUtil.getSimpleVarName(type);
 
 				String origValue1 = SUPREUtil.getSimpleVarName(var1.toString());
 				String origValue2 = SUPREUtil.getSimpleVarName(var2.toString());
 
-				for (String key : _variableByTypeMap.keySet()) {
-					if (key.equals(type)) {
-						Set<String> values = _variableByTypeMap.get(key);
-						for (String v : values) {
-							if (!v.equals(origValue1) && !v.equals(origValue2)) {
-								return v;
+				Set<String> values = _variableByTypeMap.get(type);
+				for (String v : values) {
+					if (!v.equals(origValue1) && !v.equals(origValue2)) {
+						double score = EditDistance.similarity(v, origValue1);
+						if (score > maxScore) {
+							target = v;
+							count++;
+							if (count > values.size() / 2 && SUPREUtil.getRandomDouble() > 0.85) {
+								return target;
 							}
 						}
 					}
 				}
-				} else {
-					return MethodSignature.getMethodByType(type, null);
-
-				}
-			} catch (Exception e) {
-				return SUPREUtil.randomReturnElement();
-			}
-
-			if (SUPREUtil.getRandomDouble() > 0.8) {
-				return SUPREUtil.randomReturnElement();
-			} else {
+					return target;
+			} else if(type!=null){
 				return MethodSignature.getMethodByType(type, null);
 			}
+		} catch (Exception e) {
+			return SUPREUtil.randomReturnElement();
 		}
-	}
+
+		if (SUPREUtil.getRandomDouble() > 0.8) {
+			return SUPREUtil.randomReturnElement();
+		} else if(type!=null) {
+			return MethodSignature.getMethodByType(type, null);
+		}
+		return null;
+		}
+	
 
 	public static String getRandomVariables(CtExpression var) {
 		if (var == null) {
@@ -107,7 +116,7 @@ public class Variables {
 							if (score > maxScore) {
 								target = v;
 								count++;
-								if (count > values.size() / 2 && SUPREUtil.getRandomDouble() > 0.75) {
+								if (count > values.size() / 2 && SUPREUtil.getRandomDouble() > 0.85) {
 									return target;
 								}
 							}
@@ -136,6 +145,7 @@ public class Variables {
 					// get variable
 					Set<String> values = _variableByTypeMap.get(type);
 					if (values == null || values.size() == 0) {
+						String me = MethodSignature.getMethodByType(type, null);
 						return SUPREUtil.randomReturnElement();
 					}
 					for (String v : values) {
@@ -156,8 +166,33 @@ public class Variables {
 		}
 	}
 
-	public static String getVariables(List<CtVariable> variablesList) {
-		_variablesList = variablesList;
+	public static void getFiles(List<CtFieldImpl> fieldsList) {
+
+		for (CtFieldImpl variable : fieldsList) {
+			String variableType = variable.getType().getSimpleName();
+			String variableName = variable.getSimpleName();
+			if (!_fieldByTypeMap.containsKey(variableType)) {
+				Set<String> lst = new TreeSet<String>();
+				lst.add(variableName);
+				_fieldByTypeMap.put(variableType, lst);
+			} else {
+				Set<String> lst = _fieldByTypeMap.get(variableType);
+				lst.add(variableName);
+				_fieldByTypeMap.put(variableType, lst);
+			}
+		}
+
+	}
+
+	static HashMap<String, Set<String>> getFieldMap() {
+		return _fieldByTypeMap;
+	}
+
+	public static void getVariables(List<CtVariable> variablesList) {
+
+		_variableByTypeMap = new HashMap<String, Set<String>>();
+		_variableByTypeMap = (HashMap<String, Set<String>>) getFieldMap().clone();
+
 		String variableInfo = "";
 		for (CtVariable variable : variablesList) {
 			String variableType = variable.getType().getSimpleName();
@@ -173,8 +208,6 @@ public class Variables {
 			}
 		}
 
-		
-
 		// add true false in boolean
 		if (_variableByTypeMap.containsKey("boolean")) {
 			Set<String> lst = _variableByTypeMap.get("boolean");
@@ -188,23 +221,21 @@ public class Variables {
 			_variableByTypeMap.put("boolean", lst);
 		}
 
+	}
 
-		
-		//_variableinfo
+	public static String getVariableInfo() {
+		String info = "";
+		// _variableinfo
+
 		for (String key : _variableByTypeMap.keySet()) {
 			Set<String> values = _variableByTypeMap.get(key);
 			String valStr = "";
 			for (String s : values) {
 				valStr += " " + s + " ";
 			}
-			_variableinfo += " [VTYPE]  "+ key + valStr;
+			info += " [VTYPE]  " + key + valStr;
 		}
-				
-		return _variableinfo;		
-	}
 
-	
-	public static String getVariableInfo() {
-		return _variableinfo;
+		return info;
 	}
 }

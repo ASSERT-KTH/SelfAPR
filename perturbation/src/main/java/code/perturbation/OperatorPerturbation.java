@@ -35,7 +35,7 @@ public class OperatorPerturbation {
 		 * a = (b == c) ? d: e;
 		 * 
 		 */
-		if (groundTruth.contains("?") && r > 0.3) {
+		if (groundTruth.contains("?") && r > 0.2) {
 
 			if (groundTruth.contains("=") && groundTruth.contains(":")) {
 
@@ -140,6 +140,44 @@ public class OperatorPerturbation {
 			else if (groundTruth.contains("!") && !groundTruth.contains("!=")) {
 				corruptedCode = groundTruth.replaceFirst("!", "");
 			}
+			
+			else {
+				String op = SUPREUtil.getOperatorValue(operators.get(0).getKind().toString());
+				if(groundTruth.contains(op)) {
+					String newop = "";
+//					if(op.length()==1) {
+//						op="\\"+"\\"+op;
+//					}
+					
+					if(op.contains("|")) {
+						newop = op.replace("|", "&");
+					}else if(op.contains("&")) {
+						newop = op.replace("&", "|");
+					}else if(op.contains(">=")) {
+						String[] choice = {">","==","<=","<","!="};		
+						newop = " "	+choice[ SUPREUtil.getRandomInt(5)]+" ";
+					}else if(op.contains(">")) {
+						String[] choice = {">=","==","<=","<","!="};		
+						newop = " "	+choice[ SUPREUtil.getRandomInt(5)]+" ";
+					}else if(op.contains("<=")) {
+						String[] choice = {">=","==",">","<","!="};		
+						newop = " "	+choice[ SUPREUtil.getRandomInt(5)]+" ";
+					} else if(op.contains("<")) {
+						String[] choice = {">=","==",">","<=","!="};		
+						newop = " "	+choice[ SUPREUtil.getRandomInt(5)]+" ";
+					}else if(op.contains("==")) {
+						String[] choice = {">=","<",">","<=","!=","&&"};		
+						newop = " "	+choice[ SUPREUtil.getRandomInt(6)]+" ";
+					}else if(op.contains("!=")) {
+						String[] choice = {">=","<",">","<=","=="};		
+						newop = " "	+choice[ SUPREUtil.getRandomInt(5)]+" ";
+					}					
+					
+					corruptedCode = groundTruth.replace(op, newop );
+					corruptedCode = corruptedCode;
+				}
+				
+			}
 
 		}
 
@@ -180,8 +218,8 @@ public class OperatorPerturbation {
 					newleft = Variables.getRandomVariables(left);
 				}
 
-				if ( groundTruth.contains(leftStr) &&   newleft != null && !"".equals(newleft) && !"null".equals(newleft)) {
-					corruptedCode = groundTruth.replaceFirst(leftStr, newleft);
+				if ( groundTruth.contains(" "+leftStr) &&   newleft != null && !"".equals(newleft) && !"null".equals(newleft)) {
+					corruptedCode = groundTruth.replaceFirst(" "+leftStr, newleft);
 				}
 
 			} else if (r > 0.2) {
@@ -195,23 +233,23 @@ public class OperatorPerturbation {
 					if (SUPREUtil.getRandomDouble() > 0.4) {
 						newright = Variables.getRandomVariables(left);
 					} else {
-						newright = "null".equals(rightStr) ? "this" : "null";
+						newright = "null".equals(rightStr) ? " this " : " null ";
 					}
 				}
 
-				if (  groundTruth.contains(rightStr) &&   newright != null && !"".equals(newright)) {
-					corruptedCode = groundTruth.replace(rightStr, newright);
+				if (  groundTruth.contains(" "+rightStr) &&   newright != null && !"".equals(newright)) {
+					corruptedCode = groundTruth.replace(" "+rightStr, newright);
 				}
 
 			} else {
 				// replace both
-				String newleft = Variables.getRandomVariables(left);
-				if (newleft != null && !"".equals(newleft)) {
-					corruptedCode = groundTruth.replace(leftStr, newleft);
+				String newleft = Variables.getRandomVariablesForAssignment(left,right);
+				if (newleft != null && !"".equals(newleft)   && groundTruth.contains(" "+leftStr) ) {
+					corruptedCode = groundTruth.replaceFirst(leftStr, newleft);
 				}
 				String newright = Variables.getRandomVariables(right);
-				if (newright != null && !"".equals(newright) && corruptedCode != null) {
-					corruptedCode = corruptedCode.replace(rightStr, newright);
+				if (newright != null && !"".equals(newright) && corruptedCode != null  && groundTruth.contains(" "+rightStr)) {
+					corruptedCode = corruptedCode.replaceFirst(rightStr, newright);
 				}
 			}
 
@@ -241,7 +279,85 @@ public class OperatorPerturbation {
 				corruptedCode = corruptedCode.replace(origOperator, perturbedOperator);
 			}
 		}
-
+		
+		
+		
+		
+		
+		
+		
+		
+		groundTruth = groundTruth.trim();
+		if(groundTruth.startsWith("return")) {
+			if(corruptedCode==null) {
+			String element = ( SUPREUtil.getRandomDouble() )>0.5 ? "true ;":"false ;" ;
+			if(groundTruth.contains("==")) {				
+				corruptedCode = groundTruth.split("==")[0]+";";	
+				if(SUPREUtil.getRandomDouble() >0.7){
+				corruptedCode =  "return "+ element;}
+			}
+			else if(groundTruth.contains("!=")) {				
+				corruptedCode = groundTruth.split("==")[0]+";";
+				if(SUPREUtil.getRandomDouble() >0.7){
+					corruptedCode =  "return "+ element;}
+			}
+			else if(groundTruth.contains(">=")) {				
+				corruptedCode = groundTruth.split(">=")[0]+";";
+				if(SUPREUtil.getRandomDouble() >0.7){
+					corruptedCode =  "return "+ element;}
+			}
+			else if(groundTruth.contains("<=")) {				
+				corruptedCode = groundTruth.split("<=")[0]+";";
+				if(SUPREUtil.getRandomDouble() >0.7){
+					corruptedCode =  "return "+ element;}
+			}
+			else if(groundTruth.contains("<")) {				
+				corruptedCode = groundTruth.split("<")[0]+";";
+				if(SUPREUtil.getRandomDouble() >0.7){
+					corruptedCode =  "return "+ element;}
+			}else if(groundTruth.contains(">")) {				
+				corruptedCode = groundTruth.split(">")[0]+";";
+				if(SUPREUtil.getRandomDouble() >0.7){
+					corruptedCode =  "return "+ element;}
+			}
+			
+			
+			
+						
+		}else {
+			String element = ( SUPREUtil.getRandomDouble() )>0.5 ? "true ;":"false ;" ;
+			if(corruptedCode.contains("==")) {				
+				corruptedCode = corruptedCode.split("==")[0]+";";	
+				if(SUPREUtil.getRandomDouble() >0.7){
+				corruptedCode =  "return "+ element;}
+			}
+			else if(corruptedCode.contains("!=")) {				
+				corruptedCode = corruptedCode.split("==")[0]+";";
+				if(SUPREUtil.getRandomDouble() >0.7){
+					corruptedCode =  "return "+ element;}
+			}
+			else if(corruptedCode.contains(">=")) {				
+				corruptedCode = corruptedCode.split(">=")[0]+";";
+				if(SUPREUtil.getRandomDouble() >0.7){
+					corruptedCode =  "return "+ element;}
+			}
+			else if(corruptedCode.contains("<=")) {				
+				corruptedCode = corruptedCode.split("<=")[0]+";";
+				if(SUPREUtil.getRandomDouble() >0.7){
+					corruptedCode =  "return "+ element;}
+			}
+			else if(corruptedCode.contains("<")) {				
+				corruptedCode = corruptedCode.split("<")[0]+";";
+				if(SUPREUtil.getRandomDouble() >0.7){
+					corruptedCode =  "return "+ element;}
+			}else if(corruptedCode.contains(">")) {				
+				corruptedCode = corruptedCode.split(">")[0]+";";
+				if(SUPREUtil.getRandomDouble() >0.7){
+					corruptedCode =  "return "+ element;}
+			}
+		}
+				
+	}
 		return corruptedCode;
 
 	}

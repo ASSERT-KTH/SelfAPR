@@ -18,7 +18,7 @@ public class TypePerturbation {
 		TypeFilter<CtTypeReferenceImpl> typefilter = new TypeFilter<CtTypeReferenceImpl>(CtTypeReferenceImpl.class);
 		List<CtTypeReferenceImpl> types = st.getElements(typefilter);
 
-		if (types.size() > 0) {
+		if (types.size() > 0 && SUPREUtil.getRandomDouble()>0.5) {
 			String origType = types.get(0).toString();
 			origType = SUPREUtil.getSimpleVarName(origType);		
 			
@@ -29,22 +29,20 @@ public class TypePerturbation {
 				String randomType = TypeUtil.getRandomBasicType(origType);
 				perturbCode = groundTruth.replace(origType, randomType);
 				}
-			} else {
+			} 
+			
+			else {
 				// objectType				
-				if(SUPREUtil.getRandomDouble()>0.2) {
 					String randomType = MethodSignature.getRandomClass(origType);
-					if(randomType!=null  && !"".equals(randomType) && groundTruth.contains(origType) ) {
-						perturbCode = groundTruth.replace(origType, randomType);
+					if(randomType!=null  && !"".equals(randomType) && groundTruth.contains(origType+" ") ) {					
+						if(SUPREUtil.getRandomDouble()>0.8) {
+						perturbCode = groundTruth.replace(origType+" ", randomType+" ");
+						} else {
+							perturbCode = groundTruth.replace(origType+" ", "Object ");
+						}
 					}
-				} else {
-					//remove type
-					if(groundTruth.contains(origType) ) {
-					perturbCode = groundTruth.replace(origType, "");
-					}
-				}
-			}
-		}
-		}
-		return perturbCode;
-	}
+				} 								
+		} 
+	} 		return perturbCode;
+}
 }

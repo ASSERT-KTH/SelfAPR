@@ -43,14 +43,22 @@ public class Remove {
 		String lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 
 		// if condition
-		if (groundTruth.contains("if")) {
+		if (groundTruth.contains("if")  || groundTruth.contains("else")  || groundTruth.contains("for") ) { 
+			
+			  if(groundTruth.startsWith("}") && groundTruth.contains("else") ) {
+				  perturbCode="}   ";
+			  }
+			
+			
+			
+			
 				// line 2
 				lineNo2 = lineNo1 + 1 + "";
 				String l2 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
 				if (l2.length() > 0) {
 					lastChar = l2.charAt(l2.length() - 1) + "";
 
-					if (";".equals(lastChar)) {
+					if (";".equals(lastChar) && !groundTruth.contains("for")  && !l2.contains("throw")) {
 						if (SUPREUtil.getRandomDouble() > 0.4) {
 							perturbCode += l2;
 						}
@@ -61,22 +69,17 @@ public class Remove {
 				// line 3
 				lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 				if (!"}".equals(lastChar)) {
-					lineNo3 = lineNo1 + 2 + "";
 					String l3 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
 					if (l3.length() > 0) {
 
-						lastChar = l3.charAt(l3.length() - 1) + "";
+						lastChar = l3.charAt(l3.length() - 1) + "";												
 						
-						
-						
-						if(!"{".equals(lastChar)) {
-
-						if (!"".equals(perturbCode) && ";".equals(lastChar)) {
+						if (!"".equals(perturbCode) && ";".equals(lastChar) && !groundTruth.contains("for") && !l3.contains("throw")) {
 							perturbCode += l3;
-						}
-						
+						}		
 						groundTruth += " " + l3;
-						}
+						lineNo3 = lineNo1 + 2 + "";
+						
 					}
 
 				}
@@ -85,39 +88,35 @@ public class Remove {
 				// line 4
 				lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 				if (!"}".equals(lastChar)) {
-					lineNo4 = lineNo1 + 3 + "";
 					String l4 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 3).trim();
 					if (l4.length() > 0) {
 						lastChar = l4.charAt(l4.length() - 1) + "";																	
-						if(!"{".equals(lastChar)) {
-						if (!"".equals(perturbCode) && ";".equals(lastChar)) {
+						if (!"".equals(perturbCode) && ";".equals(lastChar) && !groundTruth.contains("for") && !l4.contains("throw")) {
 							perturbCode += l4;
 						}						
 						groundTruth += " " + l4;
-						}
+						lineNo4 = lineNo1 + 3 + "";
+
+						
 					}
 				}
 				
 				// line 5
 				lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 				if (!"}".equals(lastChar)) {
-					lineNo5 = lineNo1 + 4 + "";
 					String l5 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 4).trim();
 					if (l5.length() > 0) {
 						lastChar = l5.charAt(l5.length() - 1) + "";																	
 						if(!"{".equals(lastChar)) {
-						if (!"".equals(perturbCode) && ";".equals(lastChar)) {
+						if (!"".equals(perturbCode) && ";".equals(lastChar) && !groundTruth.contains("for") && !l5.contains("throw")) {
 							perturbCode += l5;
 						}						
 						groundTruth += " " + l5;
+						lineNo5 = lineNo1 + 4 + "";
+
 						}
 					}
-				}
-				
-				
-				
-				
-								
+				}							
 			}
 		 
 		
@@ -130,18 +129,18 @@ public class Remove {
 		
 		
 		else if(";".equals(lastChar)  &&  SUPREUtil.getRandomDouble() > 0.5) {		
-			lineNo2 = lineNo1 + 1 + "";
 			String l2 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
 			if (l2.length() > 0) {
 				lastChar = l2.charAt(l2.length() - 1) + "";
-				if (";".equals(lastChar)) {						
+				if (";".equals(lastChar)) {	
+					lineNo2 = lineNo1 + 1 + "";
 					groundTruth += " " + l2;
+					if(SUPREUtil.getRandomDouble() > 0.7) {
+						perturbCode += l2;
+					}
 				}
 				
-				if(SUPREUtil.getRandomDouble() > 0.7) {
-					perturbCode += l2;
-
-				}
+				
 				
 			}							
 		}
@@ -151,12 +150,14 @@ public class Remove {
 				lineNo3 = lineNo1 + 2 + "";
 				String l3 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
 				groundTruth += " " + l3;
-			}		
-		 
-		 
-		 
-		 
+			}			 	
+		}
 		
+		
+		
+		groundTruth = groundTruth.trim();
+		if(groundTruth.startsWith("}")) {
+			groundTruth = groundTruth.substring(1,groundTruth.length());
 		}
 		
 		

@@ -12,6 +12,7 @@ import code.perturbation.ConstructorPerturbation;
 import code.perturbation.InvocationPerturbation;
 import code.perturbation.LiteralPerturbation;
 import code.perturbation.OperatorPerturbation;
+import code.perturbation.SimilarityPerturbation;
 import code.perturbation.TypePerturbation;
 import code.perturbation.VariablePerturbation;
 import code.perturbation.remove.FullyRemove;
@@ -35,7 +36,7 @@ import spoon.support.reflect.reference.CtExecutableReferenceImpl;
 public class ReplaceStatement {
 
 	public static void perturb(CtElement st,  int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3, int count) {
+			String lineNo2, String lineNo3, String lineNo4, int count) {
 
 		TypeFilter<CtReturnImpl> returnfilter = new TypeFilter<CtReturnImpl>(CtReturnImpl.class);
 		List<CtReturnImpl> returns = st.getElements(returnfilter);
@@ -43,18 +44,11 @@ public class ReplaceStatement {
 
 		String perturbCode = null;
 
-		if( groundTruth.contains("bb.release")) {
+		if( groundTruth.contains("AnnotatedClass ac = bean.getClassInfo (  )")) {
 			groundTruth.contains("bb.release");
 		}
 		
 		
-		/**
-		 * Invocation
-		 */
-		if (perturbCode == null && SUPREUtil.getRandomDouble() > 0.35) {
-			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
-		}
-
 		/**
 		 * operators
 		 */
@@ -65,44 +59,69 @@ public class ReplaceStatement {
 		}
 
 		/**
+		 * operators
+		 */
+		if (perturbCode == null) {
+			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
+		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = OperatorPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
+		}
+
+		/**
 		 * Literal
 		 */
 		if (perturbCode == null) {
 			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
 		} else if (SUPREUtil.getRandomDouble() > 0.7) {
-			perturbCode = LiteralPerturbation.perturb(st, perturbCode);
+			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
 		}
 		
 		/**
-		 * Variables
+		 * variable
 		 */
-		
 		if (perturbCode == null) {
 			perturbCode = VariablePerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.9) {
-			perturbCode = VariablePerturbation.perturb(st, perturbCode);
+		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = VariablePerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
 		}
 		
 		
 		/**
-		 * Constructor
+		 * Invocation
 		 */
-		
 		if (perturbCode == null) {
-			perturbCode = ConstructorPerturbation.perturb(st, groundTruth);
-		}else if (SUPREUtil.getRandomDouble() > 0.8) {
-			perturbCode = ConstructorPerturbation.perturb(st, perturbCode);
+			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
+		}else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
 		}
-		
+
 		
 		/**
-		 * Type
+		 * similarity perturbation on the single line
 		 */
-		
-		if (perturbCode == null) {
-			perturbCode = TypePerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.85) {
-			perturbCode = TypePerturbation.perturb(st, perturbCode);
+		if("".equals(lineNo2)) {
+			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.8) {
+				System.out.print("");
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"statement");
+				System.out.print("");
+				
+				if(newperturbCode!=null && !"".equals(newperturbCode)) {
+					perturbCode = newperturbCode+" ;";
+				}
+
+			}		
 		}
 		
 		
@@ -111,7 +130,7 @@ public class ReplaceStatement {
 		 */
 		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
 			perturb( st, methStart, methEnd,  groundTruth, lineNo1,
-					lineNo2, lineNo3,count+1);
+					lineNo2, lineNo3,lineNo4, count+1);
 		} else if(!(groundTruth.equals(perturbCode) && perturbCode!=null )){		
 
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -119,7 +138,7 @@ public class ReplaceStatement {
 		map.put("lineNo1", lineNo1 + "");
 		map.put("lineNo2", lineNo2+"");
 		map.put("lineNo3", lineNo3+"");
-		map.put("lineNo4", "");
+		map.put("lineNo4", lineNo4);
 		map.put("lineNo5", "");
 		map.put("line1", perturbCode);
 		map.put("line2", "");
@@ -134,7 +153,10 @@ public class ReplaceStatement {
 
 		PerturbResult.getCorruptedResult(map);
 		
+
 		}
+		
+
 
 	}
 

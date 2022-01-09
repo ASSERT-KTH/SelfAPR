@@ -14,6 +14,7 @@ import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
 import spoon.reflect.cu.SourcePosition;
+import spoon.reflect.declaration.CtElement;
 import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.code.CtInvocationImpl;
 import spoon.support.reflect.code.CtLiteralImpl;
@@ -23,9 +24,11 @@ public class SUPREUtil {
 	public static String getSpecificLine(SourcePosition position,int line) {
 		if (position != null && position.getFile()!=null) {
 		String targetFile = position.getFile().toString();
-		String target="";
+		String target=null;
 		try {
+			 if(line>1) {
 			 target = Files.readAllLines(Paths.get(targetFile)).get(line-1);
+			 }
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -138,26 +141,26 @@ public class SUPREUtil {
 	
 	public static String getOperatorValue(String key) {
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("OR", " || ");
-		map.put("AND", " && ");
-		map.put("BITOR", " | ");
-		map.put("BITXOR", " ^ ");
-		map.put("BITAND", " & ");
-		map.put("EQ", " == ");
-		map.put("NE", " != ");
-		map.put("LT", " < ");
-		map.put("GT", " > ");
-		map.put("LE", " <= ");
-		map.put("GE", " >= ");
-		map.put("SL", " << ");
-		map.put("SR", " >> ");
-		map.put("USR", " >>> ");
-		map.put("PLUS", " + ");
-		map.put("MINUS", " - ");
-		map.put("MUL", " * ");
-		map.put("DIV", " / ");
-		map.put("MOD", " % ");
-		map.put("INSTANCEOF", " instanceof ");
+		map.put("OR","||");
+		map.put("AND","&&");
+		map.put("BITOR","|");
+		map.put("BITXOR","^");
+		map.put("BITAND","&");
+		map.put("EQ","==");
+		map.put("NE","!=");
+		map.put("LT","<");
+		map.put("GT",">");
+		map.put("LE","<=");
+		map.put("GE",">=");
+		map.put("SL","<<");
+		map.put("SR",">>");
+		map.put("USR",">>>");
+		map.put("PLUS","+");
+		map.put("MINUS","-");
+		map.put("MUL","*");
+		map.put("DIV","/");
+		map.put("MOD","%");
+		map.put("INSTANCEOF","instanceof");
 
 		return map.get(key);
 		
@@ -170,12 +173,12 @@ public class SUPREUtil {
 		String randV = "";
 		double r = Math.random();
 		
-		String[] lst = {"false","true","null","this"};
+		String[] lst = {"null","this","false","null","true","null","this","null"};
 		
-		if(r>0.3) {
-			randV=lst[SUPREUtil.getRandomInt(3)];
+		if(r>0.1) {
+			randV=lst[SUPREUtil.getRandomInt(8)];
 		} else  {
-			randV = getRandomInt(3)+"";
+			randV = getRandomInt(2)+"";
 		} 
 
 		return randV;
@@ -186,9 +189,13 @@ public class SUPREUtil {
 
 	
 	public static String getSimpleExecName(String execStr) {
+		if(execStr.contains("#") && execStr.contains("(") ) {
 		execStr =  execStr.split("#")[1];
 		execStr =  execStr.split("\\(")[0];
 		return execStr;
+		} else {
+			return null;
+		}
 	}
 	
 	public static String getSimpleVarName(String qaulifyName) {	
@@ -213,20 +220,20 @@ public class SUPREUtil {
 	}
 	
 	
-	public static int getArgsSize(CtCodeElement inv) {
+	public static int getArgsSize(CtElement inv) {
 		String invStr = inv.toString().split("\\(")[1];
-		invStr = inv.toString().split("\\)")[0];
-		if(invStr.length()==0) {
+		if(invStr.length()<2) {
 			return 0;
 
 		}
-		
+		invStr = invStr.toString().split("\\)")[0];
+
 		if(invStr.contains(",")) {
 			String[] commas = invStr.split("\\,");
 			return commas.length;
 			
 		}else {
-			return 0;
+			return 1;
 		}	
 }
 	
