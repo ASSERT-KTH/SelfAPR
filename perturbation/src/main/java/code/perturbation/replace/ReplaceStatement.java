@@ -44,7 +44,7 @@ public class ReplaceStatement {
 
 		String perturbCode = null;
 
-		if( groundTruth.contains("AnnotatedClass ac = bean.getClassInfo (  )")) {
+		if( groundTruth.contains("try")) {
 			groundTruth.contains("bb.release");
 		}
 		
@@ -114,7 +114,7 @@ public class ReplaceStatement {
 		if("".equals(lineNo2)) {
 			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.8) {
 				System.out.print("");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"statement");
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"statement",0.75);
 				System.out.print("");
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {

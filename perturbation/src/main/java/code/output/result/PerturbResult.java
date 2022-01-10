@@ -11,7 +11,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
+import code.analysis.ClassAnalysis;
 import code.analysis.Main;
+import code.analysis.MethodSignature;
 import code.analysis.Variables;
 
 public class PerturbResult {
@@ -40,6 +42,14 @@ public class PerturbResult {
 			return;
 		}
 		
+		if(action.contains("REPLACE")) {
+			if (line1.trim().equals(groundTruth.trim())) {
+				return;
+			}
+		}
+		
+		
+		
 		
 		line1 =line1.trim();
 		groundTruth =groundTruth.trim();
@@ -50,9 +60,13 @@ public class PerturbResult {
 			methodEnd="";
 		}		
 		
-		String meta = Variables.getVariableInfo();
+		String classinfo = ClassAnalysis.getCurrentClass();
+		String method = MethodSignature.getCurrentMethod();
+		String variables = Variables.getVariableInfo();
 		
-		String emsembleStr = line1+"^"+lineNo1+"^"
+		String meta = method + " "+ classinfo + " "+ variables;
+		
+		String emsembleStr = action+"^"+line1+"^"+lineNo1+"^"
 							+lineNo2+"^"
 							+lineNo3+"^"
 							+lineNo4+"^"

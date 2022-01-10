@@ -49,8 +49,8 @@ public class Main {
 	
 	
 	public static void main(String[] args) {		
-//		path = args[0];
-		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/Bears-2/src/main/java/com/fasterxml/jackson/databind/ObjectWriter.java";
+		path = args[0];
+//		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/Bears-2/src/main/java/com/fasterxml/jackson/databind/ObjectWriter.java";
 
 		sourceReader(path);	
 	}
@@ -91,6 +91,7 @@ public class Main {
 		String classinfo="[CLASS] ";
 		List<CtClass> classList = rootElement.getElements(new TypeFilter<CtClass>(CtClass.class));				
 		for(CtClass c : classList) {
+			
 			classinfo += c.getSimpleName();
 			ClassAnalysis.analysis(c);
 			SimilarityPerturbation.analysis(c);
@@ -101,8 +102,7 @@ public class Main {
 
 
 		Variables.getFiles (filedList ) ;		
-		
-		
+			
 		
 		//Get executables
 

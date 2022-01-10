@@ -233,7 +233,7 @@ public class Variables {
 			for (String s : values) {
 				valStr += " " + s + " ";
 			}
-			info += " [VTYPE]  " + key + valStr;
+			info += " [TYPE]  " + key + valStr;
 		}
 
 		return info;

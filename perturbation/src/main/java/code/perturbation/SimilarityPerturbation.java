@@ -27,9 +27,13 @@ public class SimilarityPerturbation {
 	
 	
 	
-	public static String perturb(CtElement st, String groundTruth, String type) {
+	public static String perturb(CtElement st, String groundTruth, String type, Double similarity) {
 
 		List<String> targetList = new ArrayList<String>();
+		
+		if(similarity==null) {
+			similarity=0.75;
+		}
 
 		
 		if("return".equals(type)) {
@@ -55,7 +59,7 @@ public class SimilarityPerturbation {
 		for(String s : targetList) {
 			if(!st.toString().equals(s)) {		
 				double score = EditDistance.similarity(s, st.toString());
-				if (score > maxScore && score>0.75) {
+				if (score > maxScore && score>similarity) {
 					maxScore = score;
 					simStatement = s;
 				}				
@@ -95,28 +99,37 @@ public class SimilarityPerturbation {
 			CtBlock block = method.getBody();
 			if (block != null) {
 				List<CtStatement> statements = block.getStatements();
-				for (CtStatement st : statements) {			
-					List<CtStatement> states = st.getElements(new TypeFilter<CtStatement>(CtStatement.class));
-					List<CtIfImpl> conditions = st.getElements(new TypeFilter<CtIfImpl>(CtIfImpl.class));
-					List<CtReturnImpl> returns = st.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
-					List<CtAssignmentImpl> assignments = st.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));						
+				for (CtStatement sts : statements) {			
+					List<CtStatement> states = sts.getElements(new TypeFilter<CtStatement>(CtStatement.class));
+					
+					for(CtStatement st : states) {
+						List<CtIfImpl> conditions = st.getElements(new TypeFilter<CtIfImpl>(CtIfImpl.class));
+						List<CtReturnImpl> returns = st.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
+						List<CtAssignmentImpl> assignments = st.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));						
 
-					for(CtStatement s:  states) {
-						_statementList.add(s.toString());
+						
+
+						for(CtIfImpl c:  conditions) {
+							_conditionList.add(c.toString());			
+						}
+						
+						
+						for(CtReturnImpl r:  returns) {
+							_returnList.add(r.toString());
+						}
+						
+						for(CtAssignmentImpl a:  assignments) {
+							_assignmentList.add(a.toString());
+						}
+						
+						if(conditions.size()==0 && returns.size()==0 && assignments.size()==0) {
+						for(CtStatement s:  states) {
+							_statementList.add(s.toString());
+						}
+						}
 					}
 					
-					for(CtIfImpl c:  conditions) {
-						_conditionList.add(c.toString());			
-					}
 					
-					
-					for(CtReturnImpl r:  returns) {
-						_returnList.add(r.toString());
-					}
-					
-					for(CtAssignmentImpl a:  assignments) {
-						_assignmentList.add(a.toString());
-					}
 					
 					
 				}

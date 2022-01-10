@@ -77,7 +77,7 @@ public class ReplaceAssignment {
 		if("".equals(lineNo2)) {
 			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.8) {
 				System.out.print("");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"assignment");
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"assignment", 0.7);
 				System.out.print("");
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {

@@ -14,6 +14,8 @@ import spoon.reflect.visitor.filter.TypeFilter;
 public class MethodSignature {
 
 	public static String _methodInfo = "";
+	public static String _currentMethodInfo = "";
+
 	public static LinkedHashSet<String> _constructClassSet = new LinkedHashSet<String>();
 
 	/**
@@ -219,6 +221,44 @@ public class MethodSignature {
 	
 	
 
+	
+	public static void currentMethod(CtMethod method) {
+		
+		_currentMethodInfo = "";
+		String signature = method.getSignature();
+		String simpleName = method.getSimpleName();
+		String parameters = "[PARAMETER]";
+		String paras = "";
+		List paramList = method.getParameters();
+		if (paramList.size() > 0) {
+			for (Object param : paramList) {
+				String pa = param.toString();
+				String[] pl = pa.split("\\.");
+				paras = pl[pl.length - 1];
+				parameters += " "+paras;
+			}
+		}
+		
+		String returnType = signature.split(" ")[0];
+		String[] simpleReturnTypeList = returnType.split("\\.");
+		if (simpleReturnTypeList.length > 0) {
+			returnType = simpleReturnTypeList[simpleReturnTypeList.length - 1];
+		}
+		
+
+		_currentMethodInfo = "[METHOD] "+ simpleName +" [TYPE] " + returnType + " "+parameters ;
+		
+	}
+	
+	
+	public static String getCurrentMethod() {
+
+		return _currentMethodInfo;
+		
+	}
+	
+	
+	
 
 	
 

@@ -11,7 +11,13 @@ import spoon.reflect.declaration.CtElement;
 
 public class AddStatement {
 
-	public static void addStatement(CtElement st, String type, int methStart, int methEnd) {
+	public static void add(CtElement st, String type, int methStart, int methEnd) {
+		
+		if(st.toString().contains("_configAndWriteValue") &&  st.toString().contains("try") ) {
+			System.out.print("");
+		}
+		
+		
 		
 		int lineNo1 = st.getPosition().getLine();
 		String lineNo2 = "";
@@ -29,6 +35,13 @@ public class AddStatement {
 		groundTruth = groundTruth.trim();
 
 		String lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
+		
+		if(!";".equals(lastChar)) {
+			return;
+		}
+		
+		
+		
 		if (!";".equals(lastChar) && !"}".equals(lastChar) && !"{".equals(lastChar)) {
 			lineNo2 = lineNo1 + 1 + "";
 			groundTruth += " " + SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
@@ -49,29 +62,32 @@ public class AddStatement {
 		
 		//add similar statement;		
 		
-		String randomCode = StatementAnalysis.getRandomStatementInMethod(st);
+//		String randomCode = StatementAnalysis.getRandomStatementInMethod(st);
 		
-		String perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"statement");
+		String perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"statement",0.3);
 		
 		
-		if(randomCode==null && perturbCode==null) {
+		if( perturbCode==null) {
 			return;
 		}
+	
 		
-		if(randomCode==null) {
-			randomCode = "";
+		
+		
+		if(perturbCode.startsWith("{") || "".equals(perturbCode)) {
+			return ;
 		}
 		
 		if(perturbCode==null) {
-			perturbCode = "";
+			return;
 		}
+		perturbCode = perturbCode.replace("\r", " ").replace("\n", " ");
 		
 		
 		
-		if(SUPREUtil.getRandomDouble()>0.5) {
-			perturbCode += randomCode;
-		}
+
 		
+		groundTruth = " ";
 
 		
 		

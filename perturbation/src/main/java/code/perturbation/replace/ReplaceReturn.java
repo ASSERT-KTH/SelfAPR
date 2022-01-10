@@ -90,8 +90,8 @@ public class ReplaceReturn {
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo2)) {
-			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.8) {
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"return");
+			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.75) {
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"return",null);
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode+" ;";

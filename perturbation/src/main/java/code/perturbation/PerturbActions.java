@@ -6,8 +6,10 @@ import java.util.List;
 import code.analysis.MethodSignature;
 import code.analysis.StatementAnalysis;
 import code.analysis.Variables;
+import code.perturbation.add.AddCondition;
 import code.perturbation.add.AddStatement;
 import code.perturbation.remove.Remove;
+import code.perturbation.remove.RemoveTry;
 import code.perturbation.replace.Replace;
 import code.utils.SUPREUtil;
 import spoon.reflect.code.CtBlock;
@@ -25,6 +27,7 @@ import spoon.support.reflect.code.CtAssignmentImpl;
 import spoon.support.reflect.code.CtForEachImpl;
 import spoon.support.reflect.code.CtIfImpl;
 import spoon.support.reflect.code.CtReturnImpl;
+import spoon.support.reflect.code.CtTryImpl;
 import spoon.support.reflect.declaration.CtFieldImpl;
 
 public class PerturbActions {
@@ -39,25 +42,44 @@ public class PerturbActions {
 			return;
 		}
 
-//		if (type.contains("declaration") || type.contains("return") ) {
-//			Replace.replace(st, type, methStart, methEnd);
-//		}
+		if (type.contains("declaration") || type.contains("return") ) {
+			Replace.replace(st, type, methStart, methEnd);
+		}
 
-		else 
-			if (type.contains("condition") && r>0.0) {
+		else if (type.contains("condition") ) {
+			if(r>0.6) {
 			Remove.remove(st, type, methStart, methEnd);
+			} else if(r>0.1){
+			Replace.replace(st, type, methStart, methEnd);
+			} else {
+			Replace.replace(st, type, methStart, methEnd);
+			AddCondition.add(st, type, methStart, methEnd);
+			}
 		}	
 		
 		else if( type.contains("statement") ){
-			AddStatement.addStatement(st, type, methStart, methEnd);
+			r = SUPREUtil.getRandomDouble();
+			if(r>0.25) {
+			Replace.replace(st, type, methStart, methEnd);
+			} else if (r>0.1) {
+			Remove.remove(st, type, methStart, methEnd);
+			} else {
+			Replace.replace(st, type, methStart, methEnd);
+			AddStatement.add(st, type, methStart, methEnd);
+			}
 		}
 		
 		
-//		else if (r > 0.99) {
-//			Replace.replace(st, type, methStart, methEnd);
-//		} else {
-//			Remove.remove(st, type, methStart, methEnd);
-//		}
+		else if( type.contains("try") ){
+			RemoveTry.remove(st, type, methStart, methEnd);
+		}
+		
+		
+		else if (r > 0.99) {
+			Replace.replace(st, type, methStart, methEnd);
+		} else {
+			Remove.remove(st, type, methStart, methEnd);
+		}
 
 	}
 
@@ -70,8 +92,8 @@ public class PerturbActions {
 	 */
 	public static void perturb(List<CtFieldImpl> fieldList, List<CtConstructor> constructorList,
 			List<CtMethod> methodList) {
-//		 fieldPerturb(fieldList);
-//		 constructorPerturb(constructorList);
+		 fieldPerturb(fieldList);
+		 constructorPerturb(constructorList);
 		 methodPerturb(methodList);
 
 	}
@@ -81,6 +103,7 @@ public class PerturbActions {
 			List<CtVariable> variablesList = method.getElements(new TypeFilter<CtVariable>(CtVariable.class));
 			Variables.getVariables (variablesList ) ;	
 			StatementAnalysis.analysis(method);
+			MethodSignature.currentMethod(method);
 
 			SourcePosition position = method.getPosition();
 			int methStart = position.getLine();
@@ -102,21 +125,25 @@ public class PerturbActions {
 					
 					 if (fors.size() > 0) {
 						for(CtForEachImpl foreach: fors ) {
+							if(methEnd - methStart > 15) {
 							methStart = foreach.getParent().getPosition().getLine();
 							methEnd = foreach.getParent().getPosition().getEndLine();
+							}
 						PerturbActions.randomPerturb(foreach, "for", methStart, methEnd);
 						}
 					 }
 					
 					else if (conditions.size() > 0) {
 						for(CtIfImpl cond: conditions ) {
+							
+							if(methEnd - methStart > 15) {
 							int blockStart = cond.getParent().getPosition().getLine();
 							int endStart = cond.getParent().getPosition().getEndLine();
 							
 							if( blockStart != endStart ) {
 								methStart = blockStart;
 								methEnd = endStart;
-							}
+							}}
 							
 							CtStatement statement = cond.getElseStatement();
 							if(statement!=null) {
@@ -130,6 +157,8 @@ public class PerturbActions {
 
 					} else if (states.size() > 0) {
 						// CtAssignmentImpl
+						
+						if(methEnd - methStart > 15) {
 						int pos= st.getPosition().getLine();
 						int blockStart = st.getParent().getPosition().getLine();
 						int endStart = st.getParent().getPosition().getEndLine();
@@ -138,17 +167,27 @@ public class PerturbActions {
 							methStart = blockStart;
 							methEnd = endStart;
 						}
+						}
 						
 						
 						List<CtAssignmentImpl> assignments = st.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));						
 						List<CtReturnImpl> returns = st.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
-											
+						List<CtTryImpl> trys = st.getElements(new TypeFilter<CtTryImpl>(CtTryImpl.class));
+
+						
+						
+						
 						if(assignments.size()>0) {
 							PerturbActions.randomPerturb(st, "assignment", methStart, methEnd);
 						}
 						else if(returns.size()>0) {
 							PerturbActions.randomPerturb(st, "return", methStart, methEnd);
-						}					
+						}	
+						
+						else if(trys.size()>0) {
+							PerturbActions.randomPerturb(st, "try", methStart, methEnd);
+						}
+						
 						else {																											
 							PerturbActions.randomPerturb(st, "statement", methStart, methEnd);
 						}
