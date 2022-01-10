@@ -3,6 +3,7 @@ package code.perturbation.replace;
 import java.util.HashMap;
 import java.util.List;
 
+import code.analysis.ConditionAnalysis;
 import code.output.result.PerturbResult;
 import code.perturbation.ConstructorPerturbation;
 import code.perturbation.InvocationPerturbation;
@@ -97,17 +98,17 @@ public class ReplaceCondition {
 		
 		// remove && || !
 
-		if (SUPREUtil.getRandomDouble() > 0.5 && groundTruth.contains("if")) {
-
+		if (SUPREUtil.getRandomDouble() > 0.65 && groundTruth.contains("if")) {
 			if (perturbCode == null) {
 				perturbCode = groundTruth;
 			}
-
+			
 			/**
 			 * 
 			 * split condition with && and ||
 			 */
 			if (perturbCode.contains("||") || perturbCode.contains("&&")) {
+				
 				String sepStr = "";
 				if (perturbCode.contains("||")) {
 					sepStr = "||";
@@ -140,6 +141,40 @@ public class ReplaceCondition {
 					perturbCode = begin + " " + right;
 				}
 			}
+			} else {
+				
+				//add additional conditions
+				CtExpression<Boolean> booleanExpression = ( CtExpression<Boolean> ) ((CtIfImpl) st).getCondition();
+				String newCond = ConditionAnalysis.getConditions(booleanExpression.toString(),0.2);
+				if(newCond!=null) {
+					if(perturbCode==null) {
+						perturbCode = groundTruth;
+					}
+					
+					String operator = SUPREUtil.getRandomDouble() > 0.5 ? " && " : " || ";
+					if(SUPREUtil.getRandomDouble() > 0.3) {
+					int index = perturbCode.indexOf(")");
+					String before = perturbCode.substring(0,index);
+					String after = perturbCode.substring(index, perturbCode.length());	
+					String extbracket = "";
+					if(before.contains("(") && before.split("\\(").length>2) {
+						extbracket=" ) ";
+					}
+					
+					 perturbCode = before+ extbracket+ operator + newCond+" " + after;
+						System.out.print("");
+
+					} else {
+						int index = perturbCode.indexOf("(");
+						String before = perturbCode.substring(0,index+1);
+						String after = perturbCode.substring(index, perturbCode.length());					
+						 perturbCode = before+" "+ newCond+ operator + after;
+							System.out.print("");
+
+					}
+					
+				}
+				
 			}
 
 		}
@@ -155,15 +190,12 @@ public class ReplaceCondition {
 
 			if ((perturbCode.contains("equals") || perturbCode.contains("contains"))) {
 
-				
-
 				if (SUPREUtil.getRandomDouble() > 0.6) {
 					if (perturbCode.contains("equals")) {
 						perturbCode.replace("equals", "contains");
 					} else if (perturbCode.contains("contains")) {
 						perturbCode.replace("contains", "equals");
 					}
-
 				}
 
 			}

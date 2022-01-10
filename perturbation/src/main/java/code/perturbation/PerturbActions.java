@@ -3,6 +3,7 @@ package code.perturbation;
 import java.util.HashMap;
 import java.util.List;
 
+import code.analysis.ConditionAnalysis;
 import code.analysis.MethodSignature;
 import code.analysis.StatementAnalysis;
 import code.analysis.Variables;
@@ -41,7 +42,11 @@ public class PerturbActions {
 		if (o instanceof NoSourcePosition) {
 			return;
 		}
-
+		
+		
+		
+		try {
+			
 		if (type.contains("declaration") || type.contains("return") ) {
 			Replace.replace(st, type, methStart, methEnd);
 		}
@@ -80,6 +85,12 @@ public class PerturbActions {
 		} else {
 			Remove.remove(st, type, methStart, methEnd);
 		}
+			
+		} catch(Exception e) {
+			
+			System.out.print("=============exception========="+e);
+			
+		}
 
 	}
 
@@ -104,6 +115,8 @@ public class PerturbActions {
 			Variables.getVariables (variablesList ) ;	
 			StatementAnalysis.analysis(method);
 			MethodSignature.currentMethod(method);
+			ConditionAnalysis.currentConditions(method);
+
 
 			SourcePosition position = method.getPosition();
 			int methStart = position.getLine();

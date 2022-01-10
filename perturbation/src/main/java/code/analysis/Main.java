@@ -49,8 +49,8 @@ public class Main {
 	
 	
 	public static void main(String[] args) {		
-		path = args[0];
-//		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/Bears-2/src/main/java/com/fasterxml/jackson/databind/ObjectWriter.java";
+//		path = args[0];
+		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/Bears-2/src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java";
 
 		sourceReader(path);	
 	}
@@ -121,10 +121,7 @@ public class Main {
 		
 
 		
-		
-		
-		//write the context info in the first row
-//		PerturbResult.getCorruptedResultContext(classinfo+" "+ variableinfo+" "+methodInfo) ;
+
 		
 		
 		//Data corruption		

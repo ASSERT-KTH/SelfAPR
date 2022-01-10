@@ -23,6 +23,10 @@ public class InvocationPerturbation {
 		if (groundTruth == null) {
 			return null;
 		}
+		
+		if(st.toString().contains("size") || st.toString().contains("length")  ) {
+			System.out.print("");
+		}
 
 		/**
 		 * filter invocation and arguments

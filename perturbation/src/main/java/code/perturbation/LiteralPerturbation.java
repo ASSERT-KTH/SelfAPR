@@ -7,6 +7,7 @@ import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.reference.CtTypeReference;
 import spoon.reflect.visitor.filter.TypeFilter;
+import spoon.support.reflect.code.CtBinaryOperatorImpl;
 import spoon.support.reflect.code.CtInvocationImpl;
 import spoon.support.reflect.code.CtLiteralImpl;
 import spoon.support.reflect.code.CtVariableReadImpl;
@@ -30,6 +31,19 @@ public class LiteralPerturbation {
 			if (type.contains("int")) {
 				String randInt = value + "";
 				while (randInt.equals(value + "")) {
+					
+				if(groundTruth.contains("size") || groundTruth.contains("length") ) {
+					randInt = SUPREUtil.getRandomInt(1)+" ";
+					perturbCode = groundTruth.replace(value + "", randInt + "");
+					
+					//operator:
+					List<CtBinaryOperatorImpl> ops = st.getElements(new TypeFilter<CtBinaryOperatorImpl>(CtBinaryOperatorImpl.class));
+					System.out.print("");
+
+				}
+					
+					
+				else {
 					if (r > 0.7) {
 						randInt = SUPREUtil.getRandomInt((Integer) valueObj) + SUPREUtil.getRandomInt(5)+"";
 					} else if (r > 0.4) {
@@ -39,10 +53,10 @@ public class LiteralPerturbation {
 					}else  {
 						randInt = randInt + SUPREUtil.getRandomActionOperator("") + SUPREUtil.getRandomInt(5);
 					}
-										
-					
-				}
+				}						
 				perturbCode = groundTruth.replace(value + "", randInt + "");
+
+				}
 			}
 
 			else if (type.contains("long")) {

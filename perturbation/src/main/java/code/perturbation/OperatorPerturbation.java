@@ -22,6 +22,14 @@ public class OperatorPerturbation {
 		TypeFilter<CtBinaryOperatorImpl> bOfilter = new TypeFilter<CtBinaryOperatorImpl>(CtBinaryOperatorImpl.class);
 		List<CtBinaryOperatorImpl> operators = st.getElements(bOfilter);
 
+		if (st.toString().contains("size") || st.toString().contains("length")) {
+			System.out.print("");
+		}
+		
+		
+		
+		
+		
 		if (operators.size() == 0) {
 			return null;
 		}
@@ -30,6 +38,11 @@ public class OperatorPerturbation {
 		if (operators.size() > 0) {
 			logicOperator = operators.get(0);
 		}
+		
+		
+		
+		
+		
 
 		/**
 		 * a = (b == c) ? d: e;
@@ -74,6 +87,76 @@ public class OperatorPerturbation {
 				}
 			}
 		}
+		
+		
+		
+		//check getLeftHandOperand length & size
+				if(groundTruth.contains("length") || groundTruth.contains("size")  ){
+					groundTruth = groundTruth.replace(" ( ", "(");
+					groundTruth = groundTruth.replace(" ) ", ")");		
+					
+					
+					String oldstr="";
+					String newstr = "";
+					
+					if(groundTruth.contains("size()")){
+						oldstr = "size()";
+						newstr = "length()";
+					} else if(groundTruth.contains("length()")){
+						oldstr = "length()";
+						newstr = "size()";
+
+					} else {
+						oldstr = "length";
+						newstr = "length()";
+					}
+					
+					if(groundTruth.contains(oldstr)){
+						r = SUPREUtil.getRandomDouble();
+						if(r>0.8) {
+						corruptedCode = groundTruth.replace(oldstr, newstr);
+						} else if(r>0.4) {
+						String newop = SUPREUtil.getRandomDouble()>0.5 ? " + ":" - ";
+						String newint = 	SUPREUtil.getRandomInt(5)+1+"";	
+						newstr = oldstr+newop+newint;
+						corruptedCode = groundTruth.replace(oldstr, newstr);
+						} else  {
+							String newop = SUPREUtil.getRandomDouble()>0.5 ? " * ":" / ";
+							if(SUPREUtil.getRandomDouble()>0.7) {
+								newop = " % ";
+							}
+							String newint = SUPREUtil.getRandomDouble()>0.5 ? " 0.5 ":" 2";		
+							newstr = oldstr+newop+newint;
+
+							
+							corruptedCode = groundTruth.replace(oldstr, newstr);					
+						}				
+					}								
+					
+					
+					if(corruptedCode!=null) {
+						
+						corruptedCode = corruptedCode.replace("(", " ( ");
+						corruptedCode = corruptedCode.replace(")", " ) ");
+						
+						return corruptedCode;
+						
+					}
+				
+				}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 		/**
 		 * 
@@ -109,6 +192,15 @@ public class OperatorPerturbation {
 				}
 			}
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 		/**
 		 * we care about other operators == != operators
@@ -166,11 +258,11 @@ public class OperatorPerturbation {
 						String[] choice = {">=","==",">","<=","!="};		
 						newop = " "	+choice[ SUPREUtil.getRandomInt(5)]+" ";
 					}else if(op.contains("==")) {
-						String[] choice = {">=","<",">","<=","!=","&&"};		
-						newop = " "	+choice[ SUPREUtil.getRandomInt(6)]+" ";
+						String[] choice = {"||","!=","&&"};		
+						newop = " "	+choice[ SUPREUtil.getRandomInt(3)]+" ";
 					}else if(op.contains("!=")) {
-						String[] choice = {">=","<",">","<=","=="};		
-						newop = " "	+choice[ SUPREUtil.getRandomInt(5)]+" ";
+						String[] choice = {"==","=="};		
+						newop = " "	+choice[ SUPREUtil.getRandomInt(2)]+" ";
 					}					
 					
 					corruptedCode = groundTruth.replace(op, newop );
@@ -203,8 +295,8 @@ public class OperatorPerturbation {
 			if (groundTruth.contains("instanceof") && r > 0.2) {
 				// the right hand is a class
 				String newConstruct = MethodSignature.getRandomClass(rightStr);
-				if(groundTruth.contains(leftStr) && newConstruct!=null) {
-				corruptedCode = groundTruth.replaceFirst(leftStr, newConstruct);
+				if(groundTruth.contains(" "+leftStr) && newConstruct!=null) {
+				corruptedCode = groundTruth.replaceFirst(" "+leftStr, newConstruct);
 				}
 
 			}
