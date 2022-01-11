@@ -82,7 +82,7 @@ public class AddStatement {
 		}
 		else {
 			//add condition wrap this statement;	
-			 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"condition",0.2,"null");
+			 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"condition",0.3,"null");
 			if(perturbCode==null) {
 				return;
 			}

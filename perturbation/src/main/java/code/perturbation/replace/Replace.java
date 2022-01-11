@@ -55,15 +55,15 @@ public class Replace {
 		}
 		
 		if (type.contains("condition")) {
-			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0);
+			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,2);
 		}
 
 		 if (type.contains("return")) {
-			 ReplaceReturn.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0);
+			 ReplaceReturn.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,2);
 		 }		 
 		 
 		 if (type.contains("statement") || type.contains("for") ) {
-			 ReplaceStatement.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0);
+			 ReplaceStatement.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,2);
 		 }
 		 
 

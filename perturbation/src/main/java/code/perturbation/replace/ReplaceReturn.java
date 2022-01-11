@@ -84,13 +84,24 @@ public class ReplaceReturn {
 				perturbCode = newperturbCode;
 			}
 		}
+		
+		
+		if ((groundTruth.equals(perturbCode) || perturbCode==null) && groundTruth.contains("this")) {
+			
+			perturbCode = groundTruth.replace("this", "null");
+		}
+
+		
+		
 
 		
 		/**
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo2)) {
-			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.75) {
+			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2) || SUPREUtil.getRandomDouble() > 0.8) {
+				System.out.println("sim return");
+
 				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"return",null,null);
 				if(newperturbCode!=null) {
 				newperturbCode =  newperturbCode.replace("\r", " ");

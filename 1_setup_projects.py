@@ -51,7 +51,22 @@ def compileBug(bugId,repodir):
 
 
 if __name__ == '__main__':
-    bugIds = ['Bears-2']
+    # Bears-2 FasterXML-jackson-databind 
+    # Bears-27 INRIA-spoon
+    # Bears-90 spring-projects-spring-data-commons
+    # Bears-98 traccar-traccar
+    # Bears-142 activiti-activiti
+    # Bears-143 2018swecapstone-h2ms
+    # Bears-147 aicis-fresco
+    # Bears-183 spring-cloud-spring-cloud-gcp
+    # Bears-184 spring-projects-spring-data-jpa
+    # Bears-186 swagger-api-swagger-codegen
+    # Bears-188 szfmv2018-tavasz-automatedcar
+    # Bears-222 jgrapht-jgrapht-443997242-444189432
+    # Bears-245 square-javapoet
+    # bugIds = ['Bears-2','Bears-90','Bears-98','Bears-245','Bears-147']
+
+    bugIds = ['Bears-90']
     rootdir= '/Users/sophie/Documents/SUPRE'
     repodir = rootdir+'/PerturbProjects'
 

@@ -112,10 +112,10 @@ public class ReplaceStatement {
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo2)) {
-			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.8) {
-				System.out.print("");
+			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2)|| SUPREUtil.getRandomDouble() > 0.8) {
+				System.out.println("sim statement");
 				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"statement",0.75,null);
-				System.out.print("");
+				System.out.println("sim statement");
 				if(newperturbCode!=null) {
 
 				newperturbCode =  newperturbCode.replace("\r", " ");

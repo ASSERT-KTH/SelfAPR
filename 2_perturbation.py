@@ -36,7 +36,10 @@ def traveProject(projectPath):
 
 
 if __name__ == '__main__':
-    bugIds = ['Bears-2']
+    
+    # bugIds = ['Bears-2','Bears-27']
+
+    bugIds = ['Bears-90']
     rootdir= '/Users/sophie/Documents/SUPRE'
     repodir = rootdir+'/PerturbProjects'
 

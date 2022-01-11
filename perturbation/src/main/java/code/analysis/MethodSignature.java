@@ -263,6 +263,20 @@ public class MethodSignature {
 	
 
 	public static String getMethodSignature(List<CtMethod> methodList) {
+		
+		 _methByParamSize = new HashMap<Integer, HashMap<String, LinkedHashSet<String>>>();
+
+	
+	 _methByNameAndParams = new HashMap<String, LinkedHashSet<String>>();
+
+		 _methodByReturnType = new HashMap<String, LinkedHashSet<String>>();
+
+		 _methodByMethodNames = new HashMap<String, LinkedHashSet<String>>();
+
+		
+		
+		
+		
 
 		for (CtMethod method : methodList) {
 			String signature = method.getSignature();

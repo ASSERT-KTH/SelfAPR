@@ -2,6 +2,13 @@ package code.perturbation;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import code.analysis.ConditionAnalysis;
 import code.analysis.MethodSignature;
@@ -32,9 +39,11 @@ import spoon.support.reflect.code.CtTryImpl;
 import spoon.support.reflect.declaration.CtFieldImpl;
 
 public class PerturbActions {
+	
 
 	public static void randomPerturb(CtElement st, String type, int methStart, int methEnd) {
 
+		System.out.print("st:"+st+"type"+type);
 		double r = SUPREUtil.getRandomDouble();
 
 		Object o = st.getPosition();
@@ -44,9 +53,9 @@ public class PerturbActions {
 		}
 		
 		
-		
 		try {
-			
+				
+	        
 		if (type.contains("declaration") || type.contains("return") ) {
 			Replace.replace(st, type, methStart, methEnd);
 		}
@@ -82,11 +91,10 @@ public class PerturbActions {
 			Remove.remove(st, type, methStart, methEnd);
 		}
 			
-		} catch(Exception e) {
-			
-			System.out.println("=============exception========="+e.getLocalizedMessage());
-			
+		} catch(Exception e) {			
+			System.out.println("=============exception========="+e.getLocalizedMessage());			
 		}
+//		}
 
 	}
 
@@ -157,27 +165,35 @@ public class PerturbActions {
 							CtStatement elseStatement = cond.getElseStatement();
 							if(elseStatement!=null) {
 								PerturbActions.randomPerturb(elseStatement, "condition", methStart, methEnd);
-								List<CtAssignmentImpl> assignments = elseStatement.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));						
-								List<CtReturnImpl> returns = elseStatement.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
-								List<CtTryImpl> trys = elseStatement.getElements(new TypeFilter<CtTryImpl>(CtTryImpl.class));
-								
-								
-								if(assignments.size()>0) {
-									for(CtAssignmentImpl a : assignments) {
-									PerturbActions.randomPerturb(a, "assignment", methStart, methEnd);
+							
+								List<CtIfImpl> subconditions = elseStatement.getElements(condfilter);
+								if(subconditions.size()>0) {
+									for(CtIfImpl subcond : subconditions) {
+									PerturbActions.randomPerturb(subcond, "condition", methStart, methEnd);
+									}
+								}else {	
+									List<CtReturnImpl> returns = elseStatement.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
+									List<CtAssignmentImpl> assignments = elseStatement.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));						
+
+									if(returns.size()>0) {
+										for(CtReturnImpl r : returns) {
+										PerturbActions.randomPerturb(r, "return", methStart, methEnd);
+										}
+									}
+									else if(assignments.size()>0) {
+										for(CtAssignmentImpl a : assignments) {
+											PerturbActions.randomPerturb(a, "assignment", methStart, methEnd);
+											}
+										}
+									else {					
+									PerturbActions.randomPerturb(elseStatement, "statement", methStart, methEnd);
 									}
 								}
-								if(returns.size()>0) {
-									for(CtReturnImpl r : returns) {
-									PerturbActions.randomPerturb(r, "return", methStart, methEnd);
-									}
-								}	
 								
-								 if(trys.size()>0) {
-									for(CtTryImpl t : trys) {
-									PerturbActions.randomPerturb(t, "try", methStart, methEnd);
-									}
-								}
+								
+								
+								
+								
 							}
 							
 							
@@ -187,44 +203,40 @@ public class PerturbActions {
 
 
 								List<CtIfImpl> subconditions = thenStatement.getElements(condfilter);
-								List<CtAssignmentImpl> assignments = thenStatement.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));						
-								List<CtReturnImpl> returns = thenStatement.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
-								List<CtTryImpl> trys = thenStatement.getElements(new TypeFilter<CtTryImpl>(CtTryImpl.class));
+								
 								
 								if(subconditions.size()>0) {
 									for(CtIfImpl subcond : subconditions) {
 									PerturbActions.randomPerturb(subcond, "condition", methStart, methEnd);
 									}
 								}
-								
-								if(assignments.size()>0) {
-									for(CtAssignmentImpl a : assignments) {
-									PerturbActions.randomPerturb(a, "assignment", methStart, methEnd);
+																		
+								else {	
+									List<CtReturnImpl> returns = thenStatement.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
+									List<CtAssignmentImpl> assignments = thenStatement.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));						
+
+									if(returns.size()>0) {
+										for(CtReturnImpl r : returns) {
+										PerturbActions.randomPerturb(r, "return", methStart, methEnd);
+										}
 									}
-								}
-								if(returns.size()>0) {
-									for(CtReturnImpl r : returns) {
-									PerturbActions.randomPerturb(r, "return", methStart, methEnd);
-									}
-								}	
-								
-								if(trys.size()>0) {
-									for(CtTryImpl t : trys) {
-									PerturbActions.randomPerturb(t, "try", methStart, methEnd);
-									}
-								}
-								
-								else {																											
+									else if(assignments.size()>0) {
+										for(CtAssignmentImpl a : assignments) {
+											PerturbActions.randomPerturb(a, "assignment", methStart, methEnd);
+											}
+										}
+									
+									
+									else {					
 									PerturbActions.randomPerturb(thenStatement, "statement", methStart, methEnd);
+									}
 								}
 								
 								
 							}
 
 							
-							
-							Object con = cond.getCondition();
-							PerturbActions.randomPerturb(cond, "condition", methStart, methEnd);
+										PerturbActions.randomPerturb(cond, "condition", methStart, methEnd);
 
 							
 						}
@@ -248,19 +260,19 @@ public class PerturbActions {
 						List<CtReturnImpl> returns = st.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
 						List<CtTryImpl> trys = st.getElements(new TypeFilter<CtTryImpl>(CtTryImpl.class));
 
-						
+						//todo add declaration!!
 						if(assignments.size()>0) {
 							for(CtAssignmentImpl a : assignments) {
 							PerturbActions.randomPerturb(a, "assignment", methStart, methEnd);
 							}
 						}
-						if(returns.size()>0) {
+						else if(returns.size()>0) {
 							for(CtReturnImpl r : returns) {
 							PerturbActions.randomPerturb(r, "return", methStart, methEnd);
 							}
 						}	
 						
-						if(trys.size()>0) {
+						else if(trys.size()>0) {
 							for(CtTryImpl t : trys) {
 							PerturbActions.randomPerturb(t, "try", methStart, methEnd);
 							}

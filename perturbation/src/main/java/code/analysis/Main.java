@@ -57,11 +57,6 @@ public class Main {
 	
 	
 	
-// note
-//	.size() +/ randomInt
-//	.length +/- randomInt  hashArea.length + 4
-// for loop
-	
 	
 	public static String getPathDir ( ) {
 		return path;

@@ -149,6 +149,24 @@ public class ExecutableAnalysis {
 
 	public static void analysis(CtElement st){
 		
+	 _exectByParamSize = new HashMap<Integer, LinkedHashSet<String>>();
+
+		/**
+		 * key: method names values: parameters type split by space
+		 */
+		_execByNameAndParams = new HashMap<String, LinkedHashSet<String>>();
+
+		/**
+		 * key: return type value: method names
+		 */
+		 _exectuableBydeclaringType = new HashMap<String, LinkedHashSet<String>>();
+
+		/**
+		 * key: method names value: return type
+		 */
+		 _exectuableByNames = new HashMap<String, LinkedHashSet<String>>();
+		
+		
 		
 		List<CtInvocationImpl> invocations = st.getElements(new TypeFilter<CtInvocationImpl>(CtInvocationImpl.class));
 		List<CtExecutableReference> executables = st.getElements(new TypeFilter<CtExecutableReference>(CtExecutableReference.class));

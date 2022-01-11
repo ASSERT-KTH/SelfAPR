@@ -38,11 +38,11 @@ public class SimilarityPerturbation {
 		
 
 		
-		if("return".equals(type)) {
+		if("return".equals(type) && groundTruth.contains("return")) {
 			targetList = _returnList;		
-		} else if("condition".equals(type)) {
+		} else if("condition".equals(type) && (groundTruth.contains("if") || groundTruth.contains("else"))) {
 			targetList = _conditionList;		
-		} else if("statement".equals(type)) {
+		} else if("statement".equals(type) &&  !groundTruth.contains("if")  &&  !groundTruth.contains("return")) {
 			targetList = _statementList;
 		}else if("assignment".equals(type)) {
 			targetList = _assignmentList;
@@ -73,7 +73,7 @@ public class SimilarityPerturbation {
 				}		
 				
 				
-				if(count>targetList.size()/2 && SUPREUtil.getRandomDouble()>0.6 && maxScore>similarity) {
+				if( maxScore>similarity) {
 					break;
 				}
 			}			
@@ -109,6 +109,12 @@ public class SimilarityPerturbation {
 	
 	
 	public static void analysis(CtElement root) {
+		_statementList = new ArrayList<String>();
+		_returnList = new ArrayList<String>();
+		_conditionList = new ArrayList<String>();
+		_assignmentList = new ArrayList<String>();		
+		
+		
 		List<CtMethod> methodList = root.getElements(new TypeFilter<CtMethod>(CtMethod.class));				
 
 		for (CtMethod method : methodList) {

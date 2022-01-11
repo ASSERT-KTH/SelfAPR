@@ -17,48 +17,90 @@ def traveProject(bugId,projectPath,repodir):
                 print(p)
                 with open(p,'r') as perturbFile:
                     lines = perturbFile.readlines()
-                    if len(lines)>1:
-                        for k in range(1,len(lines)):
+                    if len(lines)>0:
+                        for k in range(0,len(lines)):
                             line = lines[k]
-                            constructTrainSample(bugId, line, p, repodir, lines[0])
-                break
+                            # if 'REMOVE' in line:
+                            constructTrainSample(bugId, lines[k], p, repodir, False)
+                                # break
         else:
             traveProject(bugId,p,repodir)
 
 
-def constructTrainSample(bugId,line,targetfile,repodir,metaInfo):
+def constructTrainSample(bugId,line,targetfile,repodir,diagnosticFlag):
 
-    metaInfo = metaInfo.replace('  ','').replace('\r','').replace('\n','')
+    print(line)
     sample=''
     cxt=''
     filename = targetfile.split('/')[-1]
     originFile = targetfile.replace("Perturbation-Bears-","Bears-")
 
-    diagnosticMsg = diagnostic(bugId,line,targetfile,repodir)
-
+    if not '^' in line:
+        return
     infos = line.split('^')
-    curruptCode =  infos[0]
-    cxtStart = infos[6]
-    cxtEnd = infos[7]
-    groundTruth = infos[8]
-    groundTruth = groundTruth.replace('  ','').replace('\r','').replace('\n','')
+    if len(infos) < 11:
+        return
+    if len(infos) > 11:
+        return
+    curruptCode =  infos[1]
+    curruptCode = curruptCode.replace('.',' . ')
+    if curruptCode.startswith('}'):
+        curruptCode = curruptCode[1:]
+
+    lineNo1 =  infos[2] 
+    lineNo2 =  infos[3] 
+    lineNo3 =  infos[4] 
+    lineNo4 =  infos[5]
+    lineNo5 =  infos[6]
+    cxtStart = infos[7]
+    cxtEnd = infos[8]
+    groundTruth = infos[9]
+    metaInfo = infos[10]
+    groundTruth = groundTruth.replace('  ',' ').replace('\r','').replace('\n','').replace('.',' . ')
+    action = infos[0] 
+
+    try:
+        string_int = int(lineNo1)
+    except ValueError:
+        return
+
+
+
+
+    
+    # get diagnostic by execution
+    diagnosticMsg = diagnostic(bugId,line,targetfile,repodir,action,diagnosticFlag)
+    
     #get context info
     if cxtStart not in '' and cxtEnd not in '':
         with open(originFile,'r') as perturbFile:
             lines = perturbFile.readlines()
             for i in range(0,len(lines)):
-                if i+1 > int(cxtStart) and i < int(cxtEnd):
+                if i > int(cxtStart)-2 and i < int(cxtEnd):
                     l = lines[i]
                     l = l.strip()
+                    #remove comments
+                    if  l.startswith('/') or l.startswith('*'):
+                        l = ' '
                     l = l.replace('  ','').replace('\r','').replace('\n','')
-                    cxt+=l
+                    l = l.replace('(',' ( ').replace(')',' ) ')
+                    l = l.replace('.',' . ')
+                    if i == int(lineNo1)-1:
+                        l='[ATTENTION] '+l
+                    cxt+=l+' '
 
-    # # resume the original file
+    # resume the original file
     os.system("mv "+repodir+"/"+filename +"  "+originFile)
 
-    sample+='[BUGGY] ' + curruptCode + '[CONTEXT]' + cxt +' '+diagnosticMsg+'  '+ metaInfo
+    sample+='[BUGGY] ' + curruptCode + diagnosticMsg+ ' [CONTEXT] ' + cxt +' '+'  '+ metaInfo
+    sample = sample.replace(',',' , ').replace(';',' ; ').replace('=',' = ').replace('  ',' ').replace('\r','').replace('\n','')
 
     with open(repodir+'/train.csv','a')  as csvfile:
+        filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
+                                quoting=csv.QUOTE_NONE)               
+        filewriter.writerow([groundTruth,sample])
+
+    with open(repodir+'/train-'+bugId+'.csv','a')  as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
                                 quoting=csv.QUOTE_NONE)               
         filewriter.writerow([groundTruth,sample])
@@ -68,7 +110,8 @@ def constructTrainSample(bugId,line,targetfile,repodir,metaInfo):
 
 
 
-def diagnostic(bugId,line,targetfile,repodir):
+def diagnostic(bugId,line,targetfile,repodir,action,executeFlag):
+    line=line.replace('\r','').replace('\n','')
     filename = targetfile.split('/')[-1]
     print("target targetfile:"+targetfile)
     originFile = targetfile.replace("Perturbation-Bears-","Bears-")
@@ -82,62 +125,88 @@ def diagnostic(bugId,line,targetfile,repodir):
     
     print("target line:"+line)
     infos = line.split('^')
-    curruptCode =  infos[0]  
-    lineNo1 =  infos[1] 
-    lineNo2 =  infos[2] 
-    lineNo3 =  infos[3] 
-    lineNo4 =  infos[4]
-    lineNo5 =  infos[5]
-    print("curruptCode:",curruptCode)
-    print("lineNo1:",lineNo1)
-    print("lineNo2:",lineNo2)
-    print("lineNo3:",lineNo3)
-    
-    # read and perturb code 
-    with open(originFile,'r') as perturbFile:
-        lines = perturbFile.readlines()
-        for i in range(0,len(lines)):
-            if i+1< int(lineNo1) or i+1 > int(lineNo1)+4:
-                perturbStr+=lines[i]
-            elif i+1==int(lineNo1):
-                perturbStr+=curruptCode+"\n"
-            elif i+1==int(lineNo1)+1: 
-                if lineNo2=='':
+    curruptCode =  infos[1]  
+    lineNo1 =  infos[2] 
+    lineNo2 =  infos[3] 
+    lineNo3 =  infos[4] 
+    lineNo4 =  infos[5]
+    lineNo5 =  infos[6]
+
+    if "ADD" in action or "REPLACE" in action:
+        # read and perturb code 
+        with open(originFile,'r') as perturbFile:
+            lines = perturbFile.readlines()
+            for i in range(0,len(lines)):
+                if i+1< int(lineNo1) or i+1> int(lineNo1)+4:
                     perturbStr+=lines[i]
-                else:
-                    perturbStr+=" \n"
-            elif i+1==int(lineNo1)+2:
-                if lineNo3=='':
+                elif i+1==int(lineNo1):
+                    perturbStr+=curruptCode+"\n"
+                elif i+1==int(lineNo1)+1: 
+                    if lineNo2=='':
+                        perturbStr+=lines[i]
+                    else:
+                        perturbStr+=" \n"
+                elif i+1==int(lineNo1)+2:
+                    if lineNo3=='':
+                        perturbStr+=lines[i]
+                    else:
+                        perturbStr+=" \n"
+                elif i+1==int(lineNo1)+3:  
+                    if lineNo4=='':
+                        perturbStr+=lines[i]
+                    else:
+                        perturbStr+=" \n"
+                elif i+1==int(lineNo1)+4:
+                    if lineNo5=='':
+                        perturbStr+=lines[i]
+                    else:
+                        perturbStr+=" \n"
+    elif "REMOVE" in action :
+        with open(originFile,'r') as perturbFile:
+            lines = perturbFile.readlines()
+            for i in range(0,len(lines)):
+                if i+1< int(lineNo1) or i+1> int(lineNo1)+4:
                     perturbStr+=lines[i]
-                else:
-                    perturbStr+=" \n"
-            elif i+1==int(lineNo1)+3:  
-                if lineNo4=='':
-                    perturbStr+=lines[i]
-                else:
-                    perturbStr+=" \n"
-            elif i+1==int(lineNo1)+4:
-                if lineNo5=='':
-                    perturbStr+=lines[i]
-                else:
-                    perturbStr+=" \n"
+                elif i+1==int(lineNo1):
+                    perturbStr+= lines[i]+" \n" +curruptCode
+                elif i+1==int(lineNo1)+1: 
+                    if lineNo2=='':
+                        perturbStr+=lines[i]
+                    else:
+                        perturbStr+=" \n"
+                elif i+1==int(lineNo1)+2:
+                    if lineNo3=='':
+                        perturbStr+=lines[i]
+                    else:
+                        perturbStr+=" \n"
+                elif i+1==int(lineNo1)+3:  
+                    if lineNo4=='':
+                        perturbStr+=lines[i]
+                    else:
+                        perturbStr+=" \n"
+                elif i+1==int(lineNo1)+4:
+                    if lineNo5=='':
+                        perturbStr+=lines[i]
+                    else:
+                        perturbStr+=" \n"
+
+
   
     # write back the perturb code to class file
     with open(originFile,'w') as perturbFileWrite:
         perturbFileWrite.write(perturbStr)
 
-    compile_result = compileBug(bugId,repodir,originFile)
+    if executeFlag:
+        compile_result = compileBug(bugId,repodir,originFile,action,line)
+    else:
+        compile_result=''
     
-
-
-
-
     return compile_result
 
 
 
 
-def compileBug(bugId,repodir,originFile):
+def compileBug(bugId,repodir,originFile,action,line):
     results=''
     scriptdir = '/Users/sophie/Documents/SUPRE/bears-benchmark/customizedBearScript'
     os.chdir(scriptdir)
@@ -145,24 +214,26 @@ def compileBug(bugId,repodir,originFile):
     print(compilestring)
     results = os.popen(compilestring).read()
     print(results)
-    if 'COMPILATION ERROR' in results:
-        if originFile in results :   
-            results = results.split(originFile)[1]
+    print('[ERROR] '+ originFile)
+
+    if 'COMPILATION ERROR' in results and '[ERROR]' in results :
+        if originFile in results and '[ERROR] ' in results:
+            results = results.split('[ERROR] '+ originFile)[1]
+            print('[ERROR] '+ originFile)
             if ']' in results:
                 results = results.split(']')[1]
-            if '[ERROR' in results:
-                results = results.split('[ERROR')[0]
+                results = results.split('\n')[0]
+            if '[' in results:
+                results = results.split('[')[0]  
             results =  results.strip()
-            if 'in' in results:
-                results = results.split(' in ')[0]
             results = '[CE] ' + results
-    elif 'Tests in error:' in results or 'Failed tests:' in results or 'BUILD FAILURE' in results:
-            rs = results.split('\n')
-            for r in rs:
-                if 'Failures: 0,' not in r:
-                    results=r
-                    break
-            results = results.split(' in ')[1]
+    elif 'Tests in error:' in results or 'Failed tests:' in results:
+            if '<<< ERROR!' in results:
+                results = results.split('<<< ERROR!')[1]
+                # Exception:
+            if '<<< FAILURE!' in results:
+                results = results.split('<<< FAILURE!')[1]
+                results = results.split('\n\n')[0]
             results = '[FE] ' + results
 
     elif 'BUILD SUCCESS' in results:
@@ -171,14 +242,16 @@ def compileBug(bugId,repodir,originFile):
     with open(repodir+'/diagnostic.csv','a')  as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
                                 quoting=csv.QUOTE_NONE)               
-        filewriter.writerow([results])
+        filewriter.writerow([action,results,line])
 
     return results
 
 
 
 if __name__ == '__main__':
+    # bugIds = ['Bears-2','Bears-90']
     bugIds = ['Bears-2']
+    
     rootdir= '/Users/sophie/Documents/SUPRE'
     repodir = rootdir+'/PerturbProjects'
 

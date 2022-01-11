@@ -168,6 +168,9 @@ public class Variables {
 
 	public static void getFiles(List<CtFieldImpl> fieldsList) {
 
+		 _fieldByTypeMap = new HashMap<String, Set<String>>();
+
+		
 		for (CtFieldImpl variable : fieldsList) {
 			String variableType = variable.getType().getSimpleName();
 			String variableName = variable.getSimpleName();
