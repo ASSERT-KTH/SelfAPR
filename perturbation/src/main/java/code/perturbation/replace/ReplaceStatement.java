@@ -114,11 +114,16 @@ public class ReplaceStatement {
 		if("".equals(lineNo2)) {
 			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.8) {
 				System.out.print("");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"statement",0.75);
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"statement",0.75,null);
 				System.out.print("");
+				if(newperturbCode!=null) {
+
+				newperturbCode =  newperturbCode.replace("\r", " ");
+				newperturbCode =  newperturbCode.replace("\n", " ");
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode+" ;";
+				}
 				}
 
 			}		

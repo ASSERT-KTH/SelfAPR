@@ -49,8 +49,8 @@ public class Main {
 	
 	
 	public static void main(String[] args) {		
-//		path = args[0];
-		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/Bears-2/src/main/java/com/fasterxml/jackson/databind/util/LRUMap.java";
+		path = args[0];
+//		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/Bears-2/src/main/java/com/fasterxml/jackson/databind/ObjectWriter.java";
 
 		sourceReader(path);	
 	}

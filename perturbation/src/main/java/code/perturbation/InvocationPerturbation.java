@@ -24,7 +24,8 @@ public class InvocationPerturbation {
 			return null;
 		}
 		
-		if(st.toString().contains("size") || st.toString().contains("length")  ) {
+		
+		if (groundTruth.contains("public V get ( Object key )")){
 			System.out.print("");
 		}
 
@@ -62,8 +63,8 @@ public class InvocationPerturbation {
 
 				if (newMethod != null && !"".equals(newMethod)) {
 					if (newMethod != null && !"".equals(newMethod)) {
-						String start = groundTruth.split("."+excStr)[0];
-						String later = groundTruth.split("."+excStr)[1];
+						String start = groundTruth.split("\\."+excStr)[0];
+						String later = groundTruth.split("\\."+excStr)[1];
 						String end = "";
 						int lst = later.indexOf(")");
 						if (later.length() > 2 && lst > 2) {

@@ -19,6 +19,8 @@ public class AddCondition {
 		String lineNo4 = "";
 
 		String groundTruth = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1);
+		
+		
 		if (groundTruth == null) {
 			return;
 		}
@@ -34,10 +36,14 @@ public class AddCondition {
 		//add similar statement;		
 		
 		
-		String perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"condition", 0.5);
+		String perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"condition", 0.4,"null");
 		
 		if(perturbCode==null) {
 			return;
+		}
+		
+		if(perturbCode.contains("null") &&perturbCode.contains("if") && perturbCode.contains("rerurn") ) {
+			return; //always good to have null checker
 		}
 		
 		perturbCode = perturbCode.replace("\n", " ").replace("\r", " ");

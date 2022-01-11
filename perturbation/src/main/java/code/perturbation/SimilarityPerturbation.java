@@ -27,13 +27,15 @@ public class SimilarityPerturbation {
 	
 	
 	
-	public static String perturb(CtElement st, String groundTruth, String type, Double similarity) {
+	public static String perturb(CtElement st, String groundTruth, String type, Double similarity, String withoutStr) {
 
 		List<String> targetList = new ArrayList<String>();
 		
 		if(similarity==null) {
 			similarity=0.75;
 		}
+		
+		
 
 		
 		if("return".equals(type)) {
@@ -55,14 +57,25 @@ public class SimilarityPerturbation {
 		//get the most similar statement
 		double maxScore=0;
 		String simStatement=null;
-		
+		int count = 0;
 		for(String s : targetList) {
-			if(!st.toString().equals(s)) {		
+			if(!st.toString().equals(s)) {	
+				if(withoutStr!=null) {
+					String cond = s.split("\\{")[0];
+					if(cond.contains(withoutStr)) {
+						break;
+					}
+				}
 				double score = EditDistance.similarity(s, st.toString());
 				if (score > maxScore && score>similarity) {
 					maxScore = score;
 					simStatement = s;
-				}				
+				}		
+				
+				
+				if(count>targetList.size()/2 && SUPREUtil.getRandomDouble()>0.6 && maxScore>similarity) {
+					break;
+				}
 			}			
 		}	
 		
@@ -70,6 +83,9 @@ public class SimilarityPerturbation {
 			
 			String simpleSimStatement = "";
 			String[] strs = simStatement.split(" ");
+			if(simStatement.contains("catch")){
+				System.out.println("");
+			}
 			for(String s: strs) {
 				if(s.contains(".")) {
 					String[] dotSize = s.split("\\.");				

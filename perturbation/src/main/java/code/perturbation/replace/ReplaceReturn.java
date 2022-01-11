@@ -91,11 +91,13 @@ public class ReplaceReturn {
 		 */
 		if("".equals(lineNo2)) {
 			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.75) {
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"return",null);
-				
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"return",null,null);
+				if(newperturbCode!=null) {
+				newperturbCode =  newperturbCode.replace("\r", " ");
+				newperturbCode =  newperturbCode.replace("\n", " ");
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode+" ;";
-				}
+				} }
 				
 			}		
 		}

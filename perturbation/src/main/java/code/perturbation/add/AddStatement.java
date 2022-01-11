@@ -13,10 +13,7 @@ public class AddStatement {
 
 	public static void add(CtElement st, String type, int methStart, int methEnd) {
 		
-		if(st.toString().contains("_configAndWriteValue") &&  st.toString().contains("try") ) {
-			System.out.print("");
-		}
-		
+	
 		
 		
 		int lineNo1 = st.getPosition().getLine();
@@ -33,6 +30,8 @@ public class AddStatement {
 		 * We care about the complete block at most three lines
 		 */
 		groundTruth = groundTruth.trim();
+		
+		String action="[REMOVE]";
 
 		String lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 		
@@ -58,22 +57,16 @@ public class AddStatement {
 			}
 		}
 		
-		
+		String perturbCode = null;;
 		
 		//add similar statement;		
-		
-//		String randomCode = StatementAnalysis.getRandomStatementInMethod(st);
-		
-		String perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"statement",0.3);
-		
-		
+		if(SUPREUtil.getRandomDouble()>0.3) {
+		 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"statement",0.3,null);
+				
 		if( perturbCode==null) {
 			return;
 		}
 	
-		
-		
-		
 		if(perturbCode.startsWith("{") || "".equals(perturbCode)) {
 			return ;
 		}
@@ -83,11 +76,29 @@ public class AddStatement {
 		}
 		perturbCode = perturbCode.replace("\r", " ").replace("\n", " ");
 		
-		
-		
-
-		
+		perturbCode = perturbCode +" ; ";
+				
 		groundTruth = " ";
+		}
+		else {
+			//add condition wrap this statement;	
+			 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"condition",0.2,"null");
+			if(perturbCode==null) {
+				return;
+			}
+			
+			
+			if(perturbCode.contains("{")) {
+				int index = perturbCode.indexOf("{");
+				String before = perturbCode.substring(0, index);
+				
+				perturbCode = before + " { "+ groundTruth + " } ";
+				action="[REPLACE]";
+				
+			}
+		}
+		
+		
 
 		
 		
@@ -109,7 +120,7 @@ public class AddStatement {
 		map.put("groundTruth", groundTruth);
 		map.put("methodStart", methStart + "");
 		map.put("methodEnd", methEnd + "");
-		map.put("repairAction", "[REMOVE]");
+		map.put("repairAction", action);
 
 		PerturbResult.getCorruptedResult(map);
 		
