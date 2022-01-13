@@ -80,10 +80,43 @@ public class PerturbResult {
 		String filename = Main.getPathDir();
 		if(filename.contains("Bears")) {
 		filename = filename.replace("Bears-", "Perturbation-Bears-");
-		} else if (filename.contains("fastjson")) {
-			filename = filename.replace("fastjson", "Perturbation-fastjson");
+		} else if (filename.contains("Lang")) {
+			filename = filename.replace("Lang", "Perturbation-Lang");
+		}else if (filename.contains("Math")) {
+			filename = filename.replace("Math", "Perturbation-Math");
+		}else if (filename.contains("Mockito")) {
+			filename = filename.replace("Mockito", "Perturbation-Mockito");
+		}else if (filename.contains("Time")) {
+			filename = filename.replace("Time", "Perturbation-Time");
+		}else if (filename.contains("Closure")) {
+			filename = filename.replace("Closure", "Perturbation-Closure");
+		}else if (filename.contains("Cli")) {
+			filename = filename.replace("Cli", "Perturbation-Cli");
+		}else if (filename.contains("Codec")) {
+			filename = filename.replace("Codec", "Perturbation-Codec");
+		}else if (filename.contains("Compress")) {
+			filename = filename.replace("Compress", "Perturbation-Compress");
+		}else if (filename.contains("Csv")) {
+			filename = filename.replace("Csv", "Perturbation-Csv");
+		}else if (filename.contains("Gson")) {
+			filename = filename.replace("Gson", "Perturbation-Gson");
+		}else if (filename.contains("JacksonCore")) {
+			filename = filename.replace("JacksonCore", "Perturbation-JacksonCore");
+		}else if (filename.contains("JacksonDatabind")) {
+			filename = filename.replace("JacksonDatabind", "Perturbation-JacksonDatabind");
+		}else if (filename.contains("JacksonXml")) {
+			filename = filename.replace("JacksonXml", "Perturbation-JacksonXml");
+		}else if (filename.contains("Jsoup")) {
+			filename = filename.replace("Jsoup", "Perturbation-Jsoup");
+		}else if (filename.contains("JxPath")) {
+			filename = filename.replace("JxPath", "Perturbation-JxPath");
+		}else if (filename.contains("Chart")) {
+			filename = filename.replace("Chart", "Perturbation-Chart");
 		}
 		
+//		else {
+//			filename="./perturbationFile.txt";
+//		}
 		
 		String dir = (String) filename.subSequence(0,filename.lastIndexOf("/"));
 		//create this new patch and file

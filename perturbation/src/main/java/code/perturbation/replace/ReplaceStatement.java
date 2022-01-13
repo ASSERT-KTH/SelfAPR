@@ -122,7 +122,7 @@ public class ReplaceStatement {
 		/**
 		 * check if the perturbation fails,we iteratively perturb until the count
 		 */
-		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
+		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<2 ) {
 			perturb( st, type, methStart, methEnd,  groundTruth, lineNo1,
 					lineNo2, lineNo3,lineNo4, count+1);
 		} else if(!(groundTruth.equals(perturbCode) && perturbCode!=null )){		
