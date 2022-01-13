@@ -50,6 +50,9 @@ public class Main {
 	
 	public static void main(String[] args) {		
 		path = args[0];
+		
+//		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/fastjson/src/main/java/com/alibaba/fastjson/util/TypeUtils.java";
+
 		sourceReader(path);	
 	}
 	

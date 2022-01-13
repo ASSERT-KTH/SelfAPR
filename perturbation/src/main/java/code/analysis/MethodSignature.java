@@ -303,9 +303,9 @@ public class MethodSignature {
 			}
 
 			// the first character is type
-			if (Character.isUpperCase(returnType.charAt(0))) {
-				_constructClassSet.add(returnType);
-			}
+//			if (Character.isUpperCase(returnType.charAt(0))) {
+//				_constructClassSet.add(returnType);
+//			}
 
 			// update _methByNameAndParams
 			if (_methByNameAndParams.containsKey(simpleName)) {

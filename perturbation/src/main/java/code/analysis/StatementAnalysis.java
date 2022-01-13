@@ -138,7 +138,11 @@ public class StatementAnalysis {
 
 		List<CtStatement> statementsList = method.getElements(new TypeFilter<CtStatement>(CtStatement.class));
 		for(CtStatement s :statementsList) {
+			try {
 			_statementInMethod.add(s.toString());
+			} catch (Exception e) {
+				System.out.println("=============exception=========" + e.getLocalizedMessage());
+			}
 		}
 		
 	}

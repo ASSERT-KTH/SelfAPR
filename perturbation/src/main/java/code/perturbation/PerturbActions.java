@@ -49,6 +49,7 @@ import spoon.support.reflect.declaration.CtFieldImpl;
 public class PerturbActions {
 
 	public static void randomPerturb(CtElement st, String type, int methStart, int methEnd) {
+		try {
 		String stStr = st.toString().replace("\r", " ").replace("\n", " ");
 		 System.out.println( " ==== type =====" + type+ "===== st: ====" + stStr );
 		double r = SUPREUtil.getRandomDouble();
@@ -61,7 +62,7 @@ public class PerturbActions {
 		
 
 
-		try {
+
 
 			if (type.contains("declaration") || type.contains("return") ) {
 				Replace.replace(st, type, methStart, methEnd);

@@ -107,7 +107,7 @@ public class ReplaceStatement {
 		if("".equals(lineNo2)) {
 			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble()>0.7) {
 				System.out.println("sim statement");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,0.6,null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,0.65 - (0.9 * count),null);
 				if(newperturbCode!=null) {
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {

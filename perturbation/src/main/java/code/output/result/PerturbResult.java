@@ -78,7 +78,11 @@ public class PerturbResult {
 		System.out.println(emsembleStr);
 //		copy targetFile
 		String filename = Main.getPathDir();
+		if(filename.contains("Bears")) {
 		filename = filename.replace("Bears-", "Perturbation-Bears-");
+		} else if (filename.contains("fastjson")) {
+			filename = filename.replace("fastjson", "Perturbation-fastjson");
+		}
 		
 		
 		String dir = (String) filename.subSequence(0,filename.lastIndexOf("/"));

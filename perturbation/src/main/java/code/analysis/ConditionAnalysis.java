@@ -83,9 +83,9 @@ public class ConditionAnalysis {
 
 		for (CtIfImpl cond : conditions) {
 			// condition
-			CtExpression<Boolean> booleanExpression = cond.getCondition();
-			_booleanExpCurrentMethod.add(booleanExpression.toString());
-			_booleanExpCurrentClass.add(booleanExpression.toString());
+//			CtExpression<Boolean> booleanExpression = cond.getCondition();
+//			_booleanExpCurrentMethod.add(booleanExpression.toString());
+//			_booleanExpCurrentClass.add(booleanExpression.toString());
 
 			System.out.print("");
 		}

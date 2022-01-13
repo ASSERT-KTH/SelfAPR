@@ -1,6 +1,7 @@
 package code.perturbation;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import code.analysis.Variables;
@@ -27,22 +28,20 @@ import spoon.support.reflect.code.CtWhileImpl;
 
 public class SimilarityPerturbation {
 
-	static List<String> _statementList = new ArrayList<String>();
-	static List<String> _returnList = new ArrayList<String>();
-	static List<String> _conditionList = new ArrayList<String>();
-	static List<String> _assignmentList = new ArrayList<String>();
-	static List<String> _constructorCallList = new ArrayList<String>();
-	static List<String> _localVariableImpllList = new ArrayList<String>();
-	static List<String> _throwsList = new ArrayList<String>();
-	static List<String> _tryList = new ArrayList<String>();
+	static HashSet<String> _statementList = new HashSet<String>();
+	static HashSet<String> _returnList = new HashSet<String>();
+	static HashSet<String> _conditionList = new HashSet<String>();
+	static HashSet<String> _assignmentList = new HashSet<String>();
+	static HashSet<String> _constructorCallList = new HashSet<String>();
+	static HashSet<String> _localVariableImpllList = new HashSet<String>();
+	static HashSet<String> _throwsList = new HashSet<String>();
+	static HashSet<String> _tryList = new HashSet<String>();
+	static HashSet<String> _conditionHeadList = new HashSet<String>();
 
 	public static String perturb(CtElement st, String groundTruth, String type, Double similarity, String withoutStr) {
 
-		if (groundTruth.contains("pp =  ( PrettyPrinter )")) {
-			System.out.print("");
-		}
 
-		List<String> targetList = null;
+		HashSet<String> targetList = null;
 
 		if (similarity == null) {
 			similarity = 0.7;
@@ -50,7 +49,10 @@ public class SimilarityPerturbation {
 
 		if ("return".equals(type) && groundTruth.contains("return")) {
 			targetList = _returnList;
-		} else if ("condition".equals(type) && (groundTruth.contains("if") || groundTruth.contains("else"))) {
+		} else if("conditionhead".equals(type) ) {
+			targetList = _conditionHeadList;
+		}		
+		else if ("condition".equals(type) && (groundTruth.contains("if") || groundTruth.contains("else"))) {
 			targetList = _conditionList;
 		} else if ("statement".equals(type) && !groundTruth.contains("if") && !groundTruth.contains("return")) {
 			targetList = _statementList;
@@ -74,23 +76,25 @@ public class SimilarityPerturbation {
 		double maxScore = 0;
 		String simStatement = null;
 		int count = 0;
+		String target = "conditionhead".equals(type) ? groundTruth : st.toString();	
+		
 		for (String s : targetList) {
-			if (!st.toString().equals(s)) {
+			if (!target.equals(s)) {
 				if (withoutStr != null) {
 					String cond = s.split("\\{")[0];
 					if (cond.contains(withoutStr)) {
 						break;
 					}
 				}
-				double score = EditDistance.similarity(s, st.toString());
+				double score = EditDistance.similarity(s, target);
 				if (score > maxScore && score > similarity) {
 					maxScore = score;
 					simStatement = s;
 				}
 
-//				if (maxScore > similarity || count>targetList.size()/2) {
-//					break;
-//				}
+				if (maxScore > similarity || count>targetList.size()/2) {
+					break;
+				}
 			}
 		}
 
@@ -128,14 +132,15 @@ public class SimilarityPerturbation {
 	}
 
 	public static void analysis(CtElement root) {
-		_statementList = new ArrayList<String>();
-		_returnList = new ArrayList<String>();
-		_conditionList = new ArrayList<String>();
-		_assignmentList = new ArrayList<String>();
-		_constructorCallList = new ArrayList<String>();
-		_localVariableImpllList = new ArrayList<String>();
-		_throwsList = new ArrayList<String>();
-		_tryList = new ArrayList<String>();
+		_statementList = new HashSet<String>();
+		_returnList = new HashSet<String>();
+		_conditionList = new HashSet<String>();
+		_assignmentList = new HashSet<String>();
+		_constructorCallList = new HashSet<String>();
+		_localVariableImpllList = new HashSet<String>();
+		_throwsList = new HashSet<String>();
+		_tryList = new HashSet<String>();
+		_conditionHeadList = new HashSet<String>();
 		
 		List<CtConstructor> constructorList = root.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));		
 
@@ -163,7 +168,11 @@ public class SimilarityPerturbation {
 					List<CtStatement> states = sts.getElements(new TypeFilter<CtStatement>(CtStatement.class));
 
 					for (CtStatement st : states) {
+						try {
 							statementProcess(st);
+					} catch (Exception e) {
+						System.out.println("=============exception=========" + e.getLocalizedMessage());
+					}
 						}
 					}
 				}
@@ -200,7 +209,19 @@ public class SimilarityPerturbation {
 				CtStatement elsestate = c.getElseStatement();
 				CtStatement thenstate = c.getThenStatement();
 
+				if(c!=null) {
 				_conditionList.add(c.toString());
+				String line1 = SUPREUtil.getSpecificLine(c.getPosition(), c.getPosition().getLine());
+				line1 = line1.trim();
+
+				String lastChar = line1.charAt(line1.length() - 1) + "";
+
+				if ( !"{".equals(lastChar)) {
+					line1 += " " + SUPREUtil.getSpecificLine(st.getPosition(), c.getPosition().getLine() + 1).trim();
+				}
+				_conditionHeadList.add(line1);
+
+				}
 
 				if (elsestate != null) {
 					statementProcess(elsestate);
@@ -235,7 +256,16 @@ public class SimilarityPerturbation {
 
 		if (returns.size() > 0) {
 			for (CtReturnImpl r : returns) {
-				_returnList.add(r.toString());
+				
+				String line1 = SUPREUtil.getSpecificLine(r.getPosition(), r.getPosition().getLine());
+				line1 = line1.trim();
+				String lastChar = line1.charAt(line1.length() - 1) + "";
+
+				if ( !";".equals(lastChar)) {
+					line1 += " " + SUPREUtil.getSpecificLine(st.getPosition(), r.getPosition().getLine() + 1).trim();
+				}
+				_returnList.add(line1);
+				
 			}
 		}
 

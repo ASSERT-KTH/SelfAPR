@@ -1,0 +1,8 @@
+[REPLACE]^private static final  short  serialVersionUID = 1561562297;^18^^^^^^^[REPLACE] private static final long serialVersionUID = 1561562297L;^ [CLASS] QAbstractAuditable  
+[REPLACE]^public static final QAbstractAuditable abstractAuditable  = null ;^20^^^^^^^[REPLACE] public static final QAbstractAuditable abstractAuditable = new QAbstractAuditable ( "abstractAuditable" ) ;^ [CLASS] QAbstractAuditable  
+[REPLACE]^public final QAbstractPersistable _super  = null ;^22^^^^^^^[REPLACE] public final QAbstractPersistable _super = new QAbstractPersistable ( this ) ;^ [CLASS] QAbstractAuditable  
+[REPLACE]^public  SimplePath<Object> createdBy = createSimple ( "createdBy", Object.class ) ;^24^^^^^^^[REPLACE] public final SimplePath<Object> createdBy = createSimple ( "createdBy", Object.class ) ;^ [CLASS] QAbstractAuditable  
+[REPLACE]^private final DateTimePath<java.util.Date> createdDate = createDateTime ( "createdDate", java.util.Date.class ) ;^26^^^^^^^[REPLACE] public final DateTimePath<java.util.Date> createdDate = createDateTime ( "createdDate", java.util.Date.class ) ;^ [CLASS] QAbstractAuditable  
+[REPLACE]^public  SimplePath<java.io.Serializable> id = _super.id;^29^^^^^^^[REPLACE] public final SimplePath<java.io.Serializable> id = _super.id;^ [CLASS] QAbstractAuditable  
+[REPLACE]^public final SimplePath<Object> lastModifiedBy ;^31^^^^^^^[REPLACE] public final SimplePath<Object> lastModifiedBy = createSimple ( "lastModifiedBy", Object.class ) ;^ [CLASS] QAbstractAuditable  
+[REPLACE]^public final DateTimePath<java.util.Date> lastModifiedDate  = null ;^33^^^^^^^[REPLACE] public final DateTimePath<java.util.Date> lastModifiedDate = createDateTime ( "lastModifiedDate", java.util.Date.class ) ;^ [CLASS] QAbstractAuditable  

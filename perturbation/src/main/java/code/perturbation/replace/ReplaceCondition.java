@@ -10,6 +10,7 @@ import code.perturbation.InvocationPerturbation;
 import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
 import code.perturbation.OperatorPerturbation;
+import code.perturbation.SimilarityPerturbation;
 import code.perturbation.TypePerturbation;
 import code.perturbation.VariablePerturbation;
 import code.utils.SUPREUtil;
@@ -228,6 +229,29 @@ public class ReplaceCondition {
 
 		}
 
+		
+		
+		if("".equals(lineNo3)) {
+			if (((groundTruth.equals(perturbCode) || perturbCode==null)) || SUPREUtil.getRandomDouble() > 0.8) {
+				System.out.println("sim condition head");
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"conditionhead",0.75 - (0.9*count),null);
+				if(newperturbCode!=null) {
+				if(newperturbCode!=null && !"".equals(newperturbCode)) {
+					perturbCode = newperturbCode+" ;";
+				} }
+				
+			}		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {

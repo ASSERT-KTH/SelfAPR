@@ -116,11 +116,11 @@ public class ReplaceReturn {
 		/**
 		 * similarity perturbation on the single line
 		 */
-		if("".equals(lineNo2)) {
+		if("".equals(lineNo3)) {
 			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2) || SUPREUtil.getRandomDouble() > 0.8) {
 				System.out.println("sim return");
 
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,null,null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,0.7 - (0.9*count),null);
 				if(newperturbCode!=null) {
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode+" ;";

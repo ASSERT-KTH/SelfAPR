@@ -1,0 +1,2 @@
+[REPLACE]^private static final Logger LOGGER  = null ;^50^^^^^^^[REPLACE] private static final Logger LOGGER = LoggerFactory.getLogger ( JpaRepositoryExtension.class ) ;^ [CLASS] JpaRepositoryExtension  
+[REPLACE]^private final Map<Set<Annotation>, Bean<EntityManager>> entityManagers  = null ;^52^^^^^^^[REPLACE] private final Map<Set<Annotation>, Bean<EntityManager>> entityManagers = new HashMap<Set<Annotation>, Bean<EntityManager>> (  ) ;^ [CLASS] JpaRepositoryExtension  

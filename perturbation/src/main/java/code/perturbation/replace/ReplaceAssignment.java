@@ -76,9 +76,9 @@ public class ReplaceAssignment {
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo2)) {
-			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble() > 0.8) {
+			if ((groundTruth.equals(perturbCode) || perturbCode==null)  || SUPREUtil.getRandomDouble() > 0.8) {
 				System.out.print("");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"assignment", 0.7,null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"assignment", 0.7 - (0.9*(count)),null);
 				System.out.print("");
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
@@ -158,7 +158,7 @@ public class ReplaceAssignment {
 		if("".equals(lineNo2)) {
 			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2)|| SUPREUtil.getRandomDouble() > 0.8) {
 				System.out.println("sim assignment");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,0.65,null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,0.65-(count*0.9),null);
 				System.out.println("sim statement");
 				if(newperturbCode!=null) {
 				
