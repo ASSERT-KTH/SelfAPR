@@ -1,0 +1,1 @@
+[REPLACE]^public static final NamedQueries EMPTY ;^30^^^^^^^[REPLACE] public static final NamedQueries EMPTY = new PropertiesBasedNamedQueries ( new Properties (  )  ) ;^ [CLASS] PropertiesBasedNamedQueries  

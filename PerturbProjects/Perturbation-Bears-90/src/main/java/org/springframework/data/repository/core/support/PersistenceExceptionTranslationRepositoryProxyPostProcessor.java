@@ -1,0 +1,1 @@
+[REPLACE]^private  PersistenceExceptionTranslationInterceptor interceptor;^32^^^^^^^[REPLACE] private final PersistenceExceptionTranslationInterceptor interceptor;^ [CLASS] PersistenceExceptionTranslationRepositoryProxyPostProcessor  

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import code.output.result.PerturbResult;
+import code.perturbation.ConstructorPerturbation;
 import code.perturbation.InvocationPerturbation;
 import code.perturbation.LiteralPerturbation;
 import code.perturbation.OperatorPerturbation;
@@ -22,7 +23,7 @@ import spoon.support.reflect.code.CtVariableReadImpl;
 
 public class ReplaceReturn {
 
-	public static void perturb(CtElement st, int methStart, int methEnd, String groundTruth, int lineNo1,
+	public static void perturb(CtElement st, String type, int methStart, int methEnd, String groundTruth, int lineNo1,
 			String lineNo2, String lineNo3, String lineNo4,int count) {
 		
 		String perturbCode = null;
@@ -59,6 +60,23 @@ public class ReplaceReturn {
 				perturbCode = newperturbCode;
 			}
 		}
+		
+		
+		
+		/**
+		 * constructor
+		 */
+		if (perturbCode == null) {
+			perturbCode = ConstructorPerturbation.perturb(st, groundTruth);
+		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = ConstructorPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
+		}
+		
+		
+		
 		
 		/**
 		 * variable
@@ -102,10 +120,8 @@ public class ReplaceReturn {
 			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2) || SUPREUtil.getRandomDouble() > 0.8) {
 				System.out.println("sim return");
 
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"return",null,null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,null,null);
 				if(newperturbCode!=null) {
-				newperturbCode =  newperturbCode.replace("\r", " ");
-				newperturbCode =  newperturbCode.replace("\n", " ");
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode+" ;";
 				} }
@@ -119,7 +135,7 @@ public class ReplaceReturn {
 				
 			
 		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
-			perturb( st, methStart, methEnd,  groundTruth, lineNo1,
+			perturb( st, type, methStart, methEnd,  groundTruth, lineNo1,
 					lineNo2, lineNo3,lineNo4, count+1);
 		} else {
 			

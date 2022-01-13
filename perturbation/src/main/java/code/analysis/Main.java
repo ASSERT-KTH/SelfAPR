@@ -50,8 +50,6 @@ public class Main {
 	
 	public static void main(String[] args) {		
 		path = args[0];
-//		path = "/Users/sophie/Documents/SUPRE/PerturbProjects/Bears-2/src/main/java/com/fasterxml/jackson/databind/ObjectWriter.java";
-
 		sourceReader(path);	
 	}
 	
@@ -83,11 +81,8 @@ public class Main {
 		
 		
 		
-		String classinfo="[CLASS] ";
 		List<CtClass> classList = rootElement.getElements(new TypeFilter<CtClass>(CtClass.class));				
-		for(CtClass c : classList) {
-			
-			classinfo += c.getSimpleName();
+		for(CtClass c : classList) {			
 			ClassAnalysis.analysis(c);
 			SimilarityPerturbation.analysis(c);
 		
@@ -95,28 +90,18 @@ public class Main {
 		List<CtVariable> variablesList = c.getElements(new TypeFilter<CtVariable>(CtVariable.class));
 		List<CtFieldImpl> filedList = c.getElements(new TypeFilter<CtFieldImpl>(CtFieldImpl.class));
 
-
-		Variables.getFiles (filedList ) ;		
-			
+		Variables.getFiles (filedList ) ;					
 		
 		//Get executables
-
-		Constructors . analysis ( c ) ;
+		Constructors.analysis (c) ;
 		ExecutableAnalysis.analysis(c);
-
-				
-		List<CtConstructor> constructors = c.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));					
+			
 		List<CtConstructor> constructorList = c.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));		
 				
 		
 		//Get method signature
 		List<CtMethod> methodList = c.getElements(new TypeFilter<CtMethod>(CtMethod.class));				
 		String methodInfo=MethodSignature.getMethodSignature(methodList);	
-		
-		
-
-		
-
 		
 		
 		//Data corruption		

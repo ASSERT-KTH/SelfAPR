@@ -50,23 +50,28 @@ public class Replace {
 			ReplaceDeclaration.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4);
 		}
 
-		if (type.contains("assignment")) {
-			ReplaceAssignment.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4);
+		else if (type.contains("assignment")  ) {
+			ReplaceAssignment.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0);
 		}
 		
-		if (type.contains("condition")) {
-			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,2);
+		else if (type.contains("condition")) {
+			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0);
 		}
 
-		 if (type.contains("return")) {
-			 ReplaceReturn.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,2);
-		 }		 
+		else if (type.contains("return")) {
+			 ReplaceReturn.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0);
+		 }	
 		 
-		 if (type.contains("statement") || type.contains("for") ) {
-			 ReplaceStatement.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,2);
+		else if(type.contains("throw")) {
+			 ReplaceThrow.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0);
+
 		 }
 		 
-
+		else  {
+			 ReplaceStatement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0);
+		 }
+		 
+		
 
 	}
 

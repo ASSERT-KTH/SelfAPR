@@ -153,6 +153,19 @@ public class LiteralPerturbation {
 					}
 				}
 			}
+			
+			
+			if( perturbCode == null && groundTruth.contains("null")) {
+				 r  = SUPREUtil.getRandomDouble();
+				 if(r>0.7) {
+				 perturbCode = groundTruth.replace("null","this");
+				 } else if(r>0.35) {
+				 perturbCode = groundTruth.replace("null","true");
+				 } else {
+				 perturbCode = groundTruth.replace("null","false");
+				 }
+
+			}
 
 		}
 

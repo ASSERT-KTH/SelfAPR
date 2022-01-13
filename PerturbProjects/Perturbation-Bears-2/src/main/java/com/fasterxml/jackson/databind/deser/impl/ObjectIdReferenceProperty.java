@@ -1,0 +1,4 @@
+[REPLACE]^private static  long serialVersionUID = 1;^16^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] ObjectIdReferenceProperty PropertyReferring  
+[REPLACE]^private  SettableBeanProperty _forward;^18^^^^^^^[REPLACE] private final SettableBeanProperty _forward;^ [CLASS] ObjectIdReferenceProperty PropertyReferring  
+[REPLACE]^private  SettableBeanProperty _parent;^97^^^^^^^[REPLACE] private final ObjectIdReferenceProperty _parent;^ [CLASS] ObjectIdReferenceProperty PropertyReferring  
+[REPLACE]^private  Object _parent;^97^^^^^^^[REPLACE] private final ObjectIdReferenceProperty _parent;^[METHOD] handleResolvedForwardReference [TYPE] void [PARAMETER] Object id Object value [CLASS] PropertyReferring   [TYPE]  Object _pojo  id  instance  ob  value  [TYPE]  boolean false  true  [TYPE]  SettableBeanProperty _forward  forward  [TYPE]  ObjectIdReferenceProperty _parent  parent  src  [TYPE]  long serialVersionUID 

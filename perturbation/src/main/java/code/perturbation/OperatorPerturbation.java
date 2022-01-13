@@ -22,9 +22,6 @@ public class OperatorPerturbation {
 		TypeFilter<CtBinaryOperatorImpl> bOfilter = new TypeFilter<CtBinaryOperatorImpl>(CtBinaryOperatorImpl.class);
 		List<CtBinaryOperatorImpl> operators = st.getElements(bOfilter);
 
-		if (st.toString().contains("size") || st.toString().contains("length")) {
-			System.out.print("");
-		}
 		
 		
 		

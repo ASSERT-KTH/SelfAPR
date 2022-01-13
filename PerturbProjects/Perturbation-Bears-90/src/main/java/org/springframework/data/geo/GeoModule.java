@@ -1,0 +1,1 @@
+[REPLACE]^private static final long serialVersionUID  = null ;^35^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] GeoModule DistanceMixin PointMixin CircleMixin BoxMixin PolygonMixin  

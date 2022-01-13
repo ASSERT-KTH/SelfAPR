@@ -1,0 +1,9 @@
+[REPLACE]^private static final long serialVersionUID ;^15^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] DeserializerFactoryConfig  
+[REPLACE]^protected final static Deserializers[] NO_DESERIALIZERS ;^17^^^^^^^[REPLACE] protected final static Deserializers[] NO_DESERIALIZERS = new Deserializers[0];^ [CLASS] DeserializerFactoryConfig  
+[REPLACE]^protected final static Object NO_MODIFIERS = new BeanDeserializerModifier[3];^18^^^^^^^[REPLACE] protected final static BeanDeserializerModifier[] NO_MODIFIERS = new BeanDeserializerModifier[0];^ [CLASS] DeserializerFactoryConfig  
+[REPLACE]^protected final static AbstractTypeResolver[] NO_ABSTRACT_TYPE_RESOLVERS ;^19^^^^^^^[REPLACE] protected final static AbstractTypeResolver[] NO_ABSTRACT_TYPE_RESOLVERS = new AbstractTypeResolver[0];^ [CLASS] DeserializerFactoryConfig  
+[REPLACE]^protected final static ValueInstantiators[] NO_VALUE_INSTANTIATORS = new ValueInstantiators[0L];^20^^^^^^^[REPLACE] protected final static ValueInstantiators[] NO_VALUE_INSTANTIATORS = new ValueInstantiators[0];^ [CLASS] DeserializerFactoryConfig  
+[REPLACE]^protected final static KeyDeserializers[] DEFAULT_KEY_DESERIALIZERS  = null ;^28^^^^^28^30^[REPLACE] protected final static KeyDeserializers[] DEFAULT_KEY_DESERIALIZERS = new KeyDeserializers[] {^ [CLASS] DeserializerFactoryConfig  
+[REPLACE]^protected  KeyDeserializers[] _additionalKeyDeserializers;^42^^^^^^^[REPLACE] protected final KeyDeserializers[] _additionalKeyDeserializers;^ [CLASS] DeserializerFactoryConfig  
+[REPLACE]^protected  BeanDeserializerModifier[] _modifiers;^48^^^^^^^[REPLACE] protected final BeanDeserializerModifier[] _modifiers;^ [CLASS] DeserializerFactoryConfig  
+[REPLACE]^protected  AbstractTypeResolver[] _abstractTypeResolvers;^55^^^^^^^[REPLACE] protected final AbstractTypeResolver[] _abstractTypeResolvers;^ [CLASS] DeserializerFactoryConfig  

@@ -1,0 +1,1 @@
+[REPLACE]^protected final static JsonInclude.Value EMPTY_INCLUDE ;^23^^^^^^^[REPLACE] protected final static JsonInclude.Value EMPTY_INCLUDE = JsonInclude.Value.empty (  ) ;^ [CLASS] BeanPropertyDefinition  

@@ -9,23 +9,31 @@ import code.analysis.MethodSignature;
 import code.analysis.Variables;
 import code.utils.SUPREUtil;
 import spoon.reflect.declaration.CtElement;
+import spoon.reflect.declaration.CtVariable;
 import spoon.reflect.reference.CtTypeReference;
 import spoon.reflect.visitor.filter.TypeFilter;
+import spoon.support.reflect.code.CtLocalVariableImpl;
 import spoon.support.reflect.code.CtVariableReadImpl;
+import spoon.support.reflect.code.CtVariableWriteImpl;
 
 public class VariablePerturbation {
 
 	public static String perturb(CtElement st, String groundTruth) {
 		List<CtVariableReadImpl> argumentsDuplicates = st
 				.getElements(new TypeFilter<CtVariableReadImpl>(CtVariableReadImpl.class));
+		List<CtVariableWriteImpl> argumentsWDuplicates = st
+				.getElements(new TypeFilter<CtVariableWriteImpl>(CtVariableWriteImpl.class));
+		
+		
 		String corruptedCode = null;
 
 		  List<CtVariableReadImpl> arguments = new ArrayList<CtVariableReadImpl>(new LinkedHashSet<CtVariableReadImpl>(argumentsDuplicates));
 		
-		
+		  List<CtVariableWriteImpl> argumentsWrite = new ArrayList<CtVariableWriteImpl>(new LinkedHashSet<CtVariableWriteImpl>(argumentsWDuplicates));
+
 		
 		// replace argument with the same type argument
-		if (arguments.size() > 0 && SUPREUtil.getRandomDouble() > 0.3) {
+		if (arguments.size() > 0 ) {
 			int i = SUPREUtil.getRandomInt(arguments.size());
             int j=i;
 			if (arguments.size() > 1) {

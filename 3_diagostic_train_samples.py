@@ -250,7 +250,7 @@ def compileBug(bugId,repodir,originFile,action,line):
 
 if __name__ == '__main__':
     # bugIds = ['Bears-2','Bears-90']
-    bugIds = ['Bears-2']
+    bugIds = ['Bears-90']
     
     rootdir= '/Users/sophie/Documents/SUPRE'
     repodir = rootdir+'/PerturbProjects'

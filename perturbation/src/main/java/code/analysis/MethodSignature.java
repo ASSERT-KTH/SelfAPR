@@ -8,7 +8,10 @@ import java.util.TreeSet;
 
 import code.utils.EditDistance;
 import code.utils.SUPREUtil;
+import spoon.reflect.declaration.CtElement;
+import spoon.reflect.declaration.CtExecutable;
 import spoon.reflect.declaration.CtMethod;
+import spoon.reflect.declaration.CtNamedElement;
 import spoon.reflect.visitor.filter.TypeFilter;
 
 public class MethodSignature {
@@ -222,14 +225,14 @@ public class MethodSignature {
 	
 
 	
-	public static void currentMethod(CtMethod method) {
+	public static void currentMethod(CtElement method) {
 		
 		_currentMethodInfo = "";
-		String signature = method.getSignature();
-		String simpleName = method.getSimpleName();
+		String signature = ((CtExecutable) method).getSignature();
+		String simpleName = ((CtNamedElement) method).getSimpleName();
 		String parameters = "[PARAMETER]";
 		String paras = "";
-		List paramList = method.getParameters();
+		List paramList = ((CtExecutable) method).getParameters();
 		if (paramList.size() > 0) {
 			for (Object param : paramList) {
 				String pa = param.toString();

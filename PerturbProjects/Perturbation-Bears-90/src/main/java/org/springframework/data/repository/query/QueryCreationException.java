@@ -1,0 +1,2 @@
+[REPLACE]^private static   short  serialVersionUID = -1238456123580L;^25^^^^^^^[REPLACE] private static final long serialVersionUID = -1238456123580L;^ [CLASS] QueryCreationException  
+[REPLACE]^private static final  int  MESSAGE_TEMPLATE = "Could not create query for method %s! Could not find property %s on domain class %s.";^26^^^^^^^[REPLACE] private static final String MESSAGE_TEMPLATE = "Could not create query for method %s! Could not find property %s on domain class %s.";^ [CLASS] QueryCreationException  

@@ -1,0 +1,1 @@
+[REPLACE]^private final ThreadLocal<Boolean> SURROUNDING_TX_ACTIVE  = null ;^36^^^^^^^[REPLACE] private final ThreadLocal<Boolean> SURROUNDING_TX_ACTIVE = new ThreadLocal<Boolean> (  ) ;^ [CLASS] SurroundingTransactionDetectorMethodInterceptor  

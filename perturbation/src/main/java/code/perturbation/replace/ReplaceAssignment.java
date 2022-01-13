@@ -6,6 +6,7 @@ import java.util.List;
 import code.analysis.AssignmentAnalysis;
 import code.analysis.Variables;
 import code.output.result.PerturbResult;
+import code.perturbation.ConstructorPerturbation;
 import code.perturbation.InvocationPerturbation;
 import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
@@ -23,8 +24,8 @@ import spoon.support.reflect.code.CtVariableWriteImpl;
 
 public class ReplaceAssignment {
 
-	public static void perturb(CtElement st, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3,String lineNo4) {
+	public static void perturb(CtElement st, String type, int methStart, int methEnd, String groundTruth, int lineNo1,
+			String lineNo2, String lineNo3,String lineNo4, int count) {
 		String perturbCode = null;
 		/**
 		 * This is a random number to decide the perturbation
@@ -118,6 +119,17 @@ public class ReplaceAssignment {
 		}
 
 
+		/**
+		 * constructor
+		 */
+		if (perturbCode == null) {
+			perturbCode = ConstructorPerturbation.perturb(st, groundTruth);
+		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = ConstructorPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
+		}
 
 		// replace type
 		if (perturbCode == null) {
@@ -136,6 +148,36 @@ public class ReplaceAssignment {
 			}
 
 		}
+		
+		
+		
+		
+		/**
+		 * similarity perturbation on the single line
+		 */
+		if("".equals(lineNo2)) {
+			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2)|| SUPREUtil.getRandomDouble() > 0.8) {
+				System.out.println("sim assignment");
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,0.65,null);
+				System.out.println("sim statement");
+				if(newperturbCode!=null) {
+				
+				if(newperturbCode!=null && !"".equals(newperturbCode)) {
+					perturbCode = newperturbCode+" ;";
+				}
+				}
+
+			}		
+		}
+		
+		
+		/**
+		 * check if the perturbation fails,we iteratively perturb until the count
+		 */
+		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
+			perturb( st, type, methStart, methEnd,  groundTruth, lineNo1,
+					lineNo2, lineNo3,lineNo4, count+1);
+		} else if(!(groundTruth.equals(perturbCode) && perturbCode!=null )){
 
 		HashMap<String, String> map = new HashMap<String, String>();
 
@@ -156,6 +198,7 @@ public class ReplaceAssignment {
 		System.out.println("replace assignment");
 
 		PerturbResult.getCorruptedResult(map);
+		}
 
 	}
 }

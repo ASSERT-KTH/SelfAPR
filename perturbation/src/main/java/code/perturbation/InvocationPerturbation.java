@@ -25,9 +25,7 @@ public class InvocationPerturbation {
 		}
 		
 		
-		if (groundTruth.contains("public V get ( Object key )")){
-			System.out.print("");
-		}
+		
 
 		/**
 		 * filter invocation and arguments

@@ -35,7 +35,7 @@ import spoon.support.reflect.reference.CtExecutableReferenceImpl;
 
 public class ReplaceStatement {
 
-	public static void perturb(CtElement st,  int methStart, int methEnd, String groundTruth, int lineNo1,
+	public static void perturb(CtElement st, String type, int methStart, int methEnd, String groundTruth, int lineNo1,
 			String lineNo2, String lineNo3, String lineNo4, int count) {
 
 		TypeFilter<CtReturnImpl> returnfilter = new TypeFilter<CtReturnImpl>(CtReturnImpl.class);
@@ -44,19 +44,12 @@ public class ReplaceStatement {
 
 		String perturbCode = null;
 
-		if( groundTruth.contains("try")) {
+		if( groundTruth.contains("tmpGen = gen")) {
 			groundTruth.contains("bb.release");
 		}
 		
 		
-		/**
-		 * operators
-		 */
-		if (perturbCode == null) {
-			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
-			perturbCode = OperatorPerturbation.perturb(st, perturbCode);
-		}
+		
 
 		/**
 		 * operators
@@ -112,14 +105,10 @@ public class ReplaceStatement {
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo2)) {
-			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2)|| SUPREUtil.getRandomDouble() > 0.8) {
+			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble()>0.7) {
 				System.out.println("sim statement");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"statement",0.75,null);
-				System.out.println("sim statement");
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,0.6,null);
 				if(newperturbCode!=null) {
-
-				newperturbCode =  newperturbCode.replace("\r", " ");
-				newperturbCode =  newperturbCode.replace("\n", " ");
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode+" ;";
@@ -134,7 +123,7 @@ public class ReplaceStatement {
 		 * check if the perturbation fails,we iteratively perturb until the count
 		 */
 		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
-			perturb( st, methStart, methEnd,  groundTruth, lineNo1,
+			perturb( st, type, methStart, methEnd,  groundTruth, lineNo1,
 					lineNo2, lineNo3,lineNo4, count+1);
 		} else if(!(groundTruth.equals(perturbCode) && perturbCode!=null )){		
 
@@ -154,10 +143,10 @@ public class ReplaceStatement {
 		map.put("methodStart", methStart + "");
 		map.put("methodEnd", methEnd + "");
 		map.put("repairAction", "[REPLACE]");
-		System.out.println("replace STATEMENT");
 
 		PerturbResult.getCorruptedResult(map);
 		
+		System.out.println("replace "+type);
 
 		}
 		

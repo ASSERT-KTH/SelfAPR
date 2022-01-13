@@ -1,0 +1,1 @@
+[REPLACE]^private final PagingAndSortingRepository<Object, Object repository;^37^^^^^^^[REPLACE] private final PagingAndSortingRepository<Object, Serializable> repository;^ [CLASS] PagingAndSortingRepositoryInvoker  

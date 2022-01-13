@@ -1,0 +1,5 @@
+[REPLACE]^protected LinkedList<Object _referringProperties;^32^^^^^^^[REPLACE] protected LinkedList<Referring> _referringProperties;^ [CLASS] ReadableObjectId Referring  
+[REPLACE]^private Object _resolver;^34^^^^^^^[REPLACE] protected ObjectIdResolver _resolver;^ [CLASS] ReadableObjectId Referring  
+[REPLACE]^private final Object _reference;^139^^^^^^^[REPLACE] private final UnresolvedForwardReference _reference;^ [CLASS] ReadableObjectId Referring  
+[REPLACE]^private final Object _beanType;^140^^^^^^^[REPLACE] private final Class<?> _beanType;^ [CLASS] ReadableObjectId Referring  
+[REPLACE]^private final Object _beanType;^140^^^^^^^[REPLACE] private final Class<?> _beanType;^[METHOD] hasId [TYPE] boolean [PARAMETER] Object id [CLASS] Referring   [TYPE]  boolean false  true  [TYPE]  IdKey _key  key  [TYPE]  UnresolvedForwardReference _reference  ref  [TYPE]  Object id  item  ob  value  [TYPE]  Class _beanType  beanType  [TYPE]  ObjectIdResolver _resolver  resolver  [TYPE]  LinkedList _referringProperties 

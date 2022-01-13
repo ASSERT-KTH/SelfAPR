@@ -1,0 +1,12 @@
+--- /modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java
++++ /modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java
+@@ -85,6 +85,9 @@ public class JavaJAXRSSpecServerCodegen extends AbstractJavaJAXRSServerCodegen
+         }
+         if (additionalProperties.containsKey(INTERFACE_ONLY)) {
+             interfaceOnly = Boolean.valueOf(additionalProperties.get(INTERFACE_ONLY).toString());
++            if (!interfaceOnly) {
++                additionalProperties.remove(INTERFACE_ONLY);
++            }
+         }
+         if (interfaceOnly) {
+             // Change default artifactId if genereating interfaces only, before command line options are applied in base class.
