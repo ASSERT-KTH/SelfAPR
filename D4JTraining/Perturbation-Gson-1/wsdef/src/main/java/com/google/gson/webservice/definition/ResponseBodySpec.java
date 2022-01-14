@@ -1,2 +1,0 @@
-[REPLACE]^private final Map<String, Type> paramsSpec ;^30^^^^^^^[REPLACE] private final Map<String, Type> paramsSpec = new LinkedHashMap<String, Type> (  ) ;^ [CLASS] ResponseBodySpec Builder  
-[REPLACE]^private final Map<String, Type> paramsSpec  = null ;^30^^^^^^^[REPLACE] private final Map<String, Type> paramsSpec = new LinkedHashMap<String, Type> (  ) ;^[METHOD] build [TYPE] ResponseBodySpec [PARAMETER] [CLASS] Builder   [TYPE]  Map paramsSpec  [TYPE]  ResponseBodySpec spec  [TYPE]  boolean false  true 

@@ -1,4 +1,0 @@
-[REPLACE]^ENGLISH_BANK  = null ;^29^^^^^29^50^[REPLACE] ENGLISH_BANK = new AnnualHolidays<NamedAnniversaryFactory.NamedAnniversary, NamedAnniversaryFactory>  (  )  {^ [CLASS] GBHolidays 1  
-[ADD]^^39^40^^^^30^49^[ADD] addFactory ( new NamedAnniversaryFactory ( "Spring Bank Holiday", GBAnniversaries.SPRING_BANK_HOLIDAY )  ) ;^[METHOD] buildFactories [TYPE] void [PARAMETER] [CLASS] GBHolidays 1   [TYPE]  AnnualHolidays ENGLISH_BANK  [TYPE]  boolean false  true 
-[ADD]^^45^46^^^^30^49^[ADD] addFactory ( new NamedAnniversaryFactory ( "Christmas Day", CommonAnniversaries.CHRISTMAS )  ) ;^[METHOD] buildFactories [TYPE] void [PARAMETER] [CLASS] GBHolidays 1   [TYPE]  AnnualHolidays ENGLISH_BANK  [TYPE]  boolean false  true 
-[ADD]^^47^48^^^^30^49^[ADD] addFactory ( new NamedAnniversaryFactory ( "Boxing Day", CommonAnniversaries.BOXING_DAY )  ) ;^[METHOD] buildFactories [TYPE] void [PARAMETER] [CLASS] 1   [TYPE]  boolean false  true 

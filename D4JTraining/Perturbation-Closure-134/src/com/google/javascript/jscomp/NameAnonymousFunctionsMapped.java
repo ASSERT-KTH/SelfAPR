@@ -1,7 +1,0 @@
-[REPLACE]^private  Logger logger = Logger.getLogger ( NameAnonymousFunctionsMapped.class.getName (  )  ) ;^45^46^^^^45^46^[REPLACE] private static Logger logger = Logger.getLogger ( NameAnonymousFunctionsMapped.class.getName (  )  ) ;^ [CLASS] NameAnonymousFunctionsMapped MappedFunctionNamer  
-[REPLACE]^static final char PREFIX  = null ;^48^^^^^^^[REPLACE] static final char PREFIX = '$';^ [CLASS] NameAnonymousFunctionsMapped MappedFunctionNamer  
-[REPLACE]^static  String PREFIX_STRING = "$";^49^^^^^^^[REPLACE] static final String PREFIX_STRING = "$";^ [CLASS] NameAnonymousFunctionsMapped MappedFunctionNamer  
-[REPLACE]^private int namedCount  = null ;^55^^^^^^^[REPLACE] private int namedCount = 0;^ [CLASS] NameAnonymousFunctionsMapped MappedFunctionNamer  
-[REPLACE]^private int bytesUsed  = null ;^56^^^^^^^[REPLACE] private int bytesUsed = 0;^ [CLASS] NameAnonymousFunctionsMapped MappedFunctionNamer  
-[REPLACE]^static final String DELIMITER = '.';^85^^^^^^^[REPLACE] static final char DELIMITER = '.';^ [CLASS] NameAnonymousFunctionsMapped MappedFunctionNamer  
-[REPLACE]^static  char DELIMITER = '.';^85^^^^^^^[REPLACE] static final char DELIMITER = '.';^[METHOD] getFunctionMap [TYPE] VariableMap [PARAMETER] [CLASS] MappedFunctionNamer   [TYPE]  AbstractCompiler compiler  [TYPE]  boolean false  true  [TYPE]  char DELIMITER  PREFIX  [TYPE]  NameGenerator nameGenerator  [TYPE]  String PREFIX_STRING  lhs  name  newName  rhs  [TYPE]  Logger logger  [TYPE]  Map renameMap  [TYPE]  int bytesUsed  namedCount 

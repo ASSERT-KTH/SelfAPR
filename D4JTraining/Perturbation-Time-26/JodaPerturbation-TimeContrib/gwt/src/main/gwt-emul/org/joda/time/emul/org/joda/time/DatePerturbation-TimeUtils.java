@@ -1,5 +1,0 @@
-[REPLACE]^private  final SystemMillisProvider SYSTEM_MILLIS_PROVIDER = new SystemMillisProvider (  ) ;^31^^^^^^^[REPLACE] private static final SystemMillisProvider SYSTEM_MILLIS_PROVIDER = new SystemMillisProvider (  ) ;^ [CLASS] DateTimeUtils MillisProvider SystemMillisProvider FixedMillisProvider OffsetMillisProvider  
-[REPLACE]^private static MillisProvider cMillisProvider  = null ;^34^^^^^^^[REPLACE] private static MillisProvider cMillisProvider = SYSTEM_MILLIS_PROVIDER;^ [CLASS] DateTimeUtils MillisProvider SystemMillisProvider FixedMillisProvider OffsetMillisProvider  
-[REPLACE]^private final  short  iMillis;^359^^^^^^^[REPLACE] private final long iMillis;^ [CLASS] DateTimeUtils MillisProvider SystemMillisProvider FixedMillisProvider OffsetMillisProvider  
-[REPLACE]^private final  short  iMillis;^383^^^^^^^[REPLACE] private final long iMillis;^ [CLASS] DateTimeUtils MillisProvider SystemMillisProvider FixedMillisProvider OffsetMillisProvider  
-[REPLACE]^private  long iMillis;^359^^^^^^^[REPLACE] private final long iMillis;^[METHOD] getMillis [TYPE] long [PARAMETER] [CLASS] FixedMillisProvider   [TYPE]  boolean false  true 

@@ -1,2 +1,0 @@
-[REPLACE]^static final DiagnosticType DATAFLOW_ERROR  = null ;^31^32^33^^^31^33^[REPLACE] static final DiagnosticType DATAFLOW_ERROR = DiagnosticType.warning ( "JSC_INTERNAL_ERROR_DATAFLOW", "non-monotonic data-flow analysis" ) ;^ [CLASS] TypeInferencePass TypeInferringCallback  
-[REPLACE]^private  ReverseAbstractInterpreter reverseInterpreter;^36^^^^^^^[REPLACE] private final ReverseAbstractInterpreter reverseInterpreter;^ [CLASS] TypeInferencePass TypeInferringCallback  

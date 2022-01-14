@@ -1,3 +1,0 @@
-[REPLACE]^public static final Null NULL ;^54^^^^^^^[REPLACE] public static final Null NULL = new Null (  ) ;^ [CLASS] ObjectUtils Null  
-[REPLACE]^private static final long serialVersionUID = 7092611880189329093;^256^^^^^^^[REPLACE] private static final long serialVersionUID = 7092611880189329093L;^ [CLASS] ObjectUtils Null  
-[REPLACE]^private static   short  serialVersionUID = 7092611880189329093L;^256^^^^^^^[REPLACE] private static final long serialVersionUID = 7092611880189329093L;^[METHOD] readResolve [TYPE] Object [PARAMETER] [CLASS] Null   [TYPE]  Null NULL  [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 

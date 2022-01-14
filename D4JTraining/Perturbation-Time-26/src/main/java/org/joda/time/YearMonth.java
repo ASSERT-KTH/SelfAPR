@@ -1,8 +1,0 @@
-[REPLACE]^private static final long serialVersionUID ;^73^^^^^^^[REPLACE] private static final long serialVersionUID = 797544782896179L;^ [CLASS] YearMonth Property  
-[REPLACE]^private static  DateTimeFieldType[] FIELD_TYPES = new DateTimeFieldType[] {^75^^^^^75^78^[REPLACE] private static final DateTimeFieldType[] FIELD_TYPES = new DateTimeFieldType[] {^ [CLASS] YearMonth Property  
-[REPLACE]^public static final int YEAR  = null ;^81^^^^^^^[REPLACE] public static final int YEAR = 0;^ [CLASS] YearMonth Property  
-[REPLACE]^public static final int MONTH_OF_YEAR ;^83^^^^^^^[REPLACE] public static final int MONTH_OF_YEAR = 1;^ [CLASS] YearMonth Property  
-[REPLACE]^private static final long serialVersionUID ;^779^^^^^^^[REPLACE] private static final long serialVersionUID = 5727734012190224363L;^ [CLASS] YearMonth Property  
-[REPLACE]^private  YearMonth iBase;^782^^^^^^^[REPLACE] private final YearMonth iBase;^ [CLASS] YearMonth Property  
-[REPLACE]^private final  long  iFieldIndex;^784^^^^^^^[REPLACE] private final int iFieldIndex;^ [CLASS] YearMonth Property  
-[REPLACE]^private static final long serialVersionUID ;^779^^^^^^^[REPLACE] private static final long serialVersionUID = 5727734012190224363L;^[METHOD] setCopy [TYPE] YearMonth [PARAMETER] String text [CLASS] Property   [TYPE]  String text  [TYPE]  boolean false  true  [TYPE]  DateTimeFieldType[] FIELD_TYPES  [TYPE]  YearMonth iBase  newYearMonth  partial  [TYPE]  long instant  serialVersionUID  [TYPE]  int MONTH_OF_YEAR  YEAR  amount  dayOfMonth  fieldIndex  i  iFieldIndex  index  monthOfYear  months  scalar  value  valueToAdd  year  years 

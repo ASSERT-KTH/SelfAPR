@@ -1,1 +1,0 @@
-[REPLACE]^public static final WebServiceCallSpec PLACE_ORDER ;^29^30^31^32^^29^35^[REPLACE] public static final WebServiceCallSpec PLACE_ORDER = new WebServiceCallSpec.Builder ( new CallPath ( "/placeOrder" )  ) .supportsHttpMethod ( HttpMethod.POST ) .addRequestParam ( TypedKeys.Request.AUTH_TOKEN )^ [CLASS] SampleJsonService  

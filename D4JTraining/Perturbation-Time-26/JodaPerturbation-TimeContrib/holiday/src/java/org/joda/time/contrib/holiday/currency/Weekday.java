@@ -1,7 +1,0 @@
-[REPLACE]^private static Weekday[]            _weekdays = new Weekday[] { false, SUN, MON, TUE, WED, THU, FRI, SAT };^37^^^^^^^[REPLACE] private static Weekday[]            _weekdays = new Weekday[] { null, SUN, MON, TUE, WED, THU, FRI, SAT };^ [CLASS] Weekday  
-[REPLACE]^private static Map<String, Weekday> _names  = null ;^38^^^^^^^[REPLACE] private static Map<String, Weekday> _names = new HashMap<String, Weekday> ( 7 ) ;^ [CLASS] Weekday  
-[REPLACE]^public static  short  DAYS_PER_WEEK = 7;^43^^^^^^^[REPLACE] public static int DAYS_PER_WEEK = 7;^ [CLASS] Weekday  
-[REPLACE]^private static final String[] FULL_NAME  = null ;^48^^^^^48^51^[REPLACE] private static final String[] FULL_NAME = {^ [CLASS] Weekday  
-[REPLACE]^private final  short                    _weekday;^96^^^^^^^[REPLACE] private final int                   _weekday;^ [CLASS] Weekday  
-[REPLACE]^SUN ( 1, true ) , MON ( 2, false ) , TUE ( 0, false ) , WED ( 4, false ) , THU ( 5, false ) , FRI ( 6, false ) , SAT ( 7, true ) ;^34^^^^^^^[REPLACE] SUN ( 1, true ) , MON ( 2, false ) , TUE ( 3, false ) , WED ( 4, false ) , THU ( 5, false ) , FRI ( 6, false ) , SAT ( 7, true ) ;^ [CLASS] Weekday  
-[REPLACE]^SUN ( 1, true ) , MON ( 2, false ) , TUE ( 3, false ) , WED ( 4, false ) , THU ( 5, false ) , FRI ( 5, false ) , SAT ( 7, true ) ;^34^^^^^^^[REPLACE] SUN ( 1, true ) , MON ( 2, false ) , TUE ( 3, false ) , WED ( 4, false ) , THU ( 5, false ) , FRI ( 6, false ) , SAT ( 7, true ) ;^ [CLASS] Weekday  

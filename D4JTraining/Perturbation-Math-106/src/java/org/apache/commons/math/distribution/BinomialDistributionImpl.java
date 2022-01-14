@@ -1,1 +1,0 @@
-[REPLACE]^private static final  short  serialVersionUID = 6751309484392813623L;^34^^^^^^^[REPLACE] private static final long serialVersionUID = 6751309484392813623L;^ [CLASS] BinomialDistributionImpl  

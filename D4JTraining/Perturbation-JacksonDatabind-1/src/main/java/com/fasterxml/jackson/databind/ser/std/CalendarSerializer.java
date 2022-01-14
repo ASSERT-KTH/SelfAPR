@@ -1,1 +1,0 @@
-[REPLACE]^public  final CalendarSerializer instance = new CalendarSerializer (  ) ;^21^^^^^^^[REPLACE] public static final CalendarSerializer instance = new CalendarSerializer (  ) ;^ [CLASS] CalendarSerializer  

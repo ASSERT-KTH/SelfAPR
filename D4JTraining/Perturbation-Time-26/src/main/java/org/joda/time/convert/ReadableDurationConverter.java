@@ -1,1 +1,0 @@
-[REPLACE]^static final ReadableDurationConverter INSTANCE ;^36^^^^^^^[REPLACE] static final ReadableDurationConverter INSTANCE = new ReadableDurationConverter (  ) ;^ [CLASS] ReadableDurationConverter  

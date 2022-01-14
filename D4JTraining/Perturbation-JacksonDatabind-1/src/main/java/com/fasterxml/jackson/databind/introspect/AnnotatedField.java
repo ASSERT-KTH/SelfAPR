@@ -1,8 +1,0 @@
-[REPLACE]^private static final long serialVersionUID  = null ;^18^^^^^^^[REPLACE] private static final long serialVersionUID = 7364428299211355871L;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^protected  transient Field _field;^26^^^^^^^[REPLACE] protected final transient Field _field;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^private Serialization _serialization;^31^^^^^^^[REPLACE] protected Serialization _serialization;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^private static final long serialVersionUID  = null ;^176^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^private Class<?> clazz;^177^^^^^^^[REPLACE] protected Class<?> clazz;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^private String name;^178^^^^^^^[REPLACE] protected String name;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^private static   short  serialVersionUID = 1L;^176^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^[METHOD] readResolve [TYPE] Object [PARAMETER] [CLASS] Serialization   [TYPE]  Serialization _serialization  ser  [TYPE]  Field _field  f  field  [TYPE]  boolean false  true  [TYPE]  Class acls  clazz  [TYPE]  String name  [TYPE]  long serialVersionUID  [TYPE]  Exception e 
-[REPLACE]^private Class<?> clazz;^177^^^^^^^[REPLACE] protected Class<?> clazz;^[METHOD] readResolve [TYPE] Object [PARAMETER] [CLASS] Serialization   [TYPE]  Serialization _serialization  ser  [TYPE]  Field _field  f  field  [TYPE]  boolean false  true  [TYPE]  Class acls  clazz  [TYPE]  String name  [TYPE]  long serialVersionUID  [TYPE]  Exception e 

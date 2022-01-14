@@ -1,2 +1,0 @@
-[REPLACE]^public  final PersistentInstantAsBigInt INSTANCE = new PersistentInstantAsBigInt (  ) ;^36^^^^^^^[REPLACE] public static final PersistentInstantAsBigInt INSTANCE = new PersistentInstantAsBigInt (  ) ;^ [CLASS] PersistentInstantAsBigInt  
-[REPLACE]^private static final int[] SQL_TYPES  = null ;^38^^^^^^^[REPLACE] private static final int[] SQL_TYPES = new int[] { Types.BIGINT };^ [CLASS] PersistentInstantAsBigInt  

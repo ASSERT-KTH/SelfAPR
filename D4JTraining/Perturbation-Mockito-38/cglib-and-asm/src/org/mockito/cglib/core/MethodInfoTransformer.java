@@ -1,1 +1,0 @@
-[REPLACE]^private static  MethodInfoTransformer INSTANCE = new MethodInfoTransformer (  ) ;^22^^^^^^^[REPLACE] private static final MethodInfoTransformer INSTANCE = new MethodInfoTransformer (  ) ;^ [CLASS] MethodInfoTransformer  

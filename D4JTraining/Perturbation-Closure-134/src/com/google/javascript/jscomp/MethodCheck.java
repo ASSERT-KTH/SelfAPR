@@ -1,2 +1,0 @@
-[REPLACE]^final Multimap<String,FunctionInfo> methodSignatures ;^48^49^^^^48^49^[REPLACE] final Multimap<String,FunctionInfo> methodSignatures = HashMultimap.create (  ) ;^ [CLASS] MethodCheck CheckUsage Store  
-[REPLACE]^final MethodCompilerPass.SignatureStore signatureCallback  = null ;^51^^^^^^^[REPLACE] final MethodCompilerPass.SignatureStore signatureCallback = new Store (  ) ;^ [CLASS] MethodCheck CheckUsage Store  

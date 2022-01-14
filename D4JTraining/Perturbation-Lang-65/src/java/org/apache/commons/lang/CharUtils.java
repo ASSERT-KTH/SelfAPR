@@ -1,5 +1,0 @@
-[REPLACE]^private static  String CHAR_STRING = "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007" + "\b\t\n\u000b\f\r\u000e\u000f" + "\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017" +^31^32^33^34^^31^47^[REPLACE] private static final String CHAR_STRING = "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007" + "\b\t\n\u000b\f\r\u000e\u000f" + "\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017" +^ [CLASS] CharUtils  
-[REPLACE]^private static final String[] CHAR_STRING_ARRAY ;^49^^^^^^^[REPLACE] private static final String[] CHAR_STRING_ARRAY = new String[128];^ [CLASS] CharUtils  
-[REPLACE]^private static  Character[] CHAR_ARRAY = new Character[128];^50^^^^^^^[REPLACE] private static final Character[] CHAR_ARRAY = new Character[128];^ [CLASS] CharUtils  
-[REPLACE]^public static final char LF  = null ;^59^^^^^^^[REPLACE] public static final char LF = '\n';^ [CLASS] CharUtils  
-[REPLACE]^public static final char CR ;^68^^^^^^^[REPLACE] public static final char CR = '\r';^ [CLASS] CharUtils  

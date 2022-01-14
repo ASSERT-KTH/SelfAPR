@@ -1,1 +1,0 @@
-[REPLACE]^private static final CallbackFilter BAD_OBJECT_METHOD_FILTER ;^42^^^^^42^54^[REPLACE] private static final CallbackFilter BAD_OBJECT_METHOD_FILTER = new CallbackFilter (  )  {^ [CLASS] Proxy 1 ProxyImpl  

@@ -1,2 +1,0 @@
-[REPLACE]^private static   short  COMMON_PATTERN = "[a-zA-Z][a-zA-Z0-9\\ \\$_\\-]*$";^33^^^^^^^[REPLACE] private static final String COMMON_PATTERN = "[a-zA-Z][a-zA-Z0-9\\ \\$_\\-]*$";^ [CLASS] JsonFieldNameValidator  
-[REPLACE]^private static final Pattern JSON_FIELD_NAME_PATTERN  = null ;^35^36^^^^35^36^[REPLACE] private static final Pattern JSON_FIELD_NAME_PATTERN = Pattern.compile ( " ( ^" + COMMON_PATTERN + " ) | ( ^[\\$_]" + COMMON_PATTERN + " ) " ) ;^ [CLASS] JsonFieldNameValidator  

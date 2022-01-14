@@ -1,3 +1,0 @@
-[REPLACE]^private static final long serialVersionUID ;^78^^^^^^^[REPLACE] private static final long serialVersionUID = -5171125899451703815L;^ [CLASS] DateTime Property  
-[REPLACE]^private static final long serialVersionUID ;^1912^^^^^^^[REPLACE] private static final long serialVersionUID = -6983323811635733510L;^ [CLASS] DateTime Property  
-[REPLACE]^private static final long serialVersionUID  = null ;^1912^^^^^^^[REPLACE] private static final long serialVersionUID = -6983323811635733510L;^[METHOD] roundHalfEvenCopy [TYPE] DateTime [PARAMETER] [CLASS] Property   [TYPE]  DateTimeField field  iField  [TYPE]  boolean false  true  [TYPE]  long duration  durationToAdd  instant  millis  newMillis  serialVersionUID  value  [TYPE]  DateTime iInstant  instant 

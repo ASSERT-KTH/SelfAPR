@@ -1,2 +1,0 @@
-[REPLACE]^public static  PersistentYearMonthDay INSTANCE = new PersistentYearMonthDay (  ) ;^36^^^^^^^[REPLACE] public static final PersistentYearMonthDay INSTANCE = new PersistentYearMonthDay (  ) ;^ [CLASS] PersistentYearMonthDay  
-[REPLACE]^private static  int[] SQL_TYPES = new int[] { Types.DATE, };^38^^^^^^^[REPLACE] private static final int[] SQL_TYPES = new int[] { Types.DATE, };^ [CLASS] PersistentYearMonthDay  

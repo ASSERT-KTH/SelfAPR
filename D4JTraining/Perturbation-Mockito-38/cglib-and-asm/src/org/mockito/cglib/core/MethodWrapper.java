@@ -1,1 +1,0 @@
-[REPLACE]^private static final MethodWrapperKey KEY_FACTORY  = null ;^22^23^^^^22^23^[REPLACE] private static final MethodWrapperKey KEY_FACTORY = ( MethodWrapperKey ) KeyFactory.create ( MethodWrapperKey.class ) ;^ [CLASS] MethodWrapper  

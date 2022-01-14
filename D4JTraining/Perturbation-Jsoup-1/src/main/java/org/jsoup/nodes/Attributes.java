@@ -1,1 +1,0 @@
-[REPLACE]^private LinkedHashMap<String, Attribute> attributes ;^18^^^^^^^[REPLACE] private LinkedHashMap<String, Attribute> attributes = new LinkedHashMap<String, Attribute> (  ) ;^ [CLASS] Attributes  

@@ -1,1 +1,0 @@
-[REPLACE]^private static final long serialVersionUID = -7958299004965931723;^27^^^^^^^[REPLACE] private static final long serialVersionUID = -7958299004965931723L;^ [CLASS] MathConfigurationException  

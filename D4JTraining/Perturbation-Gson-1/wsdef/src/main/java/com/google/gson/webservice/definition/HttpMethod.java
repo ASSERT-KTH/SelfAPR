@@ -1,1 +1,0 @@
-[REPLACE]^public static final List<HttpMethod> ALL_METHODS  = null ;^37^38^^^^37^38^[REPLACE] public static final List<HttpMethod> ALL_METHODS = Collections.unmodifiableList ( Arrays.asList ( values (  )  )  ) ;^ [CLASS] HttpMethod  

@@ -1,1 +1,0 @@
-[REPLACE]^private final List<Invocation> invocations ;^18^^^^^^^[REPLACE] private final List<Invocation> invocations = Collections.synchronizedList ( new LinkedList<Invocation> (  )  ) ;^ [CLASS] RegisteredInvocations RemoveToString  
