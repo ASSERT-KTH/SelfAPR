@@ -50,6 +50,11 @@ public class PerturbActions {
 
 	public static void randomPerturb(CtElement st, String type, int methStart, int methEnd) {
 		try {
+		if(st.toString().contains("Math.max")) {
+			 System.out.println( " ==== type =====" + type+ "===== st: ===="  );
+
+		}
+			
 		String stStr = st.toString().replace("\r", " ").replace("\n", " ");
 		 System.out.println( " ==== type =====" + type+ "===== st: ====" + stStr );
 		double r = SUPREUtil.getRandomDouble();
@@ -59,10 +64,6 @@ public class PerturbActions {
 		if (o instanceof NoSourcePosition) {
 			return;
 		}
-		
-
-
-
 
 			if (type.contains("declaration") || type.contains("return") ) {
 				Replace.replace(st, type, methStart, methEnd);
@@ -94,6 +95,7 @@ public class PerturbActions {
 			else if (r > 0.25) {
 				Replace.replace(st, type, methStart, methEnd);
 			} else {
+				Replace.replace(st, type, methStart, methEnd);
 				Remove.remove(st, type, methStart, methEnd);
 			}
 
@@ -133,7 +135,12 @@ public class PerturbActions {
 			CtBlock block = method.getBody();
 			if (block != null) {
 				List<CtStatement> statements = block.getStatements();
+				
 				for (CtStatement st : statements) {
+					if(st.toString().contains("Math.max")) {
+						 System.out.println( " ==== type =====" +"===== st: ===="  );
+
+					}
 					processStatement(st, methStart, methEnd);
 				}
 
@@ -154,7 +161,7 @@ public class PerturbActions {
 				methStart = blockStart;
 				methEnd = endStart;
 			}
-
+		}
 			List<CtAssignmentImpl> assignments = st
 					.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));
 			List<CtReturnImpl> returns = st.getElements(new TypeFilter<CtReturnImpl>(CtReturnImpl.class));
@@ -264,8 +271,7 @@ public class PerturbActions {
 					PerturbActions.randomPerturb(i, "statement", methStart, methEnd);
 				}
 			}
-		}
-
+		
 	}
 
 	public static void fieldPerturb(List<CtFieldImpl> fieldList) {

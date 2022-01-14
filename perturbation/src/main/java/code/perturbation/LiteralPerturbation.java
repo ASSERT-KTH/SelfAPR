@@ -74,21 +74,38 @@ public class LiteralPerturbation {
 			}
 
 			else if (type.contains("double")) {
-				String randLong = value + "";
-				if (randLong.contains("D") || randLong.contains("d")) {
+				String randdouble = value + "";
+				if(groundTruth.contains(randdouble)) {
+				if (randdouble.contains("D") || randdouble.contains("d")) {
 					if (SUPREUtil.getRandomDouble() > 0.5) {
-						randLong = randLong.replace("D", "");
-						randLong = randLong.replace("d", "");
+						randdouble = randdouble.replace("D", "");
+						randdouble = randdouble.replace("d", "");
 					} else {
-						randLong = randLong.replace("D", "f");
-						randLong = randLong.replace("d", "f");
+						randdouble = randdouble.replace("D", "f");
+						randdouble = randdouble.replace("d", "f");
 					}
-				} else if (r > 0.5) {
-					randLong = SUPREUtil.getRandomInt(5) + ".0d";
+				} else if (r > 0.4) {
+					randdouble = SUPREUtil.getRandomInt(5) + ".0d";
 				} else {
-					randLong = value + "D";
+					randdouble = randdouble + "D";
 				}
-				perturbCode = groundTruth.replace(value + "", randLong + "");
+				perturbCode = groundTruth.replace(value + "", randdouble + "");
+				if(perturbCode.contains("dd")) {
+					perturbCode = perturbCode.replace("dd", "f");
+				}
+				if(perturbCode.contains("Dd")) {
+					perturbCode = perturbCode.replace("Dd", "f");
+				}
+				if(perturbCode.contains("dD")) {
+					perturbCode = perturbCode.replace("dD", "f");
+				}
+				if(perturbCode.contains("DD")) {
+					perturbCode = perturbCode.replace("DD", "f");
+				}
+				
+				
+				
+				}
 			}
 
 			else if (type.contains("double")) {

@@ -27,7 +27,7 @@ public class ReplaceCondition {
 
 	public static void perturb(CtElement st, int methStart, int methEnd, String groundTruth, int lineNo1,
 			String lineNo2, String lineNo3, String lineNo4, int count) {
-
+		String originGroundTruth = groundTruth;
 		String perturbCode = null;
 		/**
 		 * This is a random number to decide the perturbation
@@ -99,7 +99,7 @@ public class ReplaceCondition {
 		
 		// remove && || !
 
-		if (SUPREUtil.getRandomDouble() > 0.65 && groundTruth.contains("if")) {
+		if (SUPREUtil.getRandomDouble() > 0.4 && groundTruth.contains("if") && (perturbCode.contains("||") || perturbCode.contains("&&"))) {
 			if (perturbCode == null) {
 				perturbCode = groundTruth;
 			}
@@ -232,9 +232,9 @@ public class ReplaceCondition {
 		
 		
 		if("".equals(lineNo3)) {
-			if (((groundTruth.equals(perturbCode) || perturbCode==null)) || SUPREUtil.getRandomDouble() > 0.8) {
+			if (((groundTruth.equals(perturbCode) || perturbCode==null)) ) {
 				System.out.println("sim condition head");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"conditionhead",0.75 - (0.9*count),null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,"conditionhead",0.75 - (0.5*count),null);
 				if(newperturbCode!=null) {
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode+" ;";

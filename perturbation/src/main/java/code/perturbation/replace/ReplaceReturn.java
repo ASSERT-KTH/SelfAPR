@@ -27,14 +27,27 @@ public class ReplaceReturn {
 			String lineNo2, String lineNo3, String lineNo4,int count) {
 		
 		String perturbCode = null;
+		String originGroundTruth = groundTruth;
 		/**
 		 * This is a random number to decide the perturbation
 		 */
 		double r = SUPREUtil.getRandomDouble();
 		
 		
-		if (groundTruth.contains("return vchecker;")) {
+		if (groundTruth.contains("Math.max")) {
 			System.out.print("");
+		}
+		
+		/**
+		 * Invocation
+		 */
+		if (perturbCode == null) {
+			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
+		}else if (SUPREUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
+			if(newperturbCode!=null) {
+				perturbCode = newperturbCode;
+			}
 		}
 
 		/**
@@ -91,17 +104,7 @@ public class ReplaceReturn {
 		}
 		
 		
-		/**
-		 * Invocation
-		 */
-		if (perturbCode == null) {
-			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
-		}else if (SUPREUtil.getRandomDouble() > 0.7) {
-			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
-			if(newperturbCode!=null) {
-				perturbCode = newperturbCode;
-			}
-		}
+		
 		
 		
 		if ((groundTruth.equals(perturbCode) || perturbCode==null) && groundTruth.contains("this")) {
@@ -120,10 +123,10 @@ public class ReplaceReturn {
 			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2) || SUPREUtil.getRandomDouble() > 0.8) {
 				System.out.println("sim return");
 
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,0.7 - (0.9*count),null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,type,0.8 - (0.5*count),null);
 				if(newperturbCode!=null) {
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
-					perturbCode = newperturbCode+" ;";
+					perturbCode = newperturbCode;
 				} }
 				
 			}		

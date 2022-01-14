@@ -125,8 +125,9 @@ public class OperatorPerturbation {
 							String newint = SUPREUtil.getRandomDouble()>0.5 ? " 0.5 ":" 2";		
 							newstr = oldstr+newop+newint;
 
-							
-							corruptedCode = groundTruth.replace(oldstr, newstr);					
+							if(newstr!=null && !"".equals(newstr) && !" ".equals(newstr)) {
+							corruptedCode = groundTruth.replace(oldstr, newstr);		
+							}
 						}				
 					}								
 					
@@ -233,7 +234,7 @@ public class OperatorPerturbation {
 			else {
 				String op = SUPREUtil.getOperatorValue(operators.get(0).getKind().toString());
 				if(groundTruth.contains(op)) {
-					String newop = "";
+					String newop = null;
 //					if(op.length()==1) {
 //						op="\\"+"\\"+op;
 //					}
@@ -260,14 +261,128 @@ public class OperatorPerturbation {
 					}else if(op.contains("!=")) {
 						String[] choice = {"==","=="};		
 						newop = " "	+choice[ SUPREUtil.getRandomInt(2)]+" ";
-					}					
-					
+					}	 
+					if(newop!=null) {
 					corruptedCode = groundTruth.replace(op, newop );
-					corruptedCode = corruptedCode;
+					} else {
+						
+						String lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
+
+						if(op.contains("/") && groundTruth.contains("/")) {	
+							if(";".equals(lastChar)) {
+								int index = groundTruth.indexOf("/");
+																 
+								String before = groundTruth.substring(index,groundTruth.length());
+								String[] bracketStart = before.split("\\(");
+								String[] bracketClose = before.split("\\)");					
+								if(bracketStart.length>bracketClose.length) {
+									corruptedCode = groundTruth.substring(0, index) + " ) ; ";
+								}else if(bracketStart.length == bracketClose.length){
+									 corruptedCode = groundTruth.substring(0, index) + " ; ";
+								}
+									
+								 
+								 
+							}	else if( SUPREUtil.getRandomDouble()>0.8 ) {
+									String[] choice = {"-","+", "*","%"};		
+									newop = " "	+choice[ SUPREUtil.getRandomInt(4)]+" ";
+									
+									 corruptedCode = groundTruth.replace("/",newop);
+
+								}
+						
+						}	
+							
+				
+						else if(op.contains("*")) {
+							 lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
+											
+							
+							if(";".equals(lastChar)) {
+								int index = groundTruth.indexOf("*");
+								String before = groundTruth.substring(index,groundTruth.length());
+								String[] bracketStart = before.split("\\(");
+								String[] bracketClose = before.split("\\)");					
+								if(bracketStart.length>bracketClose.length) {
+									corruptedCode = groundTruth.substring(0, index) + " ) ; ";
+									}else if(bracketStart.length == bracketClose.length){
+									 corruptedCode = groundTruth.substring(0, index) + " ; ";
+									}
+								}	
+							
+							else if(SUPREUtil.getRandomDouble()>0.8) {
+								String[] choice = {"-","+", "/","%"};		
+								 newop = " "	+choice[ SUPREUtil.getRandomInt(4)]+" ";							
+								 corruptedCode = groundTruth.replace("*",newop);
+
+
+							}
+							
+							else if(op.contains("+")) {
+								 lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
+												
+								
+								if(";".equals(lastChar)) {
+									int index = groundTruth.indexOf("+");
+									String before = groundTruth.substring(index,groundTruth.length());
+									String[] bracketStart = before.split("\\(");
+									String[] bracketClose = before.split("\\)");					
+									if(bracketStart.length>bracketClose.length) {
+										corruptedCode = groundTruth.substring(0, index) + " ) ; ";
+									}else if(bracketStart.length == bracketClose.length){
+										 corruptedCode = groundTruth.substring(0, index) + " ; ";
+									}
+								}	
+								
+								else if(SUPREUtil.getRandomDouble()>0.8) {
+									String[] choice = {"-","*", "/","%"};		
+									 newop = " "	+choice[ SUPREUtil.getRandomInt(4)]+" ";							
+									 corruptedCode = groundTruth.replace("+",newop);
+								}
+								
+								else if(op.contains("-")) {
+									 lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
+													
+									
+									if(";".equals(lastChar)) {
+										int index = groundTruth.indexOf("-");
+										String before = groundTruth.substring(index,groundTruth.length());
+										String[] bracketStart = before.split("\\(");
+										String[] bracketClose = before.split("\\)");					
+										if(bracketStart.length>bracketClose.length) {
+											corruptedCode = groundTruth.substring(0, index) + " ) ; ";
+										}else if(bracketStart.length == bracketClose.length){
+											 corruptedCode = groundTruth.substring(0, index) + " ; ";
+										}
+									}	
+									
+									else if(SUPREUtil.getRandomDouble()>0.8) {
+										String[] choice = {"-","*", "/","%"};		
+										 newop = " "	+choice[ SUPREUtil.getRandomInt(4)]+" ";							
+										 corruptedCode = groundTruth.replace("-",newop);
+									}
+							
+							
+							
+						}			
+						
+						
+						
+						
+						
+					}
+					
+					
+					
+					
+					
+					
 				}
 				
 			}
 
+		}
+			}
 		}
 
 		if (logicOperator != null && (r > 0.5 || corruptedCode == null)) {
@@ -362,10 +477,12 @@ public class OperatorPerturbation {
 			String origOpKind = logicOperator.getKind().toString();
 			String origOperator = SUPREUtil.getOperatorValue(origOpKind);
 			String perturbedOperator = SUPREUtil.getRandomLogicOperator(origOperator);
+			if(perturbedOperator!=null && !"".equals(perturbedOperator) && !" ".equals(perturbedOperator)) {
 			if (corruptedCode == null) {
 				corruptedCode = groundTruth.replace(origOperator, perturbedOperator);
 			} else {
 				corruptedCode = corruptedCode.replace(origOperator, perturbedOperator);
+			}
 			}
 		}
 		
@@ -446,7 +563,8 @@ public class OperatorPerturbation {
 			}
 		}
 				
-	}
+	
+		}
 		return corruptedCode;
 
 	}

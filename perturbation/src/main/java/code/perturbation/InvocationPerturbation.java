@@ -23,9 +23,6 @@ public class InvocationPerturbation {
 		if (groundTruth == null) {
 			return null;
 		}
-		
-		
-		
 
 		/**
 		 * filter invocation and arguments
@@ -44,47 +41,134 @@ public class InvocationPerturbation {
 
 			String excStr = SUPREUtil.getSimpleExecName(exc.toString());
 			int argSize = SUPREUtil.getArgsSize(inv);
-			if (groundTruth.contains("."+excStr)) {
-				
-				if(SUPREUtil.getRandomDouble()>0.3) {
-					System.out.print("");
 
-					String newMethod   = ExecutableAnalysis.getRandomExecWithSameParam(exc.toString(),argSize);
-					if(newMethod!=null && !"".equals(newMethod)  && !" ".equals(newMethod)) {				
-					corruptedCode = groundTruth.replaceFirst("."+excStr, "."+newMethod);
-					System.out.print("");
+			// #java.lang.Math
+			if ("java.lang.Math".equals(exc.getDeclaringType().toString()) && r > 0.2) {
+				String declarSring = "Math." + excStr + " ( ";
+				if (groundTruth.contains(declarSring)) {
+					String start = groundTruth.split("Math")[0];
+					String later_ori = groundTruth.split(excStr)[1];
+					String later = groundTruth.split(excStr)[1];
+
+					// end
+					String end = "";
+					int lst = later.indexOf(")");
+					int finalstr = lst;
+					if (later.length() > 2 && lst > 2) {
+						String check = later.substring(2, lst);
+						if (check.contains("(")) {
+							lst = later.indexOf(")") + 1;
+							later = later.substring(lst, later.length());
+							finalstr = later.indexOf(")");
+						}
 					}
-				
-				
-				} else {
-				String newMethod = MethodSignature.getOverridingMethods(excStr, argSize);
 
-				if (newMethod != null && !"".equals(newMethod)) {
+					end = (String) later.subSequence(finalstr + 1, later.length());
+
+					String origV = later_ori.substring(2, lst);
+
+					// varaible
+
+					String[] vs = null;
+					if (origV != null && origV.contains(",")) {
+						vs = origV.split(",");
+					}
+
+					// THE longest in length
+					String targetV = "";
+					if (vs != null && vs.length > 0) {
+						for (String s : vs) {
+							if (s.length() > targetV.length()) {
+								targetV = s;
+							}
+						}
+					} else {
+						targetV = origV;
+					}
+
+					corruptedCode = start + " " + targetV + " " + end;
+					System.out.println("=============corruptedCode=========");
+
+				}
+			}
+
+			else if (groundTruth.contains("." + excStr)) {
+
+				if (SUPREUtil.getRandomDouble() > 0.3) {
+					System.out.print("");
+
+					String newMethod = ExecutableAnalysis.getRandomExecWithSameParam(exc.toString(), argSize);
+					if (newMethod != null && !"".equals(newMethod) && !" ".equals(newMethod)) {
+						corruptedCode = groundTruth.replaceFirst("." + excStr, "." + newMethod);
+						System.out.print("");
+					}
+
+				} else {
+					String newMethod = MethodSignature.getOverridingMethods(excStr, argSize);
+
 					if (newMethod != null && !"".equals(newMethod)) {
-						String start = groundTruth.split("\\."+excStr)[0];
-						String later = groundTruth.split("\\."+excStr)[1];
+						if (newMethod != null && !"".equals(newMethod)) {
+							String start = groundTruth.split("\\." + excStr)[0];
+							String later = groundTruth.split("\\." + excStr)[1];
+							String end = "";
+							int lst = later.indexOf(")");
+							if (later.length() > 2 && lst > 2) {
+								String check = later.substring(2, lst);
+								if (check.contains("(")) {
+									lst = later.indexOf(")");
+									later = later.substring(lst + 1, later.length());
+									lst = later.indexOf(")");
+								}
+							}
+
+							end = (String) later.subSequence(lst + 1, later.length());
+
+							corruptedCode = start + " " + "." + newMethod + " " + end;
+							System.out.print("");
+						}
+
+					}
+				}
+				// remove invocation and only keep varaible!!!
+				if (corruptedCode == null && argSize == 1) {
+
+					String declarSring = SUPREUtil.getSimpleVarName(exc.getDeclaringType().toString()) + "." + excStr
+							+ " ( ";
+
+					if (groundTruth.contains(declarSring)) {
+						String de = SUPREUtil.getSimpleVarName(exc.getDeclaringType().toString());
+
+						String start = groundTruth.split(de)[0];
+						String later_ori = groundTruth.split(excStr)[1];
+						String later = groundTruth.split(excStr)[1];
+
+						// end
 						String end = "";
 						int lst = later.indexOf(")");
+						int finalstr = lst;
 						if (later.length() > 2 && lst > 2) {
 							String check = later.substring(2, lst);
 							if (check.contains("(")) {
-								lst = later.indexOf(")");
-								later = later.substring(lst + 1, later.length());
-								lst = later.indexOf(")");
+								lst = later.indexOf(")") + 1;
+								later = later.substring(lst, later.length());
+								finalstr = later.indexOf(")");
 							}
 						}
 
-						end = (String) later.subSequence(lst + 1, later.length());
+						end = (String) later.subSequence(finalstr + 1, later.length());
 
-						corruptedCode = start + " " + "."+newMethod + " " + end;
-						System.out.print("");
+						String origV = later_ori.substring(2, lst);
+
+						corruptedCode = start + " " + origV + " " + end;
+						System.out.println("=============corruptedCode=========");
+
 					}
 
 				}
 			}
-			}
+
 		}
 		return corruptedCode;
-	}
 
+	}
 }

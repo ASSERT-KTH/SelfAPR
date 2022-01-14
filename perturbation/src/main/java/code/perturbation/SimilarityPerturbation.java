@@ -70,13 +70,19 @@ public class SimilarityPerturbation {
 			return null;
 		}
 		
-		System.out.print("========="+targetList.size()+"===============");
+		System.out.println("========="+targetList.size()+"===============");
 
 		// get the most similar statement
 		double maxScore = 0;
 		String simStatement = null;
 		int count = 0;
-		String target = "conditionhead".equals(type) ? groundTruth : st.toString();	
+		String target = st.toString();
+		if(type.equals("conditionhead") || type.equals("localVariable") ||
+				type.equals("assignment") || type.equals("statement") || type.equals("return")) {
+			target = groundTruth;
+		}
+		
+
 		
 		for (String s : targetList) {
 			if (!target.equals(s)) {
@@ -92,12 +98,16 @@ public class SimilarityPerturbation {
 					simStatement = s;
 				}
 
-				if (maxScore > similarity || count>targetList.size()/2) {
+				if (maxScore > similarity) {
 					break;
 				}
 			}
 		}
 
+		System.out.println("========="+maxScore+"===============");
+
+		
+		
 		if (simStatement != null) {
 
 			String simpleSimStatement = "";
@@ -271,7 +281,15 @@ public class SimilarityPerturbation {
 
 		if (assignments.size() > 0) {
 			for (CtAssignmentImpl a : assignments) {
-				_assignmentList.add(a.toString());
+				String line1 = SUPREUtil.getSpecificLine(a.getPosition(), a.getPosition().getLine());
+				line1 = line1.trim();
+				String lastChar = line1.charAt(line1.length() - 1) + "";
+
+				if ( !";".equals(lastChar)) {
+					line1 += " " + SUPREUtil.getSpecificLine(st.getPosition(), a.getPosition().getLine() + 1).trim();
+				}
+				
+				_assignmentList.add(line1);
 			}
 		}
 
@@ -289,14 +307,29 @@ public class SimilarityPerturbation {
 
 		if (localVariableImpl.size() > 0) {
 			for (CtLocalVariableImpl l : localVariableImpl) {
-				_localVariableImpllList.add(l.toString());
+				
+				String line1 = SUPREUtil.getSpecificLine(l.getPosition(), l.getPosition().getLine());
+				line1 = line1.trim();
+				String lastChar = line1.charAt(line1.length() - 1) + "";
+
+				if ( !";".equals(lastChar)) {
+					line1 += " " + SUPREUtil.getSpecificLine(st.getPosition(), l.getPosition().getLine() + 1).trim();
+				}
+				_localVariableImpllList.add(line1);
 			}
 		}
 
 		if (invocations.size() > 0 && localVariableImpl.size()==0 && constructorCall.size()==0 && returns.size() ==0
 				&& assignments.size()==0 &&trys.size()==0 && fors.size()==0 &&  conditions.size()==0 && whiles.size()==0) {
 			for (CtInvocationImpl i : invocations) {
-				_statementList.add(i.toString());
+				String line1 = SUPREUtil.getSpecificLine(i.getPosition(), i.getPosition().getLine());
+				line1 = line1.trim();
+				String lastChar = line1.charAt(line1.length() - 1) + "";
+
+				if ( !";".equals(lastChar)) {
+					line1 += " " + SUPREUtil.getSpecificLine(st.getPosition(), i.getPosition().getLine() + 1).trim();
+				}
+				_statementList.add(line1);
 			}
 		}
 	}

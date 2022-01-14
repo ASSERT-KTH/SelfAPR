@@ -37,6 +37,7 @@ public class ReplaceStatement {
 
 	public static void perturb(CtElement st, String type, int methStart, int methEnd, String groundTruth, int lineNo1,
 			String lineNo2, String lineNo3, String lineNo4, int count) {
+		String originGroundTruth = groundTruth;
 
 		TypeFilter<CtReturnImpl> returnfilter = new TypeFilter<CtReturnImpl>(CtReturnImpl.class);
 		List<CtReturnImpl> returns = st.getElements(returnfilter);
@@ -44,7 +45,7 @@ public class ReplaceStatement {
 
 		String perturbCode = null;
 
-		if( groundTruth.contains("tmpGen = gen")) {
+		if( groundTruth.contains("for")) {
 			groundTruth.contains("bb.release");
 		}
 		
@@ -105,13 +106,13 @@ public class ReplaceStatement {
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo2)) {
-			if ((groundTruth.equals(perturbCode) || perturbCode==null) || SUPREUtil.getRandomDouble()>0.7) {
+			if ((groundTruth.equals(perturbCode) || perturbCode==null)) {
 				System.out.println("sim statement");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,0.65 - (0.9 * count),null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,type,0.85 - (0.5 * count),null);
 				if(newperturbCode!=null) {
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
-					perturbCode = newperturbCode+" ;";
+					perturbCode = newperturbCode;
 				}
 				}
 

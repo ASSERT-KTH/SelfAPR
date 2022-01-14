@@ -27,6 +27,8 @@ public class ReplaceAssignment {
 	public static void perturb(CtElement st, String type, int methStart, int methEnd, String groundTruth, int lineNo1,
 			String lineNo2, String lineNo3,String lineNo4, int count) {
 		String perturbCode = null;
+		String originGroundTruth = groundTruth;
+
 		/**
 		 * This is a random number to decide the perturbation
 		 */
@@ -156,14 +158,14 @@ public class ReplaceAssignment {
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo2)) {
-			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2)|| SUPREUtil.getRandomDouble() > 0.8) {
+			if (((groundTruth.equals(perturbCode) || perturbCode==null) )) {
 				System.out.println("sim assignment");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,type,0.65-(count*0.9),null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,type,0.75-(count*0.5),null);
 				System.out.println("sim statement");
 				if(newperturbCode!=null) {
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
-					perturbCode = newperturbCode+" ;";
+					perturbCode = newperturbCode;
 				}
 				}
 
