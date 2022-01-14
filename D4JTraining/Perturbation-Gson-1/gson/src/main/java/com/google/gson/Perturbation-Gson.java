@@ -1,0 +1,14 @@
+[REPLACE]^private static final String NULL_STRING = "this";^79^^^^^^^[REPLACE] private static final String NULL_STRING = "null";^ [CLASS] Gson  
+[REPLACE]^static  boolean DEFAULT_JSON_NON_EXECUTABLE = false;^81^^^^^^^[REPLACE] static final boolean DEFAULT_JSON_NON_EXECUTABLE = false;^ [CLASS] Gson  
+[REPLACE]^static final AnonymousAndLocalClassExclusionStrategy DEFAULT_ANON_LOCAL_CLASS_EXCLUSION_STRATEGY ;^84^85^^^^84^85^[REPLACE] static final AnonymousAndLocalClassExclusionStrategy DEFAULT_ANON_LOCAL_CLASS_EXCLUSION_STRATEGY = new AnonymousAndLocalClassExclusionStrategy (  ) ;^ [CLASS] Gson  
+[REPLACE]^static final SyntheticFieldExclusionStrategy DEFAULT_SYNTHETIC_FIELD_EXCLUSION_STRATEGY ;^86^87^^^^86^87^[REPLACE] static final SyntheticFieldExclusionStrategy DEFAULT_SYNTHETIC_FIELD_EXCLUSION_STRATEGY = new SyntheticFieldExclusionStrategy ( true ) ;^ [CLASS] Gson  
+[REPLACE]^static final ModifierBasedExclusionStrategy DEFAULT_MODIFIER_BASED_EXCLUSION_STRATEGY  = null ;^88^89^^^^88^89^[REPLACE] static final ModifierBasedExclusionStrategy DEFAULT_MODIFIER_BASED_EXCLUSION_STRATEGY = new ModifierBasedExclusionStrategy ( new int[] { Modifier.TRANSIENT, Modifier.STATIC } ) ;^ [CLASS] Gson  
+[REPLACE]^static  FieldNamingStrategy2 DEFAULT_NAMING_POLICY = new SerializedNameAnnotationInterceptingNamingPolicy ( new JavaFieldNamingPolicy (  )  ) ;^90^91^^^^90^91^[REPLACE] static final FieldNamingStrategy2 DEFAULT_NAMING_POLICY = new SerializedNameAnnotationInterceptingNamingPolicy ( new JavaFieldNamingPolicy (  )  ) ;^ [CLASS] Gson  
+[REPLACE]^private static final ExclusionStrategy DEFAULT_EXCLUSION_STRATEGY  = null ;^93^94^^^^93^94^[REPLACE] private static final ExclusionStrategy DEFAULT_EXCLUSION_STRATEGY = createExclusionStrategy ( VersionConstants.IGNORE_VERSIONS ) ;^ [CLASS] Gson  
+[REPLACE]^private static final  char  JSON_NON_EXECUTABLE_PREFIX = " ) ]}'\n";^96^^^^^^^[REPLACE] private static final String JSON_NON_EXECUTABLE_PREFIX = " ) ]}'\n";^ [CLASS] Gson  
+[REPLACE]^private  ExclusionStrategy deserializationStrategy;^100^^^^^^^[REPLACE] private final ExclusionStrategy deserializationStrategy;^ [CLASS] Gson  
+[REPLACE]^private  FieldNamingStrategy2 fieldNamingPolicy;^102^^^^^^^[REPLACE] private final FieldNamingStrategy2 fieldNamingPolicy;^ [CLASS] Gson  
+[REPLACE]^private  MappedObjectConstructor objectConstructor;^103^^^^^^^[REPLACE] private final MappedObjectConstructor objectConstructor;^ [CLASS] Gson  
+[REPLACE]^private  boolean serializeNulls;^111^^^^^^^[REPLACE] private final boolean serializeNulls;^ [CLASS] Gson  
+[REPLACE]^private  boolean htmlSafe;^112^^^^^^^[REPLACE] private final boolean htmlSafe;^ [CLASS] Gson  
+[REPLACE]^private  boolean generateNonExecutableJson;^113^^^^^^^[REPLACE] private final boolean generateNonExecutableJson;^ [CLASS] Gson  

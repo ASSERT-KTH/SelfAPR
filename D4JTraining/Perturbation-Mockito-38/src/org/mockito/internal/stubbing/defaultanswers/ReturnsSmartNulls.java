@@ -1,0 +1,3 @@
+[REPLACE]^private final Location location ;^41^^^^^^^[REPLACE] private final Location location = new Location (  ) ;^ [CLASS] ReturnsSmartNulls ThrowingInterceptor  
+[REPLACE]^private  Answer<Object> delegate = new ReturnsMoreEmptyValues (  ) ;^57^^^^^^^[REPLACE] private final Answer<Object> delegate = new ReturnsMoreEmptyValues (  ) ;^ [CLASS] ReturnsSmartNulls ThrowingInterceptor  
+[REPLACE]^private final Location location ;^41^^^^^^^[REPLACE] private final Location location = new Location (  ) ;^[METHOD] answer [TYPE] Object [PARAMETER] InvocationOnMock invocation [CLASS] ThrowingInterceptor   [TYPE]  Answer delegate  [TYPE]  Object defaultReturnValue  [TYPE]  Class type  [TYPE]  boolean false  true  [TYPE]  InvocationOnMock invocation  [TYPE]  Location location 

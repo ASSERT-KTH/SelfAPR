@@ -1,0 +1,1 @@
+[REPLACE]^private static  Pattern CAPS = Pattern.compile ( " ( [A-Z\\d][^A-Z\\d]* ) " ) ;^12^^^^^^^[REPLACE] private static final Pattern CAPS = Pattern.compile ( " ( [A-Z\\d][^A-Z\\d]* ) " ) ;^ [CLASS] Decamelizer  

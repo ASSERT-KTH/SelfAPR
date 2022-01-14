@@ -1,0 +1,1 @@
+[REPLACE]^static  ReadablePeriodConverter INSTANCE = new ReadablePeriodConverter (  ) ;^36^^^^^^^[REPLACE] static final ReadablePeriodConverter INSTANCE = new ReadablePeriodConverter (  ) ;^ [CLASS] ReadablePeriodConverter  

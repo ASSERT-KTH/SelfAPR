@@ -1,0 +1,3 @@
+[REPLACE]^private static final long serialVersionUID ;^33^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] XmlMapper  
+[REPLACE]^protected  static JacksonXmlModule DEFAULT_XML_MODULE = new JacksonXmlModule (  ) ;^35^^^^^^^[REPLACE] protected final static JacksonXmlModule DEFAULT_XML_MODULE = new JacksonXmlModule (  ) ;^ [CLASS] XmlMapper  
+[REPLACE]^protected  static DefaultXmlPrettyPrinter DEFAULT_XML_PRETTY_PRINTER = new DefaultXmlPrettyPrinter (  ) ;^37^^^^^^^[REPLACE] protected final static DefaultXmlPrettyPrinter DEFAULT_XML_PRETTY_PRINTER = new DefaultXmlPrettyPrinter (  ) ;^ [CLASS] XmlMapper  

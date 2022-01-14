@@ -1,0 +1,6 @@
+[REPLACE]^private  ResponseBody body;^29^^^^^^^[REPLACE] private final ResponseBody body;^ [CLASS] WebServiceResponse Builder  
+[REPLACE]^private  ResponseSpec spec;^30^^^^^^^[REPLACE] private final ResponseSpec spec;^ [CLASS] WebServiceResponse Builder  
+[REPLACE]^private  HeaderMap.Builder headers;^33^^^^^^^[REPLACE] private final HeaderMap.Builder headers;^ [CLASS] WebServiceResponse Builder  
+[REPLACE]^private  ResponseSpec spec;^35^^^^^^^[REPLACE] private final ResponseSpec spec;^ [CLASS] WebServiceResponse Builder  
+[REPLACE]^private  HeaderMap.Builder headers;^33^^^^^^^[REPLACE] private final HeaderMap.Builder headers;^[METHOD] toString [TYPE] String [PARAMETER] [CLASS] Builder   [TYPE]  boolean false  true  [TYPE]  HeaderMap headers  responseHeaders  [TYPE]  StringBuilder sb  [TYPE]  Builder body  headers  [TYPE]  ResponseBody body  responseBody  [TYPE]  ResponseSpec spec 
+[REPLACE]^private  ResponseBody.Builder body;^34^^^^^^^[REPLACE] private final ResponseBody.Builder body;^[METHOD] toString [TYPE] String [PARAMETER] [CLASS] Builder   [TYPE]  boolean false  true  [TYPE]  HeaderMap headers  responseHeaders  [TYPE]  StringBuilder sb  [TYPE]  Builder body  headers  [TYPE]  ResponseBody body  responseBody  [TYPE]  ResponseSpec spec 

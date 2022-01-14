@@ -1,0 +1,1 @@
+[REPLACE]^private static ThreadLocal<IMockitoConfiguration> globalConfiguration ;^19^^^^^^^[REPLACE] private static ThreadLocal<IMockitoConfiguration> globalConfiguration = new ThreadLocal<IMockitoConfiguration> (  ) ;^ [CLASS] GlobalConfiguration  

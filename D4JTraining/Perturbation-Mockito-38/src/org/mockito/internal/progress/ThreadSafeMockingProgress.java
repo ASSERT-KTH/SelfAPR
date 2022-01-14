@@ -1,0 +1,1 @@
+[REPLACE]^private  ThreadLocal<MockingProgress> mockingProgress = new ThreadLocal<MockingProgress> (  ) ;^13^^^^^^^[REPLACE] private static ThreadLocal<MockingProgress> mockingProgress = new ThreadLocal<MockingProgress> (  ) ;^ [CLASS] ThreadSafeMockingProgress  

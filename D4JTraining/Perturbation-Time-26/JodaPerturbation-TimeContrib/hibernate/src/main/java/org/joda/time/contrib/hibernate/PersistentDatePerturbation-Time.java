@@ -1,0 +1,2 @@
+[REPLACE]^public  final PersistentDateTime INSTANCE = new PersistentDateTime (  ) ;^36^^^^^^^[REPLACE] public static final PersistentDateTime INSTANCE = new PersistentDateTime (  ) ;^ [CLASS] PersistentDateTime  
+[REPLACE]^private static  int[] SQL_TYPES = new int[] { Types.TIMESTAMP, };^38^^^^^^^[REPLACE] private static final int[] SQL_TYPES = new int[] { Types.TIMESTAMP, };^ [CLASS] PersistentDateTime  

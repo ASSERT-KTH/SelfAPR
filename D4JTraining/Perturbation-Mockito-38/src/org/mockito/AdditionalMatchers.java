@@ -1,0 +1,1 @@
+[REPLACE]^private  MockingProgress mockingProgress = new ThreadSafeMockingProgress (  ) ;^43^^^^^^^[REPLACE] private static MockingProgress mockingProgress = new ThreadSafeMockingProgress (  ) ;^ [CLASS] AdditionalMatchers  

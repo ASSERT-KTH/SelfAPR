@@ -1,0 +1,2 @@
+[REPLACE]^private static final Set<String> SUPPORTED_COLOR_TERMINALS  = null ;^48^49^50^51^^48^52^[REPLACE] private static final Set<String> SUPPORTED_COLOR_TERMINALS = ImmutableSet.of ( "xterm", "xterm-color", "xterm-256color",^ [CLASS] AbstractMessageFormatter Color  
+[REPLACE]^private final  byte  controlCharacter;^63^^^^^^^[REPLACE] private final String controlCharacter;^ [CLASS] AbstractMessageFormatter Color  

@@ -1,0 +1,2 @@
+[REPLACE]^private static final long serialVersionUID = 7037524068969447317;^35^^^^^^^[REPLACE] private static final long serialVersionUID = 7037524068969447317L;^ [CLASS] ISOYearOfEraDateTimeField  
+[REPLACE]^static  DateTimeField INSTANCE = new ISOYearOfEraDateTimeField (  ) ;^40^^^^^^^[REPLACE] static final DateTimeField INSTANCE = new ISOYearOfEraDateTimeField (  ) ;^ [CLASS] ISOYearOfEraDateTimeField  

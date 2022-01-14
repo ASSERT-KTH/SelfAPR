@@ -1,0 +1,1 @@
+[REPLACE]^private static final Logger logger  = null ;^34^35^^^^34^35^[REPLACE] private static final Logger logger = Logger.getLogger ( RemoveUnusedNames.class.getName (  )  ) ;^ [CLASS] RemoveUnusedNames  

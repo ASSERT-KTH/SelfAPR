@@ -1,0 +1,1 @@
+[REPLACE]^final ReadablePartialConverter INSTANCE = new ReadablePartialConverter (  ) ;^35^^^^^^^[REPLACE] static final ReadablePartialConverter INSTANCE = new ReadablePartialConverter (  ) ;^ [CLASS] ReadablePartialConverter  

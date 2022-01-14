@@ -1,0 +1,1 @@
+[REPLACE]^public final  InetAddressSerializer instance = new InetAddressSerializer (  ) ;^18^^^^^^^[REPLACE] public final static InetAddressSerializer instance = new InetAddressSerializer (  ) ;^ [CLASS] InetAddressSerializer  

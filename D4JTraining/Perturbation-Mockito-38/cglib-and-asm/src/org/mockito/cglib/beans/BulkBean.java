@@ -1,0 +1,5 @@
+[REPLACE]^private static final BulkBeanKey KEY_FACTORY ;^31^32^^^^31^32^[REPLACE] private static final BulkBeanKey KEY_FACTORY = ( BulkBeanKey ) KeyFactory.create ( BulkBeanKey.class ) ;^ [CLASS] BulkBean Generator  
+[REPLACE]^private Class target;^38^^^^^^^[REPLACE] protected Class target;^ [CLASS] BulkBean Generator  
+[REPLACE]^private String[] getters, setters;^39^^^^^^^[REPLACE] protected String[] getters, setters;^ [CLASS] BulkBean Generator  
+[REPLACE]^private static final Source SOURCE  = null ;^75^^^^^^^[REPLACE] private static final Source SOURCE = new Source ( BulkBean.class.getName (  )  ) ;^ [CLASS] BulkBean Generator  
+[REPLACE]^private static  Source SOURCE = new Source ( BulkBean.class.getName (  )  ) ;^75^^^^^^^[REPLACE] private static final Source SOURCE = new Source ( BulkBean.class.getName (  )  ) ;^[METHOD] nextInstance [TYPE] Object [PARAMETER] Object instance [CLASS] Generator   [TYPE]  Class[] types  [TYPE]  boolean false  true  [TYPE]  Class target  type  [TYPE]  Object instance  [TYPE]  String[] getters  setters  typeClassNames  types  [TYPE]  Source SOURCE  [TYPE]  BulkBeanKey KEY_FACTORY 

@@ -1,0 +1,1 @@
+[REPLACE]^static  ReadableIntervalConverter INSTANCE = new ReadableIntervalConverter (  ) ;^36^^^^^^^[REPLACE] static final ReadableIntervalConverter INSTANCE = new ReadableIntervalConverter (  ) ;^ [CLASS] ReadableIntervalConverter  

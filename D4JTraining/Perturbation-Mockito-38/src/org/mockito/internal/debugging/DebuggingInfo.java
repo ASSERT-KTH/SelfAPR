@@ -1,0 +1,2 @@
+[REPLACE]^private final List<Invocation> unusedStubs  = null ;^17^^^^^^^[REPLACE] private final List<Invocation> unusedStubs = new LinkedList<Invocation> (  ) ;^ [CLASS] DebuggingInfo  
+[REPLACE]^private final List<InvocationMatcher> unstubbedInvocations  = null ;^18^^^^^^^[REPLACE] private final List<InvocationMatcher> unstubbedInvocations = new LinkedList<InvocationMatcher> (  ) ;^ [CLASS] DebuggingInfo  

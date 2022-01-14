@@ -1,0 +1,2 @@
+[REPLACE]^public static  PersistentLocalTimeAsTime INSTANCE = new PersistentLocalTimeAsTime (  ) ;^40^^^^^^^[REPLACE] public static final PersistentLocalTimeAsTime INSTANCE = new PersistentLocalTimeAsTime (  ) ;^ [CLASS] PersistentLocalTimeAsTime  
+[REPLACE]^private static  int[] SQL_TYPES = new int[] { Types.TIME, };^42^^^^^^^[REPLACE] private static final int[] SQL_TYPES = new int[] { Types.TIME, };^ [CLASS] PersistentLocalTimeAsTime  

@@ -1,0 +1,2 @@
+[REPLACE]^private static final JsonFieldNameValidator fieldNameValidator ;^35^^^^^^^[REPLACE] private static final JsonFieldNameValidator fieldNameValidator = new JsonFieldNameValidator (  ) ;^ [CLASS] SerializedNameAnnotationInterceptingNamingPolicy  
+[REPLACE]^private  FieldNamingStrategy2 delegate;^36^^^^^^^[REPLACE] private final FieldNamingStrategy2 delegate;^ [CLASS] SerializedNameAnnotationInterceptingNamingPolicy  

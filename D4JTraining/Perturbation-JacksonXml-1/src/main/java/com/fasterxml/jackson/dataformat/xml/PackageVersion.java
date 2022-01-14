@@ -1,0 +1,1 @@
+[REPLACE]^public final static Version VERSION ;^13^14^^^^13^14^[REPLACE] public final static Version VERSION = VersionUtil.parseVersion ( "2.7.0-rc4-SNAPSHOT", "com.fasterxml.jackson.dataformat", "jackson-dataformat-xml" ) ;^ [CLASS] PackageVersion  

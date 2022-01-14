@@ -1,0 +1,1 @@
+[REPLACE]^private  final MethodFilter TRANSFORM_FILTER = new MethodFilter (  )  {^43^^^^^43^47^[REPLACE] private static final MethodFilter TRANSFORM_FILTER = new MethodFilter (  )  {^ [CLASS] UndeclaredThrowableStrategy 1  

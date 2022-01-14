@@ -1,0 +1,3 @@
+[REPLACE]^private static final long serialVersionUID  = null ;^76^^^^^^^[REPLACE] private static final long serialVersionUID = 156371964018738L;^ [CLASS] DateMidnight Property  
+[REPLACE]^private  final long serialVersionUID = 257629620L;^1154^^^^^^^[REPLACE] private static final long serialVersionUID = 257629620L;^ [CLASS] DateMidnight Property  
+[REPLACE]^private static final long serialVersionUID ;^1154^^^^^^^[REPLACE] private static final long serialVersionUID = 257629620L;^[METHOD] roundHalfEvenCopy [TYPE] DateMidnight [PARAMETER] [CLASS] Property   [TYPE]  DateTimeField field  iField  [TYPE]  boolean false  true  [TYPE]  DateMidnight iInstant  instant  [TYPE]  long duration  durationToAdd  end  instant  millis  newMillis  serialVersionUID  start  value 

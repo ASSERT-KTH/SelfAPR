@@ -1,0 +1,2 @@
+[REPLACE]^private static Map<Class<?>, Object> wrapperReturnValues ;^24^^^^^^^[REPLACE] private static Map<Class<?>, Object> wrapperReturnValues = new HashMap<Class<?>, Object> (  ) ;^ [CLASS] Primitives  
+[REPLACE]^private  Map<Class<?>, Class<?>> primitiveTypes = new HashMap<Class<?>, Class<?>> (  ) ;^25^^^^^^^[REPLACE] private static Map<Class<?>, Class<?>> primitiveTypes = new HashMap<Class<?>, Class<?>> (  ) ;^ [CLASS] Primitives  

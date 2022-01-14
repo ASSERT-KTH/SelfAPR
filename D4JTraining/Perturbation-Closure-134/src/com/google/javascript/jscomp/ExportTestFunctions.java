@@ -1,0 +1,2 @@
+[REPLACE]^private static final Pattern TEST_FUNCTIONS_NAME_PATTERN ;^32^33^^^^32^33^[REPLACE] private static final Pattern TEST_FUNCTIONS_NAME_PATTERN = Pattern.compile ( "^ ( ?:setUpPage|setUp|tearDown|tearDownPage|test.* ) $" ) ;^ [CLASS] ExportTestFunctions ExportTestFunctionsNodes  
+[REPLACE]^private final  long  exportSymbolFunction;^36^^^^^^^[REPLACE] private final String exportSymbolFunction;^ [CLASS] ExportTestFunctions ExportTestFunctionsNodes  

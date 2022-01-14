@@ -1,0 +1,2 @@
+[REPLACE]^private final Map<String, Type> map  = null ;^31^^^^^^^[REPLACE] private final Map<String, Type> map = new LinkedHashMap<String, Type> (  ) ;^ [CLASS] HeaderMapSpec Builder  
+[REPLACE]^private final Map<String, Type> map ;^31^^^^^^^[REPLACE] private final Map<String, Type> map = new LinkedHashMap<String, Type> (  ) ;^[METHOD] size [TYPE] int [PARAMETER] [CLASS] Builder   [TYPE]  Map map  [TYPE]  boolean false  true 

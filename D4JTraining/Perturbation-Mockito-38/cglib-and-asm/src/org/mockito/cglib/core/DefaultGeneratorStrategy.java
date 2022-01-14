@@ -1,0 +1,1 @@
+[REPLACE]^public static final DefaultGeneratorStrategy INSTANCE ;^21^^^^^^^[REPLACE] public static final DefaultGeneratorStrategy INSTANCE = new DefaultGeneratorStrategy (  ) ;^ [CLASS] DefaultGeneratorStrategy  

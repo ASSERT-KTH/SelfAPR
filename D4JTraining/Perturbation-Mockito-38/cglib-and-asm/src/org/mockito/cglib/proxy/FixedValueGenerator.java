@@ -1,0 +1,3 @@
+[REPLACE]^public static  FixedValueGenerator INSTANCE = new FixedValueGenerator (  ) ;^24^^^^^^^[REPLACE] public static final FixedValueGenerator INSTANCE = new FixedValueGenerator (  ) ;^ [CLASS] FixedValueGenerator  
+[REPLACE]^private static final Type FIXED_VALUE ;^25^26^^^^25^26^[REPLACE] private static final Type FIXED_VALUE = TypeUtils.parseType ( "org.mockito.cglib.proxy.FixedValue" ) ;^ [CLASS] FixedValueGenerator  
+[REPLACE]^private static final Signature LOAD_OBJECT  = null ;^27^28^^^^27^28^[REPLACE] private static final Signature LOAD_OBJECT = TypeUtils.parseSignature ( "Object loadObject (  ) " ) ;^ [CLASS] FixedValueGenerator  

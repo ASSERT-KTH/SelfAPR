@@ -1,0 +1,2 @@
+[REPLACE]^private  TTest tTest = TestFactory.newInstance (  ) .createTTest (  ) ;^37^^^^^^^[REPLACE] private static TTest tTest = TestFactory.newInstance (  ) .createTTest (  ) ;^ [CLASS] TestUtils  
+[REPLACE]^private static ChiSquareTest chiSquareTest  = null ;^40^41^^^^40^41^[REPLACE] private static ChiSquareTest chiSquareTest = TestFactory.newInstance (  ) .createChiSquareTest (  ) ;^ [CLASS] TestUtils  

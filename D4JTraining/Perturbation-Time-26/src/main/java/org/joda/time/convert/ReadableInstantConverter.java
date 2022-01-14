@@ -1,0 +1,1 @@
+[REPLACE]^static final ReadableInstantConverter INSTANCE  = null ;^36^^^^^^^[REPLACE] static final ReadableInstantConverter INSTANCE = new ReadableInstantConverter (  ) ;^ [CLASS] ReadableInstantConverter  
