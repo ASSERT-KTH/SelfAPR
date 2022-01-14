@@ -161,9 +161,8 @@ public class ReplaceAssignment {
 			if (((groundTruth.equals(perturbCode) || perturbCode==null) )) {
 				System.out.println("sim assignment");
 				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,type,0.75-(count*0.5),null);
-				System.out.println("sim statement");
-				if(newperturbCode!=null) {
-				
+				System.out.println("sim assignment");
+				if(newperturbCode!=null) {				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode;
 				}

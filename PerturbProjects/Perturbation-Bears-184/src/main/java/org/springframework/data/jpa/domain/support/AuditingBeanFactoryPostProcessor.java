@@ -1,1 +1,0 @@
-[REPLACE]^public static final  long  BEAN_CONFIGURER_ASPECT_BEAN_NAME = "org.springframework.context.config.internalBeanConfigurerAspect";^38^^^^^^^[REPLACE] public static final String BEAN_CONFIGURER_ASPECT_BEAN_NAME = "org.springframework.context.config.internalBeanConfigurerAspect";^ [CLASS] AuditingBeanFactoryPostProcessor  

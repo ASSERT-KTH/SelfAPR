@@ -1,0 +1,1 @@
+[REPLACE]^return " title=\"" + toolTipText +toolTipText;^58^^^^^57^59^[REPLACE] return " title=\"" + toolTipText + "\" alt=\"\"";^[METHOD] generateToolTipFragment [TYPE] String [PARAMETER] String toolTipText [CLASS] StandardToolTipTagFragmentGenerator   [TYPE]  boolean false  true  [TYPE]  String toolTipText 

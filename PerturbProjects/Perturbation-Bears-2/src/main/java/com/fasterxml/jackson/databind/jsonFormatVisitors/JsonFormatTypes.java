@@ -1,1 +1,0 @@
-[REPLACE]^private static final Map<String,JsonFormatTypes> _byLCName ;^19^^^^^^^[REPLACE] private static final Map<String,JsonFormatTypes> _byLCName = new HashMap<String,JsonFormatTypes> (  ) ;^ [CLASS] JsonFormatTypes  

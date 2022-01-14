@@ -1,2 +1,0 @@
-[REPLACE]^private static  String XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";^34^^^^^^^[REPLACE] private static final String XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";^ [CLASS] ReportResource  
-[REPLACE]^private static  String CONTENT_DISPOSITION_VALUE_XLSX = "attachment; filename=report.xlsx";^35^^^^^^^[REPLACE] private static final String CONTENT_DISPOSITION_VALUE_XLSX = "attachment; filename=report.xlsx";^ [CLASS] ReportResource  

@@ -106,15 +106,14 @@ public class ReplaceStatement {
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo2)) {
-			if ((groundTruth.equals(perturbCode) || perturbCode==null)) {
+			if ((groundTruth.equals(perturbCode) || perturbCode==null) && count<3) {
 				System.out.println("sim statement");
 				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,type,0.85 - (0.5 * count),null);
-				if(newperturbCode!=null) {
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode;
 				}
-				}
+				
 
 			}		
 		}
@@ -123,7 +122,7 @@ public class ReplaceStatement {
 		/**
 		 * check if the perturbation fails,we iteratively perturb until the count
 		 */
-		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<2 ) {
+		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
 			perturb( st, type, methStart, methEnd,  groundTruth, lineNo1,
 					lineNo2, lineNo3,lineNo4, count+1);
 		} else if(!(groundTruth.equals(perturbCode) && perturbCode!=null )){		

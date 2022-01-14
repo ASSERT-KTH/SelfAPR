@@ -1,1 +1,0 @@
-[REPLACE]^public  volatile SingularAttribute<AbstractPersistable, Serializable> id;^12^^^^^^^[REPLACE] public static volatile SingularAttribute<AbstractPersistable, Serializable> id;^ [CLASS] AbstractPersistable_  

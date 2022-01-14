@@ -43,7 +43,7 @@ public class InvocationPerturbation {
 			int argSize = SUPREUtil.getArgsSize(inv);
 
 			// #java.lang.Math
-			if ("java.lang.Math".equals(exc.getDeclaringType().toString()) && r > 0.2) {
+			if (exc.getDeclaringType()!=null && "java.lang.Math".equals(exc.getDeclaringType().toString()) && r > 0.2) {
 				String declarSring = "Math." + excStr + " ( ";
 				if (groundTruth.contains(declarSring)) {
 					String start = groundTruth.split("Math")[0];
@@ -130,7 +130,7 @@ public class InvocationPerturbation {
 					}
 				}
 				// remove invocation and only keep varaible!!!
-				if (corruptedCode == null && argSize == 1) {
+				if (exc.getDeclaringType()!=null && corruptedCode == null && argSize == 1) {
 
 					String declarSring = SUPREUtil.getSimpleVarName(exc.getDeclaringType().toString()) + "." + excStr
 							+ " ( ";

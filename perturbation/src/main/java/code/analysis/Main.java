@@ -49,10 +49,11 @@ public class Main {
 	
 	
 	public static void main(String[] args) {		
-		path = args[0];
-		
-//		path = "/Users/sophie/Documents/SUPRE/D4JTraining/Math-106b/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java";
-
+		path = args[0];	
+//		/Users/sophie/Documents/SUPRE/D4JTraining/Chart-26/source/org/jfree/chart/renderer/category/WaterfallBarRenderer.java
+//		path = "/Users/sophie/Documents/SUPRE/D4JTraining/Chart-26/source/org/jfree/chart/renderer/OutlierListCollection.java";
+//		path =  "/Users/sophie/Documents/SUPRE/D4JTraining/Chart-26/source/org/jfree/chart/renderer/xy/XYErrorRenderer.java";
+//		path = "/Users/sophie/Documents/SUPRE/D4JTraining/Chart-26/source/org/jfree/chart/ChartFactory.java";
 		sourceReader(path);	
 	}
 	

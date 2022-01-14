@@ -99,7 +99,7 @@ public class ReplaceCondition {
 		
 		// remove && || !
 
-		if (SUPREUtil.getRandomDouble() > 0.4 && groundTruth.contains("if") && (perturbCode.contains("||") || perturbCode.contains("&&"))) {
+		if (SUPREUtil.getRandomDouble() > 0.4 && groundTruth.contains("if") && (groundTruth.contains("||") || groundTruth.contains("&&"))) {
 			if (perturbCode == null) {
 				perturbCode = groundTruth;
 			}
@@ -237,7 +237,7 @@ public class ReplaceCondition {
 				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,"conditionhead",0.75 - (0.5*count),null);
 				if(newperturbCode!=null) {
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
-					perturbCode = newperturbCode+" ;";
+					perturbCode = newperturbCode;
 				} }
 				
 			}		

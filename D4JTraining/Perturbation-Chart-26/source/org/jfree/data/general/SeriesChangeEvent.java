@@ -1,0 +1,2 @@
+[REPLACE]^private static final long serialVersionUID = 1593866085210089052;^55^^^^^^^[REPLACE] private static final long serialVersionUID = 1593866085210089052L;^ [CLASS] SeriesChangeEvent  
+[ADD]^^63^^^^^62^64^[ADD] super ( source ) ;^[METHOD] <init> [TYPE] Object) [PARAMETER] Object source [CLASS] SeriesChangeEvent   [TYPE]  long serialVersionUID  [TYPE]  Object source  [TYPE]  boolean false  true 

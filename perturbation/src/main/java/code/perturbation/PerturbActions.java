@@ -37,6 +37,7 @@ import spoon.support.reflect.code.CtBlockImpl;
 import spoon.support.reflect.code.CtCatchImpl;
 import spoon.support.reflect.code.CtConstructorCallImpl;
 import spoon.support.reflect.code.CtForEachImpl;
+import spoon.support.reflect.code.CtForImpl;
 import spoon.support.reflect.code.CtIfImpl;
 import spoon.support.reflect.code.CtInvocationImpl;
 import spoon.support.reflect.code.CtLocalVariableImpl;
@@ -50,11 +51,7 @@ public class PerturbActions {
 
 	public static void randomPerturb(CtElement st, String type, int methStart, int methEnd) {
 		try {
-		if(st.toString().contains("Math.max")) {
-			 System.out.println( " ==== type =====" + type+ "===== st: ===="  );
-
-		}
-			
+					
 		String stStr = st.toString().replace("\r", " ").replace("\n", " ");
 		 System.out.println( " ==== type =====" + type+ "===== st: ====" + stStr );
 		double r = SUPREUtil.getRandomDouble();
@@ -99,10 +96,10 @@ public class PerturbActions {
 				Remove.remove(st, type, methStart, methEnd);
 			}
 
-		} catch (Exception e) {
+		} 
+		catch (Exception e) {
 			System.out.println("=============exception=========" + e.getLocalizedMessage());
 		}
-
 	}
 
 	/**
@@ -137,7 +134,7 @@ public class PerturbActions {
 				List<CtStatement> statements = block.getStatements();
 				
 				for (CtStatement st : statements) {
-					if(st.toString().contains("Math.max")) {
+					if(st.toString().contains("for")) {
 						 System.out.println( " ==== type =====" +"===== st: ===="  );
 
 					}
@@ -150,17 +147,16 @@ public class PerturbActions {
 
 	private static void processStatement(CtStatement st, int methStart, int methEnd) {
 
-		// CtAssignmentImpl
-
-		if (methEnd - methStart > 15) {
+		if (methEnd - methStart > 25) {
 			int pos = st.getPosition().getLine();
 			int blockStart = st.getParent().getPosition().getLine();
 			int endStart = st.getParent().getPosition().getEndLine();
 
-			if (blockStart < pos && endStart > pos) {
+			if (blockStart < pos && endStart > pos && endStart-blockStart<methEnd - methStart) {
 				methStart = blockStart;
 				methEnd = endStart;
-			}
+			}			
+			
 		}
 			List<CtAssignmentImpl> assignments = st
 					.getElements(new TypeFilter<CtAssignmentImpl>(CtAssignmentImpl.class));
@@ -181,11 +177,19 @@ public class PerturbActions {
 			List<CtInvocationImpl> invocations = st
 					.getElements(new TypeFilter<CtInvocationImpl>(CtInvocationImpl.class));
 			List<CtTryImpl> trys = st.getElements(new TypeFilter<CtTryImpl>(CtTryImpl.class));
-			List<CtForEachImpl> fors = st.getElements(new TypeFilter<CtForEachImpl>(CtForEachImpl.class));
+			List<CtForImpl> fors = st.getElements(new TypeFilter<CtForImpl>(CtForImpl.class));
 			List<CtWhileImpl> whiles = st.getElements(new TypeFilter<CtWhileImpl>(CtWhileImpl.class));
 
 			if (whiles.size() > 0) {
 				System.out.println();
+				for (CtWhileImpl w : whiles) {
+					PerturbActions.randomPerturb(w, "whiles", methStart, methEnd);
+					CtStatement s = w.getBody();
+					if(s!=null) {
+						processStatement(s, methStart, methEnd);
+					}					
+					
+				}
 			}
 
 			if (conditions.size() > 0) {
@@ -203,11 +207,8 @@ public class PerturbActions {
 			}
 
 			if (fors.size() > 0) {
-				for (CtForEachImpl foreach : fors) {
-					if (methEnd - methStart > 15) {
-						methStart = foreach.getParent().getPosition().getLine();
-						methEnd = foreach.getParent().getPosition().getEndLine();
-					}
+				for (CtForImpl foreach : fors) {
+					
 					PerturbActions.randomPerturb(foreach, "for", methStart, methEnd);
 
 					CtStatement forbody = foreach.getBody();

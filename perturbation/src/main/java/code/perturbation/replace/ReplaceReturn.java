@@ -109,7 +109,9 @@ public class ReplaceReturn {
 		
 		if ((groundTruth.equals(perturbCode) || perturbCode==null) && groundTruth.contains("this")) {
 			
+			if(!groundTruth.contains("this.")) {
 			perturbCode = groundTruth.replace("this", "null");
+			}
 		}
 
 		
@@ -120,7 +122,7 @@ public class ReplaceReturn {
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo3)) {
-			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2) || SUPREUtil.getRandomDouble() > 0.8) {
+			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2) || r>0.85) {
 				System.out.println("sim return");
 
 				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,type,0.8 - (0.5*count),null);

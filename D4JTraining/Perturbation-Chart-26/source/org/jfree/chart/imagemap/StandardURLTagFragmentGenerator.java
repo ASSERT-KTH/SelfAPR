@@ -1,0 +1,1 @@
+[REPLACE]^return " href=\""  |  urlText  |  "\"";^58^^^^^57^59^[REPLACE] return " href=\"" + urlText + "\"";^[METHOD] generateURLFragment [TYPE] String [PARAMETER] String urlText [CLASS] StandardURLTagFragmentGenerator   [TYPE]  boolean false  true  [TYPE]  String urlText 

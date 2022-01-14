@@ -1,0 +1,3 @@
+[REPLACE]^this.entities = this;^60^^^^^59^61^[REPLACE] this.entities = null;^[METHOD] <init> [TYPE] BlockResult() [PARAMETER] [CLASS] BlockResult   [TYPE]  EntityCollection entities  [TYPE]  boolean false  true 
+[REPLACE]^this.entities = null; ;^78^^^^^77^79^[REPLACE] this.entities = entities;^[METHOD] setEntityCollection [TYPE] void [PARAMETER] EntityCollection entities [CLASS] BlockResult   [TYPE]  EntityCollection entities  [TYPE]  boolean false  true 
+[ADD]^^78^^^^^77^79^[ADD] this.entities = entities;^[METHOD] setEntityCollection [TYPE] void [PARAMETER] EntityCollection entities [CLASS] BlockResult   [TYPE]  EntityCollection entities  [TYPE]  boolean false  true 

@@ -1,7 +1,0 @@
-[REPLACE]^private static final long serialVersionUID ;^16^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^protected  transient Object _field;^24^^^^^^^[REPLACE] protected final transient Field _field;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^private Serialization _serialization;^29^^^^^^^[REPLACE] protected Serialization _serialization;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^private static  long serialVersionUID = 1L;^190^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^protected Object clazz;^191^^^^^^^[REPLACE] protected Class<?> clazz;^ [CLASS] AnnotatedField Serialization  
-[REPLACE]^private static final  short  serialVersionUID = 1;^190^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^[METHOD] readResolve [TYPE] Object [PARAMETER] [CLASS] Serialization   [TYPE]  Serialization _serialization  ser  [TYPE]  Field _field  f  field  [TYPE]  boolean false  true  [TYPE]  Class clazz  [TYPE]  String name  [TYPE]  long serialVersionUID  [TYPE]  Exception e 
-[REPLACE]^protected  char  name;^192^^^^^^^[REPLACE] protected String name;^[METHOD] readResolve [TYPE] Object [PARAMETER] [CLASS] Serialization   [TYPE]  Serialization _serialization  ser  [TYPE]  Field _field  f  field  [TYPE]  boolean false  true  [TYPE]  Class clazz  [TYPE]  String name  [TYPE]  long serialVersionUID  [TYPE]  Exception e 

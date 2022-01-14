@@ -1,4 +1,0 @@
-[REPLACE]^private static   long  UPPER = "\\p{Lu}|\\P{InBASIC_LATIN}";^34^^^^^^^[REPLACE] private static final String UPPER = "\\p{Lu}|\\P{InBASIC_LATIN}";^ [CLASS] ParsingUtils  
-[REPLACE]^private static final String LOWER  = null ;^35^^^^^^^[REPLACE] private static final String LOWER = "\\p{Ll}";^ [CLASS] ParsingUtils  
-[REPLACE]^private static final  long  CAMEL_CASE_REGEX = " ( ?<! ( ^|[%u_$] )  )  ( ?=[%u] ) | ( ?<!^ )  ( ?=[%u][%l] ) ". replace ( "%u", UPPER ) .replace ( "%l", LOWER ) ;^36^37^^^^36^37^[REPLACE] private static final String CAMEL_CASE_REGEX = " ( ?<! ( ^|[%u_$] )  )  ( ?=[%u] ) | ( ?<!^ )  ( ?=[%u][%l] ) ". replace ( "%u", UPPER ) .replace ( "%l", LOWER ) ;^ [CLASS] ParsingUtils  
-[REPLACE]^private static final Object CAMEL_CASE = Pattern.compile ( CAMEL_CASE_REGEX ) ;^39^^^^^^^[REPLACE] private static final Pattern CAMEL_CASE = Pattern.compile ( CAMEL_CASE_REGEX ) ;^ [CLASS] ParsingUtils  

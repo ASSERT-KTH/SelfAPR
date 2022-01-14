@@ -1,2 +1,0 @@
-[REPLACE]^private static   int  NO_ANNOTATION_FOUND =  int .format ( "Interface must be annotated with @%s!", RepositoryDefinition.class.getName (  )  ) ;^33^34^^^^33^34^[REPLACE] private static final String NO_ANNOTATION_FOUND = String.format ( "Interface must be annotated with @%s!", RepositoryDefinition.class.getName (  )  ) ;^ [CLASS] AnnotationRepositoryMetadata  
-[REPLACE]^private  Class<?> domainType;^37^^^^^^^[REPLACE] private final Class<?> domainType;^ [CLASS] AnnotationRepositoryMetadata  

@@ -75,9 +75,7 @@ public class AddStatement {
 			return;
 		}
 		perturbCode = perturbCode.replace("\r", " ").replace("\n", " ");
-		
-		perturbCode = perturbCode +" ; ";
-				
+						
 		groundTruth = " ";
 		}
 		else {

@@ -1,1 +1,0 @@
-[ADD]^^33^34^35^^^31^47^[ADD] setSupportedCommands ( Command.TYPE_POSITION_SINGLE, Command.TYPE_POSITION_PERIODIC,^[METHOD] <init> [TYPE] WatchProtocol() [PARAMETER] [CLASS] WatchProtocol 1   [TYPE]  boolean false  true 

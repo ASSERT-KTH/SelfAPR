@@ -1,1 +1,0 @@
-[REPLACE]^private static final BeanNameGenerator DELEGATE ;^36^^^^^^^[REPLACE] private static final BeanNameGenerator DELEGATE = new AnnotationBeanNameGenerator (  ) ;^ [CLASS] RepositoryBeanNameGenerator  

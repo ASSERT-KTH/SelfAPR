@@ -1,2 +1,0 @@
-[REPLACE]^private static  Map<String, Distance SUPPORTED_METRICS;^43^^^^^^^[REPLACE] private static final Map<String, Metric> SUPPORTED_METRICS;^ [CLASS] DistanceFormatter  
-[REPLACE]^private static final  char  INVALID_DISTANCE = "Expected double amount optionally followed by a metrics abbreviation  ( %s )  but got '%s'!";^44^^^^^^^[REPLACE] private static final String INVALID_DISTANCE = "Expected double amount optionally followed by a metrics abbreviation  ( %s )  but got '%s'!";^ [CLASS] DistanceFormatter  

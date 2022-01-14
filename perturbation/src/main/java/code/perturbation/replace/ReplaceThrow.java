@@ -16,11 +16,11 @@ public class ReplaceThrow {
 		double r = SUPREUtil.getRandomDouble();
 		String perturbCode = "return ;";
 
-		if (r > 0.6) {
+		if (r > 0.7) {
 			perturbCode = "return ;";
-		} else if (r > 0.5) {
+		} else if (r > 0.6) {
 			//replace another return xxx;
-			String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth, "return", 0.1, null);
+			String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth, "return", 0.2, null);
 			if (newperturbCode != null) {
 				if (newperturbCode != null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode + " ;";

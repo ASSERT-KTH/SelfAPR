@@ -1,1 +1,0 @@
-[REPLACE]^private static final String URL  = null ;^20^21^22^^^^^[REPLACE] private static final String URL = "https:  public GoogleGeolocationProvider ( String key )  {^ [CLASS] GoogleGeolocationProvider  

@@ -1,3 +1,0 @@
-[REPLACE]^static final String PARAMETER_NEEDS_TO_BE_NAMED  = null ;^35^^^^^^^[REPLACE] static final String PARAMETER_NEEDS_TO_BE_NAMED = "For queries with named parameters you need to use provide names for method parameters. Use @Param for query method parameters, or when on Java 8+ use the javac flag -parameters.";^ [CLASS] ParameterBinder  
-[REPLACE]^private  JpaParameters parameters;^37^^^^^^^[REPLACE] private final JpaParameters parameters;^ [CLASS] ParameterBinder  
-[REPLACE]^private  Iterable<QueryParameterSetter> parameterSetters;^38^^^^^^^[REPLACE] private final Iterable<QueryParameterSetter> parameterSetters;^ [CLASS] ParameterBinder  

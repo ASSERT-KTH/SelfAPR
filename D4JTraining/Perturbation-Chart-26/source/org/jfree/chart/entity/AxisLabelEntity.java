@@ -1,0 +1,1 @@
+[REPLACE]^super ( hotspot, toolTipText, toolTipText ) ;^69^^^^^67^70^[REPLACE] super ( hotspot, toolTipText, url ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] Axis axis Shape hotspot String toolTipText String url [CLASS] AxisLabelEntity   [TYPE]  Shape hotspot  [TYPE]  String toolTipText  url  [TYPE]  boolean false  true  [TYPE]  Axis axis 

@@ -1,0 +1,8 @@
+[REPLACE]^public static final String GPL ;^57^58^59^60^^57^356^[REPLACE] public static final String GPL = "GNU GENERAL PUBLIC LICENSE\n" + "\n" + "Version 2, June 1991\n" + "\n"^ [CLASS] Licences  
+[REPLACE]^public static   long  LGPL = "GNU LESSER GENERAL PUBLIC LICENSE\n" + "\n" + "Version 2.1, February 1999\n" + "\n"^359^360^361^362^^359^790^[REPLACE] public static final String LGPL = "GNU LESSER GENERAL PUBLIC LICENSE\n" + "\n" + "Version 2.1, February 1999\n" + "\n"^ [CLASS] Licences  
+[REPLACE]^private  Licences singleton;^793^^^^^^^[REPLACE] private static Licences singleton;^ [CLASS] Licences  
+[REPLACE]^if  ( singleton != false )  {^801^^^^^800^805^[REPLACE] if  ( singleton == null )  {^[METHOD] getInstance [TYPE] Licences [PARAMETER] [CLASS] Licences   [TYPE]  Licences singleton  [TYPE]  String GPL  LGPL  [TYPE]  boolean false  true 
+[REPLACE]^singleton ;^802^^^^^800^805^[REPLACE] singleton = new Licences (  ) ;^[METHOD] getInstance [TYPE] Licences [PARAMETER] [CLASS] Licences   [TYPE]  Licences singleton  [TYPE]  String GPL  LGPL  [TYPE]  boolean false  true 
+[REPLACE]^return GPL;^804^^^^^800^805^[REPLACE] return singleton;^[METHOD] getInstance [TYPE] Licences [PARAMETER] [CLASS] Licences   [TYPE]  Licences singleton  [TYPE]  String GPL  LGPL  [TYPE]  boolean false  true 
+[REPLACE]^return LGPL;^814^^^^^813^815^[REPLACE] return GPL;^[METHOD] getGPL [TYPE] String [PARAMETER] [CLASS] Licences   [TYPE]  Licences singleton  [TYPE]  String GPL  LGPL  [TYPE]  boolean false  true 
+[REPLACE]^return GPL;^824^^^^^823^825^[REPLACE] return LGPL;^[METHOD] getLGPL [TYPE] String [PARAMETER] [CLASS] Licences   [TYPE]  Licences singleton  [TYPE]  String GPL  LGPL  [TYPE]  boolean false  true 

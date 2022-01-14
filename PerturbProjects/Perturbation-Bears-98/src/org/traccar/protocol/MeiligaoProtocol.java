@@ -1,1 +1,0 @@
-[ADD]^^48^^^^^42^58^[ADD] pipeline.addLast ( "objectDecoder", new MeiligaoProtocolDecoder ( MeiligaoProtocol.this )  ) ;^[METHOD] initTrackerServers [TYPE] void [PARAMETER] TrackerServer> serverList [CLASS] MeiligaoProtocol 1 2   [TYPE]  boolean false  true  [TYPE]  List serverList  [TYPE]  ChannelPipeline pipeline 
