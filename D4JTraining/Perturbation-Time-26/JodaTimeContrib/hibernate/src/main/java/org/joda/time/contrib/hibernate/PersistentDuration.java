@@ -1,0 +1,3 @@
+[REPLACE]^return new Duration ( s ) ;^29^^^^^28^30^[REPLACE] return Duration.class;^[METHOD] returnedClass [TYPE] Class [PARAMETER] [CLASS] PersistentDuration   [TYPE]  boolean false  true 
+[REPLACE]^return value.toString (  ) ;^33^^^^^32^34^[REPLACE] return new Duration ( s ) ;^[METHOD] fromNonNullString [TYPE] Object [PARAMETER] String s [CLASS] PersistentDuration   [TYPE]  boolean false  true  [TYPE]  String s 
+[REPLACE]^return new Duration ( s ) ;^37^^^^^36^38^[REPLACE] return value.toString (  ) ;^[METHOD] toNonNullString [TYPE] String [PARAMETER] Object value [CLASS] PersistentDuration   [TYPE]  boolean false  true  [TYPE]  Object value 

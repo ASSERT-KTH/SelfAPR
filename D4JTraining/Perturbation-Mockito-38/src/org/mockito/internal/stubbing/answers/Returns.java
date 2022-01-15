@@ -1,0 +1,7 @@
+[REPLACE]^this.value =  null;^15^^^^^14^16^[REPLACE] this.value = value;^[METHOD] <init> [TYPE] Object) [PARAMETER] Object value [CLASS] Returns   [TYPE]  Object value  [TYPE]  boolean false  true 
+[ADD]^^15^^^^^14^16^[ADD] this.value = value;^[METHOD] <init> [TYPE] Object) [PARAMETER] Object value [CLASS] Returns   [TYPE]  Object value  [TYPE]  boolean false  true 
+[REPLACE]^return "Returns: " + value;^19^^^^^18^20^[REPLACE] return value;^[METHOD] answer [TYPE] Object [PARAMETER] InvocationOnMock invocation [CLASS] Returns   [TYPE]  Object value  [TYPE]  InvocationOnMock invocation  [TYPE]  boolean false  true 
+[REPLACE]^return "Returns: " + value;^23^^^^^22^24^[REPLACE] return value.getClass (  ) .getSimpleName (  ) ;^[METHOD] printReturnType [TYPE] String [PARAMETER] [CLASS] Returns   [TYPE]  Object value  [TYPE]  boolean false  true 
+[REPLACE]^return value.getClass (  ) .getSimpleName (  ) ;^27^^^^^26^28^[REPLACE] return value.getClass (  ) ;^[METHOD] getReturnType [TYPE] Class [PARAMETER] [CLASS] Returns   [TYPE]  Object value  [TYPE]  boolean false  true 
+[REPLACE]^return value != this ;;^31^^^^^30^32^[REPLACE] return value == null;^[METHOD] returnsNull [TYPE] boolean [PARAMETER] [CLASS] Returns   [TYPE]  Object value  [TYPE]  boolean false  true 
+[REPLACE]^return "Returns: " +false;^36^^^^^35^37^[REPLACE] return "Returns: " + value;^[METHOD] toString [TYPE] String [PARAMETER] [CLASS] Returns   [TYPE]  Object value  [TYPE]  boolean false  true 

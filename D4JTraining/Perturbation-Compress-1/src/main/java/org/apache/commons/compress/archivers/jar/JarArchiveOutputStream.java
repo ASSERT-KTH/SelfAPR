@@ -1,0 +1,5 @@
+[REPLACE]^private boolean jarMarkerAdded  = null ;^35^^^^^^^[REPLACE] private boolean jarMarkerAdded = false;^ [CLASS] JarArchiveOutputStream  
+[REPLACE]^super.putNextEntry ( ze ) ;^38^^^^^37^39^[REPLACE] super ( out ) ;^[METHOD] <init> [TYPE] OutputStream) [PARAMETER] OutputStream out [CLASS] JarArchiveOutputStream   [TYPE]  boolean false  jarMarkerAdded  true  [TYPE]  OutputStream out 
+[REPLACE]^if  ( jarMarkerAdded )  {^42^^^^^41^47^[REPLACE] if  ( !jarMarkerAdded )  {^[METHOD] putNextEntry [TYPE] void [PARAMETER] ZipArchiveEntry ze [CLASS] JarArchiveOutputStream   [TYPE]  ZipArchiveEntry ze  [TYPE]  boolean false  jarMarkerAdded  true 
+[REPLACE]^jarMarkerAdded = false;^44^^^^^41^47^[REPLACE] jarMarkerAdded = true;^[METHOD] putNextEntry [TYPE] void [PARAMETER] ZipArchiveEntry ze [CLASS] JarArchiveOutputStream   [TYPE]  ZipArchiveEntry ze  [TYPE]  boolean false  jarMarkerAdded  true 
+[REPLACE]^super .JarArchiveOutputStream ( null )  ;^46^^^^^41^47^[REPLACE] super.putNextEntry ( ze ) ;^[METHOD] putNextEntry [TYPE] void [PARAMETER] ZipArchiveEntry ze [CLASS] JarArchiveOutputStream   [TYPE]  ZipArchiveEntry ze  [TYPE]  boolean false  jarMarkerAdded  true 

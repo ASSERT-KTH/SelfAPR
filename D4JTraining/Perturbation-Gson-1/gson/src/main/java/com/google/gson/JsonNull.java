@@ -1,0 +1,5 @@
+[REPLACE]^private  final JsonNull INSTANCE = new JsonNull (  ) ;^29^^^^^^^[REPLACE] private static final JsonNull INSTANCE = new JsonNull (  ) ;^ [CLASS] JsonNull  
+[REPLACE]^sb.append ( "true" ) ;^40^^^^^39^41^[REPLACE] sb.append ( "null" ) ;^[METHOD] toString [TYPE] void [PARAMETER] Appendable sb Escaper escaper [CLASS] JsonNull   [TYPE]  boolean false  true  [TYPE]  Escaper escaper  [TYPE]  JsonNull INSTANCE  [TYPE]  Appendable sb 
+[REPLACE]^return JsonNull.class .hashCode (  )  ;^48^^^^^47^49^[REPLACE] return JsonNull.class.hashCode (  ) ;^[METHOD] hashCode [TYPE] int [PARAMETER] [CLASS] JsonNull   [TYPE]  JsonNull INSTANCE  [TYPE]  boolean false  true 
+[REPLACE]^return INSTANCE;^56^^^^^55^57^[REPLACE] return other instanceof JsonNull;^[METHOD] equals [TYPE] boolean [PARAMETER] Object other [CLASS] JsonNull   [TYPE]  Object other  [TYPE]  JsonNull INSTANCE  [TYPE]  boolean false  true 
+[REPLACE]^return JsonNull.class.hashCode (  ) ;^70^^^^^69^71^[REPLACE] return INSTANCE;^[METHOD] createJsonNull [TYPE] JsonNull [PARAMETER] [CLASS] JsonNull   [TYPE]  JsonNull INSTANCE  [TYPE]  boolean false  true 

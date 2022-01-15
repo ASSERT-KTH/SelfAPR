@@ -1,0 +1,4 @@
+[REPLACE]^private static  long serialVersionUID = 1L;^17^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] StdScalarDeserializer  
+[REPLACE]^super ( true ) ;^20^^^^^19^21^[REPLACE] super ( vc ) ;^[METHOD] <init> [TYPE] Class) [PARAMETER] Class<?> vc [CLASS] StdScalarDeserializer   [TYPE]  long serialVersionUID  [TYPE]  Class vc  [TYPE]  boolean false  true 
+[REPLACE]^super ( vc ) ;^24^^^^^23^25^[REPLACE] super ( valueType ) ;^[METHOD] <init> [TYPE] JavaType) [PARAMETER] JavaType valueType [CLASS] StdScalarDeserializer   [TYPE]  long serialVersionUID  [TYPE]  JavaType valueType  [TYPE]  boolean false  true 
+[ADD]^^24^^^^^23^25^[ADD] super ( valueType ) ;^[METHOD] <init> [TYPE] JavaType) [PARAMETER] JavaType valueType [CLASS] StdScalarDeserializer   [TYPE]  long serialVersionUID  [TYPE]  JavaType valueType  [TYPE]  boolean false  true 

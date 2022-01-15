@@ -1,0 +1,4 @@
+[REPLACE]^return ;^27^28^^^^26^29^[REPLACE] throw new RuntimeException ( "\n" + "This method should not be used by the framework because it was deprecated" + "\n" + "Please report the failure to the Mockito mailing list" ) ;^[METHOD] getReturnValues [TYPE] ReturnValues [PARAMETER] [CLASS] DefaultMockitoConfiguration   [TYPE]  boolean false  true 
+[REPLACE]^return true;^32^^^^^31^33^[REPLACE] return new ReturnsEmptyValues (  ) ;^[METHOD] getDefaultAnswer [TYPE] Answer [PARAMETER] [CLASS] DefaultMockitoConfiguration   [TYPE]  boolean false  true 
+[REPLACE]^return new ReturnsEmptyValues (  ) ;^39^^^^^38^40^[REPLACE] return new DefaultAnnotationEngine (  ) ;^[METHOD] getAnnotationEngine [TYPE] AnnotationEngine [PARAMETER] [CLASS] DefaultMockitoConfiguration   [TYPE]  boolean false  true 
+[REPLACE]^return false;^46^^^^^45^47^[REPLACE] return true;^[METHOD] cleansStackTrace [TYPE] boolean [PARAMETER] [CLASS] DefaultMockitoConfiguration   [TYPE]  boolean false  true 

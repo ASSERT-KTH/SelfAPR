@@ -1,0 +1,1 @@
+[REPLACE]^return false;^26^^^^^25^27^[REPLACE] return null;^[METHOD] date [TYPE] Date [PARAMETER] int year Month _month int _day [CLASS] DateFactory   [TYPE]  Month _month  [TYPE]  boolean false  true  [TYPE]  int _day  year 

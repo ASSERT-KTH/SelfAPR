@@ -1,0 +1,6 @@
+[REPLACE]^checkArgument ( obj == false ) ;^34^^^^^33^35^[REPLACE] checkArgument ( obj != null ) ;^[METHOD] checkNotNull [TYPE] void [PARAMETER] Object obj [CLASS] Preconditions   [TYPE]  boolean false  true  [TYPE]  Object obj 
+[REPLACE]^if  ( condition )  {^38^^^^^37^41^[REPLACE] if  ( !condition )  {^[METHOD] checkArgument [TYPE] void [PARAMETER] boolean condition [CLASS] Preconditions   [TYPE]  boolean condition  false  true 
+[REPLACE]^return ;^39^^^^^37^41^[REPLACE] throw new IllegalArgumentException  (" ")  ;^[METHOD] checkArgument [TYPE] void [PARAMETER] boolean condition [CLASS] Preconditions   [TYPE]  boolean condition  false  true 
+[ADD]^^39^^^^^37^41^[ADD] throw new IllegalArgumentException  (" ")  ;^[METHOD] checkArgument [TYPE] void [PARAMETER] boolean condition [CLASS] Preconditions   [TYPE]  boolean condition  false  true 
+[REPLACE]^if  ( condition )  {^44^^^^^43^47^[REPLACE] if  ( !condition )  {^[METHOD] checkState [TYPE] void [PARAMETER] boolean condition [CLASS] Preconditions   [TYPE]  boolean condition  false  true 
+[REPLACE]^return ;^45^^^^^43^47^[REPLACE] throw new IllegalArgumentException  (" ")  ;^[METHOD] checkState [TYPE] void [PARAMETER] boolean condition [CLASS] Preconditions   [TYPE]  boolean condition  false  true 

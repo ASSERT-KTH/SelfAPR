@@ -1,0 +1,1 @@
+[REPLACE]^super ( this ) ;^52^^^^^51^53^[REPLACE] super ( klass ) ;^[METHOD] <init> [TYPE] Class) [PARAMETER] Class<?> klass [CLASS] MockitoJUnit44Runner   [TYPE]  boolean false  true  [TYPE]  Class klass 

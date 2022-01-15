@@ -1,0 +1,5 @@
+[REPLACE]^this.left =  null;^37^^^^^36^38^[REPLACE] this.left = left;^[METHOD] setLeftOperand [TYPE] void [PARAMETER] Evaluation left [CLASS] Equals   [TYPE]  Evaluation left  right  [TYPE]  boolean false  true 
+[ADD]^^37^^^^^36^38^[ADD] this.left = left;^[METHOD] setLeftOperand [TYPE] void [PARAMETER] Evaluation left [CLASS] Equals   [TYPE]  Evaluation left  right  [TYPE]  boolean false  true 
+[REPLACE]^this.right =  left;^41^^^^^40^42^[REPLACE] this.right = right;^[METHOD] setRightOperand [TYPE] void [PARAMETER] Evaluation right [CLASS] Equals   [TYPE]  Evaluation left  right  [TYPE]  boolean false  true 
+[REPLACE]^return true;^46^^^^^44^47^[REPLACE] return null;^[METHOD] evaluate [TYPE] Evaluation [PARAMETER] EvaluationContext context [CLASS] Equals   [TYPE]  Evaluation left  right  [TYPE]  EvaluationContext context  [TYPE]  boolean false  true 
+[REPLACE]^return null;^50^^^^^49^51^[REPLACE] return "Equals";^[METHOD] toString [TYPE] String [PARAMETER] [CLASS] Equals   [TYPE]  Evaluation left  right  [TYPE]  boolean false  true 

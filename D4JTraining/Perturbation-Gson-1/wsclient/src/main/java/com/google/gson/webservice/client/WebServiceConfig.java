@@ -1,0 +1,1 @@
+[REPLACE]^this.serviceBaseUrl =  null;^27^^^^^26^28^[REPLACE] this.serviceBaseUrl = serviceBaseUrl;^[METHOD] <init> [TYPE] String) [PARAMETER] String serviceBaseUrl [CLASS] WebServiceConfig   [TYPE]  String serviceBaseUrl  [TYPE]  boolean false  true 

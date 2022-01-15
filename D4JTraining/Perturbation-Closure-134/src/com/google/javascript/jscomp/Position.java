@@ -1,0 +1,4 @@
+[REPLACE]^this.lineNumber =  null;^29^^^^^28^31^[REPLACE] this.lineNumber = lineNumber;^[METHOD] <init> [TYPE] Position(int,int) [PARAMETER] int lineNumber int characterIndex [CLASS] Position   [TYPE]  int characterIndex  lineNumber  [TYPE]  boolean false  true 
+[REPLACE]^this.characterIndex =  lineNumber;^30^^^^^28^31^[REPLACE] this.characterIndex = characterIndex;^[METHOD] <init> [TYPE] Position(int,int) [PARAMETER] int lineNumber int characterIndex [CLASS] Position   [TYPE]  int characterIndex  lineNumber  [TYPE]  boolean false  true 
+[REPLACE]^return characterIndex;^37^^^^^36^38^[REPLACE] return lineNumber;^[METHOD] getLineNumber [TYPE] int [PARAMETER] [CLASS] Position   [TYPE]  int characterIndex  lineNumber  [TYPE]  boolean false  true 
+[REPLACE]^return lineNumber;^45^^^^^44^46^[REPLACE] return characterIndex;^[METHOD] getCharacterIndex [TYPE] int [PARAMETER] [CLASS] Position   [TYPE]  int characterIndex  lineNumber  [TYPE]  boolean false  true 

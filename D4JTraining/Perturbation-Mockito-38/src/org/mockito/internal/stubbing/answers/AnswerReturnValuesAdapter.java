@@ -1,0 +1,3 @@
+[REPLACE]^private  ReturnValues returnValues;^15^^^^^^^[REPLACE] private final ReturnValues returnValues;^ [CLASS] AnswerReturnValuesAdapter  
+[REPLACE]^this.returnValues =  null;^18^^^^^17^19^[REPLACE] this.returnValues = returnValues;^[METHOD] <init> [TYPE] ReturnValues) [PARAMETER] ReturnValues returnValues [CLASS] AnswerReturnValuesAdapter   [TYPE]  ReturnValues returnValues  [TYPE]  boolean false  true 
+[ADD]^^18^^^^^17^19^[ADD] this.returnValues = returnValues;^[METHOD] <init> [TYPE] ReturnValues) [PARAMETER] ReturnValues returnValues [CLASS] AnswerReturnValuesAdapter   [TYPE]  ReturnValues returnValues  [TYPE]  boolean false  true 

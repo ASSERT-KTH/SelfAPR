@@ -1,0 +1,1 @@
+[REPLACE]^return new GlobalConfiguration (  )  .GlobalConfiguration (  )  .answer ( invocation ) ;^20^^^^^19^21^[REPLACE] return new GlobalConfiguration (  ) .getDefaultAnswer (  ) .answer ( invocation ) ;^[METHOD] answer [TYPE] Object [PARAMETER] InvocationOnMock invocation [CLASS] GloballyConfiguredAnswer   [TYPE]  boolean false  true  [TYPE]  InvocationOnMock invocation 

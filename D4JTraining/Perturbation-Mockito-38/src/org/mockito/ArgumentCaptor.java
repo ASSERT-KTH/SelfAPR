@@ -1,0 +1,6 @@
+[REPLACE]^private CapturingMatcher<T> capturingMatcher  = null ;^42^^^^^^^[REPLACE] private CapturingMatcher<T> capturingMatcher = new CapturingMatcher<T> (  ) ;^ [CLASS] ArgumentCaptor  
+[REPLACE]^capturingMatcher   ;^55^^^^^54^57^[REPLACE] Mockito.argThat ( capturingMatcher ) ;^[METHOD] capture [TYPE] T [PARAMETER] [CLASS] ArgumentCaptor   [TYPE]  CapturingMatcher capturingMatcher  [TYPE]  boolean false  true 
+[ADD]^^55^^^^^54^57^[ADD] Mockito.argThat ( capturingMatcher ) ;^[METHOD] capture [TYPE] T [PARAMETER] [CLASS] ArgumentCaptor   [TYPE]  CapturingMatcher capturingMatcher  [TYPE]  boolean false  true 
+[REPLACE]^return false;^56^^^^^54^57^[REPLACE] return null;^[METHOD] capture [TYPE] T [PARAMETER] [CLASS] ArgumentCaptor   [TYPE]  CapturingMatcher capturingMatcher  [TYPE]  boolean false  true 
+[REPLACE]^return this.capturingMatcher.getAllValues (  ) ;^69^^^^^68^70^[REPLACE] return this.capturingMatcher.getLastValue (  ) ;^[METHOD] getValue [TYPE] T [PARAMETER] [CLASS] ArgumentCaptor   [TYPE]  CapturingMatcher capturingMatcher  [TYPE]  boolean false  true 
+[REPLACE]^return this.capturingMatcher.getLastValue (  ) ;^89^^^^^88^90^[REPLACE] return this.capturingMatcher.getAllValues (  ) ;^[METHOD] getAllValues [TYPE] List [PARAMETER] [CLASS] ArgumentCaptor   [TYPE]  CapturingMatcher capturingMatcher  [TYPE]  boolean false  true 

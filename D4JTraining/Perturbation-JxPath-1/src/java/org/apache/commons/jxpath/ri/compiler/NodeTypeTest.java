@@ -1,0 +1,3 @@
+[REPLACE]^this.nodeType =  null;^29^^^^^28^30^[REPLACE] this.nodeType = nodeType;^[METHOD] <init> [TYPE] NodeTypeTest(int) [PARAMETER] int nodeType [CLASS] NodeTypeTest   [TYPE]  int nodeType  [TYPE]  boolean false  true 
+[REPLACE]^return "text";^33^^^^^32^34^[REPLACE] return nodeType;^[METHOD] getNodeType [TYPE] int [PARAMETER] [CLASS] NodeTypeTest   [TYPE]  int nodeType  [TYPE]  boolean false  true 
+[REPLACE]^return nodeTypeToString ( nodeType )   ||  " (  ) ";^37^^^^^36^38^[REPLACE] return nodeTypeToString ( nodeType )  + " (  ) ";^[METHOD] toString [TYPE] String [PARAMETER] [CLASS] NodeTypeTest   [TYPE]  int nodeType  [TYPE]  boolean false  true 

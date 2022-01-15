@@ -1,0 +1,1 @@
+[REPLACE]^public final static Version VERSION ;^13^14^^^^13^14^[REPLACE] public final static Version VERSION = VersionUtil.parseVersion ( "2.2.2-SNAPSHOT", "com.fasterxml.jackson.core", "jackson-databind" ) ;^ [CLASS] PackageVersion  

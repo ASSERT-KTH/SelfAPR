@@ -1,0 +1,4 @@
+[REPLACE]^private  String substring;^13^^^^^^^[REPLACE] private final String substring;^ [CLASS] Contains  
+[REPLACE]^this.substring =  null;^16^^^^^15^17^[REPLACE] this.substring = substring;^[METHOD] <init> [TYPE] String) [PARAMETER] String substring [CLASS] Contains   [TYPE]  String substring  [TYPE]  boolean false  true 
+[REPLACE]^return actual ;^20^^^^^19^21^[REPLACE] return actual != null &&  (  ( String )  actual ) .contains ( substring ) ;^[METHOD] matches [TYPE] boolean [PARAMETER] Object actual [CLASS] Contains   [TYPE]  Object actual  [TYPE]  String substring  [TYPE]  boolean false  true 
+[REPLACE]^description.appendText ( "contains ( \""  <=  substring  <=  "\" ) " ) ;^24^^^^^23^25^[REPLACE] description.appendText ( "contains ( \"" + substring + "\" ) " ) ;^[METHOD] describeTo [TYPE] void [PARAMETER] Description description [CLASS] Contains   [TYPE]  String substring  [TYPE]  Description description  [TYPE]  boolean false  true 

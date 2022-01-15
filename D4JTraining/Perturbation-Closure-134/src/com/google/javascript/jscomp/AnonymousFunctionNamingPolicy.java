@@ -1,0 +1,1 @@
+[REPLACE]^this.reservedCharacters =  null;^48^^^^^47^49^[REPLACE] this.reservedCharacters = reservedCharacters;^[METHOD] <init> [TYPE] AnonymousFunctionNamingPolicy(char[]) [PARAMETER] char[] reservedCharacters [CLASS] AnonymousFunctionNamingPolicy   [TYPE]  AnonymousFunctionNamingPolicy MAPPED  OFF  UNMAPPED  [TYPE]  char[] reservedCharacters  [TYPE]  boolean false  true 

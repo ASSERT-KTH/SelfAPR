@@ -1,0 +1,2 @@
+[REPLACE]^private  final Key FACTORY =  ( Key ) KeyFactory.create ( Key.class, KeyFactory.OBJECT_BY_CLASS ) ;^19^^^^^^^[REPLACE] private static final Key FACTORY =  ( Key ) KeyFactory.create ( Key.class, KeyFactory.OBJECT_BY_CLASS ) ;^ [CLASS] ClassesKey  
+[REPLACE]^return FACTORY .newInstance ( array )  ;^29^^^^^28^30^[REPLACE] return FACTORY.newInstance ( array ) ;^[METHOD] create [TYPE] Object [PARAMETER] Object[] array [CLASS] ClassesKey   [TYPE]  Key FACTORY  [TYPE]  Object[] array  [TYPE]  boolean false  true 

@@ -113,6 +113,9 @@ public class PerturbResult {
 		}else if (filename.contains("Chart-")) {
 			filename = filename.replace("Chart-", "Perturbation-Chart-");
 		}
+		else if (filename.contains("Collections-")) {
+                        filename = filename.replace("Collections-", "Perturbation-Collections-");
+                }
 		
 //		else {
 //			filename="./perturbationFile.txt";

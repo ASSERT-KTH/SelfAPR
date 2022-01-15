@@ -1,0 +1,5 @@
+[REPLACE]^private final  boolean  buildMethodName;^65^^^^^^^[REPLACE] public final String buildMethodName;^ [CLASS] Value  
+[REPLACE]^public final  char  withPrefix;^66^^^^^^^[REPLACE] public final String withPrefix;^ [CLASS] Value  
+[REPLACE]^buildMethodName =  null.buildMethodName (  ) ;^70^^^^^68^72^[REPLACE] buildMethodName = ann.buildMethodName (  ) ;^[METHOD] <init> [TYPE] JsonPOJOBuilder) [PARAMETER] JsonPOJOBuilder ann [CLASS] Value   [TYPE]  JsonPOJOBuilder ann  [TYPE]  String buildMethodName  withPrefix  [TYPE]  boolean false  true 
+[ADD]^^70^71^^^^68^72^[ADD] buildMethodName = ann.buildMethodName (  ) ; withPrefix = ann.withPrefix (  ) ;^[METHOD] <init> [TYPE] JsonPOJOBuilder) [PARAMETER] JsonPOJOBuilder ann [CLASS] Value   [TYPE]  JsonPOJOBuilder ann  [TYPE]  String buildMethodName  withPrefix  [TYPE]  boolean false  true 
+[REPLACE]^withPrefix =  null.withPrefix (  ) ;^71^^^^^68^72^[REPLACE] withPrefix = ann.withPrefix (  ) ;^[METHOD] <init> [TYPE] JsonPOJOBuilder) [PARAMETER] JsonPOJOBuilder ann [CLASS] Value   [TYPE]  JsonPOJOBuilder ann  [TYPE]  String buildMethodName  withPrefix  [TYPE]  boolean false  true 

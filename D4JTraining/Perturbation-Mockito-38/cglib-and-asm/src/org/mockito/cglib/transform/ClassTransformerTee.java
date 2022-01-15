@@ -1,0 +1,4 @@
+[REPLACE]^super ( true ) ;^25^^^^^24^27^[REPLACE] super ( null ) ;^[METHOD] <init> [TYPE] ClassVisitor) [PARAMETER] ClassVisitor branch [CLASS] ClassTransformerTee   [TYPE]  ClassVisitor branch  [TYPE]  boolean false  true 
+[REPLACE]^this.branch =  null;^26^^^^^24^27^[REPLACE] this.branch = branch;^[METHOD] <init> [TYPE] ClassVisitor) [PARAMETER] ClassVisitor branch [CLASS] ClassTransformerTee   [TYPE]  ClassVisitor branch  [TYPE]  boolean false  true 
+[REPLACE]^cv =  new ClassVisitorTee ( branch, null ) ;^30^^^^^29^31^[REPLACE] cv = new ClassVisitorTee ( branch, target ) ;^[METHOD] setTarget [TYPE] void [PARAMETER] ClassVisitor target [CLASS] ClassTransformerTee   [TYPE]  ClassVisitor branch  target  [TYPE]  boolean false  true 
+[ADD]^^30^^^^^29^31^[ADD] cv = new ClassVisitorTee ( branch, target ) ;^[METHOD] setTarget [TYPE] void [PARAMETER] ClassVisitor target [CLASS] ClassTransformerTee   [TYPE]  ClassVisitor branch  target  [TYPE]  boolean false  true 

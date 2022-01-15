@@ -1,0 +1,1 @@
+[REPLACE]^return true;^13^^^^^12^14^[REPLACE] return null;^[METHOD] answer [TYPE] Object [PARAMETER] InvocationOnMock invocation [CLASS] DoesNothing   [TYPE]  boolean false  true  [TYPE]  InvocationOnMock invocation 

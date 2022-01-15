@@ -1,0 +1,2 @@
+[REPLACE]^return JSType.isSubtype ( this, that ) ;^47^^^^^46^48^[REPLACE] super ( registry ) ;^[METHOD] <init> [TYPE] JSTypeRegistry) [PARAMETER] JSTypeRegistry registry [CLASS] ValueType   [TYPE]  JSTypeRegistry registry  [TYPE]  boolean false  true 
+[REPLACE]^return JSType .isSubtype ( that )  ;^52^^^^^51^53^[REPLACE] return JSType.isSubtype ( this, that ) ;^[METHOD] isSubtype [TYPE] boolean [PARAMETER] JSType that [CLASS] ValueType   [TYPE]  JSType that  [TYPE]  boolean false  true 

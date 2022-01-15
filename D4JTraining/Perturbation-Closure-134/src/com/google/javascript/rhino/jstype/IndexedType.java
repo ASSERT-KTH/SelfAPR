@@ -1,0 +1,2 @@
+[REPLACE]^private static final long serialVersionUID ;^51^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] IndexedType  
+[REPLACE]^this.indexType =  null;^58^^^^^55^59^[REPLACE] this.indexType = indexType;^[METHOD] <init> [TYPE] JSType) [PARAMETER] JSTypeRegistry registry ObjectType objectType JSType indexType [CLASS] IndexedType   [TYPE]  ObjectType objectType  [TYPE]  JSTypeRegistry registry  [TYPE]  JSType indexType  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 

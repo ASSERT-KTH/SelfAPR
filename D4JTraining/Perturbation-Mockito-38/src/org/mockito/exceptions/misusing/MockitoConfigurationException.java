@@ -1,0 +1,3 @@
+[REPLACE]^private static  long serialVersionUID = 1;^11^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] MockitoConfigurationException  
+[REPLACE]^super ( message, cause ) ;^14^^^^^13^15^[REPLACE] super ( message ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String message [CLASS] MockitoConfigurationException   [TYPE]  long serialVersionUID  [TYPE]  String message  [TYPE]  boolean false  true 
+[REPLACE]^super ( message ) ;^18^^^^^17^19^[REPLACE] super ( message, cause ) ;^[METHOD] <init> [TYPE] Exception) [PARAMETER] String message Exception cause [CLASS] MockitoConfigurationException   [TYPE]  String message  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID  [TYPE]  Exception cause 

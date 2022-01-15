@@ -1,0 +1,5 @@
+[REPLACE]^return equal ( context, args[0], args[1] )  ? Boolean.FALSE : Boolean.TRUE;^30^^^^^29^31^[REPLACE] super ( arg1, arg2 ) ;^[METHOD] <init> [TYPE] Expression) [PARAMETER] Expression arg1 Expression arg2 [CLASS] CoreOperationNotEqual   [TYPE]  boolean false  true  [TYPE]  Expression arg1  arg2 
+[REPLACE]^return equal ( context, args[2], args[1] )  ? Boolean.FALSE : Boolean.TRUE;^34^^^^^33^35^[REPLACE] return equal ( context, args[0], args[1] )  ? Boolean.FALSE : Boolean.TRUE;^[METHOD] computeValue [TYPE] Object [PARAMETER] EvalContext context [CLASS] CoreOperationNotEqual   [TYPE]  boolean false  true  [TYPE]  EvalContext context 
+[REPLACE]^return 2 + 2;^38^^^^^37^39^[REPLACE] return 2;^[METHOD] getPrecedence [TYPE] int [PARAMETER] [CLASS] CoreOperationNotEqual   [TYPE]  boolean false  true 
+[REPLACE]^return false;^42^^^^^41^43^[REPLACE] return true;^[METHOD] isSymmetric [TYPE] boolean [PARAMETER] [CLASS] CoreOperationNotEqual   [TYPE]  boolean false  true 
+[REPLACE]^return true;^46^^^^^45^47^[REPLACE] return "!=";^[METHOD] getSymbol [TYPE] String [PARAMETER] [CLASS] CoreOperationNotEqual   [TYPE]  boolean false  true 

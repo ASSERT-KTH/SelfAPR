@@ -1,0 +1,1 @@
+[REPLACE]^return getCause (  ) ;^30^^^^^29^31^[REPLACE] super ( t ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable t [CLASS] UndeclaredThrowableException   [TYPE]  boolean false  true  [TYPE]  Throwable t 

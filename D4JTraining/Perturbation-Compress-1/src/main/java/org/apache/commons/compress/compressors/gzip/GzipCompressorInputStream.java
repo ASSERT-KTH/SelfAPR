@@ -1,0 +1,3 @@
+[REPLACE]^private  GZIPInputStream in;^29^^^^^^^[REPLACE] private final GZIPInputStream in;^ [CLASS] GzipCompressorInputStream  
+[REPLACE]^in =  new GZIPInputStream ( null ) ;^32^^^^^31^33^[REPLACE] in = new GZIPInputStream ( inputStream ) ;^[METHOD] <init> [TYPE] InputStream) [PARAMETER] InputStream inputStream [CLASS] GzipCompressorInputStream   [TYPE]  GZIPInputStream in  [TYPE]  InputStream inputStream  [TYPE]  boolean false  true 
+[REPLACE]^return in .read (  )  ;^36^^^^^35^37^[REPLACE] return in.read (  ) ;^[METHOD] read [TYPE] int [PARAMETER] [CLASS] GzipCompressorInputStream   [TYPE]  GZIPInputStream in  [TYPE]  boolean false  true 

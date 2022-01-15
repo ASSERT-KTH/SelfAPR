@@ -1,0 +1,5 @@
+[REPLACE]^out =  new GZIPOutputStream ( null ) ;^32^^^^^31^33^[REPLACE] out = new GZIPOutputStream ( outputStream ) ;^[METHOD] <init> [TYPE] OutputStream) [PARAMETER] OutputStream outputStream [CLASS] GzipCompressorOutputStream   [TYPE]  GZIPOutputStream out  [TYPE]  OutputStream outputStream  [TYPE]  boolean false  true 
+[REPLACE]^out .close (  )  ;^36^^^^^35^37^[REPLACE] out.write ( b ) ;^[METHOD] write [TYPE] void [PARAMETER] int b [CLASS] GzipCompressorOutputStream   [TYPE]  GZIPOutputStream out  [TYPE]  int b  [TYPE]  boolean false  true 
+[ADD]^^36^^^^^35^37^[ADD] out.write ( b ) ;^[METHOD] write [TYPE] void [PARAMETER] int b [CLASS] GzipCompressorOutputStream   [TYPE]  GZIPOutputStream out  [TYPE]  int b  [TYPE]  boolean false  true 
+[REPLACE]^out .write ( this )  ;^40^^^^^39^41^[REPLACE] out.close (  ) ;^[METHOD] close [TYPE] void [PARAMETER] [CLASS] GzipCompressorOutputStream   [TYPE]  GZIPOutputStream out  [TYPE]  boolean false  true 
+[ADD]^^40^^^^^39^41^[ADD] out.close (  ) ;^[METHOD] close [TYPE] void [PARAMETER] [CLASS] GzipCompressorOutputStream   [TYPE]  GZIPOutputStream out  [TYPE]  boolean false  true 

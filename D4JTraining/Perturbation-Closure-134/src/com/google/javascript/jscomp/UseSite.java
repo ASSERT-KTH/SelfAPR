@@ -1,0 +1,3 @@
+[REPLACE]^this.module = module; ;^34^^^^^33^36^[REPLACE] this.node = node;^[METHOD] <init> [TYPE] JSModule) [PARAMETER] Node node JSModule module [CLASS] UseSite   [TYPE]  JSModule module  [TYPE]  Node node  [TYPE]  boolean false  true 
+[REPLACE]^this.node = node; ;^35^^^^^33^36^[REPLACE] this.module = module;^[METHOD] <init> [TYPE] JSModule) [PARAMETER] Node node JSModule module [CLASS] UseSite   [TYPE]  JSModule module  [TYPE]  Node node  [TYPE]  boolean false  true 
+[ADD]^^35^^^^^33^36^[ADD] this.module = module;^[METHOD] <init> [TYPE] JSModule) [PARAMETER] Node node JSModule module [CLASS] UseSite   [TYPE]  JSModule module  [TYPE]  Node node  [TYPE]  boolean false  true 

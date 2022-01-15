@@ -18,7 +18,7 @@ def traveProject(bugId,projectPath,repodir):
                 with open(p,'r') as perturbFile:
                     lines = perturbFile.readlines()
                     if len(lines)>0:
-                        for k in range(0,1):
+                        for k in range(0,len(lines)):
                             line = lines[k]
                             # if 'REMOVE' in line:
                             constructTrainSample(bugId, lines[k], p, repodir, True,rootdir)
@@ -213,7 +213,7 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     print('****************'+program_path+'******************')
     #get compile result
     cmd = "cd " + program_path + ";"
-    cmd += "defects4j compile"
+    cmd += "/home/yule/y/defects4j/framework/bin/defects4j compile"
     exectresult=''
     symbolVaraible=''
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
@@ -253,7 +253,7 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     if not compile_error_flag:
         #get test result
         cmd = "cd " + program_path + ";"
-        cmd += "defects4j test"
+        cmd += "/home/yule/y/defects4j/framework/bin/defects4j test"
         result=''
         result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         print(result)
@@ -278,7 +278,7 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     with open(repodir+'/diagnostic.csv','a')  as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
                                 quoting=csv.QUOTE_NONE)               
-        filewriter.writerow([action,exectresult])
+        filewriter.writerow([action,exectresult,line])
 
     return exectresult
 
@@ -288,7 +288,7 @@ def getFailingTestDiagnostic(failingtest,program_path):
     testclass = failingtest.split("::")[0]
 
     cmd = "cd " + program_path + ";"
-    cmd += "defects4j monitor.test -t "+failingtest
+    cmd += "/home/yule/y/defects4j/framework/bin/defects4j monitor.test -t "+failingtest
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if 'failed!' in str(result) :
         result = str(result).split('failed!')[1]
@@ -319,6 +319,11 @@ def getFailingTestSourceCode(failingtest,program_path):
         program_path = program_path+'/tests/'
     elif os.path.exists(program_path+'/test'):
         program_path = program_path+'/test/'
+    elif os.path.exists(program_path+'/src/test/java'):
+        program_path = program_path+'/src/test/java/'
+    elif os.path.exists(program_path+'/src/test'):
+        program_path = program_path+'/src/test/'
+
     testclass = failingtest.split("::")[0]
     testmethod = failingtest.split("::")[1]
     testclass=testclass.replace('.','/')
@@ -351,7 +356,7 @@ def getFailingTestSourceCode(failingtest,program_path):
 
 
 if __name__ == '__main__':
-    bugIds = ['Lang-65','Chart-26','Math-106','Mockito-38','Time-26','Closure-134','Cli-1','Codec-1','Compress-1','Csv-1','Gson-1','JacksonCore-1','JacksonDatabind-1','JacksonXml-1','Jsoup-1','JxPath-1']
+    bugIds = ['Lang-65','Chart-26','Math-106','Mockito-38','Time-26','Closure-134','Cli-1','Collections-25','Codec-1','Compress-1','Csv-1','Gson-1','JacksonCore-1','JacksonDatabind-1','JacksonXml-1','Jsoup-1','JxPath-1']
     # bugIds = ['Chart-26']    
     rootdir= '/Users/sophie/Documents/SUPRE'
     repodir = rootdir+'/D4JTraining'
@@ -362,7 +367,7 @@ if __name__ == '__main__':
 
         if os.path.exists(repodir+'/'+bugId):
             os.system('rm -rf '+repodir+'/'+bugId)
-        os.system('defects4j checkout -p '+ str(project)+' -v '+str(bugNo)+'f   -w '+repodir+'/'+bugId)
+        os.system('/home/yule/y/defects4j/framework/bin/defects4j checkout -p '+ str(project)+' -v '+str(bugNo)+'f   -w '+repodir+'/'+bugId)
 
         bugId = bugId.replace(project, "Perturbation-"+project)
         start(bugId,repodir,rootdir)

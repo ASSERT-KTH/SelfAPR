@@ -1,0 +1,7 @@
+[REPLACE]^this.varName =  null;^33^^^^^32^34^[REPLACE] this.varName = varName;^[METHOD] <init> [TYPE] QName) [PARAMETER] QName varName [CLASS] VariableReference   [TYPE]  QName varName  [TYPE]  boolean false  true 
+[REPLACE]^return false;^37^^^^^36^38^[REPLACE] return varName;^[METHOD] getVariableName [TYPE] QName [PARAMETER] [CLASS] VariableReference   [TYPE]  QName varName  [TYPE]  boolean false  true 
+[REPLACE]^return false;^41^^^^^40^42^[REPLACE] return "$" + varName;^[METHOD] toString [TYPE] String [PARAMETER] [CLASS] VariableReference   [TYPE]  QName varName  [TYPE]  boolean false  true 
+[REPLACE]^return true;^45^^^^^44^46^[REPLACE] return false;^[METHOD] isContextDependent [TYPE] boolean [PARAMETER] [CLASS] VariableReference   [TYPE]  QName varName  [TYPE]  boolean false  true 
+[REPLACE]^return true;^49^^^^^48^50^[REPLACE] return false;^[METHOD] computeContextDependent [TYPE] boolean [PARAMETER] [CLASS] VariableReference   [TYPE]  QName varName  [TYPE]  boolean false  true 
+[REPLACE]^return false;^53^^^^^52^54^[REPLACE] return computeValue ( context ) ;^[METHOD] compute [TYPE] Object [PARAMETER] EvalContext context [CLASS] VariableReference   [TYPE]  EvalContext context  [TYPE]  QName varName  [TYPE]  boolean false  true 
+[REPLACE]^return computeValue ( context ) ;^60^^^^^59^61^[REPLACE] return context.getRootContext (  ) .getVariableContext ( varName ) ;^[METHOD] computeValue [TYPE] Object [PARAMETER] EvalContext context [CLASS] VariableReference   [TYPE]  EvalContext context  [TYPE]  QName varName  [TYPE]  boolean false  true 

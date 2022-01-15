@@ -1,0 +1,6 @@
+[REPLACE]^final static Name1 sEmptyName ;^15^^^^^^^[REPLACE] final static Name1 sEmptyName = new Name1 ( "", 0, 0 ) ;^ [CLASS] Name1  
+[REPLACE]^short  mQuad;^17^^^^^^^[REPLACE] final int mQuad;^ [CLASS] Name1  
+[REPLACE]^mQuad =  null;^22^^^^^19^23^[REPLACE] mQuad = quad;^[METHOD] <init> [TYPE] String,int,int) [PARAMETER] String name int hash int quad [CLASS] Name1   [TYPE]  String name  [TYPE]  boolean false  true  [TYPE]  Name1 sEmptyName  [TYPE]  int hash  mQuad  quad 
+[REPLACE]^return  ( mQuad  !=  mQuad ) ;;^30^^^^^28^31^[REPLACE] return  ( quad == mQuad ) ;^[METHOD] equals [TYPE] boolean [PARAMETER] int quad [CLASS] Name1   [TYPE]  Name1 sEmptyName  [TYPE]  int hash  mQuad  quad  [TYPE]  boolean false  true 
+[REPLACE]^return    ( quad2 ;^36^^^^^34^37^[REPLACE] return  ( quad1 == mQuad )  &&  ( quad2 == 0 ) ;^[METHOD] equals [TYPE] boolean [PARAMETER] int quad1 int quad2 [CLASS] Name1   [TYPE]  Name1 sEmptyName  [TYPE]  int hash  mQuad  quad  quad1  quad2  [TYPE]  boolean false  true 
+[REPLACE]^return   quads[0] ;^42^^^^^40^43^[REPLACE] return  ( qlen == 1 && quads[0] == mQuad ) ;^[METHOD] equals [TYPE] boolean [PARAMETER] int[] quads int qlen [CLASS] Name1   [TYPE]  int[] quads  [TYPE]  boolean false  true  [TYPE]  Name1 sEmptyName  [TYPE]  int hash  mQuad  qlen  quad  quad1  quad2 

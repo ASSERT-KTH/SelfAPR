@@ -1,0 +1,1 @@
+[REPLACE]^static final DiagnosticType READ_ERROR ;^34^35^^^^34^35^[REPLACE] static final DiagnosticType READ_ERROR = DiagnosticType.error ( "JSC_READ_ERROR", "Cannot read: {0}" ) ;^ [CLASS] AbstractCompiler  

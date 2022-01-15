@@ -1,0 +1,4 @@
+[REPLACE]^private  MethodProxy methodProxy;^12^^^^^^^[REPLACE] private final MethodProxy methodProxy;^ [CLASS] CGLIBProxyRealMethod  
+[REPLACE]^this.methodProxy =  null;^15^^^^^14^16^[REPLACE] this.methodProxy = methodProxy;^[METHOD] <init> [TYPE] MethodProxy) [PARAMETER] MethodProxy methodProxy [CLASS] CGLIBProxyRealMethod   [TYPE]  MethodProxy methodProxy  [TYPE]  boolean false  true 
+[REPLACE]^return methodProxy;^19^^^^^18^20^[REPLACE] return methodProxy.invokeSuper ( target, arguments ) ;^[METHOD] invoke [TYPE] Object [PARAMETER] Object target Object[] arguments [CLASS] CGLIBProxyRealMethod   [TYPE]  MethodProxy methodProxy  [TYPE]  Object target  [TYPE]  boolean false  true  [TYPE]  Object[] arguments 
+[REPLACE]^return methodProxy.invokeSuper ( target, arguments ) ;^23^^^^^22^24^[REPLACE] return methodProxy;^[METHOD] getMethodProxy [TYPE] MethodProxy [PARAMETER] [CLASS] CGLIBProxyRealMethod   [TYPE]  MethodProxy methodProxy  [TYPE]  boolean false  true 

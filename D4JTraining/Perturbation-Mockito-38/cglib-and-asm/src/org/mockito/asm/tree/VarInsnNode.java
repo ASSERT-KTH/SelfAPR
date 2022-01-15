@@ -1,0 +1,7 @@
+[REPLACE]^public  short  var;^49^^^^^^^[REPLACE] public int var;^ [CLASS] VarInsnNode  
+[REPLACE]^mv.visitVarInsn ( opcode, var ) ;^61^^^^^60^63^[REPLACE] super ( opcode ) ;^[METHOD] <init> [TYPE] VarInsnNode(int,int) [PARAMETER] final int opcode final int var [CLASS] VarInsnNode   [TYPE]  int opcode  var  [TYPE]  boolean false  true 
+[REPLACE]^this.var =  null;^62^^^^^60^63^[REPLACE] this.var = var;^[METHOD] <init> [TYPE] VarInsnNode(int,int) [PARAMETER] final int opcode final int var [CLASS] VarInsnNode   [TYPE]  int opcode  var  [TYPE]  boolean false  true 
+[REPLACE]^this.opcode =  null;^73^^^^^72^74^[REPLACE] this.opcode = opcode;^[METHOD] setOpcode [TYPE] void [PARAMETER] final int opcode [CLASS] VarInsnNode   [TYPE]  int opcode  var  [TYPE]  boolean false  true 
+[REPLACE]^return new VarInsnNode ( opcode, var ) ;^77^^^^^76^78^[REPLACE] return VAR_INSN;^[METHOD] getType [TYPE] int [PARAMETER] [CLASS] VarInsnNode   [TYPE]  int opcode  var  [TYPE]  boolean false  true 
+[REPLACE]^super ( opcode ) ;^81^^^^^80^82^[REPLACE] mv.visitVarInsn ( opcode, var ) ;^[METHOD] accept [TYPE] void [PARAMETER] MethodVisitor mv [CLASS] VarInsnNode   [TYPE]  int opcode  var  [TYPE]  MethodVisitor mv  [TYPE]  boolean false  true 
+[REPLACE]^return VAR_INSN;^85^^^^^84^86^[REPLACE] return new VarInsnNode ( opcode, var ) ;^[METHOD] clone [TYPE] AbstractInsnNode [PARAMETER] Map labels [CLASS] VarInsnNode   [TYPE]  Map labels  [TYPE]  int opcode  var  [TYPE]  boolean false  true 

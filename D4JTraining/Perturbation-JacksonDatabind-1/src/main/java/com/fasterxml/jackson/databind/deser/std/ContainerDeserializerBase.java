@@ -1,0 +1,1 @@
+[REPLACE]^super ( null ) ;^17^^^^^15^18^[REPLACE] super ( selfType ) ;^[METHOD] <init> [TYPE] Class) [PARAMETER] Class<?> selfType [CLASS] ContainerDeserializerBase   [TYPE]  boolean false  true  [TYPE]  Class selfType 

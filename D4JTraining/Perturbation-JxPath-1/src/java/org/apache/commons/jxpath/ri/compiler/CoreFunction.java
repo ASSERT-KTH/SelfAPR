@@ -1,0 +1,6 @@
+[REPLACE]^private static final Double ZERO ;^42^^^^^^^[REPLACE] private static final Double ZERO = new Double ( 0 ) ;^ [CLASS] CoreFunction  
+[REPLACE]^private  long  functionCode;^43^^^^^^^[REPLACE] private int functionCode;^ [CLASS] CoreFunction  
+[REPLACE]^buffer.append ( ", " ) ;^46^^^^^45^48^[REPLACE] super ( args ) ;^[METHOD] <init> [TYPE] Expression[]) [PARAMETER] int functionCode Expression[] args [CLASS] CoreFunction   [TYPE]  boolean false  true  [TYPE]  Double ZERO  [TYPE]  int functionCode  [TYPE]  Expression[] args 
+[ADD]^^46^47^^^^45^48^[ADD] super ( args ) ; this.functionCode = functionCode;^[METHOD] <init> [TYPE] Expression[]) [PARAMETER] int functionCode Expression[] args [CLASS] CoreFunction   [TYPE]  boolean false  true  [TYPE]  Double ZERO  [TYPE]  int functionCode  [TYPE]  Expression[] args 
+[REPLACE]^this.functionCode =  null;^47^^^^^45^48^[REPLACE] this.functionCode = functionCode;^[METHOD] <init> [TYPE] Expression[]) [PARAMETER] int functionCode Expression[] args [CLASS] CoreFunction   [TYPE]  boolean false  true  [TYPE]  Double ZERO  [TYPE]  int functionCode  [TYPE]  Expression[] args 
+[REPLACE]^return "last";^51^^^^^50^52^[REPLACE] return functionCode;^[METHOD] getFunctionCode [TYPE] int [PARAMETER] [CLASS] CoreFunction   [TYPE]  Double ZERO  [TYPE]  int functionCode  [TYPE]  boolean false  true 

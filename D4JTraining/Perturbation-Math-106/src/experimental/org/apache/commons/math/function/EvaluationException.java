@@ -1,0 +1,4 @@
+[REPLACE]^super ( message ) ;^34^^^^^33^36^[REPLACE] super (  ) ;^[METHOD] <init> [TYPE] EvaluationException() [PARAMETER] [CLASS] EvaluationException   [TYPE]  boolean false  true 
+[REPLACE]^super (  ) ;^42^^^^^41^44^[REPLACE] super ( message ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String message [CLASS] EvaluationException   [TYPE]  boolean false  true  [TYPE]  String message 
+[REPLACE]^super ( message ) ;^51^^^^^50^53^[REPLACE] super ( message, cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] String message Throwable cause [CLASS] EvaluationException   [TYPE]  boolean false  true  [TYPE]  Throwable cause  [TYPE]  String message 
+[REPLACE]^super ( message ) ;^59^^^^^58^61^[REPLACE] super ( cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable cause [CLASS] EvaluationException   [TYPE]  boolean false  true  [TYPE]  Throwable cause 

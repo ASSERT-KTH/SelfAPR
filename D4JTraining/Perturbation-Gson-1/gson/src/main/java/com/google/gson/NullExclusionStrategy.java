@@ -1,0 +1,2 @@
+[REPLACE]^return true;^31^^^^^30^32^[REPLACE] return false;^[METHOD] shouldSkipField [TYPE] boolean [PARAMETER] FieldAttributes f [CLASS] NullExclusionStrategy   [TYPE]  boolean false  true  [TYPE]  FieldAttributes f 
+[REPLACE]^return true;^35^^^^^34^36^[REPLACE] return false;^[METHOD] shouldSkipClass [TYPE] boolean [PARAMETER] Class<?> clazz [CLASS] NullExclusionStrategy   [TYPE]  boolean false  true  [TYPE]  Class clazz 
