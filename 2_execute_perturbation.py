@@ -13,17 +13,37 @@ def traveProject(bugId,projectPath,repodir):
         pattern = '*.java'
         p = os.path.join(projectPath, f)
         if os.path.isfile(p):
-            if fnmatch.fnmatch(f, pattern) and ('Test' not in p or 'test' not in p) :
+            if fnmatch.fnmatch(f, pattern) and ('Test' not in p and 'test' not in p) :
                 print(p)
                 with open(p,'r') as perturbFile:
                     lines = perturbFile.readlines()
                     if len(lines)>0:
                         for k in range(0,len(lines)):
-                            line = lines[k]
-                            # if 'REMOVE' in line:
-                            constructTrainSample(bugId, lines[k], p, repodir, True,rootdir)
+                            #if not linexist(lines[k],repodir):
+                            constructTrainSample(bugId, lines[k], p, repodir, False,rootdir)
         else:
             traveProject(bugId,p,repodir)
+
+
+def linexist(targetline,repodir):
+    targetline=targetline.replace('\r','').replace('\n','').replace(' ','')
+    print(targetline)
+    flag=False
+    with open(repodir+'/diagnostic.csv','r') as trainf:
+        lines = trainf.readlines()
+        for l in lines:
+            #print(l)
+            l = l.replace('\r','').replace('\n','').replace(' ','')
+            if targetline in l:
+                print('@@@@@@@@@@@@@!!exist!!exist!!@@@@@@@@@@')
+                flag= True
+                break
+    return flag
+
+
+
+
+
 
 
 def constructTrainSample(bugId,line,targetfile,repodir,diagnosticFlag,rootdir):
@@ -92,7 +112,8 @@ def constructTrainSample(bugId,line,targetfile,repodir,diagnosticFlag,rootdir):
     os.system("mv "+repodir+"/"+filename +"  "+originFile)
 
     sample+='[BUGGY] ' + curruptCode + diagnosticMsg+ ' [CONTEXT] ' + cxt +' '+'  '+ metaInfo
-    sample = sample.replace(',',' , ').replace(';',' ; ').replace('=',' = ').replace('  ',' ').replace('\r','').replace('\n','')
+    sample = sample.replace(',',' , ').replace(';',' ; ').replace('=',' = ').replace('  ',' ').replace('\r','').replace('\n','').replace('\t','')
+    groundTruth = groundTruth.replace('\t','').replace('\n','').replace('\r','')
 
     with open(repodir+'/train.csv','a')  as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
@@ -103,8 +124,6 @@ def constructTrainSample(bugId,line,targetfile,repodir,diagnosticFlag,rootdir):
         filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
                                 quoting=csv.QUOTE_NONE)               
         filewriter.writerow([groundTruth,sample])
-
-
 
 
 
@@ -213,8 +232,8 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     print('****************'+program_path+'******************')
     #get compile result
     cmd = "cd " + program_path + ";"
-    cmd += "/home/yule/y/defects4j/framework/bin/defects4j compile"
-    exectresult=''
+    cmd += "timeout 90 /home/yule/y/defects4j/framework/bin/defects4j compile"
+    exectresult='[TIMEOUT]'
     symbolVaraible=''
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     print(result)
@@ -245,7 +264,7 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
                 exectresult='[CE] '+exectresult+symbolVaraible
                 break
             elif 'OK' in result[i]:
-                exectresult=''
+                exectresult='[FE]'
                 compile_error_flag=False
 
 
@@ -253,24 +272,30 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     if not compile_error_flag:
         #get test result
         cmd = "cd " + program_path + ";"
-        cmd += "/home/yule/y/defects4j/framework/bin/defects4j test"
+        cmd += "timeout 180 /home/yule/y/defects4j/framework/bin/defects4j test"
         result=''
         result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         print(result)
         if 'Failing tests: 0' in str(result):
             exectresult='[NO-ERROR]'
-        else:
+        elif 'Failing tests' in str(result):
             result=str(result).split('Failing tests:')[1]
             result=str(result).split('-')
             for i in range(1,len(result)):
                 failingtest = result[i]
+                if '::' not in failingtest and i+1<len(result):
+                    failingtest = result[i+1]
                 if '\\' in failingtest:
                     failingtest = failingtest.split('\\')[0]
                 failingtest=failingtest.strip()
-                faildiag = getFailingTestDiagnostic(failingtest,program_path)
-                failTestCode = getFailingTestSourceCode(failingtest,program_path)
-                exectresult = '[FE] ' + faildiag +' '+failTestCode
+                if '::' in failingtest:
+                    faildiag = getFailingTestDiagnostic(failingtest,program_path)
+                    failTestCode = getFailingTestSourceCode(failingtest,program_path)
+                    exectresult = '[FE] ' + faildiag +' '+failTestCode
+                else:
+                    exectresult = '[FE] '
                 break
+
 
 
     os.chdir(rootdir)
@@ -278,7 +303,7 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     with open(repodir+'/diagnostic.csv','a')  as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
                                 quoting=csv.QUOTE_NONE)               
-        filewriter.writerow([action,exectresult,line])
+        filewriter.writerow([exectresult,line])
 
     return exectresult
 
@@ -288,7 +313,7 @@ def getFailingTestDiagnostic(failingtest,program_path):
     testclass = failingtest.split("::")[0]
 
     cmd = "cd " + program_path + ";"
-    cmd += "/home/yule/y/defects4j/framework/bin/defects4j monitor.test -t "+failingtest
+    cmd += "timeout 120 /home/yule/y/defects4j/framework/bin/defects4j monitor.test -t "+failingtest
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if 'failed!' in str(result) :
         result = str(result).split('failed!')[1]
@@ -315,6 +340,7 @@ def getFailingTestDiagnostic(failingtest,program_path):
 
 
 def getFailingTestSourceCode(failingtest,program_path):
+    code=''
     if os.path.exists((program_path+'/tests')):
         program_path = program_path+'/tests/'
     elif os.path.exists(program_path+'/test'):
@@ -323,7 +349,10 @@ def getFailingTestSourceCode(failingtest,program_path):
         program_path = program_path+'/src/test/java/'
     elif os.path.exists(program_path+'/src/test'):
         program_path = program_path+'/src/test/'
+    elif os.path.exists(program_path+'/gson/src/test/java'):
+        program_path = program_path+'/gson/src/test/java/'
 
+    print(failingtest+'&&&&&&&&failingtest')
     testclass = failingtest.split("::")[0]
     testmethod = failingtest.split("::")[1]
     testclass=testclass.replace('.','/')
@@ -331,21 +360,21 @@ def getFailingTestSourceCode(failingtest,program_path):
 
     fullpath = program_path+testclass
 
-    
-    startflag=False
-    code =''
-    with open(fullpath,'r') as codefile:
-        lines=codefile.readlines()
-        for l in lines:
-            if 'public' in l  and 'void' in l and testmethod in l:
-                startflag=True
-            if 'public' in l and 'void' in l and testmethod not in l:
-                startflag=False
-            if startflag:
-                if 'assert' in l:
-                    l = l.strip()
-                    if l not in code:
-                        code+=l
+    if os.path.exists(fullpath):    
+        startflag=False
+        code =''
+        with open(fullpath,'r') as codefile:
+            lines=codefile.readlines()
+            for l in lines:
+                if 'public' in l  and 'void' in l and testmethod in l:
+                    startflag=True
+                if 'public' in l and 'void' in l and testmethod not in l:
+                    startflag=False
+                if startflag:
+                    if 'assert' in l:
+                        l = l.strip()
+                        if l not in code:
+                            code+=l
     return code
 
 
@@ -357,8 +386,8 @@ def getFailingTestSourceCode(failingtest,program_path):
 
 if __name__ == '__main__':
     bugIds = ['Lang-65','Chart-26','Math-106','Mockito-38','Time-26','Closure-134','Cli-1','Collections-25','Codec-1','Compress-1','Csv-1','Gson-1','JacksonCore-1','JacksonDatabind-1','JacksonXml-1','Jsoup-1','JxPath-1']
-    # bugIds = ['Chart-26']    
-    rootdir= '/Users/sophie/Documents/SUPRE'
+    #bugIds = ['Collections-25']    
+    rootdir= '/home/yule/y/SUPRE'
     repodir = rootdir+'/D4JTraining'
 
     for bugId in bugIds:
