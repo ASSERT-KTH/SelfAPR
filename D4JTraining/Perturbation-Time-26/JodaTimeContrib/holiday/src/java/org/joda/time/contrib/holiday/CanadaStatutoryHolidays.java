@@ -1,3 +1,0 @@
-[REPLACE]^FEDERAL ;^30^^^^^30^51^[REPLACE] FEDERAL = new AnnualHolidays<NamedAnniversaryFactory.NamedAnniversary, NamedAnniversaryFactory>  (  )  {^ [CLASS] CanadaStatutoryHolidays 1  
-[ADD]^^32^33^^^^31^50^[ADD] addFactory ( new NamedAnniversaryFactory ( "New Year's Day", CanadaAnniversaries.NEW_YEAR_HOLIDAY )  ) ;^[METHOD] buildFactories [TYPE] void [PARAMETER] [CLASS] CanadaStatutoryHolidays 1   [TYPE]  AnnualHolidays FEDERAL  [TYPE]  boolean false  true 
-[ADD]^^42^43^^^^31^50^[ADD] addFactory ( new NamedAnniversaryFactory ( "Thanksgiving Day", CanadaAnniversaries.THANKSGIVING )  ) ;^[METHOD] buildFactories [TYPE] void [PARAMETER] [CLASS] 1   [TYPE]  boolean false  true 

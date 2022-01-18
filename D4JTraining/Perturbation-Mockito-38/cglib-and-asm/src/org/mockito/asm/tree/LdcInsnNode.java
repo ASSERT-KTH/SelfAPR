@@ -1,7 +1,0 @@
-[REPLACE]^mv.visitLdcInsn ( cst ) ;^59^^^^^58^61^[REPLACE] super ( Opcodes.LDC ) ;^[METHOD] <init> [TYPE] Object) [PARAMETER] Object cst [CLASS] LdcInsnNode   [TYPE]  Object cst  [TYPE]  boolean false  true 
-[REPLACE]^this.cst =  null;^60^^^^^58^61^[REPLACE] this.cst = cst;^[METHOD] <init> [TYPE] Object) [PARAMETER] Object cst [CLASS] LdcInsnNode   [TYPE]  Object cst  [TYPE]  boolean false  true 
-[ADD]^^60^^^^^58^61^[ADD] this.cst = cst;^[METHOD] <init> [TYPE] Object) [PARAMETER] Object cst [CLASS] LdcInsnNode   [TYPE]  Object cst  [TYPE]  boolean false  true 
-[REPLACE]^return new LdcInsnNode ( cst ) ;^64^^^^^63^65^[REPLACE] return LDC_INSN;^[METHOD] getType [TYPE] int [PARAMETER] [CLASS] LdcInsnNode   [TYPE]  Object cst  [TYPE]  boolean false  true 
-[REPLACE]^super ( Opcodes.LDC ) ;^68^^^^^67^69^[REPLACE] mv.visitLdcInsn ( cst ) ;^[METHOD] accept [TYPE] void [PARAMETER] MethodVisitor mv [CLASS] LdcInsnNode   [TYPE]  Object cst  [TYPE]  MethodVisitor mv  [TYPE]  boolean false  true 
-[ADD]^^68^^^^^67^69^[ADD] mv.visitLdcInsn ( cst ) ;^[METHOD] accept [TYPE] void [PARAMETER] MethodVisitor mv [CLASS] LdcInsnNode   [TYPE]  Object cst  [TYPE]  MethodVisitor mv  [TYPE]  boolean false  true 
-[REPLACE]^return LDC_INSN;^72^^^^^71^73^[REPLACE] return new LdcInsnNode ( cst ) ;^[METHOD] clone [TYPE] AbstractInsnNode [PARAMETER] Map labels [CLASS] LdcInsnNode   [TYPE]  Map labels  [TYPE]  Object cst  [TYPE]  boolean false  true 

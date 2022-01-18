@@ -1,3 +1,0 @@
-[REPLACE]^return new Period ( s ) ;^29^^^^^28^30^[REPLACE] return Period.class;^[METHOD] returnedClass [TYPE] Class [PARAMETER] [CLASS] PersistentPeriod   [TYPE]  boolean false  true 
-[REPLACE]^return value.toString (  ) ;^33^^^^^32^34^[REPLACE] return new Period ( s ) ;^[METHOD] fromNonNullString [TYPE] Object [PARAMETER] String s [CLASS] PersistentPeriod   [TYPE]  boolean false  true  [TYPE]  String s 
-[REPLACE]^return new Period ( s ) ;^37^^^^^36^38^[REPLACE] return value.toString (  ) ;^[METHOD] toNonNullString [TYPE] String [PARAMETER] Object value [CLASS] PersistentPeriod   [TYPE]  boolean false  true  [TYPE]  Object value 

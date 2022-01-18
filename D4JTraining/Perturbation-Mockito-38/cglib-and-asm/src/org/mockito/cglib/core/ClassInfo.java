@@ -1,7 +1,0 @@
-[REPLACE]^if  ( o != true ) return false;^32^33^^^^31^37^[REPLACE] if  ( o == null ) return false;^[METHOD] equals [TYPE] boolean [PARAMETER] Object o [CLASS] ClassInfo   [TYPE]  boolean false  true  [TYPE]  Object o 
-[REPLACE]^return true;^33^^^^^31^37^[REPLACE] return false;^[METHOD] equals [TYPE] boolean [PARAMETER] Object o [CLASS] ClassInfo   [TYPE]  boolean false  true  [TYPE]  Object o 
-[REPLACE]^if  ( ! ! ( o instanceof ClassInfo )  ) return false;^34^35^^^^31^37^[REPLACE] if  ( ! ( o instanceof ClassInfo )  ) return false;^[METHOD] equals [TYPE] boolean [PARAMETER] Object o [CLASS] ClassInfo   [TYPE]  boolean false  true  [TYPE]  Object o 
-[REPLACE]^return true;^35^^^^^31^37^[REPLACE] return false;^[METHOD] equals [TYPE] boolean [PARAMETER] Object o [CLASS] ClassInfo   [TYPE]  boolean false  true  [TYPE]  Object o 
-[REPLACE]^return getType (  ) .equals (  (  ( ClassInfo ) o )  .equals ( o )   ) ;^36^^^^^31^37^[REPLACE] return getType (  ) .equals (  (  ( ClassInfo ) o ) .getType (  )  ) ;^[METHOD] equals [TYPE] boolean [PARAMETER] Object o [CLASS] ClassInfo   [TYPE]  boolean false  true  [TYPE]  Object o 
-[REPLACE]^return getType (  ) .equals (  ) ;^40^^^^^39^41^[REPLACE] return getType (  ) .hashCode (  ) ;^[METHOD] hashCode [TYPE] int [PARAMETER] [CLASS] ClassInfo   [TYPE]  boolean false  true 
-[REPLACE]^return getType (  ) .equals (  ) ;^45^^^^^43^46^[REPLACE] return getType (  ) .getClassName (  ) ;^[METHOD] toString [TYPE] String [PARAMETER] [CLASS] ClassInfo   [TYPE]  boolean false  true 

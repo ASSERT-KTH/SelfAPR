@@ -1,2 +1,0 @@
-[REPLACE]^super ( this ) ;^24^^^^^23^25^[REPLACE] super ( null ) ;^[METHOD] <init> [TYPE] AbstractClassTransformer() [PARAMETER] [CLASS] AbstractClassTransformer   [TYPE]  boolean false  true 
-[REPLACE]^cv =  null;^28^^^^^27^29^[REPLACE] cv = target;^[METHOD] setTarget [TYPE] void [PARAMETER] ClassVisitor target [CLASS] AbstractClassTransformer   [TYPE]  boolean false  true  [TYPE]  ClassVisitor target 

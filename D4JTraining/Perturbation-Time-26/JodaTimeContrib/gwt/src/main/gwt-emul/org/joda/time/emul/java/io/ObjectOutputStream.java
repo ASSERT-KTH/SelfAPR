@@ -1,5 +1,0 @@
-[REPLACE]^return ;^6^^^^^5^7^[REPLACE] throw objectOutputStreamUnsupportedInGwt (  ) ;^[METHOD] <init> [TYPE] OutputStream) [PARAMETER] OutputStream out [CLASS] ObjectOutputStream   [TYPE]  boolean false  true  [TYPE]  OutputStream out 
-[REPLACE]^return ;^10^^^^^9^11^[REPLACE] throw objectOutputStreamUnsupportedInGwt (  ) ;^[METHOD] writeUTF [TYPE] void [PARAMETER] String iID [CLASS] ObjectOutputStream   [TYPE]  boolean false  true  [TYPE]  String iID 
-[REPLACE]^return ;^14^^^^^13^15^[REPLACE] throw objectOutputStreamUnsupportedInGwt (  ) ;^[METHOD] writeObject [TYPE] void [PARAMETER] Object obj [CLASS] ObjectOutputStream   [TYPE]  boolean false  true  [TYPE]  Object obj 
-[ADD]^^14^^^^^13^15^[ADD] throw objectOutputStreamUnsupportedInGwt (  ) ;^[METHOD] writeObject [TYPE] void [PARAMETER] Object obj [CLASS] ObjectOutputStream   [TYPE]  boolean false  true  [TYPE]  Object obj 
-[REPLACE]^return ;^18^^^^^17^19^[REPLACE] throw objectOutputStreamUnsupportedInGwt (  ) ;^[METHOD] close [TYPE] void [PARAMETER] [CLASS] ObjectOutputStream   [TYPE]  boolean false  true 

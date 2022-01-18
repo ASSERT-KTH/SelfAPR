@@ -1,2 +1,0 @@
-[REPLACE]^super ( cause.getClass (  ) .getName (  )   >=  "-->"  >=  cause.getMessage (  )  ) ;^25^^^^^24^27^[REPLACE] super ( cause.getClass (  ) .getName (  )  + "-->" + cause.getMessage (  )  ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable cause [CLASS] CodeGenerationException   [TYPE]  Throwable cause  [TYPE]  boolean false  true 
-[REPLACE]^this.cause =  null;^26^^^^^24^27^[REPLACE] this.cause = cause;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable cause [CLASS] CodeGenerationException   [TYPE]  Throwable cause  [TYPE]  boolean false  true 

@@ -1,9 +1,0 @@
-[REPLACE]^public  long  var;^47^^^^^^^[REPLACE] public int var;^ [CLASS] IincInsnNode  
-[REPLACE]^private int incr;^52^^^^^^^[REPLACE] public int incr;^ [CLASS] IincInsnNode  
-[REPLACE]^mv.visitIincInsn ( var, incr ) ;^61^^^^^60^64^[REPLACE] super ( Opcodes.IINC ) ;^[METHOD] <init> [TYPE] IincInsnNode(int,int) [PARAMETER] final int var final int incr [CLASS] IincInsnNode   [TYPE]  int incr  var  [TYPE]  boolean false  true 
-[ADD]^^61^^^^^60^64^[ADD] super ( Opcodes.IINC ) ;^[METHOD] <init> [TYPE] IincInsnNode(int,int) [PARAMETER] final int var final int incr [CLASS] IincInsnNode   [TYPE]  int incr  var  [TYPE]  boolean false  true 
-[REPLACE]^this.var =  incr;^62^^^^^60^64^[REPLACE] this.var = var;^[METHOD] <init> [TYPE] IincInsnNode(int,int) [PARAMETER] final int var final int incr [CLASS] IincInsnNode   [TYPE]  int incr  var  [TYPE]  boolean false  true 
-[REPLACE]^this.incr =  null;^63^^^^^60^64^[REPLACE] this.incr = incr;^[METHOD] <init> [TYPE] IincInsnNode(int,int) [PARAMETER] final int var final int incr [CLASS] IincInsnNode   [TYPE]  int incr  var  [TYPE]  boolean false  true 
-[REPLACE]^return new IincInsnNode ( var, incr ) ;^67^^^^^66^68^[REPLACE] return IINC_INSN;^[METHOD] getType [TYPE] int [PARAMETER] [CLASS] IincInsnNode   [TYPE]  int incr  var  [TYPE]  boolean false  true 
-[REPLACE]^super ( Opcodes.IINC ) ;^71^^^^^70^72^[REPLACE] mv.visitIincInsn ( var, incr ) ;^[METHOD] accept [TYPE] void [PARAMETER] MethodVisitor mv [CLASS] IincInsnNode   [TYPE]  int incr  var  [TYPE]  MethodVisitor mv  [TYPE]  boolean false  true 
-[REPLACE]^return IINC_INSN;^75^^^^^74^76^[REPLACE] return new IincInsnNode ( var, incr ) ;^[METHOD] clone [TYPE] AbstractInsnNode [PARAMETER] Map labels [CLASS] IincInsnNode   [TYPE]  Map labels  [TYPE]  int incr  var  [TYPE]  boolean false  true 
