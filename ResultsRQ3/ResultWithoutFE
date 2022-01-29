@@ -1,0 +1,42 @@
+Identical	Chart_1_AbstractCategoryItemRenderer_1_1	1797	1	source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java	if  (  dataset  ==  null  )  {
+Identical	Chart_11_ShapeUtilities_1_1	275	1	source/org/jfree/chart/util/ShapeUtilities.java	PathIterator  iterator2  =  p2.  getPathIterator  (  null  )  ;
+Identical	Chart_18_DefaultKeyedValues_2_1	318	2	source/org/jfree/data/DefaultKeyedValues.java	[ADD]
+Identical	Chart_7_TimePeriodValues_1_1	300	2	source/org/jfree/data/time/TimePeriodValues.java	long  s  =  getDataItem  (  this.  maxMiddleIndex  ).  getPeriod  (  ).  getStart  (  ).  getTime  (  )  ;
+Identical	Closure_113_ProcessClosurePrimitives_1_1	329	1	src/com/google/javascript/jscomp/ProcessClosurePrimitives.java	if  (  provided!=  null  ||  requiresLevel.  isOn  (  )  )  {
+Identical	Closure_13_PeepholeOptimizationsPass_1_1	126	1	src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java	traverse  (  c  )  ;
+Identical	Closure_30_FlowSensitiveInlineVariables_1_1	157	1	src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java	(  new  NodeTraversal  (  compiler,  this  )  ).  traverseRoots  (  externs,  root  )  ;
+Identical	Closure_40_NameAnalyzer_1_1	635	3	src/com/google/javascript/jscomp/NameAnalyzer.java	JsName  name  =  getName  (  ns.  name,  true)  ;
+Identical	Closure_46_RecordType_1_1	140	16	src/com/google/javascript/rhino/jstype/RecordType.java	[REMOVE]
+Identical	Closure_70_TypedScopeCreator_1_1	1745	1	src/com/google/javascript/jscomp/TypedScopeCreator.java	jsDocParameter.  getJSType  (  ),  false  )  ;
+Identical	Closure_86_NodeUtil_1_1	2465	1	src/com/google/javascript/jscomp/NodeUtil.java	return  false;
+Identical	Lang_43_ExtendedMessageFormat_1_1	422	0	src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java	next  (  pos  )  ;
+Identical	Lang_46_StringEscapeUtils_8_8	244	0	src/java/org/apache/commons/lang/StringEscapeUtils.java	
+Identical	Lang_58_NumberUtils_1_1	454	1	src/java/org/apache/commons/lang/math/NumberUtils.java	
+Identical	Lang_59_StrBuilder_1_1	884	1	src/java/org/apache/commons/lang/text/StrBuilder.java	str.  getChars  (  0,  width,  buffer,  size  )  ;
+Identical	Lang_6_CharSequenceTranslator_1_1	95	1	src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java	pos  +=  Character.  charCount  (  Character.  codePointAt  (  input,  pt  )  )  ;
+Identical	Lang_8_FastDatePrinter_3_3	1134	0	src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java	TimeZone  zone  =  calendar.  getTimeZone  (  )  ;
+Identical	Math_22_FDistribution_1_1	275	1	src/main/java/org/apache/commons/math3/distribution/FDistribution.java	[REPLACE]  return  false;
+Identical	Math_38_BOBYQAOptimizer_2_2	1752	1	src/main/java/org/apache/commons/math/optimization/direct/BOBYQAOptimizer.java	
+Identical	Math_41_Variance_1_1	520	1	src/main/java/org/apache/commons/math/stat/descriptive/moment/Variance.java	for  (  int  i  =  begin;  i  <  begin  +  length;  i++  )  {
+Identical	Math_49_OpenMapRealVector_4_1	345	1	src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java	Iterator  iter  =  entries.  iterator  (  )  ;
+Identical	Math_49_OpenMapRealVector_4_2	358	1	src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java	Iterator  iter  =  entries.  iterator  (  )  ;
+Identical	Math_49_OpenMapRealVector_4_3	370	1	src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java	Iterator  iter  =  entries.  iterator  (  )  ;
+Identical	Math_49_OpenMapRealVector_4_4	383	1	src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java	Iterator  iter  =  entries.  iterator  (  )  ;
+Identical	Math_5_Complex_1_1	305	1	src/main/java/org/apache/commons/math3/complex/Complex.java	return  INF;
+Identical	Math_50_BaseSecantSolver_1_1	187	4	src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java	
+Identical	Math_70_BisectionSolver_1_1	72	1	src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java	return  solve  (  f,  min,  max  )  ;
+Identical	Math_72_BrentSolver_2_1	115	1	src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java	setResult  (  min,  0  )  ;
+Identical	Math_72_BrentSolver_2_2	127	1	src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java	setResult  (  max,  0  )  ;
+Identical	Math_75_Frequency_1_1	303	1	src/main/java/org/apache/commons/math/stat/Frequency.java	return  getPct  (  (  Comparable  <?>  )  v  )  ;
+Identical	Math_77_ArrayRealVector_1_1	721	1	src/main/java/org/apache/commons/math/linear/ArrayRealVector.java	max  =  Math.  max  (  max,  Math.  abs  (  a  )  )  ;
+Identical	Math_79_MathUtils_1_1	1624	1	src/main/java/org/apache/commons/math/util/MathUtils.java	double  sum  =  0;
+Identical	Math_80_EigenDecompositionImpl_1_1	1135	1	src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java	int  j  =  4  *  (  n  -  1  )  ;
+Identical	Math_81_EigenDecompositionImpl_3_3	1543	1	src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java	if  (  end  -  start  >  3  )  {
+Identical	Math_82_SimplexSolver_1_1	82	1	src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java	if  (  MathUtils.  compareTo  (  entry,  0,  epsilon  )  >  0  )  {
+Identical	Math_85_UnivariateRealSolverUtils_1_1	198	1	src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java	if  (  fa  *  fb  >  0.  0  )  {
+Identical	Math_86_CholeskyDecompositionImpl_2_1	114	3	src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java	
+Identical	Math_98_BigMatrixImpl_1_1	991	1	src/java/org/apache/commons/math/linear/BigMatrixImpl.java	final  BigDecimal  []  out  =  new  BigDecimal[nRows];
+Identical	Math_98_RealMatrixImpl_1_1	779	1	src/java/org/apache/commons/math/linear/RealMatrixImpl.java	final  double[]  out  =  new  double[nRows];
+Identical	Mockito_34_InvocationMatcher_1_1	106	1	src/org/mockito/internal/invocation/InvocationMatcher.java	if  (  m  instanceof  CapturesArguments  &&  i.  getArguments  (  ).  length  >  k  )  {
+Identical	Mockito_5_VerificationOverTimeImpl_1_1	91	1	src/org/mockito/internal/verification/VerificationOverTimeImpl.java	catch  (  AssertionError  e  )  {
+Identical	Time_19_DateTimeZone_1_1	900	1	src/main/java/org/joda/time/DateTimeZone.java	[REPLACE]  }  else  if  (  offsetLocal  >=  0  )  {
