@@ -1,4 +1,4 @@
-# SUPRE
+# SelfAPR
 
 
 ##  build our AST based code perturbation programs
