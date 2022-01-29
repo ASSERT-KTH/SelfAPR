@@ -1,0 +1,76 @@
+Chart_1_AbstractCategoryItemRenderer_1_1	1797	1	source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java	if  (  dataset  ==  null  )  {	if  (dataset  ==  null)  {			
+Chart_11_ShapeUtilities_1_1	275	1	source/org/jfree/chart/util/ShapeUtilities.java	PathIterator  iterator2  =  p2.  getPathIterator  (  null  )  ;	PathIterator  iterator2  =  p2.getPathIterator(null);			
+Chart_20_ValueMarker_1_1	95	1	source/org/jfree/chart/plot/ValueMarker.java	[REPLACE]  super  (  paint,  stroke,  outlinePaint,  outlineStroke,  alpha  )  ;	super(paint,  stroke,  outlinePaint,  outlineStroke,  alpha);			
+Chart_7_TimePeriodValues_1_1	300	2	source/org/jfree/data/time/TimePeriodValues.java	long  s  =  getDataItem  (  this.  maxMiddleIndex  ).  getPeriod  (  ).  getStart  (  ).  getTime  (  )  ;	long  s  =  getDataItem(this.maxMiddleIndex).getPeriod().getStart().  getTime  (  )  ;			
+Cli_27_OptionGroup_1_1	98	2	src/java/org/apache/commons/cli/OptionGroup.java	if  (  selected  ==  null  ||  selected.  equals  (  option.  getKey  (  )  )  )  selected  =  option.  getKey  (  )  ;	if  (selected  ==  null  ||  selected.equals(option.getKey()))  selected  =  option.getKey();			
+Cli_34_Option_1_1	72	1	src/main/java/org/apache/commons/cli/Option.java	private  Class  type  =  String.  class;	private  Class  type  =  String.class;			
+Cli_34_OptionBuilder_1_1	84	1	src/main/java/org/apache/commons/cli/OptionBuilder.java	type  =  String.  class;	type  =  String.class;			
+Cli_36_Options_2_2	61	1	src/main/java/org/apache/commons/cli/Options.java	[REPLACE]  private  final  Map  <  String,  OptionGroup>  optionGroups  =  new  LinkedHashMap  <  String,  OptionGroup>  (  )  ;	private  final  Map  <  String,  OptionGroup>  optionGroups  =  new  LinkedHashMap  <  String,  OptionGroup>();			
+Cli_5_Util_1_1	36	0	src/java/org/apache/commons/cli/Util.java	if  (  str  ==  null  )  {  return  null;  }	if  (str  ==  null)  {  return  null;  }			
+Cli_8_HelpFormatter_1_1	812	1	src/java/org/apache/commons/cli/HelpFormatter.java	pos  =  findWrapPos  (  text,  width,  0  )  ;	pos  =  findWrapPos(text,  width,  0);			
+Closure_113_ProcessClosurePrimitives_1_1	329	1	src/com/google/javascript/jscomp/ProcessClosurePrimitives.java	if  (  provided!=  null  ||  requiresLevel.  isOn  (  )  )  {	if  (provided!=  null  ||  requiresLevel.isOn())  {			
+Closure_117_TypeValidator_2_2	756	12	src/com/google/javascript/jscomp/TypeValidator.java	[ADD]	nan			
+Closure_13_PeepholeOptimizationsPass_1_1	126	1	src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java	traverse  (  c  )  ;	traverse(c);			
+Closure_30_FlowSensitiveInlineVariables_1_1	157	1	src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java	(  new  NodeTraversal  (  compiler,  this  )  ).  traverseRoots  (  externs,  root  )  ;	(new  NodeTraversal(compiler,  this)).traverseRoots(externs,  root);			
+Closure_40_NameAnalyzer_1_1	635	3	src/com/google/javascript/jscomp/NameAnalyzer.java	JsName  name  =  getName  (  ns.  name,  true)  ;	JsName  name  =  getName(ns.name,  true);			
+Closure_46_RecordType_1_1	140	16	src/com/google/javascript/rhino/jstype/RecordType.java	[REMOVE]	nan			
+Closure_70_TypedScopeCreator_1_1	1745	1	src/com/google/javascript/jscomp/TypedScopeCreator.java	jsDocParameter.  getJSType  (  ),  false  )  ;	jsDocParameter.getJSType(),  false);			
+Closure_79_Normalize_1_1	122	1	src/com/google/javascript/jscomp/Normalize.java	[REPLACE].  traverseRoots  (  externs,  root  )  ;	.traverseRoots(externs,  root);			
+Closure_86_NodeUtil_1_1	2465	1	src/com/google/javascript/jscomp/NodeUtil.java	return  false;	return  false;			
+Closure_86_NodeUtil_1_1	2465	1	src/com/google/javascript/jscomp/NodeUtil.java	[REPLACE]  return  false;	return  false;			
+Closure_86_NodeUtil_1_1	2465	1	src/com/google/javascript/jscomp/NodeUtil.java	[REPLACE]  return  false;	return  false;			
+Codec_17_StringUtils_1_1	339	1	src/main/java/org/apache/commons/codec/binary/StringUtils.java	[REPLACE]  return  new  String  (  bytes,  Charsets.  ISO_8859_1  )  ;	return  newString(bytes,  Charsets.ISO_8859_1);			
+Codec_17_StringUtils_1_1	339	1	src/main/java/org/apache/commons/codec/binary/StringUtils.java	[REPLACE]  return  new  String  (  bytes,  Charsets.  ISO_8859_1  )  ;	return  newString(bytes,  Charsets.ISO_8859_1);			
+Codec_7_Base64_1_1	670	1	src/java/org/apache/commons/codec/binary/Base64.java	return  StringUtils.  newStringUtf8  (  encodeBase64  (  binaryData,  false)  )  ;	return  StringUtils.newStringUtf8(encodeBase64(binaryData,  false));			
+Collections_26_MultiKey_1_1	277	1	src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java	protected  Object  readResolve  (  )  {	protected  Object  readResolve()  {			
+Compress_17_TarUtils_1_1	135	0	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	trailer  =  buffer[end  -  1];	trailer  =  buffer[end  -  1];			
+Compress_19_Zip64ExtendedInformationExtraField_1_1	259	1	src/main/java/org/apache/commons/compress/archivers/zip/Zip64ExtendedInformationExtraField.java	if  (  rawCentralDirectoryData.  length  <  expectedLength  )  {	if  (rawCentralDirectoryData.length  <  expectedLength)  {			
+Compress_27_TarUtils_1_1	133	4	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	[REMOVE]	nan			
+Compress_30_BZip2CompressorInputStream_1_1	168	0	src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java	if  (  len  ==  0  )  {  return  0;  }	if  (len  ==  0)  {  return  0;  }			
+Compress_31_TarUtils_1_1	135	3	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java		nan			
+Compress_33_CompressorStreamFactory_1_1	240	0	src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java	[ADD]  if  (  DeflateCompressorInputStream.  matches  (  signature,  signatureLength  )  )  {  return  new  DeflateCompressorInputStream  (  in  )  ;  }	if  (DeflateCompressorInputStream.matches(signature,  signatureLength))  {  return  new  DeflateCompressorInputStream(in);  }			
+Compress_4_CpioArchiveOutputStream_1_1	336	1	src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java	[ADD]	nan			
+Compress_4_TarArchiveOutputStream_1_1	126	1	src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java	[REMOVE]	nan			
+Compress_4_ZipArchiveOutputStream_1_1	530	1	src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java		nan			
+Csv_9_CSVRecord_1_1	180	0	src/main/java/org/apache/commons/csv/CSVRecord.java	if  (  mapping  ==  null  )  {  return  map;  }	if  (mapping  ==  null)  {  return  map;  }			
+JacksonCore_19_UTF8StreamJsonParser_1_1	1544	0	src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java	[ADD]  if  (  outPtr  >=  outBuf.  length  )  {  outBuf  =  _textBuffer.  finishCurrentSegment  (  )  ;  outPtr  =  0;  }	if  (outPtr  >=  outBuf.length)  {  outBuf  =  _textBuffer.finishCurrentSegment();  outPtr  =  0;  }			
+JacksonCore_19_UTF8StreamJsonParser_1_1	1544	0	src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java	if  (  outPtr  >=  outBuf.  length  )  {  outBuf  =  _textBuffer.  finishCurrentSegment  (  )  ;  outPtr  =  0;  }	if  (outPtr  >=  outBuf.length)  {  outBuf  =  _textBuffer.finishCurrentSegment();  outPtr  =  0;  }			
+JacksonCore_25_ReaderBasedJsonParser_1_1	1963	1	src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java	if  (  i  <  maxCode  )  {	if  (i  <  maxCode)  {			
+JacksonCore_25_ReaderBasedJsonParser_1_1	1963	1	src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java	if  (  i  <  maxCode  )  {	if  (i  <  maxCode)  {			
+JacksonDatabind_102_DateTimeSerializerBase_1_1	67	3	src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java		nan			
+JacksonDatabind_27_BeanDeserializer_1_1	794	1	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java	if  (  ext.  handlePropertyValue  (  p,  ctxt,  propName,  null  )  )  {	if  (ext.handlePropertyValue(p,  ctxt,  propName,  null))  {			
+JacksonDatabind_34_NumberSerializer_1_1	81	1	src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java	visitFloatFormat  (  visitor,  typeHint,  JsonParser.  NumberType.  BIG_DECIMAL  )  ;	visitFloatFormat(visitor,  typeHint,  JsonParser.NumberType.BIG_DECIMAL);			
+JacksonDatabind_46_ReferenceType_1_1	156	0	src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java	sb.  append  (   ">;   "  )  ;	sb.append( ">; ");			
+JacksonDatabind_99_ReferenceType_1_1	169	0	src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java	[ADD]  sb.  append  (  '>'  )  ;	sb.append('>');			
+Jsoup_24_TokeniserState_1_1	558	1	src/main/java/org/jsoup/parser/TokeniserState.java	[REMOVE]	nan			
+Jsoup_52_DataUtil_1_1	112	6	src/main/java/org/jsoup/helper/DataUtil.java		nan			
+Jsoup_57_Attributes_1_1	125	1	src/main/java/org/jsoup/nodes/Attributes.java	it.  remove  (  )  ;	it.remove();			
+Jsoup_86_Comment_1_1	78	1	src/main/java/org/jsoup/nodes/Comment.java	if  (  doc.  children  (  ).  size  (  )  >  0  )  {	if  (doc.children().size()  >  0)  {			
+JxPath_16_JDOMNodePointer_1_1	391	1	src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java	return  true;	return  true;			
+Lang_10_FastDateParser_1_1	304	1	src/main/java/org/apache/commons/lang3/time/FastDateParser.java	[REPLACE]  boolean  wasWhite  =  true;	boolean  wasWhite  =  true  ;			
+Lang_26_FastDateFormat_1_1	820	1	src/main/java/org/apache/commons/lang3/time/FastDateFormat.java	[REPLACE]  Calendar  c  =  new  GregorianCalendar  (  mTimeZone,  mLocale  )  ;	Calendar  c  =  new  GregorianCalendar(mTimeZone,  mLocale);			
+Lang_43_ExtendedMessageFormat_1_1	422	0	src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java	next  (  pos  )  ;	next(pos);			
+Lang_58_NumberUtils_1_1	454	1	src/java/org/apache/commons/lang/math/NumberUtils.java		nan			
+Lang_59_StrBuilder_1_1	884	1	src/java/org/apache/commons/lang/text/StrBuilder.java	str.  getChars  (  0,  width,  buffer,  size  )  ;	str.getChars(0,  width,  buffer,  size);			
+Lang_6_CharSequenceTranslator_1_1	95	1	src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java	pos  +=  Character.  charCount  (  Character.  codePointAt  (  input,  pt  )  )  ;	pos  +=  Character.charCount(Character.codePointAt(input,  pt));			
+Math_22_FDistribution_1_1	275	1	src/main/java/org/apache/commons/math3/distribution/FDistribution.java	[REPLACE]  return  false;	return  false;			
+Math_22_UniformRealDistribution_1_1	184	1	src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java	[REPLACE]  return  true;	return  true;			
+Math_22_UniformRealDistribution_1_1	184	1	src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java	[REPLACE]  return  true;	return  true;			
+Math_41_Variance_1_1	520	1	src/main/java/org/apache/commons/math/stat/descriptive/moment/Variance.java	for  (    int  i  =  begin;  i  <  begin  +  length;  i++  )  {	for  (int  i  =  begin;  i  <  begin  +  length;  i++)  {			
+Math_5_Complex_1_1	305	1	src/main/java/org/apache/commons/math3/complex/Complex.java	return  INF;	return  INF;			
+Math_5_Complex_1_1	305	1	src/main/java/org/apache/commons/math3/complex/Complex.java	returnINF;	return  INF;			
+Math_6_BaseOptimizer_1_1	51	1	src/main/java/org/apache/commons/math3/optim/BaseOptimizer.java	[REPLACE]  iterations  =  new  Incrementor  (  Integer.  MAX_VALUE,  new  MaxIterCallback  (  )  )  ;	iterations  =  new  Incrementor(Integer.MAX_VALUE,  new  MaxIterCallback());			
+Math_70_BisectionSolver_1_1	72	1	src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java	return  solve  (  f,  min,  max  )  ;	return  solve(f,  min,  max);			
+Math_75_Frequency_1_1	303	1	src/main/java/org/apache/commons/math/stat/Frequency.java	return  getPct  (  (  Comparable  <?>  )  v  )  ;	return  getPct((Comparable  <?>)  v);			
+Math_77_ArrayRealVector_1_1	721	1	src/main/java/org/apache/commons/math/linear/ArrayRealVector.java	max  =  Math.  max  (  max,  Math.  abs  (  a  )  )  ;	max  =  Math.max(max,  Math.abs(a));			
+Math_79_MathUtils_1_1	1624	1	src/main/java/org/apache/commons/math/util/MathUtils.java	double  sum  =  0;	double  sum  =  0;			
+Math_80_EigenDecompositionImpl_1_1	1135	1	src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java	int  j  =  4  *  (  n  -  1  )  ;	int  j  =  4  *  (n  -  1);			
+Math_82_SimplexSolver_1_1	82	1	src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java	if  (  MathUtils.  compareTo  (  entry,  0,  epsilon  )  >  0  )  {	if  (MathUtils.compareTo(entry,  0,  epsilon)  >  0)  {			
+Math_85_UnivariateRealSolverUtils_1_1	198	1	src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java	if  (  fa  *  fb  >  0.  0  )  {	if  (fa  *  fb  >  0.0  )  {			
+Math_85_UnivariateRealSolverUtils_1_1	198	1	src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java	[REPLACE]  if  (  fa  *  fb  >  0.  0  )  {	if  (fa  *  fb  >  0.0  )  {			
+Math_98_BigMatrixImpl_1_1	991	1	src/java/org/apache/commons/math/linear/BigMatrixImpl.java	[REPLACE]  final  BigDecimal[]  out  =  new  BigDecimal[nRows  ];	final  BigDecimal[]  out  =  new  BigDecimal[nRows];			
+Math_98_RealMatrixImpl_1_1	779	1	src/java/org/apache/commons/math/linear/RealMatrixImpl.java	final  double[]  out  =  new  double[nRows];	final  double[]  out  =  new  double[nRows];			
+Mockito_34_InvocationMatcher_1_1	106	1	src/org/mockito/internal/invocation/InvocationMatcher.java	if  (  m  instanceof  CapturesArguments  &&  i.  getArguments  (  ).  length  >  k  )  {	if  (m  instanceof  CapturesArguments  &&  i.getArguments().length  >  k)  {			
+Mockito_5_VerificationOverTimeImpl_1_1	91	1	src/org/mockito/internal/verification/VerificationOverTimeImpl.java	catch  (  AssertionError  e  )  {	catch  (AssertionError  e)  {			
+Time_19_DateTimeZone_1_1	900	1	src/main/java/org/joda/time/DateTimeZone.java	[REPLACE]  }  else  if  (  offsetLocal  >=  0  )  {	}  else  if  (offsetLocal  >=  0)  {			
+								
