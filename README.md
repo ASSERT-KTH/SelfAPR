@@ -1,7 +1,7 @@
 # SelfAPR: Self-supervised Program Repair with Test Execution Diagnostics (Paper Under Review)
 
-
-##  build our AST based code perturbation programs
+ 
+## Go to the perturbation folder and build the model:
  ```
 cd perturbation
 mvn package assembly:single
@@ -13,35 +13,36 @@ java -jar ./perturbation/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencie
 ```
 
 ##  Code perturbation scripts
-Checkout the buggy projects, apply the human written patches on them and make sure NO failling tests. Start the perturbation with this script:
+
+#### Checkout the buggy projects, apply the human written patches on them and make sure NO failling tests. Start the perturbation with this script:
 ```
 python3  1_perturb_projects.py
 ```
-Iterate each file of the considered projects, generate perturbed project-specific trianings samples and execute them against test cases:
+#### Iterate each file of the considered projects, generate perturbed project-specific trianings samples and execute them against test cases:
 ```
 python3  2_execute_perturbation.py
 ```
-Prepare a set of evaluation bugs from Defects4J:
+#### Prepare a set of evaluation bugs from Defects4J:
 
 ```
 python3 3_prepare_test_data.py
 ```
 
-We are ready to train the perturbed samples with transformer:Pytorch==1.7.1 and transformers>=4.10.0
+#### We are ready to train the perturbed samples with transformer:Pytorch==1.7.1 and transformers>=4.10.0
 ```
 pip install transformers
 pip install sentencepiece
 python3 4-train.py
 ```
 
-To test the trained model:
+#### To test the trained model:
 ```
-5-test.py
+python3 5-test.py
 ```
 
-To evaluat the test results:
+#### To evaluat the test results:
 ```
-6_evaluate_patch.py
+python3 6_evaluate_patch.py
 ```
 
 
@@ -54,9 +55,9 @@ An example is as follow, for replace the variable shartName with variable longNa
 ```
 
 
+#### Comparison of repaired bug with state-of-the-art
 
-
-|RewardRepair|Recoder|Coconut|Cure|SUPREME|
+|RewardRepair(ICSE'22)|Recoder(FSE'21)|Coconut(ISSTA'21)|CureRecoder(ICSE'21)|SUPREME|
 |---|---|---|---|---|
 |Math_57|Chart_1|Chart_1|Chart_1|Chart_1|
 |Math_5|Chart_11|Chart_11|Chart_11|Chart_11|
