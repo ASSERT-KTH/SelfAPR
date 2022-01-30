@@ -11,10 +11,8 @@ def start(bugId,repodir,rootdir):
     targetfile = getBuggyFile(bugId,repodir)
     #split , for multiple files
     tfiles = targetfile.split(',')
-    print('!!!!targetfile!!!!!!!'+targetfile)
 
     for tf in tfiles:
-        print('!!!!!tf!!!!!!'+tf)
         if '.java' not in tf:
             tf=tf+'.java'
         diffLists = getBuggyLines(bugId,repodir,tf)
@@ -28,11 +26,7 @@ def start(bugId,repodir,rootdir):
             patchLines = diff.split('[patch]')[1]
             patchLines = patchLines.split('[buggyLineNo]')[0]
             buggyLineNo = diff.split('[buggyLineNo]')[1]
-
         
-            print('@@@@startLineNo@@@@'+startLineNo)
-            print('#####buggyLines######'+buggyLines)
-            print('#####patchLines######'+patchLines)
 
             if str(startLineNo) not in '':
                 constructTrainSample(bugId, k, tf, repodir, rootdir,str(startLineNo),buggyLines,patchLines,str(len(diffLists)),str(buggyLineNo))
@@ -233,7 +227,7 @@ def getFailingTestDiagnostic(failingtest,program_path):
     cmd += "gtimeout 500  /Users/sophie/Documents/newD4J/defects4j/framework/bin/defects4j monitor.test -t "+failingtest
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     print(result)
-    cmd = 'java -cp /Users/sophie/Documents/SUPRE/chart1b/build-tests:/Users/sophie/Documents/SUPRE/lib/hamcrest-core-1.3.jar:/Users/sophie/Documents/SUPRE/lib/junit-4.12.jar org.junit.runner.JUnitCore '+  failingtest.split("::")[0]
+    cmd = program_path+'/build-tests:'+'./lib/hamcrest-core-1.3.jar:./lib/junit-4.12.jar org.junit.runner.JUnitCore '+  failingtest.split("::")[0]
     
     if 'failed!' in str(result) :
         result = str(result).split('failed!')[1]
@@ -313,7 +307,7 @@ if __name__ == '__main__':
     bugNos = [ '72-93','2-22','1-37','22-25','3-64','26-28' ]
 
     
-    rootdir= '/Users/sophie/Documents/SUPRE'
+    rootdir= 'your/project/patch/'
     repodir = rootdir+'/'
 
     for i in range(5,6):

@@ -1,4 +1,4 @@
-# SelfAPR
+# SelfAPR: Self-supervised Program Repair with Test Execution Diagnostics (Paper Under Review)
 
 
 ##  build our AST based code perturbation programs
@@ -13,13 +13,44 @@ java -jar ./perturbation/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencie
 ```
 
 ##  Code perturbation scripts
-Checkout the buggy projects, apply the human written patches on them and make sure NO failling tests 
+Checkout the buggy projects, apply the human written patches on them and make sure NO failling tests. Start the perturbation with this script:
 ```
-python3  1_setup_projects.py
+python3  1_perturb_projects.py
 ```
-Iterate each file of the considered projects
+Iterate each file of the considered projects, generate perturbed project-specific trianings samples and execute them against test cases:
 ```
-python3  2_perturbation.py
+python3  2_execute_perturbation.py
+```
+Prepare a set of evaluation bugs from Defects4J:
+
+```
+python3 3_prepare_test_data.py
+```
+
+We are ready to train the perturbed samples with transformer:Pytorch==1.7.1 and transformers>=4.10.0
+```
+pip install transformers
+pip install sentencepiece
+python3 4-train.py
+```
+
+To test the trained model:
+```
+5-test.py
+```
+
+To evaluat the test results:
+```
+6_evaluate_patch.py
+```
+
+
+
+## All perturbed samples under the folder: PerturbedSamples 
+
+An example is as follow, for replace the variable shartName with variable longName. 
+```
+[REPLACE]^obuilder.withShortName ( longName ) ; ^ obuilder.withShortName ( shortName ) ;^[METHOD] option [TYPE] Option [PARAMETER] Option option1 [CLASS] CLI2Converter   [TYPE]  boolean false  true  [TYPE]  ArgumentBuilder abuilder  [TYPE]  Option option1  [TYPE]  DefaultOptionBuilder obuilder  [TYPE]  Object type  [TYPE]  String argName  description  longName  shortName 
 ```
 
 

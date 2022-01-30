@@ -232,7 +232,7 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     print('****************'+program_path+'******************')
     #get compile result
     cmd = "cd " + program_path + ";"
-    cmd += "timeout 90 /home/yule/y/defects4j/framework/bin/defects4j compile"
+    cmd += "timeout 90 your/defects4j/pathdefects4j compile"
     exectresult='[TIMEOUT]'
     symbolVaraible=''
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
@@ -272,7 +272,7 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     if not compile_error_flag:
         #get test result
         cmd = "cd " + program_path + ";"
-        cmd += "timeout 180 /home/yule/y/defects4j/framework/bin/defects4j test"
+        cmd += "timeout 180 your/defects4j/pathdefects4j test"
         result=''
         result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         print(result)
@@ -313,7 +313,7 @@ def getFailingTestDiagnostic(failingtest,program_path):
     testclass = failingtest.split("::")[0]
 
     cmd = "cd " + program_path + ";"
-    cmd += "timeout 120 /home/yule/y/defects4j/framework/bin/defects4j monitor.test -t "+failingtest
+    cmd += "timeout 120 your/defects4j/pathdefects4j monitor.test -t "+failingtest
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if 'failed!' in str(result) :
         result = str(result).split('failed!')[1]
@@ -396,7 +396,7 @@ if __name__ == '__main__':
 
         if os.path.exists(repodir+'/'+bugId):
             os.system('rm -rf '+repodir+'/'+bugId)
-        os.system('/home/yule/y/defects4j/framework/bin/defects4j checkout -p '+ str(project)+' -v '+str(bugNo)+'f   -w '+repodir+'/'+bugId)
+        os.system('your/defects4j/pathdefects4j checkout -p '+ str(project)+' -v '+str(bugNo)+'f   -w '+repodir+'/'+bugId)
 
         bugId = bugId.replace(project, "Perturbation-"+project)
         start(bugId,repodir,rootdir)
