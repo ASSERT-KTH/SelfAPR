@@ -1,0 +1,10 @@
+Identical	Chart_25_StatisticalBarRenderer_6_4	403	0	source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java	if  (  meanValue  ==  null  )  {  return;  }	if  (meanValue  ==  null)  {  return;  }
+Identical	Chart_15_PiePlot_2_1	1378	0	source/org/jfree/chart/plot/PiePlot.java	if  (  this.  dataset  ==  null  )  {  return  0.  0;  }	if  (this.dataset  ==  null)  {  return  0.0;  }
+Identical	Chart_7_TimePeriodValues_2_2	302	2	source/org/jfree/data/time/TimePeriodValues.java	long  e  =  getDataItem  (  this.  maxMiddleIndex  ).  getPeriod  (  ).  getEnd  (  ).  getTime  (  )  ;	long  e  =  getDataItem(this.maxMiddleIndex).getPeriod().getEnd().getTime();
+Identical	Chart_18_DefaultKeyedValues_2_1	318	2	source/org/jfree/data/DefaultKeyedValues.java	[REMOVE]	nan
+Identical	Chart_20_ValueMarker_1_1	95	1	source/org/jfree/chart/plot/ValueMarker.java	super  (  paint,  stroke,  outlinePaint,  outlineStroke,  alpha  )  ;	super(paint,  stroke,  outlinePaint,  outlineStroke,  alpha);
+Identical	Chart_25_StatisticalBarRenderer_6_1	259	0	source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java	if  (  meanValue  ==  null  )  {  return;  }	if  (meanValue  ==  null)  {  return;  }
+Identical	Chart_1_AbstractCategoryItemRenderer_1_1	1797	1	source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java	if  (  dataset  ==  null  )  {	if  (dataset  ==  null)  {
+Identical	Chart_7_TimePeriodValues_2_1	300	2	source/org/jfree/data/time/TimePeriodValues.java	long  s  =  getDataItem  (  this.  maxMiddleIndex  ).  getPeriod  (  ).  getStart  (  ).  getTime  (  )  ;	long  s  =  getDataItem(this.maxMiddleIndex).getPeriod().getStart().  getTime  (  )  ;
+Semantic	Chart_9_TimeSeries_1_1	944	1	source/org/jfree/data/time/TimeSeries.java	if  (  startIndex  >  endIndex  )  {	if  ((endIndex  <  0)  ||  (endIndex  <  startIndex))  {
+Semantic	Chart_4_XYPlot_1_1	4493	0	source/org/jfree/chart/plot/XYPlot.java	else  if  (  r!=  null  )  {  Collection  c  =  r.  getAnnotations  (  )  ;  }	if  (r!=  null)  {
