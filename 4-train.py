@@ -47,33 +47,6 @@ def training(generator, gen_opt, gen_tokenizer, adv_loader, device,epoch):
             
 
 
-def recycleTraining(program, lineNo, groundTruth, results, count):   
-    code = ''
-    with open('./tmp/'+program,'r') as buggyFile:
-        lines = buggyFile.readlines()
-        for k in range(0,len(lines)):
-            l = lines[k] 
-            l =  l.strip().replace('\n','').replace('\r','').replace('\t','')
-            code+=' '+str(k)+'[S]'+l
-     
-    buggyFile.close()
-        
-      
-                
-     
-    code = code.replace('  ',' ')
-    with open('./train.csv','a+') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
-            quoting=csv.QUOTE_NONE)
-        spamwriter.writerow([count, '[Code] '+code+' [Error] '+results, groundTruth, lineNo, program])
-    
-    csvfile.close()
-    
-    os.system('rm -rf ./tmp')
-    
-    
-
-
 def recordData(epoch, bugid, crossEntropLoss, reward, preds, groundTruth):
     with open('./training_log.csv', 'a') as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',quotechar='"',quoting=csv.QUOTE_MINIMAL)
@@ -159,8 +132,6 @@ def test(tokenizer, model, device, loader,epoch):
                 )
             preds = [tokenizer.decode(g, skip_special_tokens=True, clean_up_tokenization_spaces=True) for g in generated_ids]
             print(preds[0])
-            print(preds[1])
-            print(preds[9])
 
             target = [tokenizer.decode(t, skip_special_tokens=True, clean_up_tokenization_spaces=True)for t in y]
             target = target[0]
@@ -210,27 +181,15 @@ def run_training(epoch):
     gen_optimizer = torch.optim.Adam(params = gen.parameters(), lr=LEARNING_RATE)
 
 
-    adv_loader=getGeneratorDataLoader(TRAIN_PATH,gen_tokenizer,8)   
-#     valid_loader=getGeneratorDataLoader(VALID_PATH,gen_tokenizer,VALID_BATCH_SIZE)   
-#     test_loader=getValidTestDataLoader(TEST_PATH,gen_tokenizer,1) 
+    adv_loader=getGeneratorDataLoader(TRAIN_PATH,gen_tokenizer,16)   
 
 
-#     valid(gen_tokenizer, gen, device, valid_loader,'before adversial training')
     print('\n--------\nEPOCH %d\n--------' % (epoch+1))
     print('\nTraining Generator : ', end='')
     training(gen, gen_optimizer, gen_tokenizer, adv_loader, device, epoch)         
 
     gen.save_pretrained('./model/SUPRE'+str(epoch+1))
     gen_tokenizer.save_pretrained('./model/SUPRE'+str(epoch+1))
-
-#     valid(gen,gen_tokenizer,  device, valid_loader, epoch+1)
-    #save the train.csv in current epoch
-    #os.system('cp ./train.csv  ./train-'+str(epoch)+'.csv')
-        
-#         print(f'Validating on test dataset *********: {epoch}')
-#         test(gen_tokenizer, gen, device, test_loader, epoch)       
-#         print('Output Files generated for review')
-        
 
         
         
@@ -240,13 +199,12 @@ def run_training(epoch):
 if __name__ == '__main__':
     warnings.filterwarnings('ignore')
     SEED=42
-    TRAIN_EPOCHS = 20
+    TRAIN_EPOCHS = 15
     LEARNING_RATE = 1e-4
-    VALID_BATCH_SIZE = 1
     MAX_LEN = 768
     PATCH_LEN = 128 
     device = 'cuda' if cuda.is_available() else 'cpu'
     TRAIN_PATH= './train.csv'
     
-    for epoch in range(10,TRAIN_EPOCHS):
+    for epoch in range(0,TRAIN_EPOCHS):
         run_training(epoch)
