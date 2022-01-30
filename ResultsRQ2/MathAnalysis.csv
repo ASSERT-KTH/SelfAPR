@@ -1,0 +1,22 @@
+Identical	Math_22_FDistribution_1_1	275	1	src/main/java/org/apache/commons/math3/distribution/FDistribution.java	[REPLACE]  return  false;	return  false;
+Identical	Math_22_UniformRealDistribution_1_1	184	1	src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java	[REPLACE]  return  true;	return  true;
+Identical	Math_30_MannWhitneyUTest_1_1	173	1	src/main/java/org/apache/commons/math3/stat/inference/MannWhitneyUTest.java	final  double  n1n2prod  =  n1  *  n2;	final  double  n1n2prod  =  n1  *  n2;
+Identical	Math_38_BOBYQAOptimizer_2_2	1752	1	src/main/java/org/apache/commons/math/optimization/direct/BOBYQAOptimizer.java	[REMOVE]	nan
+Identical	Math_46_Complex_2_1	260	1	src/main/java/org/apache/commons/math/complex/Complex.java	return  NaN;	return  NaN;
+Identical	Math_49_OpenMapRealVector_4_1	345	1	src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java	Iterator  iter  =  entries.  iterator  (  )  ;	Iterator  iter  =  entries.iterator();
+Identical	Math_49_OpenMapRealVector_4_2	358	1	src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java	Iterator  iter  =  entries.  iterator  (  )  ;	Iterator  iter  =  entries.iterator();
+Identical	Math_49_OpenMapRealVector_4_3	370	1	src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java	Iterator  iter  =  entries.  iterator  (  )  ;	Iterator  iter  =  entries.iterator();
+Identical	Math_49_OpenMapRealVector_4_4	383	1	src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java	Iterator  iter  =  entries.  iterator  (  )  ;	Iterator  iter  =  entries.iterator();
+Identical	Math_5_Complex_1_1	305	1	src/main/java/org/apache/commons/math3/complex/Complex.java	return  INF;	return  INF;
+Identical	Math_50_BaseSecantSolver_1_1	187	4	src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java	[ADD]	nan
+Identical	Math_59_FastMath_1_1	3482	1	src/main/java/org/apache/commons/math/util/FastMath.java	return  (  a  <  =  b  )?  b  :  (  Float.  isNaN  (  a  +  b  )?  Float.  NaN  :  a  )  ;	return  (a  <  =  b)?  b  :  (Float.isNaN(a  +  b)?  Float.NaN  :  a);
+Identical	Math_72_BrentSolver_2_1	115	1	src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java	setResult  (  min,  0  )  ;	setResult(min,  0);
+Identical	Math_72_BrentSolver_2_2	127	1	src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java	setResult  (  max,  0  )  ;	setResult(max,  0);
+Identical	Math_75_Frequency_1_1	303	1	src/main/java/org/apache/commons/math/stat/Frequency.java	return  getPct  (  (  Comparable  <?>  )  v  )  ;	return  getPct((Comparable  <?>)  v);
+Identical	Math_82_SimplexSolver_1_1	82	1	src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java	if  (  MathUtils.  compareTo  (  entry,  0,  epsilon  )  >  0  )  {	if  (MathUtils.compareTo(entry,  0,  epsilon)  >  0)  {
+Identical	Math_85_UnivariateRealSolverUtils_1_1	198	1	src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java	if  (  fa  *  fb>  0.  0  )  {	if  (fa  *  fb  >  0.0  )  {
+Identical	Math_86_CholeskyDecompositionImpl_2_1	114	3	src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java	[REMOVE]	nan
+Identical	Math_98_BigMatrixImpl_1_1	991	1	src/java/org/apache/commons/math/linear/BigMatrixImpl.java	final  BigDecimal[]  out  =  new  BigDecimal[nRows];	final  BigDecimal[]  out  =  new  BigDecimal[nRows];
+Identical	Math_98_RealMatrixImpl_1_1	779	1	src/java/org/apache/commons/math/linear/RealMatrixImpl.java	final  double[]  out  =  new  double[nRows];	final  double[]  out  =  new  double[nRows];
+Identical	Math_70_BisectionSolver_1_1	72	1	src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java	return  answer  (f,  min,  max   )  ;	return  solve(f,  min,  max);
+Semantic	Math_46_Complex_2_2	297	1	src/main/java/org/apache/commons/math/complex/Complex.java	return  isZero?  NaN  :  NaN;	return  NaN;
