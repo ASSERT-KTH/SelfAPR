@@ -58,7 +58,15 @@ An example is as follow, for replace the variable shartName with variable longNa
 
 
 
-#### Comparison of repaired bug with state-of-the-art
+## Fault Localization with Gzoltar and Flacoco: faultlocalization 
+
+
+#### We compute all the suspicous buggy lines with two fault localization with Gzoltar and Flacoco. At inference phase, for a given suspicious statement found by fault localization tools, SelfAPR represents it with a sequences of tokens. Those tokens are given to the trained SelfAPR model. SelfAPR is configured by the inference beam size n, it outputs  the n best patches for that suspicious statement.
+
+
+
+
+## Comparison of repaired bug with state-of-the-art
 
 |RewardRepair(ICSE'22)|Recoder(FSE'21)|Coconut(ISSTA'21)|CureRecoder(ICSE'21)|SUPREME|
 |---|---|---|---|---|
