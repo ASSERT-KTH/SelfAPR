@@ -45,6 +45,11 @@ python3 5-test.py
 python3 6_evaluate_patch.py
 ```
 
+## Fault Localization with Gzoltar and Flacoco: faultlocalization 
+
+
+#### We compute all the suspicous buggy lines with two fault localization with Gzoltar and Flacoco. At inference phase, for a given suspicious statement found by fault localization tools, SelfAPR represents it with a sequences of tokens. Those tokens are given to the trained SelfAPR model. SelfAPR is configured by the inference beam size n, it outputs  the n best patches for that suspicious statement.
+
 
 
 ## All perturbed samples under the folder: PerturbedSamples 
@@ -58,10 +63,6 @@ An example is as follow, for replace the variable shartName with variable longNa
 
 
 
-## Fault Localization with Gzoltar and Flacoco: faultlocalization 
-
-
-#### We compute all the suspicous buggy lines with two fault localization with Gzoltar and Flacoco. At inference phase, for a given suspicious statement found by fault localization tools, SelfAPR represents it with a sequences of tokens. Those tokens are given to the trained SelfAPR model. SelfAPR is configured by the inference beam size n, it outputs  the n best patches for that suspicious statement.
 
 
 
