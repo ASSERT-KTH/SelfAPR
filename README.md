@@ -50,9 +50,12 @@ python3 6_evaluate_patch.py
 ## All perturbed samples under the folder: PerturbedSamples 
 
 An example is as follow, for replace the variable shartName with variable longName. 
-```
-[REPLACE]^obuilder.withShortName ( longName ) ; ^ obuilder.withShortName ( shortName ) ;^[METHOD] option [TYPE] Option [PARAMETER] Option option1 [CLASS] CLI2Converter   [TYPE]  boolean false  true  [TYPE]  ArgumentBuilder abuilder  [TYPE]  Option option1  [TYPE]  DefaultOptionBuilder obuilder  [TYPE]  Object type  [TYPE]  String argName  description  longName  shortName 
-```
+
+|Perturbed Sample(P')|Before Being Perturbed(P)|
+|---|---|
+|obuilder.withShortName ( longName ) ; | obuilder.withShortName ( shortName ) ;|
+| RectangleEdge domainEdge = Plot .resolveRangeAxisLocation ( orientation )  ;| RectangleEdge domainEdge = Plot.resolveDomainAxisLocation ( plot.getDomainAxisLocation (  ) , orientation ) ;|
+
 
 
 #### Comparison of repaired bug with state-of-the-art
