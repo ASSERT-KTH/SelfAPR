@@ -25,7 +25,7 @@ import spoon.support.reflect.code.CtVariableWriteImpl;
 public class ReplaceAssignment {
 
 	public static void perturb(CtElement st, String type, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3,String lineNo4, int count) {
+			String lineNo2, String lineNo3,String lineNo4, int count,double prob) {
 		String perturbCode = null;
 		String originGroundTruth = groundTruth;
 
@@ -45,7 +45,7 @@ public class ReplaceAssignment {
 		 */
 		if (perturbCode == null) {
 			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob ) {
 			String newperturbCode = OperatorPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -62,7 +62,7 @@ public class ReplaceAssignment {
 		 */
 		if (perturbCode == null) {
 			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -78,7 +78,7 @@ public class ReplaceAssignment {
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo2)) {
-			if ((groundTruth.equals(perturbCode) || perturbCode==null)  || SUPREUtil.getRandomDouble() > 0.8) {
+			if ((groundTruth.equals(perturbCode) || perturbCode==null)  || SUPREUtil.getRandomDouble() > prob) {
 				System.out.print("");
 				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"assignment", 0.7 - (0.9*(count)),null);
 				System.out.print("");
@@ -126,7 +126,7 @@ public class ReplaceAssignment {
 		 */
 		if (perturbCode == null) {
 			perturbCode = ConstructorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			String newperturbCode = ConstructorPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -177,7 +177,7 @@ public class ReplaceAssignment {
 		 */
 		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
 			perturb( st, type, methStart, methEnd,  groundTruth, lineNo1,
-					lineNo2, lineNo3,lineNo4, count+1);
+					lineNo2, lineNo3,lineNo4, count+1,prob);
 		} else if(!(groundTruth.equals(perturbCode) && perturbCode!=null )){
 
 		HashMap<String, String> map = new HashMap<String, String>();

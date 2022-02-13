@@ -13,7 +13,7 @@ import spoon.reflect.declaration.CtElement;
 public class ReplaceDeclaration {
 
 	public static void perturb(CtElement st, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3, String lineNo4) {
+			String lineNo2, String lineNo3, String lineNo4,double prob) {
 		String perturbCode = null;
 		/**
 		 * This is a random number to decide the perturbation
@@ -25,7 +25,7 @@ public class ReplaceDeclaration {
 		 * 
 		 */
 
-		if (r > 0.2 && perturbCode == null) {
+		if ( perturbCode == null) {
 			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
 		}
 
@@ -36,7 +36,7 @@ public class ReplaceDeclaration {
 		// replace type
 		if (perturbCode == null) {
 			perturbCode = TypePerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.6) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			perturbCode = TypePerturbation.perturb(st, perturbCode);
 		}
 		
@@ -44,14 +44,14 @@ public class ReplaceDeclaration {
 		// modifier
 		if (perturbCode == null) {
 			perturbCode = ModifiersPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			perturbCode = ModifiersPerturbation.perturb(st, perturbCode);
 		}
 		
 		
 		
 		// remove instantiation
-		if (groundTruth.contains("=") && (perturbCode == null || r > 0.5)) {
+		if (groundTruth.contains("=") && (perturbCode == null || r > prob)) {
 			r = SUPREUtil.getRandomDouble();
 			if (r > 0.5) {
 				perturbCode = groundTruth.split("=")[0] + ";";

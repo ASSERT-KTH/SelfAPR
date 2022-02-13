@@ -68,9 +68,9 @@ public class PerturbActions {
 
 			else if (type.contains("condition")) {
 				Replace.replace(st, type, methStart, methEnd);
-				if (r > 0.7) {
+				if (r > 0.5) {
 					Remove.remove(st, type, methStart, methEnd);
-				} else if (r > 0.6) {
+				} else if (r > 0.2) {
 					AddCondition.add(st, type, methStart, methEnd);
 				}
 			}
@@ -78,20 +78,20 @@ public class PerturbActions {
 			else if (type.contains("statement")) {
 				r = SUPREUtil.getRandomDouble();
 				Replace.replace(st, type, methStart, methEnd);
-				if (r > 0.8) {
+				if (r > 0.5) {
 					Remove.remove(st, type, methStart, methEnd);
-				} else if (r > 0.7) {
+				} else if (r > 0.2) {
 					AddStatement.add(st, type, methStart, methEnd);
 				}
 			}
 
 			else if (type.contains("try")) {
+				Replace.replace(st, type, methStart, methEnd);
 				RemoveTry.remove(st, type, methStart, methEnd);
 			}
 
-			else if (r > 0.25) {
+			else {
 				Replace.replace(st, type, methStart, methEnd);
-			} else {
 				Replace.replace(st, type, methStart, methEnd);
 				Remove.remove(st, type, methStart, methEnd);
 			}

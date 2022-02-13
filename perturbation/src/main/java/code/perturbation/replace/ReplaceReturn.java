@@ -24,7 +24,7 @@ import spoon.support.reflect.code.CtVariableReadImpl;
 public class ReplaceReturn {
 
 	public static void perturb(CtElement st, String type, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3, String lineNo4,int count) {
+			String lineNo2, String lineNo3, String lineNo4,int count,double prob) {
 		
 		String perturbCode = null;
 		String originGroundTruth = groundTruth;
@@ -43,7 +43,7 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
-		}else if (SUPREUtil.getRandomDouble() > 0.7) {
+		}else if (SUPREUtil.getRandomDouble() > prob) {
 			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -55,7 +55,7 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			String newperturbCode = OperatorPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -67,7 +67,7 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -81,7 +81,7 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = ConstructorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			String newperturbCode = ConstructorPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -96,7 +96,7 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = VariablePerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			String newperturbCode = VariablePerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -141,7 +141,7 @@ public class ReplaceReturn {
 			
 		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
 			perturb( st, type, methStart, methEnd,  groundTruth, lineNo1,
-					lineNo2, lineNo3,lineNo4, count+1);
+					lineNo2, lineNo3,lineNo4, count+1,prob);
 		} else {
 			
 		HashMap<String, String> map = new HashMap<String, String>();

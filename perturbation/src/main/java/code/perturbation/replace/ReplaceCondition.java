@@ -26,7 +26,7 @@ import spoon.support.reflect.code.CtIfImpl;
 public class ReplaceCondition {
 
 	public static void perturb(CtElement st, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3, String lineNo4, int count) {
+			String lineNo2, String lineNo3, String lineNo4, int count, double prob) {
 		String originGroundTruth = groundTruth;
 		String perturbCode = null;
 		/**
@@ -48,7 +48,7 @@ public class ReplaceCondition {
 		 */
 		if (perturbCode == null) {
 			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			perturbCode = OperatorPerturbation.perturb(st, perturbCode);
 		}
 
@@ -57,7 +57,7 @@ public class ReplaceCondition {
 		 */
 		if (perturbCode == null) {
 			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -70,7 +70,7 @@ public class ReplaceCondition {
 		 */		
 		if (perturbCode == null) {
 			perturbCode = VariablePerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SUPREUtil.getRandomDouble() > prob) {
 			String newperturbCode = VariablePerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -83,7 +83,7 @@ public class ReplaceCondition {
 		 */
 		if (perturbCode == null) {
 			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
-		}else if (SUPREUtil.getRandomDouble() > 0.7) {
+		}else if (SUPREUtil.getRandomDouble() > prob) {
 			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;

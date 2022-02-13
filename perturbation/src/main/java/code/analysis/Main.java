@@ -50,10 +50,6 @@ public class Main {
 	
 	public static void main(String[] args) {		
 		path = args[0];	
-//		/Users/sophie/Documents/SUPRE/D4JTraining/Chart-26/source/org/jfree/chart/renderer/category/WaterfallBarRenderer.java
-//		path = "/Users/sophie/Documents/SUPRE/D4JTraining/Chart-26/source/org/jfree/chart/renderer/OutlierListCollection.java";
-//		path =  "/Users/sophie/Documents/SUPRE/D4JTraining/Chart-26/source/org/jfree/chart/renderer/xy/XYErrorRenderer.java";
-//		path = "/Users/sophie/Documents/SUPRE/D4JTraining/Chart-26/source/org/jfree/chart/ChartFactory.java";
 		sourceReader(path);	
 	}
 	
