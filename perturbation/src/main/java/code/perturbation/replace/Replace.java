@@ -70,7 +70,10 @@ public class Replace {
 		 }	
 		 
 		else if(type.contains("throw")) {
+			double r = SUPREUtil.getRandomDouble();
+			if(r>0.5) {
 			 ReplaceThrow.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0);
+			}
 
 		 }
 		 

@@ -16,7 +16,7 @@ public class ReplaceThrow {
 		double r = SUPREUtil.getRandomDouble();
 		String perturbCode = "return ;";
 
-		if (r > 0.7) {
+		if (r > 0.8) {
 			perturbCode = "return ;";
 		} else if (r > 0.6) {
 			//replace another return xxx;
@@ -27,7 +27,7 @@ public class ReplaceThrow {
 				}
 			}
 		} else {
-			String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth, type, 0.5, null);
+			String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth, type, 0.4, null);
 			if (newperturbCode != null) {
 				if (newperturbCode != null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode + " ;";
