@@ -7,12 +7,13 @@ import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
 import code.perturbation.TypePerturbation;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.declaration.CtElement;
 
 public class Replace {
 
-	public static void replace(CtElement st, String type, int methStart, int methEnd) {
+	public static void replace(CtElement st, StatementType type, int methStart, int methEnd) {
 
 		int lineNo1 = st.getPosition().getLine();
 		String lineNo2 = "";
@@ -46,30 +47,30 @@ public class Replace {
 			}
 		}
 
-		if (type.contains("declaration")) {
+		if (type == StatementType.Declaration) {
 			ReplaceDeclaration.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0.9);
 			ReplaceDeclaration.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0.7);
 
 		}
 
-		else if (type.contains("assignment")  ) {
+		else if (type == StatementType.Assignment) {
 			ReplaceAssignment.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.9);
 			ReplaceAssignment.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.7);
 
 		}
 		
-		else if (type.contains("condition")) {
+		else if (type== StatementType.Condition) {
 			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.9);
 			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.7);
 		}
 
-		else if (type.contains("return")) {
+		else if (type==StatementType.Return) {
 			 ReplaceReturn.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0,0.9);
 			 ReplaceReturn.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0,0.7);
 
 		 }	
 		 
-		else if(type.contains("throw")) {
+		else if(type==StatementType.Throw) {
 			double r = SUPREUtil.getRandomDouble();
 			if(r>0.5) {
 			 ReplaceThrow.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0);

@@ -14,6 +14,7 @@ import code.perturbation.SimilarityPerturbation;
 import code.perturbation.TypePerturbation;
 import code.perturbation.VariablePerturbation;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
@@ -234,7 +235,7 @@ public class ReplaceCondition {
 		if("".equals(lineNo3)) {
 			if (((groundTruth.equals(perturbCode) || perturbCode==null)) ) {
 				System.out.println("sim condition head");
-				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,"conditionhead",0.75 - (0.5*count),null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,StatementType.ConditionHead,0.75 - (0.5*count),null);
 				if(newperturbCode!=null) {
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode;
@@ -256,7 +257,7 @@ public class ReplaceCondition {
 		
 		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
 			perturb( st, methStart, methEnd,  groundTruth, lineNo1,
-					lineNo2, lineNo3,lineNo4,count+1);
+					lineNo2, lineNo3,lineNo4,count+1,prob);
 		} else {					
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("lineNo1", lineNo1+"");

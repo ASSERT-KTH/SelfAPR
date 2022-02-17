@@ -4,10 +4,11 @@ import java.util.HashMap;
 
 import code.output.result.PerturbResult;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
 
 public class RemoveTry {
-	public static void remove(CtElement st, String type, int methStart, int methEnd) {
+	public static void remove(CtElement st, StatementType type, int methStart, int methEnd) {
 		double r = SUPREUtil.getRandomDouble();
 
 		String perturbCode = "";

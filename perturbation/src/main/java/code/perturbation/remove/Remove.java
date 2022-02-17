@@ -15,10 +15,11 @@ import java.util.List;
 
 import code.output.result.PerturbResult;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 
 public class Remove {
 
-	public static void remove(CtElement st, String type, int methStart, int methEnd) {
+	public static void remove(CtElement st, StatementType type, int methStart, int methEnd) {
 
 		double r = SUPREUtil.getRandomDouble();
 

@@ -7,11 +7,12 @@ import code.output.result.PerturbResult;
 import code.perturbation.SimilarityPerturbation;
 import code.perturbation.replace.ReplaceStatement;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
 
 public class AddStatement {
 
-	public static void add(CtElement st, String type, int methStart, int methEnd) {
+	public static void add(CtElement st, StatementType type, int methStart, int methEnd) {
 		
 	
 		
@@ -61,7 +62,7 @@ public class AddStatement {
 		
 		//add similar statement;		
 		if(SUPREUtil.getRandomDouble()>0.3) {
-		 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"statement",0.3,null);
+		 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,StatementType.Statement,0.3,null);
 				
 		if( perturbCode==null) {
 			return;
@@ -80,7 +81,7 @@ public class AddStatement {
 		}
 		else {
 			//add condition wrap this statement;	
-			 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"condition",0.3,"null");
+			 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,StatementType.ConditionHead,0.3,"null");
 			if(perturbCode==null) {
 				return;
 			}

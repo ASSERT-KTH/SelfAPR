@@ -7,6 +7,7 @@ import java.util.List;
 import code.analysis.Variables;
 import code.utils.EditDistance;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.code.CtBlock;
 import spoon.reflect.code.CtCatch;
 import spoon.reflect.code.CtStatement;
@@ -40,7 +41,7 @@ public class SimilarityPerturbation {
 	static HashSet<String> _conditionHeadList = new HashSet<String>();
 	static HashSet<String> _forHeadList = new HashSet<String>();
 
-	public static String perturb(CtElement st, String groundTruth, String type, Double similarity, String withoutStr) {
+	public static String perturb(CtElement st, String groundTruth, StatementType type, Double similarity, String withoutStr) {
 
 		HashSet<String> targetList = null;
 
@@ -48,23 +49,23 @@ public class SimilarityPerturbation {
 			similarity = 0.7;
 		}
 
-		if ("return".equals(type) && groundTruth.contains("return")) {
+		if (type == StatementType.Return && groundTruth.contains("return")) {
 			targetList = _returnList;
-		} else if ("conditionhead".equals(type)) {
+		} else if (type == StatementType.ConditionHead) {
 			targetList = _conditionHeadList;
-		} else if ("for".equals(type)) {
+		} else if (type == StatementType.For) {
 			targetList = _forHeadList;
-		} else if ("condition".equals(type) && (groundTruth.contains("if") || groundTruth.contains("else"))) {
+		} else if (type == StatementType.Condition && (groundTruth.contains("if") || groundTruth.contains("else"))) {
 			targetList = _conditionList;
-		} else if ("statement".equals(type) && !groundTruth.contains("if") && !groundTruth.contains("return")) {
+		} else if (type ==StatementType.Statement && !groundTruth.contains("if") && !groundTruth.contains("return")) {
 			targetList = _statementList;
-		} else if ("assignment".equals(type)) {
+		} else if (type ==StatementType.Assignment) {
 			targetList = _assignmentList;
-		} else if ("constructor".equals(type)) {
+		} else if (type ==StatementType.Constructor) {
 			targetList = _constructorCallList;
-		} else if ("localVariable".equals(type)) {
+		} else if (type ==StatementType.LocalVariable) {
 			targetList = _localVariableImpllList;
-		} else if ("throw".equals(type)) {
+		} else if (type ==StatementType.Throw) {
 			targetList = _throwsList;
 		}
 
@@ -79,8 +80,8 @@ public class SimilarityPerturbation {
 		String simStatement = null;
 		int count = 0;
 		String target = st.toString();
-		if (type.equals("conditionhead") || type.equals("localVariable") || type.equals("assignment")
-				|| type.equals("statement") || type.equals("for") || type.equals("return") || type.equals("throw")) {
+		if (type ==StatementType.ConditionHead || type ==StatementType.LocalVariable || type ==StatementType.Assignment
+				|| type ==StatementType.Statement || type ==StatementType.For || type ==StatementType.Return || type ==StatementType.Throw) {
 			target = groundTruth;
 		}
 
@@ -110,9 +111,8 @@ public class SimilarityPerturbation {
 
 		if (simStatement != null) {
 
-			if (type.equals("conditionhead") || type.equals("localVariable") || type.equals("for")
-					|| type.equals("assignment") || type.equals("statement") || type.equals("return")
-					|| type.equals("throw")) {
+			if (type ==StatementType.ConditionHead || type ==StatementType.LocalVariable || type ==StatementType.Assignment
+					|| type ==StatementType.Statement || type ==StatementType.For || type ==StatementType.Return || type ==StatementType.Throw) {
 
 				simStatement = simStatement.replace("\r", "").replace("\n", "");
 

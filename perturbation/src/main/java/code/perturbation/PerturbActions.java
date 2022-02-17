@@ -20,6 +20,7 @@ import code.perturbation.remove.Remove;
 import code.perturbation.remove.RemoveTry;
 import code.perturbation.replace.Replace;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.code.CtBlock;
 import spoon.reflect.code.CtCatch;
 import spoon.reflect.code.CtCodeElement;
@@ -49,7 +50,7 @@ import spoon.support.reflect.declaration.CtFieldImpl;
 
 public class PerturbActions {
 
-	public static void randomPerturb(CtElement st, String type, int methStart, int methEnd) {
+	public static void randomPerturb(CtElement st, StatementType type, int methStart, int methEnd) {
 		try {
 					
 		String stStr = st.toString().replace("\r", " ").replace("\n", " ");
@@ -62,11 +63,11 @@ public class PerturbActions {
 			return;
 		}
 
-			if (type.contains("declaration") || type.contains("return") ) {
+			if (type==StatementType.Declaration || type==StatementType.Return ) {
 				Replace.replace(st, type, methStart, methEnd);
 			}
 
-			else if (type.contains("condition")) {
+			else if (type==StatementType.Condition) {
 				Replace.replace(st, type, methStart, methEnd);
 				if (r > 0.5) {
 					Remove.remove(st, type, methStart, methEnd);
@@ -75,7 +76,7 @@ public class PerturbActions {
 				}
 			}
 
-			else if (type.contains("statement")) {
+			else if (type==StatementType.Statement) {
 				r = SUPREUtil.getRandomDouble();
 				Replace.replace(st, type, methStart, methEnd);
 				if (r > 0.5) {
@@ -85,7 +86,7 @@ public class PerturbActions {
 				}
 			}
 
-			else if (type.contains("try")) {
+			else if (type==StatementType.Try) {
 				Replace.replace(st, type, methStart, methEnd);
 				RemoveTry.remove(st, type, methStart, methEnd);
 			}
@@ -134,10 +135,6 @@ public class PerturbActions {
 				List<CtStatement> statements = block.getStatements();
 				
 				for (CtStatement st : statements) {
-					if(st.toString().contains("for")) {
-						 System.out.println( " ==== type =====" +"===== st: ===="  );
-
-					}
 					processStatement(st, methStart, methEnd);
 				}
 
@@ -183,7 +180,7 @@ public class PerturbActions {
 			if (whiles.size() > 0) {
 				System.out.println();
 				for (CtWhileImpl w : whiles) {
-					PerturbActions.randomPerturb(w, "whiles", methStart, methEnd);
+					PerturbActions.randomPerturb(w, StatementType.Whiles, methStart, methEnd);
 					CtStatement s = w.getBody();
 					if(s!=null) {
 						processStatement(s, methStart, methEnd);
@@ -194,7 +191,7 @@ public class PerturbActions {
 
 			if (conditions.size() > 0) {
 				for (CtIfImpl cond : conditions) {
-					PerturbActions.randomPerturb(cond, "condition", methStart, methEnd);
+					PerturbActions.randomPerturb(cond, StatementType.Condition, methStart, methEnd);
 					CtStatement elseStatement = cond.getElseStatement();
 					CtStatement thenStatement = cond.getThenStatement();
 					if (elseStatement != null) {
@@ -209,7 +206,7 @@ public class PerturbActions {
 			if (fors.size() > 0) {
 				for (CtForImpl foreach : fors) {
 					
-					PerturbActions.randomPerturb(foreach, "for", methStart, methEnd);
+					PerturbActions.randomPerturb(foreach, StatementType.For, methStart, methEnd);
 
 					CtStatement forbody = foreach.getBody();
 
@@ -223,7 +220,7 @@ public class PerturbActions {
 
 			if (trys.size() > 0) {
 				for (CtTryImpl t : trys) {
-					PerturbActions.randomPerturb(t, "try", methStart, methEnd);
+					PerturbActions.randomPerturb(t, StatementType.Try, methStart, methEnd);
 					List<CtCatch> catchers = t.getCatchers();
 					CtBlock<?> b = t.getBody();
 					processStatement(b, methStart, methEnd);
@@ -232,44 +229,44 @@ public class PerturbActions {
 
 			if (assignments.size() > 0) {
 				for (CtAssignmentImpl a : assignments) {
-					PerturbActions.randomPerturb(a, "assignment", methStart, methEnd);
+					PerturbActions.randomPerturb(a, StatementType.Assignment, methStart, methEnd);
 				}
 			}
 
 			if (returns.size() > 0) {
 				for (CtReturnImpl r : returns) {
-					PerturbActions.randomPerturb(r, "return", methStart, methEnd);
+					PerturbActions.randomPerturb(r, StatementType.Return, methStart, methEnd);
 				}
 			}
 
-//			if (constructorCall.size() > 0) {
-//				for (CtConstructorCallImpl c : constructorCall) {
-//					PerturbActions.randomPerturb(c, "constructor", methStart, methEnd);
-//				}
-//			}
+			if (constructorCall.size() > 0) {
+				for (CtConstructorCallImpl c : constructorCall) {
+					PerturbActions.randomPerturb(c, StatementType.Constructor, methStart, methEnd);
+				}
+			}
 
 			if (localVariableImpl.size() > 0) {
 				for (CtLocalVariableImpl l : localVariableImpl) {
-					PerturbActions.randomPerturb(l, "localVariable", methStart, methEnd);
+					PerturbActions.randomPerturb(l, StatementType.LocalVariable, methStart, methEnd);
 				}
 			}
 
 			if (throwss.size() > 0) {
 				for (CtThrowImpl t : throwss) {
-					PerturbActions.randomPerturb(t, "throw", methStart, methEnd);
+					PerturbActions.randomPerturb(t, StatementType.Throw, methStart, methEnd);
 				}
 			}
 
 			if (catchs.size() > 0) {
 				for (CtCatchImpl c : catchs) {
-					PerturbActions.randomPerturb(c, "catch", methStart, methEnd);
+					PerturbActions.randomPerturb(c, StatementType.Catch, methStart, methEnd);
 				}
 			}
 
 			if (invocations.size() > 0 && localVariableImpl.size()==0 && returns.size() ==0
 					&& assignments.size()==0 &&trys.size()==0 && fors.size()==0 &&  conditions.size()==0 && whiles.size()==0) {
 				for (CtInvocationImpl i : invocations) {
-					PerturbActions.randomPerturb(i, "statement", methStart, methEnd);
+					PerturbActions.randomPerturb(i, StatementType.Statement, methStart, methEnd);
 				}
 			}
 		
@@ -279,7 +276,7 @@ public class PerturbActions {
 		for (CtFieldImpl variable : fieldList) {
 			int start = variable.getPosition().getLine();
 			int end = variable.getPosition().getEndLine();
-			PerturbActions.randomPerturb(variable, "declaration", start, end);
+			PerturbActions.randomPerturb(variable, StatementType.Declaration, start, end);
 		}
 
 	}

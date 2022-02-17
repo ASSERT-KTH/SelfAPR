@@ -17,6 +17,7 @@ import code.perturbation.TypePerturbation;
 import code.perturbation.VariablePerturbation;
 import code.perturbation.remove.FullyRemove;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
@@ -35,7 +36,7 @@ import spoon.support.reflect.reference.CtExecutableReferenceImpl;
 
 public class ReplaceStatement {
 
-	public static void perturb(CtElement st, String type, int methStart, int methEnd, String groundTruth, int lineNo1,
+	public static void perturb(CtElement st, StatementType type, int methStart, int methEnd, String groundTruth, int lineNo1,
 			String lineNo2, String lineNo3, String lineNo4, int count) {
 		String originGroundTruth = groundTruth;
 
@@ -44,13 +45,7 @@ public class ReplaceStatement {
 		double r = SUPREUtil.getRandomDouble();
 
 		String perturbCode = null;
-
-		if( groundTruth.contains("for")) {
-			groundTruth.contains("bb.release");
-		}
-		
-		
-		
+	
 
 		/**
 		 * operators

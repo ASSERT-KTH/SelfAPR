@@ -11,6 +11,7 @@ import code.perturbation.OperatorPerturbation;
 import code.perturbation.SimilarityPerturbation;
 import code.perturbation.VariablePerturbation;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
@@ -23,7 +24,7 @@ import spoon.support.reflect.code.CtVariableReadImpl;
 
 public class ReplaceReturn {
 
-	public static void perturb(CtElement st, String type, int methStart, int methEnd, String groundTruth, int lineNo1,
+	public static void perturb(CtElement st, StatementType type, int methStart, int methEnd, String groundTruth, int lineNo1,
 			String lineNo2, String lineNo3, String lineNo4,int count,double prob) {
 		
 		String perturbCode = null;

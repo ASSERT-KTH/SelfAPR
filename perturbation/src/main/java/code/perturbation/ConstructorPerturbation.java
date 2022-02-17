@@ -5,6 +5,7 @@ import java.util.List;
 import code.analysis.MethodSignature;
 import code.analysis.Variables;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.reference.CtExecutableReference;
@@ -54,7 +55,7 @@ public class ConstructorPerturbation {
 
 			if (groundTruth.contains(excStr)) {
 
-				String corruptedExe = SimilarityPerturbation.perturb(inv, groundTruth, "constructor", 0.65, null);
+				String corruptedExe = SimilarityPerturbation.perturb(inv, groundTruth, StatementType.Constructor, 0.65, null);
 
 				if (corruptedExe != null) {
 

@@ -14,6 +14,7 @@ import code.perturbation.OperatorPerturbation;
 import code.perturbation.SimilarityPerturbation;
 import code.perturbation.TypePerturbation;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.declaration.CtVariable;
 import spoon.reflect.visitor.filter.TypeFilter;
@@ -24,7 +25,7 @@ import spoon.support.reflect.code.CtVariableWriteImpl;
 
 public class ReplaceAssignment {
 
-	public static void perturb(CtElement st, String type, int methStart, int methEnd, String groundTruth, int lineNo1,
+	public static void perturb(CtElement st, StatementType type, int methStart, int methEnd, String groundTruth, int lineNo1,
 			String lineNo2, String lineNo3,String lineNo4, int count,double prob) {
 		String perturbCode = null;
 		String originGroundTruth = groundTruth;
@@ -80,7 +81,7 @@ public class ReplaceAssignment {
 		if("".equals(lineNo2)) {
 			if ((groundTruth.equals(perturbCode) || perturbCode==null)  || SUPREUtil.getRandomDouble() > prob) {
 				System.out.print("");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,"assignment", 0.7 - (0.9*(count)),null);
+				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,StatementType.Assignment, 0.7 - (0.9*(count)),null);
 				System.out.print("");
 				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {

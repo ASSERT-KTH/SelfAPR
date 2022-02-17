@@ -6,11 +6,12 @@ import code.analysis.StatementAnalysis;
 import code.output.result.PerturbResult;
 import code.perturbation.SimilarityPerturbation;
 import code.utils.SUPREUtil;
+import code.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
 
 public class AddCondition {
 
-	public static void add(CtElement st, String type, int methStart, int methEnd) {
+	public static void add(CtElement st, StatementType type, int methStart, int methEnd) {
 
 		
 		int lineNo1 = st.getPosition().getLine();
@@ -36,7 +37,7 @@ public class AddCondition {
 		//add similar statement;		
 		
 		
-		String perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,"condition", 0.4,"null");
+		String perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,StatementType.Condition, 0.4,"null");
 		
 		if(perturbCode==null) {
 			return;
