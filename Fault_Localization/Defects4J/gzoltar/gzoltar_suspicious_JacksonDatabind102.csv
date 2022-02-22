@@ -515,6 +515,7 @@ com.fasterxml.jackson.databind.ObjectReader,2281,0.175
 com.fasterxml.jackson.databind.deser.std.StdDeserializer,200,0.174
 com.fasterxml.jackson.databind.deser.std.StdDeserializer,201,0.174
 com.fasterxml.jackson.databind.deser.std.StdDeserializer,203,0.174
+com.fasterxml.jackson.databind.ser.std.DateTimeSerializerBase,68,0.174
 com.fasterxml.jackson.databind.ser.std.DateTimeSerializerBase,210,0.174
 com.fasterxml.jackson.databind.ObjectReader,2280,0.174
 com.fasterxml.jackson.databind.type.TypeBindings,264,0.174
@@ -998,3 +999,4 @@ com.fasterxml.jackson.databind.introspect.AnnotatedField,68,0.151
 com.fasterxml.jackson.databind.introspect.AnnotatedField,128,0.151
 com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector,1333,0.151
 com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector,1334,0.151
+

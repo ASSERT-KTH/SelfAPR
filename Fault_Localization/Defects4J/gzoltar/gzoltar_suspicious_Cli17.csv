@@ -177,6 +177,7 @@ org.apache.commons.cli.PosixParser,99,0.049
 org.apache.commons.cli.PosixParser,102,0.049
 org.apache.commons.cli.PosixParser,105,0.049
 org.apache.commons.cli.PosixParser,174,0.049
+org.apache.commons.cli.PosixParser,304,0.049
 org.apache.commons.cli.Options,150,0.049
 org.apache.commons.cli.Options,151,0.049
 org.apache.commons.cli.Options,197,0.048
@@ -261,3 +262,4 @@ org.apache.commons.cli.OptionValidator,86,0.039
 org.apache.commons.cli.OptionValidator,54,0.039
 org.apache.commons.cli.OptionValidator,76,0.039
 org.apache.commons.cli.OptionValidator,97,0.039
+

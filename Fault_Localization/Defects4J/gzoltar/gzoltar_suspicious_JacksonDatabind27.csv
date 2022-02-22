@@ -161,6 +161,7 @@ com.fasterxml.jackson.databind.type.TypeFactory,1433,0.206
 com.fasterxml.jackson.databind.JavaType,590,0.205
 com.fasterxml.jackson.databind.util.LRUMap,73,0.205
 com.fasterxml.jackson.databind.type.TypeFactory,1352,0.204
+com.fasterxml.jackson.databind.deser.BeanDeserializer,794,0.204
 com.fasterxml.jackson.databind.deser.BeanDeserializerBase,1415,0.204
 com.fasterxml.jackson.databind.util.ClassUtil,674,0.204
 com.fasterxml.jackson.databind.util.ClassUtil,677,0.204
@@ -998,3 +999,4 @@ com.fasterxml.jackson.core.json.JsonReadContext,201,0.169
 com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector,1275,0.169
 com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector,1277,0.169
 com.fasterxml.jackson.databind.deser.BasicDeserializerFactory,209,0.169
+

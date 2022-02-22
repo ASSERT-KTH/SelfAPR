@@ -83,6 +83,9 @@ org.apache.commons.cli.OptionBuilder,251,0.105
 org.apache.commons.cli.OptionBuilder,253,0.105
 org.apache.commons.cli.Option,331,0.1
 org.apache.commons.cli.Option,332,0.1
+org.apache.commons.cli.HelpFormatter,820,0.1
+org.apache.commons.cli.HelpFormatter,822,0.1
+org.apache.commons.cli.HelpFormatter,825,0.1
 org.apache.commons.cli.HelpFormatter,987,0.1
 org.apache.commons.cli.HelpFormatter,988,0.1
 org.apache.commons.cli.HelpFormatter,993,0.1
@@ -261,3 +264,4 @@ org.apache.commons.cli.OptionValidator,86,0.034
 org.apache.commons.cli.OptionValidator,54,0.034
 org.apache.commons.cli.OptionValidator,76,0.034
 org.apache.commons.cli.OptionValidator,97,0.034
+

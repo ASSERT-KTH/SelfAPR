@@ -265,6 +265,7 @@ org.apache.commons.cli.CommandLine,204,0.065
 org.apache.commons.cli.Options,276,0.064
 org.apache.commons.cli.Options,278,0.064
 org.apache.commons.cli.Options,281,0.064
+org.apache.commons.cli.HelpFormatter,812,0.06
 org.apache.commons.cli.CommandLine,199,0.06
 org.apache.commons.cli.CommandLine,196,0.058
 org.apache.commons.cli.CommandLine,194,0.054
@@ -274,3 +275,4 @@ org.apache.commons.cli.CommandLine,191,0.053
 org.apache.commons.cli.CommandLine,192,0.053
 org.apache.commons.cli.Option,635,0.053
 org.apache.commons.cli.Option,195,0.046
+

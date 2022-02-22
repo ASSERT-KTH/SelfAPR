@@ -981,6 +981,8 @@ com.fasterxml.jackson.databind.deser.DeserializerCache,414,0.178
 com.fasterxml.jackson.databind.jsontype.impl.SubTypeValidator,278,0.178
 com.fasterxml.jackson.databind.jsontype.impl.SubTypeValidator,288,0.178
 com.fasterxml.jackson.databind.JavaType,344,0.178
+com.fasterxml.jackson.databind.ObjectReader,1439,0.178
+com.fasterxml.jackson.databind.ObjectReader,1441,0.178
 com.fasterxml.jackson.databind.deser.BeanDeserializerFactory,136,0.178
 com.fasterxml.jackson.databind.deser.BeanDeserializerFactory,140,0.178
 com.fasterxml.jackson.databind.deser.BeanDeserializerFactory,144,0.178
@@ -998,3 +1000,4 @@ com.fasterxml.jackson.databind.deser.BeanDeserializerFactory,957,0.178
 com.fasterxml.jackson.databind.deser.BeanDeserializerFactory,960,0.178
 com.fasterxml.jackson.databind.deser.BeanDeserializerFactory,1000,0.178
 com.fasterxml.jackson.databind.deser.BeanDeserializerFactory,1001,0.178
+
