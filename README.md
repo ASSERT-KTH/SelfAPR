@@ -69,7 +69,7 @@ An example is as follow, for replace the variable shartName with variable longNa
 
 ## Comparison of repaired bug with state-of-the-art
 
-|RewardRepair(ICSE'22)|Recoder(FSE'21)|Coconut(ISSTA'21)|CureRecoder(ICSE'21)|SUPREME|
+|RewardRepair(ICSE'22)|Recoder(FSE'21)|Coconut(ISSTA'21)|CureRecoder(ICSE'21)|SelfAPR(this work)|
 |---|---|---|---|---|
 |Math_57|Chart_1|Chart_1|Chart_1|Chart_1|
 |Math_5|Chart_11|Chart_11|Chart_11|Chart_11|
