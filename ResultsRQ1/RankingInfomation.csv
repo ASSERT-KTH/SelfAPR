@@ -1,0 +1,9 @@
+1 IDENTICAL  Chart_1_AbstractCategoryItemRenderer_1_1	1797	1	source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java	[REPLACE]  if  (  dataset  ==  null  )  {	if  (dataset  ==  null)  {
+5 Chart_11_ShapeUtilities_1_1	275	1	source/org/jfree/chart/util/ShapeUtilities.java	PathIterator  iterator2  =  p2.  getPathIterator  (  null  )  ;	PathIterator  iterator2  =  p2.getPathIterator(null);
+1 Chart_20_ValueMarker_1_1	95	1	source/org/jfree/chart/plot/ValueMarker.java	super  (  paint,  stroke,  outlinePaint,  outlineStroke,  alpha  )  ;	super(paint,  stroke,  outlinePaint,  outlineStroke,  alpha);
+2 Chart_7_TimePeriodValues_2_1	300	2	source/org/jfree/data/time/TimePeriodValues.java	long  s  =  getDataItem  (  this.  maxMiddleIndex  ).  getPeriod  (  ).  getStart  (  ).  getTime  (  )  ;	long  s  =  getDataItem(this.maxMiddleIndex).getPeriod().getStart().  getTime  (  )  ;
+4 IDENTICAL  Cli_18_PosixParser_3_1	128	1	src/java/org/apache/commons/cli/PosixParser.java	tokens.  add  (  token  )  ;	tokens.add(token);
+54 IDENTICAL  Chart_8_Week_1_1	175	1	source/org/jfree/data/time/Week.java	this  (  time,  zone,  Locale.  getDefault  (  )  )  ;	this(time,  zone,  Locale.getDefault());
+25 IDENTICAL  Time_4_Partial_1_1	464	1	src/main/java/org/joda/time/Partial.java	Vartial  newPartial  =  new  Partial  (  newTypes,  newValues, iChronology  )  ;	Partial  newPartial  =  new  Partial(newTypes,  newValues,  iChronology);
+8 IDENTICAL  Closure_113_ProcessClosurePrimitives_1_1	329	1	src/com/google/javascript/jscomp/ProcessClosurePrimitives.java	if  (  provided!=  null  ||  requiresLevel.  isOn  (  )  )  {	if  (provided!=  null  ||  requiresLevel.isOn())  {
+1 IDENTICAL  Cli_5_Util_1_1	36	0	src/java/org/apache/commons/cli/Util.java	[ADD]  if  (  str  ==  null  )  {  return  null;  }	if  (str  ==  null)  {  return  null;  }
