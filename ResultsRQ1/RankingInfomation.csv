@@ -82,7 +82,7 @@
 |8|Semantic|Closure_104|src/com/google/javascript/rhino/jstype/UnionType.java|[REPLACE]  if  (  result  !=  null  &&  !result.  isUnknownType  (  )  )  {|if  (!result.isNoType())  {|
 |12|Semantic|Closure_11|src/com/google/javascript/jscomp/TypeCheck.java|[REPLACE]  else  if  (!childType.  isUnknownType  (  )  &&  n.  getJSType  (  )!=  null  &&  parent.  isAssignment  (  )  )  {|nan|
 |51|Semantic|Closure_118|src/com/google/javascript/jscomp/DisambiguateProperties.java|[ADD]  if  (  child.  getType  (  )  ==  Token.  STRING  )  {  continue;  }|if  (child.isQuotedString())  {  continue;  }|
-|18|Semantic|Closure_126|src/com/google/javascript/jscomp/MinimizeExitPoints.java|[REPLACE]  if  (  NodeUtil.  hasFinally  (  n  )  &&  n.  getLastChild  (  ).  getString  (  ).  equals  (   "false   "  )  )  {|nan|
+|18|Semantic|Closure_126|src/com/google/javascript/jscomp/MinimizeExitPoints.java|[REPLACE]  if  (  NodeUtil.  hasFinally  (  n  )  &&  n.  getLastChild  (  ).  getString  (  ).  equals  (   false     )  )  {|nan|
 |2|Semantic|Closure_31|src/com/google/javascript/jscomp/Compiler.java|[REPLACE]!options.  skipAllPasses  || options.  skipAllPasses &&|nan|
 |54|Semantic|Lang_51|src/java/org/apache/commons/lang/BooleanUtils.java|[ADD]  return  (  str.  charAt  (  0  )  ==  'e'  &&  str.  charAt  (  0  )  ==  'E'  )  &&  (  str.  charAt  (  1  )  ==  'S'  ) ;|return  false;|
 |30|Semantic|Lang_55|src/java/org/apache/commons/lang/time/StopWatch.java|[ADD]  if  (  this.  runningState ==  STATE_RUNNING  &&  this.  runningState!=  STATE_SUSPENDED  )  {|if(this.runningState  ==  STATE_RUNNING)|
