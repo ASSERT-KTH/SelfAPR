@@ -33,7 +33,7 @@
 |3|IDENTICAL|JacksonCore_19|src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java|if  (  outPtr  >=  outBuf.  length  )  {  outBuf  =  _textBuffer.  finishCurrentSegment  (  )  ;  outPtr  =  0;  }|if  (outPtr  >=  outBuf.length)  {  outBuf  =  _textBuffer.finishCurrentSegment();  outPtr  =  0;  }|
 |2|IDENTICAL|JacksonCore_25|src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java|if  (  i  <  maxCode  )  {|if  (i  <  maxCode)  {|
 |30|IDENTICAL|JacksonDatabind_27|src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java|[REPLACE]  if  (  ext.  handlePropertyValue  (  p,  ctxt,  propName,  null  )  )  {|if  (ext.handlePropertyValue(p,  ctxt,  propName,  null))  {|
-|1|IDENTICAL|JacksonDatabind_46|src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java|[ADD]  sb.  append  (   ">;   "  )  ;|sb.append( ">; ");|
+|1|IDENTICAL|JacksonDatabind_46|src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java|[ADD]  sb.  append  (   '>;   '  )  ;|sb.append( '>; ');|
 |11|IDENTICAL|JacksonDatabind_47|src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java|Class  <?>  currRaw  =  type.  getRawClass  (  )  ;|Class  <?>  currRaw  =  type.getRawClass();|
 |2|IDENTICAL|JacksonDatabind_99|src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java|[REPLACE]  sb.  append  (  '>'  )  ;|sb.append('>');|
 |1|IDENTICAL|Jsoup_18|src/main/java/org/jsoup/parser/CharacterReader.java|String  data  =  input.  substring  (  pos,  input.  length  (  )  )  ;|String  data  =  input.substring(pos,  input.length());|
