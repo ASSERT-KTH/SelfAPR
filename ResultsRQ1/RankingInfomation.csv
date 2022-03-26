@@ -59,7 +59,7 @@
 |8|IDENTICAL|Math_85|src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java|[REPLACE]  if  (  fa  *  fb  >  0.  0  )  {|if  (fa  *  fb  >  0.0  )  {|
 |10|IDENTICAL|Math_98|src/java/org/apache/commons/math/linear/BigMatrixImpl.java|final  BigDecimal[]  out  =  new  BigDecimal[nRows];|final  BigDecimal[]  out  =  new  BigDecimal[nRows];|
 |67|IDENTICAL|Mockito_11|src/org/mockito/internal/creation/DelegatingMethod.java|[REPLACE]  return  method.  hashCode  (  )  ;|return  method.hashCode();|
-|69|IDENTICAL|Mockito_29|src/org/mockito/internal/matchers/Same.java|description. appendText( wanted  ==  null ?   "  null   "  :  wanted.  toString ( )  );|description.appendText(wanted  ==  null?   "null   "  :  wanted.toString());|
+|69|IDENTICAL|Mockito_29|src/org/mockito/internal/matchers/Same.java|description. appendText( wanted  ==  null ?    null     :  wanted.  toString ( )  );|description.appendText(wanted  ==  null?   null     :  wanted.toString());|
 |9|IDENTICAL|Mockito_34|src/org/mockito/internal/invocation/InvocationMatcher.java|[REPLACE]  if  (  m  instanceof  CapturesArguments  && i. getArguments ( ). length  >  k)   {|if  (m  instanceof  CapturesArguments  &&  i.getArguments().length  >  k)  {|
 |1|IDENTICAL|Mockito_5|src/org/mockito/internal/verification/VerificationOverTimeImpl.java|[REPLACE]  catch  (  AssertionError  e  )  {|catch  (AssertionError  e)  {|
 |1|IDENTICAL|Chart_24|source/org/jfree/chart/renderer/GrayPaintScale.java|int  g  =  (  int  )  (  (  v  -  this.  lowerBound  )  /  (  this.  upperBound  -  this.  lowerBound  )  *  255.  0  )  ;|int  g  =  (int)  ((v  -  this.lowerBound)  /  (this.upperBound|
