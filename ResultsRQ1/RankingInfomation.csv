@@ -78,6 +78,7 @@
 	3	Semantic	Lang_33	src/main/java/org/apache/commons/lang3/ClassUtils.java	classes[i]  =  (  array[i]  ==  null  )?  null  :  array[i].  getClass  (  )  ;	classes[i]  =  array[i]  ==  null?  null  :  array[i].getClass();	
 	16	Semantic	Chart_9	source/org/jfree/data/time/TimeSeries.java	[REPLACE]  if  (  endIndex  <  startIndex  )  {	if  ((endIndex  <  0)  		  (endIndex  <  startIndex))  {	
 	48	Semantic	Closure_102	src/com/google/javascript/jscomp/Normalize.java	[ADD]  if  (  CONVERT_WHILE_TO_FOR  )  {  removeDuplicateDeclarations  (  root  )  ;  }	removeDuplicateDeclarations(root);	
+	92	Semantic	Compress_14	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	result  =  parseInt  (  buffer,  start,  length  )  ;  boolean  allNUL  =  true;  for  (  int  i  =  start;  i  <  end;  i++  )  {	if  (buffer[start]  ==  0)  {
 	8	Semantic	Closure_104	src/com/google/javascript/rhino/jstype/UnionType.java	[REPLACE]  if  (  result  !=  null  &&  !result.  isUnknownType  (  )  )  {	if  (!result.isNoType())  {	
 	18	Semantic	src/java/org/apache/commons/codec/language/DoubleMetaphone.java	index  =  contains  (  value,  index  +  1,  3,   "IER   "  )	}  else  if  (contains(value,  index  +  1,  3,   "IER   "))  { 
 	12	Semantic	Closure_11	src/com/google/javascript/jscomp/TypeCheck.java	[REPLACE]  else  if  (!childType.  isUnknownType  (  )  &&  n.  getJSType  (  )!=  null  &&  parent.  isAssignment  (  )  )  {	nan	
@@ -109,5 +110,3 @@
 	16	Semantic	Csv_9	src/main/java/org/apache/commons/csv/CSVRecord.java	[ADD]  if  (  map  ==  null  )  {  throw  new  NullPointerException  (   "   ")  ;  }  else  {  throw  new  IllegalArgumentException  (   "   ")  ;  }	if  (mapping  ==  null)  {  return  map;  }
 	1	IDENTICAL  	JacksonCore_5	src/main/java/com/fasterxml/jackson/core/JsonPointer.java	char  c  =  str.  charAt  (  i  )  ;	char  c  =  str.charAt(i);
 	82	Semantic  Jsoup_86	src/main/java/org/jsoup/nodes/Comment.java	[REPLACE]  if  (  doc.  childrenNodeSize  (  )  >  0  )  {	if  (doc.children().size()  >  0)  {
-
-	
