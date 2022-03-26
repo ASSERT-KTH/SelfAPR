@@ -90,7 +90,7 @@
 |45|Semantic|Math_46|src/main/java/org/apache/commons/math/complex/Complex.java|return  isZero?  NaN  :  NaN;|return  NaN;|
 |26|Semantic|Math_50|src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java|if  (  x  ==  x1  &&  x0  <   x0  )  {  x0  =  0.  5  *  (  x0  +  x1  -  FastMath.  max  (  rtol  *  FastMath.  ab|nan|
 |1|Semantic|Math_57|src/main/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java|Double  sum  =  0;|double  sum  =  0;|
-|21|Semantic|Math_70|src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java|[ADD]  try  {  return  solve  ( f, min,  max  )  ;  }  catch  (  final  BisectionException  e  )  {  throw  new  MaxIterationsExceededException  (   "Cannot  determine  the  extent  of  the  supplied  object   "  +  f.  getMessage  (  )  )  ;|return  solve(f,  min,  max);|
+|21|Semantic|Math_70|src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java|[ADD]  try  {  return  solve  ( f, min,  max  )  ;  }  catch  (  final  BisectionException  e  )  {  throw  new  MaxIterationsExceededException  (   ''  )  ;|return  solve(f,  min,  max);|
 |72|Semantic|Math_80|src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java|int  j  =  4  *  n  -  4;|int  j  =  4  *  (n  -  1);|
 |35|Semantic|Mockito_26|src/org/mockito/internal/util/Primitives.java|primitiveValues.  put  (  double.  class,  Double.  valueOf  (  0.  0  )  )  ;|primitiveValues.put(double.class,  0D);|
 |2|Semantic|Jsoup_41|src/main/java/org/jsoup/nodes/Element.java|return  tag!=  null  &&  tag.  equals  (  element.  tag  )  ;|return  tag.equals(element.tag);|
