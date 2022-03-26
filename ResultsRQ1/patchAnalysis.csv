@@ -16,6 +16,7 @@ IDENTICAL  Closure_168_TypedScopeCreator_1_1	1996	1	src/com/google/javascript/js
 IDENTICAL  Closure_18_Compiler_1_1	1288	1	src/com/google/javascript/jscomp/Compiler.java	if  (  options.  dependencyOptions.  needsManagement  (  )  )  {	if  (options.dependencyOptions.needsManagement())  {
 IDENTICAL  Closure_30_FlowSensitiveInlineVariables_1_1	157	1	src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java	[REPLACE]  (  new  NodeTraversal  (  compiler,  this  )  ).  traverseRoots  (  externs,  root  )  ;	(new  NodeTraversal(compiler,  this)).traverseRoots(externs,  root);
 IDENTICAL  Closure_40_NameAnalyzer_1_1	635	3	src/com/google/javascript/jscomp/NameAnalyzer.java	[REPLACE]  JsName  name  =  getName  (  ns.  name,  true  )  ;	JsName  name  =  getName(ns.name,  true);
+IDENTICAL Closure_46_RecordType_1_1	140	16	src/com/google/javascript/rhino/jstype/RecordType.java	[REPLACE]  	nan
 IDENTICAL  Closure_57_ClosureCodingConvention_1_1	197	1	src/com/google/javascript/jscomp/ClosureCodingConvention.java	if  (  target!=  null  &&  target.  getType  (  )  ==  Token.  STRING  )  {	if  (target!=  null  &&  target.getType()  ==  Token.STRING)  {
 IDENTICAL  Closure_6_TypeValidator_2_1	366	3	src/com/google/javascript/jscomp/TypeValidator.java	[REMOVE]	nan
 IDENTICAL  Closure_6_TypeValidator_2_2	405	4	src/com/google/javascript/jscomp/TypeValidator.java		nan
@@ -82,6 +83,8 @@ IDENTICAL  Cli_25_HelpFormatter_1_1	825	1	src/java/org/apache/commons/cli/HelpFo
 IDENTICAL  Jsoup_55_TokeniserState_1_1	883	0	src/main/java/org/jsoup/parser/TokeniserState.java	r.unconsume();	r.unconsume();
 IDENTICAL  Codec_2_Base64_1_1	446	1	src/java/org/apache/commons/codec/binary/Base64.java	if  (  lineLength  >  0  &&   pos  >  0 )  {	if  (lineLength  >  0  &&  pos  >  0)  {
 IDENTICAL  Cli_17_PosixParser_1_1	303	0	src/java/org/apache/commons/cli/PosixParser.java	break	break;
+IDENTICAL  Chart_4_XYPlot_1_1	4493	0	source/org/jfree/chart/plot/XYPlot.java	if  (r!=  null)  {	if  (r!=  null)  {
+Semantic  Chart_14_CategoryPlot_2_2	2448	0	source/org/jfree/chart/plot/CategoryPlot.java	[ADD]  if  (  markers  ==  null  )  {  markers  =  new  ArrayList  (  )  ;  return  false ;  }	if  (markers  ==  null)  {  return  false;  }
 Semantic  JacksonDatabind_49_WritableObjectId_1_1	50	0	src/main/java/com/fasterxml/jackson/databind/ser/impl/WritableObjectId.java	[ADD]  if  (  id  ==  null  )  	if  (id  ==  null)  {  }
 Semantic  Closure_38_CodeConsumer_1_1	245	0	src/com/google/javascript/jscomp/CodeConsumer.java	[REPLACE]  if  (  negativeZero  ||  x  <=  0  &&  prev  ==  '-'  )  {	if  ((x  <  0  ||  negativeZero)  &&  prev  ==  '-')  {
 Semantic  Lang_33_ClassUtils_1_1	910	1	src/main/java/org/apache/commons/lang3/ClassUtils.java	classes[i]  =  (  array[i]  ==  null  )?  null  :  array[i].  getClass  (  )  ;	classes[i]  =  array[i]  ==  null?  null  :  array[i].getClass();
@@ -89,6 +92,7 @@ Semantic  Chart_9_TimeSeries_1_1	944	1	source/org/jfree/data/time/TimeSeries.jav
 Semantic  Closure_102_Normalize_2_1	89	0	src/com/google/javascript/jscomp/Normalize.java	[ADD]  if  (  CONVERT_WHILE_TO_FOR  )  {  removeDuplicateDeclarations  (  root  )  ;  }	removeDuplicateDeclarations(root);
 Semantic  Closure_104_UnionType_1_1	291	1	src/com/google/javascript/rhino/jstype/UnionType.java	[REPLACE]  if  (  result  !=  null  &&  !result.  isUnknownType  (  )  )  {	if  (!result.isNoType())  {
 Semantic  Closure_11_TypeCheck_1_1	1314	2	src/com/google/javascript/jscomp/TypeCheck.java	[REPLACE]  else  if  (!childType.  isUnknownType  (  )  &&  n.  getJSType  (  )!=  null  &&  parent.  isAssignment  (  )  )  {	nan
+Semantic Closure_115_FunctionInjector_2_1	697	8	src/com/google/javascript/jscomp/FunctionInjector.java	boolean  hasSideEffects  =  true;	nan
 Semantic  Closure_118_DisambiguateProperties_1_1	495	0	src/com/google/javascript/jscomp/DisambiguateProperties.java	[ADD]  if  (  child.  getType  (  )  ==  Token.  STRING  )  {	if  (child.isQuotedString())  {  continue;  }
 Semantic  Closure_126_MinimizeExitPoints_1_1	141	1	src/com/google/javascript/jscomp/MinimizeExitPoints.java	[REPLACE]  if  (  NodeUtil.  hasFinally  (  n  )  &&  n.  getLastChild  (  ).  getString  (  ).  equals  (   "false   "  )  )  {	nan
 Semantic  Closure_31_Compiler_1_1	1285	1	src/com/google/javascript/jscomp/Compiler.java	[REPLACE]!options.  skipAllPasses  || options.  skipAllPasses &&	nan
@@ -110,3 +114,4 @@ Semantic  Jsoup_43_Element_1_1	574	1	src/main/java/org/jsoup/nodes/Element.java	
 Semantic  Compress_27_TarUtils_1_1	133	4	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	if  (  start  >  end  )  {  throw  new  IllegalArgumentException  (  exceptionMessage  (  buffer,  offset,  length,  start,  trailer  )  )  ;  }	nan
 Semantic  Gson_6_JsonAdapterAnnotationTypeAdapterFactory_1_1	67	0	gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java	if  (  typeAdapter  ==  null  )  {  throw  new  IllegalArgumentException  (   "   ")  ;  }	if  (typeAdapter!=  null)  {  }
 Semantic  Jsoup_49_Node_1_1	445	1	src/main/java/org/jsoup/nodes/Node.java	[ADD]  if  (  index  >  0  )  {  reindexChildren  (  index  )  ;  }	reindexChildren(index);
+Semantic  Math_104_Gamma_1_1	37	1	src/java/org/apache/commons/math/special/Gamma.java	[REPLACE]  private  static  final  double  DEFAULT_EPSILON  =  10e-9  *  12e-9;	private  static  final  double  DEFAULT_EPSILON  =  10e-15;
