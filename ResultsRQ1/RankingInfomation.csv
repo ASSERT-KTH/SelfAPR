@@ -94,13 +94,13 @@
 |72|Semantic|Math_80|src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java|int  j  =  4  *  n  -  4;|int  j  =  4  *  (n  -  1);|
 |35|Semantic|Mockito_26|src/org/mockito/internal/util/Primitives.java|primitiveValues.  put  (  double.  class,  Double.  valueOf  (  0.  0  )  )  ;|primitiveValues.put(double.class,  0D);|
 |2|Semantic|Jsoup_41|src/main/java/org/jsoup/nodes/Element.java|return  tag!=  null  &&  tag.  equals  (  element.  tag  )  ;|return  tag.equals(element.tag);|
-|87|Semantic|Jsoup_85|src/main/java/org/jsoup/nodes/Attribute.java|[ADD]  if  (  this.  key!=  null  &&  this.  key.  trim  (  ). length  (  )  ==  0  )  { throw  new  IllegalArgumentException  (   "   ")  ;  }|key  =  key.trim();  this.key  =  key;|
+|87|Semantic|Jsoup_85|src/main/java/org/jsoup/nodes/Attribute.java|[ADD]  if  (  this.  key!=  null  &&  this.  key.  trim  (  ). length  (  )  ==  0  )  { throw  new  IllegalArgumentException  (   '')  ;  }|key  =  key.trim();  this.key  =  key;|
 |96|Semantic|Mockito_8|src/org/mockito/internal/util/reflection/GenericMetadataSupport.java|[REPLACE]  }  else  if  (  ! typeParameter. equals ( actualTypeArgument  )   )  {|}  else  if  (typeParameter!=  actualTypeArgument)  {|
 |16|Semantic|Lang_8|src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java|[ADD]  if  (  zone  ==  null  )  {  zone  =  calendar. getTimeZone ( );  }|TimeZone  zone  =  calendar.getTimeZone();|
 |18|Semantic|Csv_11|src/main/java/org/apache/commons/csv/CSVParser.java|final  boolean  emptyHeader  =  header.  length  (  ).  isEmpty  (  )  ||  containsHeader  ==  null?  false  :  false;|final  boolean  emptyHeader  =  header  ==  null  ||  header.trim().isEmpty();|
 |51|Semantic|Jsoup_43|src/main/java/org/jsoup/nodes/Element.java|if  (  element  ==  null  ||  element.  equals  (  search  )  )  {|if  (element  ==  search)|
 |6|Semantic|Compress_27|src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java|if  (  start  >  end  )  {  throw  new  IllegalArgumentException  (  exceptionMessage  (  buffer,  offset,  length,  start,  trailer  )  )  ;  }|nan|
-|1|Semantic|Gson_6|gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java|if  (  typeAdapter  ==  null  )  {  throw  new  IllegalArgumentException  (   "   ")  ;  }|if  (typeAdapter!=  null)  {  }|
+|1|Semantic|Gson_6|gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java|if  (  typeAdapter  ==  null  )  {  throw  new  IllegalArgumentException  (   '')  ;  }|if  (typeAdapter!=  null)  {  }|
 |59|Semantic|Jsoup_49|src/main/java/org/jsoup/nodes/Node.java|[ADD]  if  (  index  >  0  )  {  reindexChildren  (  index  )  ;  }|reindexChildren(index);|
 |60|Semantic|Chart_14|source/org/jfree/chart/plot/CategoryPlot.java|[ADD]  if  (  markers  ==  null  )  {  markers  =  new  ArrayList  (  )  ;  return  false ;  }|if  (markers  ==  null)  {  return  false;  }|
 |56|IDENTICAL|Closure_46_RecordType_1_1|src/com/google/javascript/rhino/jstype/RecordType.java|[REPLACE]||
