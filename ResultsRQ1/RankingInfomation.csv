@@ -1,3 +1,4 @@
+	Correct Patch	Ranking Position	Patch Type	Bug	Buggy Path	by SelfAPR	Ground-truth 
 	1	IDENTICAL	Chart_1	source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java	[REPLACE] if ( dataset == null ) {	if (dataset == null) {	
 	5	IDENTICAL	Chart_11	source/org/jfree/chart/util/ShapeUtilities.java	PathIterator iterator2 = p2. getPathIterator ( null ) ;	PathIterator iterator2 = p2.getPathIterator(null);	
 	1	IDENTICAL	Chart_20	source/org/jfree/chart/plot/ValueMarker.java	super ( paint, stroke, outlinePaint, outlineStroke, alpha ) ;	super(paint, stroke, outlinePaint, outlineStroke, alpha);	
@@ -8,6 +9,8 @@
 	25	IDENTICAL	Time_4	src/main/java/org/joda/time/Partial.java	Vartial newPartial = new Partial ( newTypes, newValues, iChronology ) ;	Partial newPartial = new Partial(newTypes, newValues, iChronology);	
 	8	IDENTICAL	Closure_113	src/com/google/javascript/jscomp/ProcessClosurePrimitives.java	if ( provided!= null 		 requiresLevel. isOn ( ) ) {	if (provided!= null 		 requiresLevel.isOn()) {	
 	1	IDENTICAL	Cli_5	src/java/org/apache/commons/cli/Util.java	[ADD] if ( str == null ) { return null; }	if (str == null) { return null; }	
+	12	IDENTICAL	JacksonDatabind_76	src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java	[REPLACE]  buffer.  bufferProperty  (  creatorProp,  creatorProp.  deserialize  (  p,  ctxt  )  )  ;	buffer.assignParameter(creatorProp,  creatorProp.deserialize(p,  ctxt));	
+	7	IDENTICAL	JacksonDatabind_57	src/main/java/com/fasterxml/jackson/databind/ObjectReader.java	[REPLACE]  return  _bindAndReadValues  (  _considerFilter  (  _parserFactory.  createParser  (  src  ,  offset,  length  )   ,	return  _bindAndReadValues(_considerFilter(_parserFactory.createParser(src,  offset,  length),	
 	1	IDENTICAL	Closure_13	src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java	traverse ( c ) ;	traverse(c);	
 	1	IDENTICAL	Closure_18	src/com/google/javascript/jscomp/Compiler.java	if ( options. dependencyOptions. needsManagement ( ) ) {	if (options.dependencyOptions.needsManagement()) {	
 	2	IDENTICAL	Closure_30	src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java	[REPLACE] ( new NodeTraversal ( compiler, this ) ). traverseRoots ( externs, root ) ;	(new NodeTraversal(compiler, this)).traverseRoots(externs, root);	
@@ -20,7 +23,7 @@
 	1	IDENTICAL	Closure_86	src/com/google/javascript/jscomp/NodeUtil.java	[REPLACE] return false;	return false;	
 	91	IDENTICAL	Closure_92	src/com/google/javascript/jscomp/ProcessClosurePrimitives.java	int indexOfDot = namespace. lastIndexOf ( '.') ;	int indexOfDot = namespace. lastIndexOf ( '.') ;	
 	4	IDENTICAL	Codec_17	src/main/java/org/apache/commons/codec/binary/StringUtils.java	[REPLACE] return new String (bytes, Charsets. ISO_8859_1 ) ;	return newString(bytes, Charsets.ISO_8859_1);	
-	1	IDENTICAL	Codec_7	src/java/org/apache/commons/codec/binary/Base64.java	[REMOVE] return StringUtils. newStringUtf8 ( encodeBase64 ( binaryData, false ) ) ;	return StringUtils.newStringUtf8(encodeBase64(binaryData, false));	
+	1	IDENTICAL	Codec_7	src/java/org/apache/commons/codec/binary/Base64.java	[REPLACE] return StringUtils. newStringUtf8 ( encodeBase64 ( binaryData, false ) ) ;	return StringUtils.newStringUtf8(encodeBase64(binaryData, false));	
 	6	IDENTICAL	Collections_26	src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java	protected Object readResolve ( ) {	protected Object readResolve() {	
 	60	IDENTICAL	Compress_19	src/main/java/org/apache/commons/compress/archivers/zip/Zip64ExtendedInformationExtraField.java	[REPLACE] if ( rawCentralDirectoryData. length < expectedLength ) {	if (rawCentralDirectoryData.length < expectedLength) {	
 	3	IDENTICAL	Compress_24	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	[ADD]	nan	
@@ -65,8 +68,6 @@
 	8	IDENTICAL	Time_19	src/main/java/org/joda/time/DateTimeZone.java	[REPLACE]  } else  if  (  offsetLocal  >=  0  )  {	}  else  if  (offsetLocal  >=  0)  {	
 	4	IDENTICAL	JacksonDatabind_17	src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java	[REPLACE]  && !TreeNode.  class.  isAssignableFrom  (  t.  getRawClass  (  )  )  )  ;	&&!TreeNode.class.isAssignableFrom(t.getRawClass()));	
 	91	IDENTICAL	Jsoup_47	src/main/java/org/jsoup/nodes/Entities.java	if  (  !inAttribute  		  codePoint  ==  escapeMode.  xhtml  )	if  (!inAttribute  		  escapeMode  ==  EscapeMode.xhtml)	
-	12	IDENTICAL	JacksonDatabind_76	src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java	[REPLACE]  buffer.  bufferProperty  (  creatorProp,  creatorProp.  deserialize  (  p,  ctxt  )  )  ;	buffer.assignParameter(creatorProp,  creatorProp.deserialize(p,  ctxt));	
-	7	IDENTICAL	JacksonDatabind_57	src/main/java/com/fasterxml/jackson/databind/ObjectReader.java	[REPLACE]  return  _bindAndReadValues  (  _considerFilter  (  _parserFactory.  createParser  (  src  ,  offset,  length  )   ,	return  _bindAndReadValues(_considerFilter(_parserFactory.createParser(src,  offset,  length),	
 	1	IDENTICAL	JxPath_10	src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java	return  compute  (  args[0].  compute (  context  ),  args[1].  compute  (  context  )  )	return  compute(args[0].compute(context),  args[1].compute(context))	
 	4	IDENTICAL	Cli_28	src/java/org/apache/commons/cli/Parser.java	[ADD]  continue	continue;	
 	5	IDENTICAL	Cli_25	src/java/org/apache/commons/cli/HelpFormatter.java	nextLineTabStop  =   1;	nextLineTabStop  =  1;	
