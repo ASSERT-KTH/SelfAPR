@@ -1,4 +1,4 @@
-	Correct Patch	Ranking Position	Patch Type	Bug	Buggy Path	by SelfAPR	Ground-truth 
+	Correct_Ranking_Position	Patch_Type	Bug	Buggy_Path	by_SelfAPR	Ground_truth 
 	1	IDENTICAL	Chart_1	source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java	[REPLACE] if ( dataset == null ) {	if (dataset == null) {	
 	5	IDENTICAL	Chart_11	source/org/jfree/chart/util/ShapeUtilities.java	PathIterator iterator2 = p2. getPathIterator ( null ) ;	PathIterator iterator2 = p2.getPathIterator(null);	
 	1	IDENTICAL	Chart_20	source/org/jfree/chart/plot/ValueMarker.java	super ( paint, stroke, outlinePaint, outlineStroke, alpha ) ;	super(paint, stroke, outlinePaint, outlineStroke, alpha);	
