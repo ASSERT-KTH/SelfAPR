@@ -3,12 +3,12 @@
 	1	IDENTICAL	Chart_20	source/org/jfree/chart/plot/ValueMarker.java	super ( paint, stroke, outlinePaint, outlineStroke, alpha ) ;	super(paint, stroke, outlinePaint, outlineStroke, alpha);	
 	2	IDENTICAL	Chart_7	source/org/jfree/data/time/TimePeriodValues.java	long s = getDataItem ( this. maxMiddleIndex ). getPeriod ( ). getStart ( ). getTime ( ) ;	long s = getDataItem(this.maxMiddleIndex).getPeriod().getStart(). getTime ( ) ;	
 	4	IDENTICAL	Cli_18	src/java/org/apache/commons/cli/PosixParser.java	tokens. add ( token ) ;	tokens.add(token);	
+	1	IDENTICAL  	JacksonCore_5	src/main/java/com/fasterxml/jackson/core/JsonPointer.java	char  c  =  str.  charAt  (  i  )  ;	char  c  =  str.charAt(i);
 	54	IDENTICAL	Chart_8	source/org/jfree/data/time/Week.java	this ( time, zone, Locale. getDefault ( ) ) ;	this(time, zone, Locale.getDefault());	
 	25	IDENTICAL	Time_4	src/main/java/org/joda/time/Partial.java	Vartial newPartial = new Partial ( newTypes, newValues, iChronology ) ;	Partial newPartial = new Partial(newTypes, newValues, iChronology);	
 	8	IDENTICAL	Closure_113	src/com/google/javascript/jscomp/ProcessClosurePrimitives.java	if ( provided!= null 		 requiresLevel. isOn ( ) ) {	if (provided!= null 		 requiresLevel.isOn()) {	
 	1	IDENTICAL	Cli_5	src/java/org/apache/commons/cli/Util.java	[ADD] if ( str == null ) { return null; }	if (str == null) { return null; }	
 	1	IDENTICAL	Closure_13	src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java	traverse ( c ) ;	traverse(c);	
-	2	Semantic	Closure_168	src/com/google/javascript/jscomp/TypedScopeCreator.java	[REPLACE] if ( t. getScopeDepth ( ) < 2 ) {	if (t.getScopeDepth() < = 1) {	
 	1	IDENTICAL	Closure_18	src/com/google/javascript/jscomp/Compiler.java	if ( options. dependencyOptions. needsManagement ( ) ) {	if (options.dependencyOptions.needsManagement()) {	
 	2	IDENTICAL	Closure_30	src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java	[REPLACE] ( new NodeTraversal ( compiler, this ) ). traverseRoots ( externs, root ) ;	(new NodeTraversal(compiler, this)).traverseRoots(externs, root);	
 	69	IDENTICAL	Closure_40	src/com/google/javascript/jscomp/NameAnalyzer.java	[REPLACE] JsName name = getName ( ns. name, true ) ;	JsName name = getName(ns.name, true);	
@@ -39,7 +39,7 @@
 	1	IDENTICAL	Lang_10	src/main/java/org/apache/commons/lang3/time/FastDateParser.java	boolean  wasWhite  =  true;	boolean  wasWhite  =  true  ;	
 	2	IDENTICAL	Lang_21	src/main/java/org/apache/commons/lang3/time/DateUtils.java	[REPLACE]  cal1.  get  (  Calendar.  HOUR_OF_DAY  )  ==  cal2.  get  (  Calendar.  HOUR_OF_DAY  )  &&	cal1.get(Calendar.HOUR_OF_DAY)  ==  cal2.get(Calendar.HOUR_OF_DAY)  &&	
 	41	IDENTICAL	Lang_26	src/main/java/org/apache/commons/lang3/time/FastDateFormat.java	Calendar  c  =  new  GregorianCalendar  (  mTimeZone,  mLocale  )  ;	Calendar  c  =  new  GregorianCalendar(mTimeZone,  mLocale);	
-		IDENTICAL	Lang_4	src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java	[REPLACE]  lookupMap  =  new  HashMap  <  String,  CharSequence>  (  )  ;	lookupMap  =  new  HashMap  <  String,  CharSequence>();	
+	8	IDENTICAL	Lang_4	src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java	[REPLACE]  lookupMap  =  new  HashMap  <  String,  CharSequence>  (  )  ;	lookupMap  =  new  HashMap  <  String,  CharSequence>();	
 	1	IDENTICAL	Lang_43	src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java	[ADD]  next  (  pos  )  ;	next(pos);	
 	2	IDENTICAL	Lang_59	src/java/org/apache/commons/lang/text/StrBuilder.java	str.  getChars  (  0,  width,  buffer,  size  )  ;	str.getChars(0,  width,  buffer,  size);	
 	3	IDENTICAL	Lang_6	src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java	[REPLACE]  pos  +=  Character.  charCount  (  Character.  codePointAt  (  input,  pt  )  )  ;	pos  +=  Character.charCount(Character.codePointAt(input,  pt));	
@@ -73,6 +73,7 @@
 	43	IDENTICAL	Jsoup_55	src/main/java/org/jsoup/parser/TokeniserState.java	r.  unconsume();	r.unconsume();	
 	100	IDENTICAL	Codec_2	src/java/org/apache/commons/codec/binary/Base64.java	if  (  lineLength  >  0  &&   pos  >  0 )  {	if  (lineLength  >  0  &&  pos  >  0)  {	
 	5	IDENTICAL	Cli_17	src/java/org/apache/commons/cli/PosixParser.java	break	break;	
+	56	IDENTICAL	Closure_46	src/com/google/javascript/rhino/jstype/RecordType.java	[REPLACE]	nan	
 	1	Semantic	JacksonDatabind_49	src/main/java/com/fasterxml/jackson/databind/ser/impl/WritableObjectId.java	[ADD]  if  (  id  ==  null  )	if  (id  ==  null)  {  }	
 	7	Semantic	Closure_38	src/com/google/javascript/jscomp/CodeConsumer.java	[REPLACE]  if  (  negativeZero  		  x  <=  0  &&  prev  ==  '-'  )  {	if  ((x  <  0  		  negativeZero)  &&  prev  ==  '-')  {	
 	3	Semantic	Lang_33	src/main/java/org/apache/commons/lang3/ClassUtils.java	classes[i]  =  (  array[i]  ==  null  )?  null  :  array[i].  getClass  (  )  ;	classes[i]  =  array[i]  ==  null?  null  :  array[i].getClass();	
@@ -105,8 +106,7 @@
 	1	Semantic	Gson_6	gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java	if  (  typeAdapter  ==  null  )  {  throw  new  IllegalArgumentException  (   "   ")  ;  }	if  (typeAdapter!=  null)  {  }	
 	59	Semantic	Jsoup_49	src/main/java/org/jsoup/nodes/Node.java	[ADD]  if  (  index  >  0  )  {  reindexChildren  (  index  )  ;  }	reindexChildren(index);	
 	60	Semantic	Chart_14	source/org/jfree/chart/plot/CategoryPlot.java	[ADD]  if  (  markers  ==  null  )  {  markers  =  new  ArrayList  (  )  ;  return  false ;  }	if  (markers  ==  null)  {  return  false;  }	
-	56	IDENTICAL	Closure_46	src/com/google/javascript/rhino/jstype/RecordType.java	[REPLACE]		
 	80	Semantic	Math_104	src/java/org/apache/commons/math/special/Gamma.java	[REPLACE]  private  static  final  double  DEFAULT_EPSILON  =  10e-9  *  12e-9;	private  static  final  double  DEFAULT_EPSILON  =  10e-15;	
 	16	Semantic	Csv_9	src/main/java/org/apache/commons/csv/CSVRecord.java	[ADD]  if  (  map  ==  null  )  {  throw  new  NullPointerException  (   "   ")  ;  }  else  {  throw  new  IllegalArgumentException  (   "   ")  ;  }	if  (mapping  ==  null)  {  return  map;  }
-	1	IDENTICAL  	JacksonCore_5	src/main/java/com/fasterxml/jackson/core/JsonPointer.java	char  c  =  str.  charAt  (  i  )  ;	char  c  =  str.charAt(i);
-	82	Semantic  Jsoup_86	src/main/java/org/jsoup/nodes/Comment.java	[REPLACE]  if  (  doc.  childrenNodeSize  (  )  >  0  )  {	if  (doc.children().size()  >  0)  {
+	82	Semantic	Jsoup_86	src/main/java/org/jsoup/nodes/Comment.java	[REPLACE]  if  (  doc.  childrenNodeSize  (  )  >  0  )  {	if  (doc.children().size()  >  0)  {
+	2	Semantic	Closure_168	src/com/google/javascript/jscomp/TypedScopeCreator.java	[REPLACE] if ( t. getScopeDepth ( ) < 2 ) {	if (t.getScopeDepth() < = 1) {	
