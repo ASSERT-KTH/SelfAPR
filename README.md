@@ -1,5 +1,19 @@
 # SelfAPR: Self-supervised Program Repair with Test Execution Diagnostics (Paper Under Review)
 
+
+
+## Prerequisites:
+ ```
+Install Defects4J from https://github.com/rjust/defects4j 
+export PATH=$PATH:"path2defects4j"/framework/bin
+ ```
+
+ ```
+JDK 1.8 for Defects4J
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+ ```
  
 ## Go to the perturbation folder and build the model:
  ```
