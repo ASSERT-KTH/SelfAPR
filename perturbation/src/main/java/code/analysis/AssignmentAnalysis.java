@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-import code.utils.EditDistance;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.EditDistance;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.code.CtAssignmentImpl;
@@ -35,7 +35,7 @@ public class AssignmentAnalysis {
 		if (score > maxScore) {
 			maxScore = score;
 			target = s;
-			if(SUPREUtil.getRandomDouble()>0.6 && score>0.7) {
+			if(SelfAPRUtil.getRandomDouble()>0.6 && score>0.7) {
 				return target;
 			}
 		}							

@@ -49,7 +49,8 @@ public class Main {
 	
 	
 	public static void main(String[] args) {		
-		path = args[0];	
+//		path = args[0];	
+		path = "/Users/sophie/Documents/SelfAPR/D4JTraining/Chart-26/source/org/jfree/data/xy/XYSeries.java";
 		sourceReader(path);	
 	}
 	
@@ -77,9 +78,7 @@ public class Main {
 		spoon.buildModel ( ) ;
 		// Get the root element of spoon elements
 		CtElement rootElement = spoon.getModel().getRootPackage()
-				.getElements(new TypeFilter<CtElement>(CtElement.class)).get(0);		
-		
-		
+				.getElements(new TypeFilter<CtElement>(CtElement.class)).get(0);				
 		
 		List<CtClass> classList = rootElement.getElements(new TypeFilter<CtClass>(CtClass.class));				
 		for(CtClass c : classList) {			
@@ -98,11 +97,9 @@ public class Main {
 			
 		List<CtConstructor> constructorList = c.getElements(new TypeFilter<CtConstructor>(CtConstructor.class));		
 				
-		
 		//Get method signature
 		List<CtMethod> methodList = c.getElements(new TypeFilter<CtMethod>(CtMethod.class));				
 		String methodInfo=MethodSignature.getMethodSignature(methodList);	
-		
 		
 		//Data corruption		
 		PerturbActions.perturb(filedList,constructorList,methodList);

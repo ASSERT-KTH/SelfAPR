@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-import code.utils.EditDistance;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.EditDistance;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.code.CtBlock;
 import spoon.reflect.code.CtStatement;
 import spoon.reflect.cu.SourcePosition;
@@ -39,7 +39,7 @@ public class Constructors {
 			}
 		}
 
-		return SUPREUtil.getSimpleExecName( target);
+		return SelfAPRUtil.getSimpleExecName( target);
 
 	}
 

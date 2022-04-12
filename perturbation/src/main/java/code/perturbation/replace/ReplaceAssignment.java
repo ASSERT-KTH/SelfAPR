@@ -10,11 +10,11 @@ import code.perturbation.ConstructorPerturbation;
 import code.perturbation.InvocationPerturbation;
 import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
-import code.perturbation.OperatorPerturbation;
+import code.perturbation.OperatorPerturbation_bak;
 import code.perturbation.SimilarityPerturbation;
 import code.perturbation.TypePerturbation;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.declaration.CtVariable;
 import spoon.reflect.visitor.filter.TypeFilter;
@@ -33,7 +33,7 @@ public class ReplaceAssignment {
 		/**
 		 * This is a random number to decide the perturbation
 		 */
-		double r = SUPREUtil.getRandomDouble();
+		double r = SelfAPRUtil.getRandomDouble();
 
 		if (groundTruth.contains("valueSerializer = ser;")) {
 			System.out.print("");
@@ -45,9 +45,9 @@ public class ReplaceAssignment {
 		 * operators
 		 */
 		if (perturbCode == null) {
-			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob ) {
-			String newperturbCode = OperatorPerturbation.perturb(st, perturbCode);
+			perturbCode = OperatorPerturbation_bak.perturb(st, groundTruth);
+		} else if (SelfAPRUtil.getRandomDouble() > prob ) {
+			String newperturbCode = OperatorPerturbation_bak.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
 			}
@@ -63,7 +63,7 @@ public class ReplaceAssignment {
 		 */
 		if (perturbCode == null) {
 			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
 			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -79,7 +79,7 @@ public class ReplaceAssignment {
 		 * similarity perturbation on the single line
 		 */
 		if("".equals(lineNo2)) {
-			if ((groundTruth.equals(perturbCode) || perturbCode==null)  || SUPREUtil.getRandomDouble() > prob) {
+			if ((groundTruth.equals(perturbCode) || perturbCode==null)  || SelfAPRUtil.getRandomDouble() > prob) {
 				System.out.print("");
 				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,StatementType.Assignment, 0.7 - (0.9*(count)),null);
 				System.out.print("");
@@ -102,7 +102,7 @@ public class ReplaceAssignment {
 
 			if (varaibleList.size() > 0 && assignedList.size() > 0) {
 
-				String var = SUPREUtil.getSimpleVarName(varaibleList.get(0).toString());
+				String var = SelfAPRUtil.getSimpleVarName(varaibleList.get(0).toString());
 
 				CtElement a = varaibleList.get(0);
 				CtElement b = (CtElement) assignedList.get(0);
@@ -127,7 +127,7 @@ public class ReplaceAssignment {
 		 */
 		if (perturbCode == null) {
 			perturbCode = ConstructorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
 			String newperturbCode = ConstructorPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -141,7 +141,7 @@ public class ReplaceAssignment {
 
 		// remove assignment
 		if (perturbCode == null && groundTruth.contains("=")) {
-			r = SUPREUtil.getRandomDouble();
+			r = SelfAPRUtil.getRandomDouble();
 			if (r > 0.7) {
 				perturbCode = groundTruth.split("=")[0] + ";";
 			} else if (r > 0.5) {

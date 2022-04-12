@@ -11,13 +11,13 @@ import code.output.result.PerturbResult;
 import code.perturbation.ConstructorPerturbation;
 import code.perturbation.InvocationPerturbation;
 import code.perturbation.LiteralPerturbation;
-import code.perturbation.OperatorPerturbation;
+import code.perturbation.OperatorPerturbation_bak;
 import code.perturbation.SimilarityPerturbation;
 import code.perturbation.TypePerturbation;
 import code.perturbation.VariablePerturbation;
 import code.perturbation.remove.FullyRemove;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
@@ -42,7 +42,7 @@ public class ReplaceStatement {
 
 		TypeFilter<CtReturnImpl> returnfilter = new TypeFilter<CtReturnImpl>(CtReturnImpl.class);
 		List<CtReturnImpl> returns = st.getElements(returnfilter);
-		double r = SUPREUtil.getRandomDouble();
+		double r = SelfAPRUtil.getRandomDouble();
 
 		String perturbCode = null;
 	
@@ -51,9 +51,9 @@ public class ReplaceStatement {
 		 * operators
 		 */
 		if (perturbCode == null) {
-			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
-			String newperturbCode = OperatorPerturbation.perturb(st, perturbCode);
+			perturbCode = OperatorPerturbation_bak.perturb(st, groundTruth);
+		} else if (SelfAPRUtil.getRandomDouble() > 0.7) {
+			String newperturbCode = OperatorPerturbation_bak.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
 			}
@@ -64,7 +64,7 @@ public class ReplaceStatement {
 		 */
 		if (perturbCode == null) {
 			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SelfAPRUtil.getRandomDouble() > 0.7) {
 			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -76,7 +76,7 @@ public class ReplaceStatement {
 		 */
 		if (perturbCode == null) {
 			perturbCode = VariablePerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > 0.7) {
+		} else if (SelfAPRUtil.getRandomDouble() > 0.7) {
 			String newperturbCode = VariablePerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -89,7 +89,7 @@ public class ReplaceStatement {
 		 */
 		if (perturbCode == null) {
 			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
-		}else if (SUPREUtil.getRandomDouble() > 0.7) {
+		}else if (SelfAPRUtil.getRandomDouble() > 0.7) {
 			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;

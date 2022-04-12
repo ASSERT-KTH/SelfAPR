@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import code.output.result.PerturbResult;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
 import spoon.reflect.declaration.CtElement;
@@ -52,7 +52,7 @@ public class FullyRemove {
 			}
 			lineNo2 = lineNo1 + count + "";
 			
-			groundTruth = SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1);
+			groundTruth = SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1);
 			groundTruth = groundTruth.trim();
 			String lastChar = groundTruth.substring(groundTruth.length() - 1);
 
@@ -84,7 +84,7 @@ public class FullyRemove {
 				int randStatementNo = rand.nextInt(statementNo-1);
 				lineNo1 = lineNo1+randStatementNo;			
 				
-				groundTruth = SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1);
+				groundTruth = SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1);
 				groundTruth = groundTruth.trim();
 
 				map.put("lineNo1", lineNo1 + "");
@@ -108,7 +108,7 @@ public class FullyRemove {
 		} else if ("statement".equals(type) || "assignment".equals(type)) {
 			
 			
-			groundTruth = SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1);
+			groundTruth = SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1);
 			groundTruth = groundTruth.trim();
 
 			map.put("lineNo1", lineNo1 + "");

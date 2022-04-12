@@ -2,7 +2,8 @@ package code.perturbation;
 
 import java.util.List;
 
-import code.utils.SUPREUtil;
+import code.perturbation.utils.OperatorUtil;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.reference.CtTypeReference;
@@ -26,14 +27,14 @@ public class LiteralPerturbation {
 			String value = i.toString();
 			Object valueObj = i.getValue();
 
-			double r = SUPREUtil.getRandomDouble();
+			double r = SelfAPRUtil.getRandomDouble();
 
 			if (type.contains("int")) {
 				String randInt = value + "";
 				while (randInt.equals(value + "")) {
 					
 				if(groundTruth.contains("size") || groundTruth.contains("length") ) {
-					randInt = SUPREUtil.getRandomInt(1)+" ";
+					randInt = SelfAPRUtil.getRandomInt(1)+" ";
 					perturbCode = groundTruth.replace(value + "", randInt + "");
 					
 					//operator:
@@ -45,13 +46,13 @@ public class LiteralPerturbation {
 					
 				else {
 					if (r > 0.7) {
-						randInt = SUPREUtil.getRandomInt((Integer) valueObj) + SUPREUtil.getRandomInt(5)+"";
+						randInt = SelfAPRUtil.getRandomInt((Integer) valueObj) + SelfAPRUtil.getRandomInt(5)+"";
 					} else if (r > 0.4) {
-						randInt = SUPREUtil.getRandomInt(5) + "";
+						randInt = SelfAPRUtil.getRandomInt(5) + "";
 					} else if (r > 0.3) {
 						randInt = randInt + "L";
 					}else  {
-						randInt = randInt + SUPREUtil.getRandomActionOperator("") + SUPREUtil.getRandomInt(5);
+						randInt = randInt + OperatorUtil.getRandomActionOperator("") + SelfAPRUtil.getRandomInt(5);
 					}
 				}						
 				perturbCode = groundTruth.replace(value + "", randInt + "");
@@ -64,11 +65,11 @@ public class LiteralPerturbation {
 				if (randLong.contains("L")) {
 					randLong = randLong.replace("L", "");
 				} else if (r > 0.7) {
-					randLong = SUPREUtil.getRandomInt(100) + "";
+					randLong = SelfAPRUtil.getRandomInt(100) + "";
 				} else if(r>0.5){
 					randLong = value + "D";
 				} else {
-					randLong = randLong + SUPREUtil.getRandomActionOperator("") + SUPREUtil.getRandomInt(5);
+					randLong = randLong + OperatorUtil.getRandomActionOperator("") + SelfAPRUtil.getRandomInt(5);
 				}
 				perturbCode = groundTruth.replace(value + "", randLong + "");
 			}
@@ -77,7 +78,7 @@ public class LiteralPerturbation {
 				String randdouble = value + "";
 				if(groundTruth.contains(randdouble)) {
 				if (randdouble.contains("D") || randdouble.contains("d")) {
-					if (SUPREUtil.getRandomDouble() > 0.5) {
+					if (SelfAPRUtil.getRandomDouble() > 0.5) {
 						randdouble = randdouble.replace("D", "");
 						randdouble = randdouble.replace("d", "");
 					} else {
@@ -85,7 +86,7 @@ public class LiteralPerturbation {
 						randdouble = randdouble.replace("d", "f");
 					}
 				} else if (r > 0.4) {
-					randdouble = SUPREUtil.getRandomInt(5) + ".0d";
+					randdouble = SelfAPRUtil.getRandomInt(5) + ".0d";
 				} else {
 					randdouble = randdouble + "D";
 				}
@@ -111,22 +112,22 @@ public class LiteralPerturbation {
 			else if (type.contains("double")) {
 				String randLong = value + "";
 				if (randLong.contains("F") || randLong.contains("f")) {
-					if (SUPREUtil.getRandomDouble() > 0.2) {
+					if (SelfAPRUtil.getRandomDouble() > 0.2) {
 						randLong = randLong.replace("F", "");
 						randLong = randLong.replace("f", "");
 					}
 				} else if (r > 0.5) {
-					randLong = SUPREUtil.getRandomInt(5) + "";
+					randLong = SelfAPRUtil.getRandomInt(5) + "";
 				}
 				perturbCode = groundTruth.replace(value + "", randLong + "");
 			}
 
 			else if (type.contains("string")) {
 				String randString = value + "";
-				int index = SUPREUtil.getRandomInt(randString.length()) ;
+				int index = SelfAPRUtil.getRandomInt(randString.length()) ;
 				int start=0;
 				if(index>0) {	
-					start = SUPREUtil.getRandomInt(index) ;
+					start = SelfAPRUtil.getRandomInt(index) ;
 				}
 				if (r > 0.7) {
 				//return substring
@@ -143,9 +144,9 @@ public class LiteralPerturbation {
 
 			else if (type.contains("boolean")) {
 				if (groundTruth.contains("true")) {
-					if (SUPREUtil.getRandomDouble() > 0.6) {
+					if (SelfAPRUtil.getRandomDouble() > 0.6) {
 						perturbCode = groundTruth.replaceFirst(value + "", "false");
-					} else if (SUPREUtil.getRandomDouble() > 0.3) {
+					} else if (SelfAPRUtil.getRandomDouble() > 0.3) {
 						perturbCode = groundTruth.replace(value + "", "false");
 					} else {
 						//replace last currence
@@ -156,9 +157,9 @@ public class LiteralPerturbation {
 						perturbCode = before+later;
 					}
 				} else if (groundTruth.contains("false")) {
-					if (SUPREUtil.getRandomDouble() > 0.6) {
+					if (SelfAPRUtil.getRandomDouble() > 0.6) {
 						perturbCode = groundTruth.replaceFirst(value + "", "true");
-					} else if (SUPREUtil.getRandomDouble() > 0.3) {
+					} else if (SelfAPRUtil.getRandomDouble() > 0.3) {
 						perturbCode = groundTruth.replace(value + "", "true");
 					}else {
 						//replace last currence
@@ -173,7 +174,7 @@ public class LiteralPerturbation {
 			
 			
 			if( perturbCode == null && groundTruth.contains("null")) {
-				 r  = SUPREUtil.getRandomDouble();
+				 r  = SelfAPRUtil.getRandomDouble();
 				 if(r>0.7) {
 				 perturbCode = groundTruth.replace("null","this");
 				 } else if(r>0.35) {

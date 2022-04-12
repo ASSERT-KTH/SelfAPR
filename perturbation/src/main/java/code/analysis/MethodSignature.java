@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import code.utils.EditDistance;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.EditDistance;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.declaration.CtExecutable;
 import spoon.reflect.declaration.CtMethod;
@@ -88,7 +88,7 @@ public class MethodSignature {
 		
 		
 		if(paramStr==null) {
-		int i = SUPREUtil.getRandomInt(params.size());
+		int i = SelfAPRUtil.getRandomInt(params.size());
 		paramStr = (String) params.toArray()[i];
 	    
 		if(paramSize != null ) {	 
@@ -179,7 +179,7 @@ public class MethodSignature {
 			return null;
 		}
 
-		int i = SUPREUtil.getRandomInt(_constructClassSet.size() - 1);
+		int i = SelfAPRUtil.getRandomInt(_constructClassSet.size() - 1);
 		String s = (String) _constructClassSet.toArray()[i];
 		if (!s.equals(orig)) {
 			return s;
@@ -213,7 +213,7 @@ public class MethodSignature {
 					target = keys;
 				}
 
-				if (SUPREUtil.getRandomDouble() > 0.7 && maxScore > 0.8) {
+				if (SelfAPRUtil.getRandomDouble() > 0.7 && maxScore > 0.8) {
 					return keys;
 				}
 

@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-import code.utils.EditDistance;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.EditDistance;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.reference.CtExecutableReference;
 import spoon.reflect.visitor.filter.TypeFilter;
@@ -86,7 +86,7 @@ public class ExecutableAnalysis {
 				maxScore = score;
 				simExec = execName;
 			}
-			if(count>names.size()/1.5 && SUPREUtil.getRandomDouble()>0.8) {
+			if(count>names.size()/1.5 && SelfAPRUtil.getRandomDouble()>0.8) {
 				break;
 			}
 			}
@@ -136,7 +136,7 @@ public class ExecutableAnalysis {
 				
 			}
 		}
-		return SUPREUtil.getSimpleExecName(target);
+		return SelfAPRUtil.getSimpleExecName(target);
 	}
 	
 	

@@ -19,8 +19,8 @@ import code.perturbation.add.AddStatement;
 import code.perturbation.remove.Remove;
 import code.perturbation.remove.RemoveTry;
 import code.perturbation.replace.Replace;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.code.CtBlock;
 import spoon.reflect.code.CtCatch;
 import spoon.reflect.code.CtCodeElement;
@@ -54,48 +54,47 @@ public class PerturbActions {
 		try {
 					
 		String stStr = st.toString().replace("\r", " ").replace("\n", " ");
-		 System.out.println( " ==== type =====" + type+ "===== st: ====" + stStr );
-		double r = SUPREUtil.getRandomDouble();
+		System.out.println( " ==== type =====" + type+ "===== st: ====" + stStr );
+		double r = SelfAPRUtil.getRandomDouble();
 
 		Object o = st.getPosition();
 
 		if (o instanceof NoSourcePosition) {
 			return;
 		}
-
-			if (type==StatementType.Declaration || type==StatementType.Return ) {
-				Replace.replace(st, type, methStart, methEnd);
-			}
-
-			else if (type==StatementType.Condition) {
-				Replace.replace(st, type, methStart, methEnd);
-				if (r > 0.5) {
-					Remove.remove(st, type, methStart, methEnd);
-				} else if (r > 0.2) {
-					AddCondition.add(st, type, methStart, methEnd);
-				}
-			}
-
-			else if (type==StatementType.Statement) {
-				r = SUPREUtil.getRandomDouble();
-				Replace.replace(st, type, methStart, methEnd);
-				if (r > 0.5) {
-					Remove.remove(st, type, methStart, methEnd);
-				} else if (r > 0.2) {
-					AddStatement.add(st, type, methStart, methEnd);
-				}
-			}
-
-			else if (type==StatementType.Try) {
-				Replace.replace(st, type, methStart, methEnd);
-				RemoveTry.remove(st, type, methStart, methEnd);
-			}
-
-			else {
-				Replace.replace(st, type, methStart, methEnd);
-				Replace.replace(st, type, methStart, methEnd);
-				Remove.remove(st, type, methStart, methEnd);
-			}
+			
+		Replace.replace(st, type, methStart, methEnd);
+		
+//
+//			else if (type==StatementType.Condition) {
+//				Replace.replace(st, type, methStart, methEnd);
+//				if (r > 0.5) {
+//					Remove.remove(st, type, methStart, methEnd);
+//				} else if (r > 0.2) {
+//					AddCondition.add(st, type, methStart, methEnd);
+//				}
+//			}
+//
+//			else if (type==StatementType.Statement) {
+//				r = SUPREUtil.getRandomDouble();
+//				Replace.replace(st, type, methStart, methEnd);
+//				if (r > 0.5) {
+//					Remove.remove(st, type, methStart, methEnd);
+//				} else if (r > 0.2) {
+//					AddStatement.add(st, type, methStart, methEnd);
+//				}
+//			}
+//
+//			else if (type==StatementType.Try) {
+//				Replace.replace(st, type, methStart, methEnd);
+//				RemoveTry.remove(st, type, methStart, methEnd);
+//			}
+//
+//			else {
+//				Replace.replace(st, type, methStart, methEnd);
+//				Replace.replace(st, type, methStart, methEnd);
+//				Remove.remove(st, type, methStart, methEnd);
+//			}
 
 		} 
 		catch (Exception e) {
@@ -133,7 +132,6 @@ public class PerturbActions {
 			CtBlock block = method.getBody();
 			if (block != null) {
 				List<CtStatement> statements = block.getStatements();
-				
 				for (CtStatement st : statements) {
 					processStatement(st, methStart, methEnd);
 				}
@@ -278,7 +276,6 @@ public class PerturbActions {
 			int end = variable.getPosition().getEndLine();
 			PerturbActions.randomPerturb(variable, StatementType.Declaration, start, end);
 		}
-
 	}
 
 	public static void constructorPerturb(List<CtConstructor> constructors) {

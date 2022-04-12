@@ -1,4 +1,4 @@
-package code.utils;
+package code.perturbation.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import spoon.support.reflect.code.CtInvocationImpl;
 import spoon.support.reflect.code.CtLiteralImpl;
 import spoon.support.reflect.code.CtVariableReadImpl;
 
-public class SUPREUtil {
+public class SelfAPRUtil {
 	public static String getSpecificLine(SourcePosition position,int line) {
 		if (position != null && position.getFile()!=null) {
 		String targetFile = position.getFile().toString();
@@ -80,91 +80,7 @@ public class SUPREUtil {
 	}
 	
 	
-	public static String getRandomLogicOperator(String orig) {
-		String[] los = {"||","&&","|","^","&","==","!=",
-				"<",">","<=",">="," instanceof "};	
-		
-		
-		double r = getRandomDouble();
-		int rint = getRandomInt(11);
 
-		if(orig==null) {
-			return " "+los[rint]+" ";
-		}
-		
-		
-		
-		
-		if(orig.contains("==")) {
-			if(r>0.6) {
-				return " != ";
-			}else if(r>0.5) {
-				return " = ";
-			} 
-		}
-		
-		if(orig.contains("!=")) {
-			if(r>0.6) {
-				return " == ";
-			}else if(r>0.5) {
-				return " = ";
-			} 
-		}
-		
-		
-		if (!los[rint].contains(orig)) {
-			return " "+los[rint]+" ";
-
-		} else {
-			if (rint>0) {
-				return " "+los[rint-1]+" ";
-			}else {
-				return " "+los[rint+1]+" ";
-			}
-		}
-	}
-	
-	
-	public static String getRandomActionOperator(String orig) {
-		String[] bos = {"+","-","*","/","<<",">>","/",">>>","+","-","%","*","/"};		
-		int rint = getRandomInt(13);
-		if (!bos[rint].contains(orig)) {
-			return " "+bos[rint]+" ";
-		} else {
-			if (rint>0) {
-				return " "+bos[rint-1]+" ";
-			}else {
-				return " "+bos[rint+1]+" ";
-			}
-		}
-	}
-	
-	public static String getOperatorValue(String key) {
-		Map<String,String> map = new HashMap<String,String>();
-		map.put("OR","||");
-		map.put("AND","&&");
-		map.put("BITOR","|");
-		map.put("BITXOR","^");
-		map.put("BITAND","&");
-		map.put("EQ","==");
-		map.put("NE","!=");
-		map.put("LT","<");
-		map.put("GT",">");
-		map.put("LE","<=");
-		map.put("GE",">=");
-		map.put("SL","<<");
-		map.put("SR",">>");
-		map.put("USR",">>>");
-		map.put("PLUS","+");
-		map.put("MINUS","-");
-		map.put("MUL","*");
-		map.put("DIV","/");
-		map.put("MOD","%");
-		map.put("INSTANCEOF","instanceof");
-
-		return map.get(key);
-		
-	}
 	
 	
 	
@@ -176,9 +92,9 @@ public class SUPREUtil {
 		String[] lst = {"null","this","false","null","true","null","this","null"};
 		
 		if(r>0.1) {
-			randV=lst[SUPREUtil.getRandomInt(8)];
+			randV=lst[SelfAPRUtil.getRandomInt(8)];
 		} else  {
-			randV = getRandomInt(2)+"";
+			randV = getRandomInt(5)+"";
 		} 
 
 		return randV;

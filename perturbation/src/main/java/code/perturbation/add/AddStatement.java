@@ -6,8 +6,8 @@ import code.analysis.StatementAnalysis;
 import code.output.result.PerturbResult;
 import code.perturbation.SimilarityPerturbation;
 import code.perturbation.replace.ReplaceStatement;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
 
 public class AddStatement {
@@ -22,7 +22,7 @@ public class AddStatement {
 		String lineNo3 = "";
 		String lineNo4 = "";
 
-		String groundTruth = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1);
+		String groundTruth = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1);
 		if (groundTruth == null) {
 			return;
 		}
@@ -44,24 +44,24 @@ public class AddStatement {
 		
 		if (!";".equals(lastChar) && !"}".equals(lastChar) && !"{".equals(lastChar)) {
 			lineNo2 = lineNo1 + 1 + "";
-			groundTruth += " " + SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
+			groundTruth += " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
 			lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 			if (!";".equals(lastChar) && !"}".equals(lastChar) && !"{".equals(lastChar) ) {
 				lineNo3 = lineNo1 + 2 + "";
-				groundTruth += " " + SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
+				groundTruth += " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
 			}
 			
 			lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 			if (!";".equals(lastChar) && !"}".equals(lastChar) && !"{".equals(lastChar) ) {
 				lineNo4 = lineNo1 + 3 + "";
-				groundTruth += " " + SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 3).trim();
+				groundTruth += " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 3).trim();
 			}
 		}
 		
 		String perturbCode = null;;
 		
 		//add similar statement;		
-		if(SUPREUtil.getRandomDouble()>0.3) {
+		if(SelfAPRUtil.getRandomDouble()>0.3) {
 		 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,StatementType.Statement,0.3,null);
 				
 		if( perturbCode==null) {

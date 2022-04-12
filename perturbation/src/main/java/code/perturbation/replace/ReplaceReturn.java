@@ -7,11 +7,11 @@ import code.output.result.PerturbResult;
 import code.perturbation.ConstructorPerturbation;
 import code.perturbation.InvocationPerturbation;
 import code.perturbation.LiteralPerturbation;
-import code.perturbation.OperatorPerturbation;
+import code.perturbation.OperatorPerturbation_bak;
 import code.perturbation.SimilarityPerturbation;
 import code.perturbation.VariablePerturbation;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
@@ -32,7 +32,7 @@ public class ReplaceReturn {
 		/**
 		 * This is a random number to decide the perturbation
 		 */
-		double r = SUPREUtil.getRandomDouble();
+		double r = SelfAPRUtil.getRandomDouble();
 		
 		
 		if (groundTruth.contains("Math.max")) {
@@ -44,7 +44,7 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
-		}else if (SUPREUtil.getRandomDouble() > prob) {
+		}else if (SelfAPRUtil.getRandomDouble() > prob) {
 			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -55,9 +55,9 @@ public class ReplaceReturn {
 		 * operators
 		 */
 		if (perturbCode == null) {
-			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
-			String newperturbCode = OperatorPerturbation.perturb(st, perturbCode);
+			perturbCode = OperatorPerturbation_bak.perturb(st, groundTruth);
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
+			String newperturbCode = OperatorPerturbation_bak.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
 			}
@@ -68,7 +68,7 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
 			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -82,7 +82,7 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = ConstructorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
 			String newperturbCode = ConstructorPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -97,7 +97,7 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			perturbCode = VariablePerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
 			String newperturbCode = VariablePerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;

@@ -5,7 +5,7 @@ import java.util.List;
 import code.analysis.ExecutableAnalysis;
 import code.analysis.MethodSignature;
 import code.analysis.Variables;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.reference.CtExecutableReference;
@@ -18,7 +18,7 @@ import spoon.support.reflect.code.CtVariableReadImpl;
 public class InvocationPerturbation {
 
 	public static String perturb(CtElement st, String groundTruth) {
-		double r = SUPREUtil.getRandomDouble();
+		double r = SelfAPRUtil.getRandomDouble();
 		String corruptedCode = null;
 		if (groundTruth == null) {
 			return null;
@@ -31,7 +31,7 @@ public class InvocationPerturbation {
 		List<CtInvocationImpl> invocations = st.getElements(new TypeFilter<CtInvocationImpl>(CtInvocationImpl.class));
 
 		if (invocations.size() > 0) {
-			CtInvocationImpl inv = invocations.get(SUPREUtil.getRandomInt(invocations.size()));
+			CtInvocationImpl inv = invocations.get(SelfAPRUtil.getRandomInt(invocations.size()));
 			CtExecutableReference exc = inv.getExecutable();
 			// com.fasterxml.jackson.databind.BeanDescription#getClassInfo()
 			List<CtVariableReadImpl> arguments = inv
@@ -39,8 +39,8 @@ public class InvocationPerturbation {
 
 			// replace the overloaded method
 
-			String excStr = SUPREUtil.getSimpleExecName(exc.toString());
-			int argSize = SUPREUtil.getArgsSize(inv);
+			String excStr = SelfAPRUtil.getSimpleExecName(exc.toString());
+			int argSize = SelfAPRUtil.getArgsSize(inv);
 
 			// #java.lang.Math
 			if (exc.getDeclaringType()!=null && "java.lang.Math".equals(exc.getDeclaringType().toString()) && r > 0.2) {
@@ -94,7 +94,7 @@ public class InvocationPerturbation {
 
 			else if (groundTruth.contains("." + excStr)) {
 
-				if (SUPREUtil.getRandomDouble() > 0.3) {
+				if (SelfAPRUtil.getRandomDouble() > 0.3) {
 					System.out.print("");
 
 					String newMethod = ExecutableAnalysis.getRandomExecWithSameParam(exc.toString(), argSize);
@@ -132,11 +132,11 @@ public class InvocationPerturbation {
 				// remove invocation and only keep varaible!!!
 				if (exc.getDeclaringType()!=null && corruptedCode == null && argSize == 1) {
 
-					String declarSring = SUPREUtil.getSimpleVarName(exc.getDeclaringType().toString()) + "." + excStr
+					String declarSring = SelfAPRUtil.getSimpleVarName(exc.getDeclaringType().toString()) + "." + excStr
 							+ " ( ";
 
 					if (groundTruth.contains(declarSring)) {
-						String de = SUPREUtil.getSimpleVarName(exc.getDeclaringType().toString());
+						String de = SelfAPRUtil.getSimpleVarName(exc.getDeclaringType().toString());
 
 						String start = groundTruth.split(de)[0];
 						String later_ori = groundTruth.split(excStr)[1];

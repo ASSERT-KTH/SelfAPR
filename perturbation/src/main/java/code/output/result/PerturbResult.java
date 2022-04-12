@@ -27,7 +27,7 @@ public class PerturbResult {
 		String lineNo3 = map.get("lineNo3"); 	
 		String lineNo4 = map.get("lineNo4"); 
 		String lineNo5 = map.get("lineNo5"); 		
-		String line1 = map.get("line1");
+		String perturbCode = map.get("perturbCode");
 		
 	
 		String action = map.get("repairAction");		
@@ -38,12 +38,12 @@ public class PerturbResult {
 
 		
 		
-		if(groundTruth==null || line1==null) {
+		if(groundTruth==null || perturbCode==null) {
 			return;
 		}
 		
 		if(action.contains("REPLACE")) {
-			if (line1.trim().equals(groundTruth.trim())) {
+			if (perturbCode.trim().equals(groundTruth.trim())) {
 				return;
 			}
 		}
@@ -51,7 +51,7 @@ public class PerturbResult {
 		
 		
 		
-		line1 =line1.trim();
+		perturbCode =perturbCode.trim();
 		groundTruth =groundTruth.trim();
 
 		//not a block
@@ -60,13 +60,13 @@ public class PerturbResult {
 			methodEnd="";
 		}		
 		
-		String classinfo = ClassAnalysis.getCurrentClass();
-		String method = MethodSignature.getCurrentMethod();
+//		String classinfo = ClassAnalysis.getCurrentClass();
+//		String method = MethodSignature.getCurrentMethod();
 		String variables = Variables.getVariableInfo();
 		
-		String meta = method + " "+ classinfo + " "+ variables;
+		String meta =  variables;
 		
-		String emsembleStr = action+"^"+line1+"^"+lineNo1+"^"
+		String emsembleStr = action+"^"+perturbCode+"^"+lineNo1+"^"
 							+lineNo2+"^"
 							+lineNo3+"^"
 							+lineNo4+"^"

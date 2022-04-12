@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Set;
 
 import code.perturbation.PerturbActions;
-import code.utils.EditDistance;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.EditDistance;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.code.CtExpression;
 import spoon.reflect.code.CtStatement;
 import spoon.reflect.cu.SourcePosition;
@@ -50,7 +50,7 @@ public class StatementAnalysis {
 			double maxScore=0;
 			for(String s : ctStatements.keySet()) {
 				if(ctStatements.get(s).getLine() != origPosition.getLine()) {
-				s = SUPREUtil.getSpecificLine(ctStatements.get(s), ctStatements.get(s).getLine());
+				s = SelfAPRUtil.getSpecificLine(ctStatements.get(s), ctStatements.get(s).getLine());
 				if(s==null) {
 					break;
 				}
@@ -94,7 +94,7 @@ public class StatementAnalysis {
 					simStatement = s;
 				}		
 				
-				if(SUPREUtil.getRandomDouble()>0.6 && simStatement!=null) {
+				if(SelfAPRUtil.getRandomDouble()>0.6 && simStatement!=null) {
 					break;
 				}				
 			}			

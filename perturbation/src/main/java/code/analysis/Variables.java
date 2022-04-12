@@ -7,8 +7,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import code.perturbation.PerturbActions;
-import code.utils.EditDistance;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.EditDistance;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
 import spoon.reflect.declaration.CtClass;
@@ -47,11 +47,11 @@ public class Variables {
 
 		try {
 
-			if (type!=null && SUPREUtil.getRandomDouble() > 0.15) {
-				type = SUPREUtil.getSimpleVarName(type);
+			if (type!=null && SelfAPRUtil.getRandomDouble() > 0.15) {
+				type = SelfAPRUtil.getSimpleVarName(type);
 
-				String origValue1 = SUPREUtil.getSimpleVarName(var1.toString());
-				String origValue2 = SUPREUtil.getSimpleVarName(var2.toString());
+				String origValue1 = SelfAPRUtil.getSimpleVarName(var1.toString());
+				String origValue2 = SelfAPRUtil.getSimpleVarName(var2.toString());
 
 				Set<String> values = _variableByTypeMap.get(type);
 				for (String v : values) {
@@ -60,7 +60,7 @@ public class Variables {
 						if (score > maxScore) {
 							target = v;
 							count++;
-							if (count > values.size() / 2 && SUPREUtil.getRandomDouble() > 0.85) {
+							if (count > values.size() / 2 && SelfAPRUtil.getRandomDouble() > 0.85) {
 								return target;
 							}
 						}
@@ -71,11 +71,11 @@ public class Variables {
 				return MethodSignature.getMethodByType(type, null);
 			}
 		} catch (Exception e) {
-			return SUPREUtil.randomReturnElement();
+			return SelfAPRUtil.randomReturnElement();
 		}
 
-		if (SUPREUtil.getRandomDouble() > 0.8) {
-			return SUPREUtil.randomReturnElement();
+		if (SelfAPRUtil.getRandomDouble() > 0.8) {
+			return SelfAPRUtil.randomReturnElement();
 		} else if(type!=null) {
 			return MethodSignature.getMethodByType(type, null);
 		}
@@ -93,10 +93,10 @@ public class Variables {
 			return null;
 		}
 
-		String type = SUPREUtil.getSimpleVarName(t.toString());
-		if (SUPREUtil.getRandomDouble() > 0.15) {
+		String type = SelfAPRUtil.getSimpleVarName(t.toString());
+		if (SelfAPRUtil.getRandomDouble() > 0.15) {
 			try {
-				String origValue = SUPREUtil.getSimpleVarName(var.toString());
+				String origValue = SelfAPRUtil.getSimpleVarName(var.toString());
 
 				Set<String> values = _variableByTypeMap.get(type);
 
@@ -116,7 +116,7 @@ public class Variables {
 							if (score > maxScore) {
 								target = v;
 								count++;
-								if (count > values.size() / 2 && SUPREUtil.getRandomDouble() > 0.85) {
+								if (count > values.size() / 2 && SelfAPRUtil.getRandomDouble() > 0.85) {
 									return target;
 								}
 							}
@@ -136,20 +136,20 @@ public class Variables {
 
 	public static String getRandomVariablesByStringType(String type) {
 		if (type == null || type == "") {
-			return SUPREUtil.randomReturnElement();
+			return SelfAPRUtil.randomReturnElement();
 		} else {
 			try {
-				type = SUPREUtil.getSimpleVarName(type);
+				type = SelfAPRUtil.getSimpleVarName(type);
 
-				if (SUPREUtil.getRandomDouble() > 0.1) {
+				if (SelfAPRUtil.getRandomDouble() > 0.1) {
 					// get variable
 					Set<String> values = _variableByTypeMap.get(type);
 					if (values == null || values.size() == 0) {
 						String me = MethodSignature.getMethodByType(type, null);
-						return SUPREUtil.randomReturnElement();
+						return SelfAPRUtil.randomReturnElement();
 					}
 					for (String v : values) {
-						v = (String) values.toArray()[SUPREUtil.getRandomInt(values.size())];
+						v = (String) values.toArray()[SelfAPRUtil.getRandomInt(values.size())];
 						return v;
 					}
 				} else {
@@ -159,10 +159,10 @@ public class Variables {
 				}
 
 			} catch (Exception e) {
-				return SUPREUtil.randomReturnElement();
+				return SelfAPRUtil.randomReturnElement();
 			}
 
-			return SUPREUtil.randomReturnElement();
+			return SelfAPRUtil.randomReturnElement();
 		}
 	}
 

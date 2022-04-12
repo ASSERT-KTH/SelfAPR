@@ -7,7 +7,7 @@ import code.perturbation.ConstructorPerturbation;
 import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
 import code.perturbation.TypePerturbation;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.declaration.CtElement;
 
 public class ReplaceDeclaration {
@@ -18,7 +18,7 @@ public class ReplaceDeclaration {
 		/**
 		 * This is a random number to decide the perturbation
 		 */
-		double r = SUPREUtil.getRandomDouble();
+		double r = SelfAPRUtil.getRandomDouble();
 
 		/**
 		 * We try to perturb the literals
@@ -36,7 +36,7 @@ public class ReplaceDeclaration {
 		// replace type
 		if (perturbCode == null) {
 			perturbCode = TypePerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
 			perturbCode = TypePerturbation.perturb(st, perturbCode);
 		}
 		
@@ -44,7 +44,7 @@ public class ReplaceDeclaration {
 		// modifier
 		if (perturbCode == null) {
 			perturbCode = ModifiersPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
 			perturbCode = ModifiersPerturbation.perturb(st, perturbCode);
 		}
 		
@@ -52,7 +52,7 @@ public class ReplaceDeclaration {
 		
 		// remove instantiation
 		if (groundTruth.contains("=") && (perturbCode == null || r > prob)) {
-			r = SUPREUtil.getRandomDouble();
+			r = SelfAPRUtil.getRandomDouble();
 			if (r > 0.5) {
 				perturbCode = groundTruth.split("=")[0] + ";";
 			} else {

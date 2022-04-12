@@ -7,7 +7,7 @@ import java.util.List;
 
 import code.analysis.MethodSignature;
 import code.analysis.Variables;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.declaration.CtVariable;
 import spoon.reflect.reference.CtTypeReference;
@@ -34,18 +34,18 @@ public class VariablePerturbation {
 		
 		// replace argument with the same type argument
 		if (arguments.size() > 0 ) {
-			int i = SUPREUtil.getRandomInt(arguments.size());
+			int i = SelfAPRUtil.getRandomInt(arguments.size());
             int j=i;
 			if (arguments.size() > 1) {
 				while(i==j) {
-				i = SUPREUtil.getRandomInt(arguments.size());
+				i = SelfAPRUtil.getRandomInt(arguments.size());
 				}
 			}
 
 			CtVariableReadImpl arg = arguments.get(i);
 			CtVariableReadImpl argAnother = arguments.get(j);
 
-			String varStr = SUPREUtil.getSimpleVarName(arg.toString());
+			String varStr = SelfAPRUtil.getSimpleVarName(arg.toString());
 
 			if (groundTruth.contains(" " + varStr) || groundTruth.contains( varStr+" " ) ) {
 				

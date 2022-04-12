@@ -5,9 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 
 import code.analysis.Variables;
-import code.utils.EditDistance;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.EditDistance;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.code.CtBlock;
 import spoon.reflect.code.CtCatch;
 import spoon.reflect.code.CtStatement;
@@ -229,12 +229,12 @@ public class SimilarityPerturbation {
 
 				if (c != null) {
 					_conditionList.add(c.toString());
-					String line1 = SUPREUtil.getSpecificLine(c.getPosition(), c.getPosition().getLine());
+					String line1 = SelfAPRUtil.getSpecificLine(c.getPosition(), c.getPosition().getLine());
 					if (line1 != null) {
 						line1 = line1.trim();
 						String lastChar = line1.charAt(line1.length() - 1) + "";
 						if (!"{".equals(lastChar)) {
-							String line2 = SUPREUtil.getSpecificLine(st.getPosition(), c.getPosition().getLine() + 1);
+							String line2 = SelfAPRUtil.getSpecificLine(st.getPosition(), c.getPosition().getLine() + 1);
 							if (line2 != null) {
 								line1 += " " + line2.trim();
 
@@ -265,12 +265,12 @@ public class SimilarityPerturbation {
 
 		if (fors.size() > 0) {
 			for (CtForImpl f : fors) {
-				String line1 = SUPREUtil.getSpecificLine(f.getPosition(), f.getPosition().getLine());
+				String line1 = SelfAPRUtil.getSpecificLine(f.getPosition(), f.getPosition().getLine());
 				if (line1 != null) {
 					line1 = line1.trim();
 					String lastChar = line1.charAt(line1.length() - 1) + "";
 					if (!"{".equals(lastChar)) {
-						String line2 = SUPREUtil.getSpecificLine(st.getPosition(), f.getPosition().getLine() + 1);
+						String line2 = SelfAPRUtil.getSpecificLine(st.getPosition(), f.getPosition().getLine() + 1);
 						if (line2 != null) {
 							line1 += " " + line2.trim();
 						}
@@ -290,7 +290,7 @@ public class SimilarityPerturbation {
 		if (returns.size() > 0) {
 			for (CtReturnImpl r : returns) {
 
-				String line1 = SUPREUtil.getSpecificLine(r.getPosition(), r.getPosition().getLine());
+				String line1 = SelfAPRUtil.getSpecificLine(r.getPosition(), r.getPosition().getLine());
 				if (line1 != null) {
 
 					line1 = line1.trim();
@@ -298,7 +298,7 @@ public class SimilarityPerturbation {
 
 					if (!";".equals(lastChar)) {
 						line1 += " "
-								+ SUPREUtil.getSpecificLine(st.getPosition(), r.getPosition().getLine() + 1).trim();
+								+ SelfAPRUtil.getSpecificLine(st.getPosition(), r.getPosition().getLine() + 1).trim();
 					}
 					_returnList.add(line1);
 				}
@@ -308,14 +308,14 @@ public class SimilarityPerturbation {
 
 		if (assignments.size() > 0) {
 			for (CtAssignmentImpl a : assignments) {
-				String line1 = SUPREUtil.getSpecificLine(a.getPosition(), a.getPosition().getLine());
+				String line1 = SelfAPRUtil.getSpecificLine(a.getPosition(), a.getPosition().getLine());
 				if (line1 != null) {
 
 					line1 = line1.trim();
 					String lastChar = line1.charAt(line1.length() - 1) + "";
 
 					if (!";".equals(lastChar)) {
-						String line2 = SUPREUtil.getSpecificLine(st.getPosition(), a.getPosition().getLine() + 1);
+						String line2 = SelfAPRUtil.getSpecificLine(st.getPosition(), a.getPosition().getLine() + 1);
 						if (line2 != null) {
 							line1 += " " + line2.trim();
 						}
@@ -334,14 +334,14 @@ public class SimilarityPerturbation {
 
 		if (throwss.size() > 0) {
 			for (CtThrowImpl t : throwss) {
-				String line1 = SUPREUtil.getSpecificLine(t.getPosition(), t.getPosition().getLine());
+				String line1 = SelfAPRUtil.getSpecificLine(t.getPosition(), t.getPosition().getLine());
 				if (line1 != null) {
 
 					line1 = line1.trim();
 					String lastChar = line1.charAt(line1.length() - 1) + "";
 
 					if (!";".equals(lastChar)) {
-						String line2 = SUPREUtil.getSpecificLine(st.getPosition(), t.getPosition().getLine() + 1);
+						String line2 = SelfAPRUtil.getSpecificLine(st.getPosition(), t.getPosition().getLine() + 1);
 						if (line2 != null) {
 							line1 += " " + line2.trim();
 						}
@@ -354,14 +354,14 @@ public class SimilarityPerturbation {
 		if (localVariableImpl.size() > 0) {
 			for (CtLocalVariableImpl l : localVariableImpl) {
 
-				String line1 = SUPREUtil.getSpecificLine(l.getPosition(), l.getPosition().getLine());
+				String line1 = SelfAPRUtil.getSpecificLine(l.getPosition(), l.getPosition().getLine());
 				if (line1 != null) {
 
 					line1 = line1.trim();
 					String lastChar = line1.charAt(line1.length() - 1) + "";
 
 					if (!";".equals(lastChar)) {
-						String line2 = SUPREUtil.getSpecificLine(st.getPosition(), l.getPosition().getLine() + 1);
+						String line2 = SelfAPRUtil.getSpecificLine(st.getPosition(), l.getPosition().getLine() + 1);
 						if (line2 != null) {
 							line1 += " " + line2.trim();
 						}
@@ -375,13 +375,13 @@ public class SimilarityPerturbation {
 				&& returns.size() == 0 && assignments.size() == 0 && trys.size() == 0 && fors.size() == 0
 				&& conditions.size() == 0 && whiles.size() == 0) {
 			for (CtInvocationImpl i : invocations) {
-				String line1 = SUPREUtil.getSpecificLine(i.getPosition(), i.getPosition().getLine());
+				String line1 = SelfAPRUtil.getSpecificLine(i.getPosition(), i.getPosition().getLine());
 				if (line1 != null) {
 					line1 = line1.trim();
 					String lastChar = line1.charAt(line1.length() - 1) + "";
 
 					if (!";".equals(lastChar)) {
-						String line2 = SUPREUtil.getSpecificLine(st.getPosition(), i.getPosition().getLine() + 1);
+						String line2 = SelfAPRUtil.getSpecificLine(st.getPosition(), i.getPosition().getLine() + 1);
 						if (line2 != null) {
 							line1 += " " + line2.trim();
 						}

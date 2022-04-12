@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 import code.output.result.PerturbResult;
 import code.perturbation.SimilarityPerturbation;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
 
 public class ReplaceThrow {
@@ -14,7 +14,7 @@ public class ReplaceThrow {
 			String lineNo2, String lineNo3, String lineNo4, int i) {
 
 		// replace with return;
-		double r = SUPREUtil.getRandomDouble();
+		double r = SelfAPRUtil.getRandomDouble();
 		String perturbCode = "return ;";
 
 		if (r > 0.9) {
@@ -22,7 +22,7 @@ public class ReplaceThrow {
 		} else if (r > 0.8) {
 			perturbCode = "return 0;";
 		} else if (r > 0.7) {
-			if (SUPREUtil.getRandomDouble()>0.5) {
+			if (SelfAPRUtil.getRandomDouble()>0.5) {
 			perturbCode = "return true;";
 			} else {
 				perturbCode = "return false;";

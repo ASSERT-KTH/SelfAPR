@@ -5,8 +5,8 @@ import java.util.HashMap;
 import code.analysis.StatementAnalysis;
 import code.output.result.PerturbResult;
 import code.perturbation.SimilarityPerturbation;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
 
 public class AddCondition {
@@ -19,7 +19,7 @@ public class AddCondition {
 		String lineNo3 = "";
 		String lineNo4 = "";
 
-		String groundTruth = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1);
+		String groundTruth = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1);
 		
 		
 		if (groundTruth == null) {

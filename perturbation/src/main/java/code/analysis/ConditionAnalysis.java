@@ -6,7 +6,7 @@ import java.util.List;
 
 import code.output.result.PerturbResult;
 import code.perturbation.PerturbActions;
-import code.utils.EditDistance;
+import code.perturbation.utils.EditDistance;
 import spoon.reflect.code.CtExpression;
 import spoon.reflect.code.CtStatement;
 import spoon.reflect.declaration.CtMethod;

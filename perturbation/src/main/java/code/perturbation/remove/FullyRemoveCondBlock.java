@@ -3,7 +3,7 @@ package code.perturbation.remove;
 import java.util.HashMap;
 
 import code.output.result.PerturbResult;
-import code.utils.SUPREUtil;
+import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.declaration.CtElement;
 
@@ -23,7 +23,7 @@ public class FullyRemoveCondBlock {
 
 		HashMap<String, String> map = new HashMap<String, String>();
 		int lineNo1 = exp.getPosition().getLine();
-		String groundTruth = SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1);
+		String groundTruth = SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1);
 
 		map.put("lineNo1", lineNo1 + "");
 		map.put("lineNo2",  "");
@@ -52,31 +52,31 @@ public class FullyRemoveCondBlock {
 			
 			if (parent.length == 2 ) {
 				map.put("lineNo2",  lineNo1+1+"");
-				groundTruth+=SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1+1).trim();
+				groundTruth+=SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1+1).trim();
 				
 			}else if (parent.length == 3 ) {
 				map.put("lineNo2",  lineNo1+1+"");
 				map.put("lineNo3",  lineNo1+2+"");
-				groundTruth+=SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1+1).trim();
-				groundTruth+=SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1+2).trim();
+				groundTruth+=SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1+1).trim();
+				groundTruth+=SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1+2).trim();
 
 			}else if (parent.length == 4 ) {
 				map.put("lineNo2",  lineNo1+1+"");
 				map.put("lineNo3",  lineNo1+2+"");
 				map.put("lineNo4",  lineNo1+3+"");
-				groundTruth+=SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1+1).trim();
-				groundTruth+=SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1+2).trim();
-				groundTruth+=SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1+3).trim();
+				groundTruth+=SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1+1).trim();
+				groundTruth+=SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1+2).trim();
+				groundTruth+=SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1+3).trim();
 				
 			}else if (parent.length == 5 ) {
 				map.put("lineNo2",  lineNo1+1+"");
 				map.put("lineNo3",  lineNo1+2+"");
 				map.put("lineNo4",  lineNo1+3+"");
 				map.put("lineNo5",  lineNo1+4+"");
-				groundTruth+=SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1+1).trim();
-				groundTruth+=SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1+2).trim();
-				groundTruth+=SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1+3).trim();
-				groundTruth+=SUPREUtil.getSpecificLine(exp.getPosition(), lineNo1+4).trim();
+				groundTruth+=SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1+1).trim();
+				groundTruth+=SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1+2).trim();
+				groundTruth+=SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1+3).trim();
+				groundTruth+=SelfAPRUtil.getSpecificLine(exp.getPosition(), lineNo1+4).trim();
 
 			}
 		

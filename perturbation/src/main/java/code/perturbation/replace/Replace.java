@@ -6,8 +6,8 @@ import code.output.result.PerturbResult;
 import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
 import code.perturbation.TypePerturbation;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.declaration.CtElement;
 
@@ -19,68 +19,82 @@ public class Replace {
 		String lineNo2 = "";
 		String lineNo3 = "";
 		String lineNo4 = "";
+		String lineNo5 = "";
 
-		String groundTruth = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1);
+		String groundTruth = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1);
 		if (groundTruth == null) {
 			return;
 		}
 
 		/**
-		 * We care about the complete block at most three lines
+		 * We care about the complete block at most five lines
 		 */
 		groundTruth = groundTruth.trim();
 
 		String lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 		if (!";".equals(lastChar) && !"}".equals(lastChar) && !"{".equals(lastChar)) {
 			lineNo2 = lineNo1 + 1 + "";
-			groundTruth += " " + SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
+			groundTruth += " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
 			lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 			if (!";".equals(lastChar) && !"}".equals(lastChar) && !"{".equals(lastChar) ) {
 				lineNo3 = lineNo1 + 2 + "";
-				groundTruth += " " + SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
+				groundTruth += " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
 			}
 			
 			lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 			if (!";".equals(lastChar) && !"}".equals(lastChar) && !"{".equals(lastChar) ) {
 				lineNo4 = lineNo1 + 3 + "";
-				groundTruth += " " + SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 3).trim();
+				groundTruth += " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 3).trim();
 			}
-		}
-
-		if (type == StatementType.Declaration) {
-			ReplaceDeclaration.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0.9);
-			ReplaceDeclaration.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0.7);
-
-		}
-
-		else if (type == StatementType.Assignment) {
-			ReplaceAssignment.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.9);
-			ReplaceAssignment.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.7);
-
 		}
 		
-		else if (type== StatementType.Condition) {
-			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.9);
-			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.7);
-		}
+		
+		
+		P1_Replace_Type.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4);
+		P2_Replace_Operator.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4);
+		P3_Replace_Literal.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4);
 
-		else if (type==StatementType.Return) {
-			 ReplaceReturn.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0,0.9);
-			 ReplaceReturn.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0,0.7);
+		
+		
+		
+		
+		
+		
 
-		 }	
-		 
-		else if(type==StatementType.Throw) {
-			double r = SUPREUtil.getRandomDouble();
-			if(r>0.5) {
-			 ReplaceThrow.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0);
-			}
-
-		 }
-		 
-		else  {
-			 ReplaceStatement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0);
-		 }
+//		if (type == StatementType.Declaration) {
+//			ReplaceDeclaration.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0.9);
+//			ReplaceDeclaration.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0.7);
+//
+//		}
+//
+//		else if (type == StatementType.Assignment) {
+//			ReplaceAssignment.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.9);
+//			ReplaceAssignment.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.7);
+//
+//		}
+//		
+//		else if (type== StatementType.Condition) {
+//			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.9);
+//			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.7);
+//		}
+//
+//		else if (type==StatementType.Return) {
+//			 ReplaceReturn.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0,0.9);
+//			 ReplaceReturn.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0,0.7);
+//
+//		 }	
+//		 
+//		else if(type==StatementType.Throw) {
+//			double r = SUPREUtil.getRandomDouble();
+//			if(r>0.5) {
+//			 ReplaceThrow.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0);
+//			}
+//
+//		 }
+//		 
+//		else  {
+//			 ReplaceStatement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0);
+//		 }
 		 
 		
 

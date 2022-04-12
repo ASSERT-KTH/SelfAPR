@@ -4,8 +4,8 @@ import java.util.List;
 
 import code.analysis.MethodSignature;
 import code.analysis.Variables;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.reference.CtExecutableReference;
@@ -17,7 +17,7 @@ import spoon.support.reflect.code.CtVariableReadImpl;
 public class ConstructorPerturbation {
 
 	public static String perturb(CtElement st, String groundTruth) {
-		double r = SUPREUtil.getRandomDouble();
+		double r = SelfAPRUtil.getRandomDouble();
 		String corruptedCode = null;
 		if (groundTruth == null) {
 			return null;
@@ -49,9 +49,9 @@ public class ConstructorPerturbation {
 			List<CtVariableReadImpl> vars = inv.getElements(argumentsfilter);
 			CtExecutableReference exc = inv.getExecutable();
 
-			int argSize = SUPREUtil.getArgsSize(inv);
+			int argSize = SelfAPRUtil.getArgsSize(inv);
 
-			String excStr = SUPREUtil.getSimpleExecName(exc.toString());
+			String excStr = SelfAPRUtil.getSimpleExecName(exc.toString());
 
 			if (groundTruth.contains(excStr)) {
 

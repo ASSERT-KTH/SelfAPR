@@ -14,14 +14,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import code.output.result.PerturbResult;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 
 public class Remove {
 
 	public static void remove(CtElement st, StatementType type, int methStart, int methEnd) {
 
-		double r = SUPREUtil.getRandomDouble();
+		double r = SelfAPRUtil.getRandomDouble();
 
 		String perturbCode = "";
 
@@ -31,7 +31,7 @@ public class Remove {
 		String lineNo4 = "";
 		String lineNo5 = "";
 
-		String groundTruth = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1);
+		String groundTruth = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1);
 		if (groundTruth == null) {
 			return;
 		}
@@ -55,12 +55,12 @@ public class Remove {
 			
 				// line 2
 				lineNo2 = lineNo1 + 1 + "";
-				String l2 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
+				String l2 = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
 				if (l2.length() > 0) {
 					lastChar = l2.charAt(l2.length() - 1) + "";
 
 					if (";".equals(lastChar) && !groundTruth.contains("for")  && !l2.contains("throw")) {
-						if (SUPREUtil.getRandomDouble() > 0.4) {
+						if (SelfAPRUtil.getRandomDouble() > 0.4) {
 							perturbCode += l2;
 						}
 					}
@@ -70,7 +70,7 @@ public class Remove {
 				// line 3
 				lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 				if (!"}".equals(lastChar)) {
-					String l3 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
+					String l3 = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
 					if (l3.length() > 0) {
 
 						lastChar = l3.charAt(l3.length() - 1) + "";												
@@ -89,7 +89,7 @@ public class Remove {
 				// line 4
 				lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 				if (!"}".equals(lastChar)) {
-					String l4 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 3).trim();
+					String l4 = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 3).trim();
 					if (l4.length() > 0) {
 						lastChar = l4.charAt(l4.length() - 1) + "";																	
 						if (!"".equals(perturbCode) && ";".equals(lastChar) && !groundTruth.contains("for") && !l4.contains("throw")) {
@@ -105,7 +105,7 @@ public class Remove {
 				// line 5
 				lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 				if (!"}".equals(lastChar)) {
-					String l5 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 4).trim();
+					String l5 = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 4).trim();
 					if (l5.length() > 0) {
 						lastChar = l5.charAt(l5.length() - 1) + "";																	
 						if(!"{".equals(lastChar)) {
@@ -124,19 +124,19 @@ public class Remove {
 		else {
 		 if(!";".equals(lastChar) ) {
 			lineNo2 = lineNo1 + 1 + "";
-			String l2 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
+			String l2 = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
 			groundTruth += " " + l2;		
 		}
 		
 		
-		else if(";".equals(lastChar)  &&  SUPREUtil.getRandomDouble() > 0.5) {		
-			String l2 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
+		else if(";".equals(lastChar)  &&  SelfAPRUtil.getRandomDouble() > 0.5) {		
+			String l2 = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
 			if (l2.length() > 0) {
 				lastChar = l2.charAt(l2.length() - 1) + "";
 				if (";".equals(lastChar)) {	
 					lineNo2 = lineNo1 + 1 + "";
 					groundTruth += " " + l2;
-					if(SUPREUtil.getRandomDouble() > 0.7) {
+					if(SelfAPRUtil.getRandomDouble() > 0.7) {
 						perturbCode += l2;
 					}
 				}
@@ -149,7 +149,7 @@ public class Remove {
 		 
 		 if(!";".equals(lastChar)) {
 				lineNo3 = lineNo1 + 2 + "";
-				String l3 = SUPREUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
+				String l3 = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
 				groundTruth += " " + l3;
 			}			 	
 		}

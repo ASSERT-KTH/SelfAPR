@@ -9,12 +9,12 @@ import code.perturbation.ConstructorPerturbation;
 import code.perturbation.InvocationPerturbation;
 import code.perturbation.LiteralPerturbation;
 import code.perturbation.ModifiersPerturbation;
-import code.perturbation.OperatorPerturbation;
+import code.perturbation.OperatorPerturbation_bak;
 import code.perturbation.SimilarityPerturbation;
 import code.perturbation.TypePerturbation;
 import code.perturbation.VariablePerturbation;
-import code.utils.SUPREUtil;
-import code.utils.StatementType;
+import code.perturbation.utils.SelfAPRUtil;
+import code.perturbation.utils.StatementType;
 import spoon.reflect.code.BinaryOperatorKind;
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
@@ -33,7 +33,7 @@ public class ReplaceCondition {
 		/**
 		 * This is a random number to decide the perturbation
 		 */
-		double r = SUPREUtil.getRandomDouble();
+		double r = SelfAPRUtil.getRandomDouble();
 
 
 		
@@ -48,9 +48,9 @@ public class ReplaceCondition {
 		 * operators
 		 */
 		if (perturbCode == null) {
-			perturbCode = OperatorPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
-			perturbCode = OperatorPerturbation.perturb(st, perturbCode);
+			perturbCode = OperatorPerturbation_bak.perturb(st, groundTruth);
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
+			perturbCode = OperatorPerturbation_bak.perturb(st, perturbCode);
 		}
 
 		/**
@@ -58,7 +58,7 @@ public class ReplaceCondition {
 		 */
 		if (perturbCode == null) {
 			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
 			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -71,7 +71,7 @@ public class ReplaceCondition {
 		 */		
 		if (perturbCode == null) {
 			perturbCode = VariablePerturbation.perturb(st, groundTruth);
-		} else if (SUPREUtil.getRandomDouble() > prob) {
+		} else if (SelfAPRUtil.getRandomDouble() > prob) {
 			String newperturbCode = VariablePerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -84,7 +84,7 @@ public class ReplaceCondition {
 		 */
 		if (perturbCode == null) {
 			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
-		}else if (SUPREUtil.getRandomDouble() > prob) {
+		}else if (SelfAPRUtil.getRandomDouble() > prob) {
 			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
@@ -100,7 +100,7 @@ public class ReplaceCondition {
 		
 		// remove && || !
 
-		if (SUPREUtil.getRandomDouble() > 0.4 && groundTruth.contains("if") && (groundTruth.contains("||") || groundTruth.contains("&&"))) {
+		if (SelfAPRUtil.getRandomDouble() > 0.4 && groundTruth.contains("if") && (groundTruth.contains("||") || groundTruth.contains("&&"))) {
 			if (perturbCode == null) {
 				perturbCode = groundTruth;
 			}
@@ -135,7 +135,7 @@ public class ReplaceCondition {
 				if(sepblock>-1 && rightlen>-1) {
 				String end = right.substring(sepblock, rightlen);
 
-				if (SUPREUtil.getRandomDouble() > 0.5) {
+				if (SelfAPRUtil.getRandomDouble() > 0.5) {
 					// remove right
 					perturbCode = left + " " + end;
 				} else {
@@ -153,8 +153,8 @@ public class ReplaceCondition {
 						perturbCode = groundTruth;
 					}
 					
-					String operator = SUPREUtil.getRandomDouble() > 0.5 ? " && " : " || ";
-					if(SUPREUtil.getRandomDouble() > 0.3) {
+					String operator = SelfAPRUtil.getRandomDouble() > 0.5 ? " && " : " || ";
+					if(SelfAPRUtil.getRandomDouble() > 0.3) {
 					int index = perturbCode.indexOf(")");
 					String before = perturbCode.substring(0,index);
 					String after = perturbCode.substring(index, perturbCode.length());	
@@ -184,7 +184,7 @@ public class ReplaceCondition {
 		/**
 		 * add remove !
 		 */
-		if ((perturbCode == null || groundTruth.equals(perturbCode)) || SUPREUtil.getRandomDouble() > 0.85) {
+		if ((perturbCode == null || groundTruth.equals(perturbCode)) || SelfAPRUtil.getRandomDouble() > 0.85) {
 
 			if (perturbCode == null || groundTruth.equals(perturbCode)) {
 				perturbCode = groundTruth;
@@ -192,7 +192,7 @@ public class ReplaceCondition {
 
 			if ((perturbCode.contains("equals") || perturbCode.contains("contains"))) {
 
-				if (SUPREUtil.getRandomDouble() > 0.6) {
+				if (SelfAPRUtil.getRandomDouble() > 0.6) {
 					if (perturbCode.contains("equals")) {
 						perturbCode.replace("equals", "contains");
 					} else if (perturbCode.contains("contains")) {
@@ -207,7 +207,7 @@ public class ReplaceCondition {
 		
 		if(groundTruth.equals(perturbCode))
 		if (perturbCode.contains("!")) {
-			if (SUPREUtil.getRandomDouble() > 0.4) {
+			if (SelfAPRUtil.getRandomDouble() > 0.4) {
 				perturbCode = perturbCode.replace("!", "");
 			}
 		} else if(!perturbCode.contains("!")  && groundTruth.equals(perturbCode)){
@@ -217,11 +217,11 @@ public class ReplaceCondition {
 		
 
 		if (groundTruth.contains("else") && groundTruth.contains("if")
-				&& (SUPREUtil.getRandomDouble() > 0.2 || perturbCode == null)) {
+				&& (SelfAPRUtil.getRandomDouble() > 0.2 || perturbCode == null)) {
 			if (perturbCode == null) {
 				perturbCode = groundTruth;
 			}
-			if (SUPREUtil.getRandomDouble() > 0.5) {
+			if (SelfAPRUtil.getRandomDouble() > 0.5) {
 				perturbCode = perturbCode.replace("else", "");
 			} else {
 				String before = perturbCode.split("else")[0];
