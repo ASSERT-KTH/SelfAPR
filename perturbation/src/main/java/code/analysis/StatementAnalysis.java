@@ -121,16 +121,8 @@ public class StatementAnalysis {
 		
 		} else {
 			return null;
-		}		
-		
-		
+		}				
 	}
-
-	
-	
-	
-	
-	
 
 
 	public static void analysis(CtElement method) {

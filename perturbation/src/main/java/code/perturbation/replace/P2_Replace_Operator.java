@@ -16,12 +16,13 @@ import spoon.support.reflect.code.CtOperatorAssignmentImpl;
 public class P2_Replace_Operator {
 
 	public static void perturb(CtElement st, StatementType type, int methStart, int methEnd, String groundTruth,
-			int lineNo1, String lineNo2, String lineNo3, String lineNo4) {
+			int lineNo1, String lineNo2, String lineNo3, String lineNo4,String lineNo5) {
 
 		/**
 		 * operator perturbation
 		 */
 
+		String actionNo = "[P2]";
 		// CtBinaryOperatorImpl expression
 		List<CtBinaryOperatorImpl> expressions = st
 				.getElements(new TypeFilter<CtBinaryOperatorImpl>(CtBinaryOperatorImpl.class));
@@ -38,28 +39,22 @@ public class P2_Replace_Operator {
 				String origOpKind = expression.getKind().toString();
 
 				String origOpKindValue = OperatorUtil.getOperatorValue(origOpKind);
+				
+				String simplefyExpression = SelfAPRUtil.simplefyExpression(expression);
 
 				if (groundTruth.contains(origOpKindValue)) {
 
 					String perturbOpKindValue = OperatorUtil.getRandomLogicOperator(origOpKindValue, groundTruth);
+					
+					if (groundTruth.contains(simplefyExpression)) {
+						String perturbExpression = simplefyExpression.replace(origOpKindValue, perturbOpKindValue);
+						perturbCode = groundTruth.replace(simplefyExpression, perturbExpression);
+
+					} else {
 					perturbCode = groundTruth.replaceFirst(" " + origOpKindValue + " ", " " + perturbOpKindValue + " ");
-
+					}
 					if (!groundTruth.equals(perturbCode) && perturbCode != null) {
-
-						HashMap<String, String> map = new HashMap<String, String>();
-
-						map.put("lineNo1", lineNo1 + "");
-						map.put("lineNo2", lineNo2 + "");
-						map.put("lineNo3", lineNo3 + "");
-						map.put("lineNo4", lineNo4);
-						map.put("lineNo5", "");
-						map.put("perturbCode", perturbCode);
-						map.put("groundTruth", groundTruth);
-						map.put("methodStart", methStart + "");
-						map.put("methodEnd", methEnd + "");
-						map.put("repairAction", "[P2]");
-
-						PerturbResult.getCorruptedResult(map);
+						PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
 					}
 
 				}
@@ -87,13 +82,8 @@ public class P2_Replace_Operator {
 							}else {
 								origOpKindValue = "-";
 							}
-					}
+					}									
 					
-					
-								
-					
-					
-
 					if (groundTruth.contains(origOpKindValue)) {
 
 						String perturbOpKindValue = OperatorUtil.getRandomLogicOperator(origOpKindValue, groundTruth);
@@ -101,21 +91,8 @@ public class P2_Replace_Operator {
 								" " + perturbOpKindValue + " ");
 
 						if (!groundTruth.equals(perturbCode) && perturbCode != null) {
+							PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
 
-							HashMap<String, String> map = new HashMap<String, String>();
-
-							map.put("lineNo1", lineNo1 + "");
-							map.put("lineNo2", lineNo2 + "");
-							map.put("lineNo3", lineNo3 + "");
-							map.put("lineNo4", lineNo4);
-							map.put("lineNo5", "");
-							map.put("perturbCode", perturbCode);
-							map.put("groundTruth", groundTruth);
-							map.put("methodStart", methStart + "");
-							map.put("methodEnd", methEnd + "");
-							map.put("repairAction", "[P2]");
-
-							PerturbResult.getCorruptedResult(map);
 						}
 					}
 				}

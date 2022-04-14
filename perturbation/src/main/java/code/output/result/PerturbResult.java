@@ -19,6 +19,34 @@ import code.analysis.Variables;
 public class PerturbResult {
 
 
+	
+	public static void  parsePerturb(String actionNo, String perturbCode,String methStart, String methEnd,
+			String lineNo1, String lineNo2, String lineNo3, String lineNo4, String lineNo5, String groundTruth) {		
+
+		HashMap<String, String> map = new HashMap<String, String>();
+
+		map.put("lineNo1", lineNo1 );
+		map.put("lineNo2", lineNo2 );
+		map.put("lineNo3", lineNo3 );
+		map.put("lineNo4", lineNo4 );
+		map.put("lineNo5", lineNo5 );
+		map.put("perturbCode", perturbCode);
+		map.put("groundTruth", groundTruth);
+		map.put("methodStart", methStart );
+		map.put("methodEnd", methEnd );
+		map.put("repairAction", actionNo);
+
+		getCorruptedResult(map);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public static void  getCorruptedResult(HashMap<String, String> map) {		
 		

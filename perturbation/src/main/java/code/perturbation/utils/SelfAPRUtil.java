@@ -16,6 +16,7 @@ import spoon.reflect.code.CtExpression;
 import spoon.reflect.cu.SourcePosition;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.visitor.filter.TypeFilter;
+import spoon.support.reflect.code.CtBinaryOperatorImpl;
 import spoon.support.reflect.code.CtInvocationImpl;
 import spoon.support.reflect.code.CtLiteralImpl;
 import spoon.support.reflect.code.CtVariableReadImpl;
@@ -120,7 +121,6 @@ public class SelfAPRUtil {
 		if(dotSize.length>2) {
 			qaulifyName=qaulifyName.substring(qaulifyName.lastIndexOf(".")+1);	
 		}		
-		qaulifyName = qaulifyName.replace("(", "").replace(")", "");				
 		return qaulifyName;
 	}
 	
@@ -152,5 +152,36 @@ public class SelfAPRUtil {
 			return 1;
 		}	
 }
+	
+	
+	public static String simplefyExpression(CtBinaryOperatorImpl ctexpression) {	
+		String expression = ctexpression.toString();
+		
+		String left = ctexpression.getLeftHandOperand().toString();
+		if (expression.contains(left)&&('(' == (left.charAt(0)) && ')'== left.charAt(left.length()-1))) {
+			expression = expression.replace(left, left.subSequence(1, left.length()-1));
+		}
+		
+		String right = ctexpression.getRightHandOperand().toString();
+		if (expression.contains(right)&&('(' == (right.charAt(0)) && ')'== right.charAt(right.length()-1))) {
+			expression = expression.replace(right, right.subSequence(1, right.length()-1));
+		}
+			
+
+		
+		
+		while('(' == (expression.charAt(0)) && ')'== expression.charAt(expression.length()-1)) {
+			expression = expression.substring(1, expression.length()-1);
+			expression=expression.replace("(", " ( ").replace(")", " ) ");
+			expression = getSimpleStatement(expression);			
+		}
+		
+		
+		
+		
+		
+		return expression;
+	}
+	
 	
 }

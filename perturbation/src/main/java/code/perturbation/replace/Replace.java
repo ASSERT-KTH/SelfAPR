@@ -33,6 +33,7 @@ public class Replace {
 
 		String lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
 		if (!";".equals(lastChar) && !"}".equals(lastChar) && !"{".equals(lastChar)) {
+			
 			lineNo2 = lineNo1 + 1 + "";
 			groundTruth += " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
 			lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
@@ -46,13 +47,16 @@ public class Replace {
 				lineNo4 = lineNo1 + 3 + "";
 				groundTruth += " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 3).trim();
 			}
+					
 		}
 		
 		
 		
-		P1_Replace_Type.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4);
-		P2_Replace_Operator.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4);
-		P3_Replace_Literal.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4);
+//		P1_Replace_Type.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+//		P2_Replace_Operator.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+//		P3_Replace_Literal.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+//		P3_Replace_Literal.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+		P4_Replace_Constructor.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
 
 		
 		

@@ -11,9 +11,9 @@ import spoon.reflect.declaration.CtElement;
 public class P1_Replace_Type {
 
 	public static void perturb(CtElement st, StatementType type, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3,String lineNo4) {
+			String lineNo2, String lineNo3,String lineNo4,String lineNo5) {
 		String perturbCode = null;
-		String originGroundTruth = groundTruth;
+		String actionNo = "[P1]";
 		
 		/**
 		 * type perturbation
@@ -21,21 +21,7 @@ public class P1_Replace_Type {
 		perturbCode = TypePerturbation.perturb(st, groundTruth);
 		
 		if(!groundTruth.equals(perturbCode) && perturbCode!=null ){
-
-		HashMap<String, String> map = new HashMap<String, String>();
-
-		map.put("lineNo1", lineNo1 + "");
-		map.put("lineNo2", lineNo2 + "");
-		map.put("lineNo3", lineNo3 + "");
-		map.put("lineNo4",lineNo4);
-		map.put("lineNo5", "");
-		map.put("perturbCode", perturbCode);
-		map.put("groundTruth", groundTruth);
-		map.put("methodStart", methStart + "");
-		map.put("methodEnd", methEnd + "");
-		map.put("repairAction", "[P1]");
-
-		PerturbResult.getCorruptedResult(map);
+			PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);		
 		}		
 	}
 		

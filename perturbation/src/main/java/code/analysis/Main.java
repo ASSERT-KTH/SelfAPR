@@ -24,6 +24,7 @@ import spoon.reflect.declaration.CtConstructor;
 import spoon.reflect.declaration.CtElement;
 import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.CtVariable;
+import spoon.reflect.visitor.DefaultJavaPrettyPrinter;
 import spoon.reflect.visitor.Filter;
 import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.code.CtIfImpl;
@@ -62,7 +63,7 @@ public class Main {
 	}
 	
 	
-	
+
 	
 	/**
 	 * 
@@ -72,9 +73,10 @@ public class Main {
 	 */
 	public static  void sourceReader(String path) {
 		final SpoonAPI spoon = new Launcher();
-		spoon.getEnvironment().setNoClasspath(true);
 		
-		spoon . addInputResource(path);
+		
+		spoon.getEnvironment().setNoClasspath(true);
+		spoon.addInputResource(path);
 		spoon.buildModel ( ) ;
 		// Get the root element of spoon elements
 		CtElement rootElement = spoon.getModel().getRootPackage()
