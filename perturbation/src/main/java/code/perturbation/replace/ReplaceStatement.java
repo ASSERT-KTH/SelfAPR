@@ -75,9 +75,11 @@ public class ReplaceStatement {
 		 * variable
 		 */
 		if (perturbCode == null) {
-			perturbCode = VariablePerturbation.perturb(st, groundTruth);
-		} else if (SelfAPRUtil.getRandomDouble() > 0.7) {
-			String newperturbCode = VariablePerturbation.perturb(st, perturbCode);
+			List<String> l = VariablePerturbation.perturb(st, groundTruth, false);		
+			perturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));
+			} else if (SelfAPRUtil.getRandomDouble() > 0.7) {
+				List<String> l = VariablePerturbation.perturb(st, perturbCode, false);	
+				String newperturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));			
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
 			}

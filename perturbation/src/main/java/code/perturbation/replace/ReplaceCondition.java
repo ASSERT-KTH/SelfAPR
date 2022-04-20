@@ -70,9 +70,13 @@ public class ReplaceCondition {
 		 * Variables
 		 */		
 		if (perturbCode == null) {
-			perturbCode = VariablePerturbation.perturb(st, groundTruth);
+			List<String> l = VariablePerturbation.perturb(st, groundTruth, false);		
+			perturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));
 		} else if (SelfAPRUtil.getRandomDouble() > prob) {
-			String newperturbCode = VariablePerturbation.perturb(st, perturbCode);
+			
+			List<String> l = VariablePerturbation.perturb(st, perturbCode, false);	
+			String newperturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));
+			
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
 			}

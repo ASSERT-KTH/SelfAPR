@@ -90,10 +90,10 @@ public class SelfAPRUtil {
 		String randV = "";
 		double r = Math.random();
 		
-		String[] lst = {"null","this","false","null","true","null","this","null"};
+		String[] lst = {"null","this","false","null","true","null"};
 		
 		if(r>0.1) {
-			randV=lst[SelfAPRUtil.getRandomInt(8)];
+			randV=lst[SelfAPRUtil.getRandomInt(6)];
 		} else  {
 			randV = getRandomInt(5)+"";
 		} 
@@ -116,13 +116,21 @@ public class SelfAPRUtil {
 	}
 	
 	public static String getSimpleVarName(String qaulifyName) {	
-		String[] dotSize = qaulifyName.split("\\.");
+		if(qaulifyName==null || qaulifyName==""||qaulifyName.length()==0) {
+			return "";
+		}
+		if ('(' == (qaulifyName.charAt(0)) && ')'== qaulifyName.charAt(qaulifyName.length()-1)) {
+			qaulifyName = (String) qaulifyName.subSequence(1, (qaulifyName.length())-1);
+		}	
 		
+		String[] dotSize = qaulifyName.split("\\.");		
 		if(dotSize.length>2) {
 			qaulifyName=qaulifyName.substring(qaulifyName.lastIndexOf(".")+1);	
 		}		
 		return qaulifyName;
 	}
+	
+
 	
 	
 	public static String getSimpleStatement(String statement) {	
@@ -169,13 +177,13 @@ public class SelfAPRUtil {
 			
 
 		
-		
+		if(!expression.contains("&")&&!expression.contains("||")) {
 		while('(' == (expression.charAt(0)) && ')'== expression.charAt(expression.length()-1)) {
 			expression = expression.substring(1, expression.length()-1);
 			expression=expression.replace("(", " ( ").replace(")", " ) ");
-			expression = getSimpleStatement(expression);			
-		}
-		
+		}}
+		expression = getSimpleStatement(expression);			
+
 		
 		
 		

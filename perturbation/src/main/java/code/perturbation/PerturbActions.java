@@ -51,7 +51,7 @@ import spoon.support.reflect.declaration.CtFieldImpl;
 public class PerturbActions {
 
 	public static void randomPerturb(CtElement st, StatementType type, int methStart, int methEnd) {
-		try {
+//		try {
 					
 		String stStr = st.toString().replace("\r", " ").replace("\n", " ");
 		System.out.println( " ==== type =====" + type+ "===== st: ====" + stStr );
@@ -96,10 +96,10 @@ public class PerturbActions {
 //				Remove.remove(st, type, methStart, methEnd);
 //			}
 
-		} 
-		catch (Exception e) {
-			System.out.println("=============exception=========" + e.getLocalizedMessage());
-		}
+//		} 
+//		catch (Exception e) {
+//			System.out.println("=============exception=========" + e.getLocalizedMessage());
+//		}
 	}
 
 	/**
@@ -261,8 +261,7 @@ public class PerturbActions {
 				}
 			}
 
-			if (invocations.size() > 0 && localVariableImpl.size()==0 && returns.size() ==0
-					&& assignments.size()==0 &&trys.size()==0 && fors.size()==0 &&  conditions.size()==0 && whiles.size()==0) {
+			if (invocations.size() > 0 ) {
 				for (CtInvocationImpl i : invocations) {
 					PerturbActions.randomPerturb(i, StatementType.Statement, methStart, methEnd);
 				}

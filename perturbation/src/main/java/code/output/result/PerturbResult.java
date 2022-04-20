@@ -70,11 +70,11 @@ public class PerturbResult {
 			return;
 		}
 		
-		if(action.contains("REPLACE")) {
-			if (perturbCode.trim().equals(groundTruth.trim())) {
-				return;
-			}
+		
+		if (perturbCode.trim().equals(groundTruth.trim())) {
+			return;
 		}
+		
 		
 		
 		
@@ -88,7 +88,7 @@ public class PerturbResult {
 			methodEnd="";
 		}		
 		
-//		String classinfo = ClassAnalysis.getCurrentClass();
+		String classinfo = ClassAnalysis.getCurrentClass();
 //		String method = MethodSignature.getCurrentMethod();
 		String variables = Variables.getVariableInfo();
 		
@@ -238,6 +238,7 @@ public class PerturbResult {
 	
 	
 	private static Boolean existInFile(String filename, String emsembleStr) {
+		emsembleStr=emsembleStr.replace(" ", "");
 		boolean flag = false;
 		BufferedReader br;
 		try {
@@ -245,6 +246,7 @@ public class PerturbResult {
 			String thisLine="";
 			 try {
 				while ((thisLine = br.readLine()) != null) {
+					thisLine = thisLine.replace(" ", "");
 				        if (emsembleStr.equals(thisLine)){
 				        	return true;
 				        }

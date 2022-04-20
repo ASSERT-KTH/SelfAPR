@@ -96,10 +96,11 @@ public class ReplaceReturn {
 		 * variable
 		 */
 		if (perturbCode == null) {
-			perturbCode = VariablePerturbation.perturb(st, groundTruth);
-		} else if (SelfAPRUtil.getRandomDouble() > prob) {
-			String newperturbCode = VariablePerturbation.perturb(st, perturbCode);
-			if(newperturbCode!=null) {
+			List<String> l = VariablePerturbation.perturb(st, groundTruth, false);		
+			perturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));		
+			} else if (SelfAPRUtil.getRandomDouble() > prob) {
+				List<String> l = VariablePerturbation.perturb(st, perturbCode, false);	
+				String newperturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
 			}
 		}

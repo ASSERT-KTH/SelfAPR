@@ -12,6 +12,7 @@ import code.analysis.Variables;
 import code.perturbation.utils.SelfAPRUtil;
 import spoon.reflect.code.CtExpression;
 import spoon.reflect.declaration.CtElement;
+import spoon.reflect.declaration.CtTypedElement;
 import spoon.reflect.declaration.CtVariable;
 import spoon.reflect.reference.CtTypeReference;
 import spoon.reflect.visitor.filter.TypeFilter;
@@ -24,16 +25,17 @@ import spoon.support.reflect.code.CtVariableWriteImpl;
 
 public class VariablePerturbation {
 
-	public static String perturb(CtElement st, String groundTruth) {
+	public static List<String> perturb(CtElement st, String groundTruth, boolean isSwap) {
 		List<CtVariableReadImpl> argumentsDuplicates = st
 				.getElements(new TypeFilter<CtVariableReadImpl>(CtVariableReadImpl.class));
-		List<CtVariableWriteImpl> argumentsWDuplicates = st
-				.getElements(new TypeFilter<CtVariableWriteImpl>(CtVariableWriteImpl.class));
+		List<CtLocalVariableImpl> argumentsWDuplicates = st
+				.getElements(new TypeFilter<CtLocalVariableImpl>(CtLocalVariableImpl.class));
+		
 		
 		List<CtFieldReadImpl> filedsDuplicates = st
 				.getElements(new TypeFilter<CtFieldReadImpl>(CtFieldReadImpl.class));
 		
-		String corruptedCode = null;
+		List<String> corruptedCodeList = new ArrayList();
 		
 		
 		List<CtElement> allist = new ArrayList();
@@ -45,52 +47,63 @@ public class VariablePerturbation {
 		for(CtFieldReadImpl f : filedsDuplicates) {
 			allist.add(f);
 		}
-
-
-
-		  //todo: recursively find arguments
-//
-//		  TypeFilter<CtInvocationImpl> invocationFilter = new TypeFilter<CtInvocationImpl>(CtInvocationImpl.class);
-//		  List<CtInvocationImpl> invocations = st.getElements(invocationFilter);
-//		  for(CtInvocationImpl inv : invocations) {
-//			  CtExpression targets = inv.getTarget();
-//			  List<CtVariableReadImpl> args = inv.getElements(new TypeFilter<CtVariableReadImpl>(CtVariableReadImpl.class));
-//			  List<CtFieldReadImpl> fields = inv.getElements(new TypeFilter<CtFieldReadImpl>(CtFieldReadImpl.class));
-//			  for(CtVariableReadImpl v : args) {
-//				  argumentsDuplicates.add(v);
-//			  }
-//			  for(CtFieldReadImpl f : fields) {
-//				  argumentsDuplicates.add(f);
-//			  }
-//			  System.out.print("");
-//		  }
-		  
-		  
-		  
+	  
 		  
 		  //deduplicate arguments
 		  List<CtElement> arguments = new ArrayList<CtElement>(new LinkedHashSet<CtElement>(allist));
 		
-		  List<CtVariableWriteImpl> argumentsWrite = new ArrayList<CtVariableWriteImpl>(new LinkedHashSet<CtVariableWriteImpl>(argumentsWDuplicates));
+		  List<CtLocalVariableImpl> argumentsWrite = new ArrayList<CtLocalVariableImpl>(new LinkedHashSet<CtLocalVariableImpl>(argumentsWDuplicates));
 		  
 		  
 		  
 		  
 		
 		// replace argument with the same type argument
-		if (allist.size() > 0 ) {
-			int i = SelfAPRUtil.getRandomInt(arguments.size());
+		if (arguments.size() > 0 && !isSwap) {
+			
+			for(int i = 0; i<arguments.size(); i ++) {
+			String corruptedCode = null;
             int j=i;
-			if (allist.size() > 1) {
-				while(i==j) {
-				i = SelfAPRUtil.getRandomInt(arguments.size());
-				}
+            
+            if(((CtTypedElement) arguments.get(i)).getType()==null) {
+				return null;
 			}
+			String typei = ((CtTypedElement) arguments.get(i)).getType().toString();
+			
+			if (arguments.size() > 1) {
+				
+	            int count=0;
+	            boolean typeEquals=false;
+				while((i==j||!typeEquals) && count<10 ) {
+					count++;
+					j = SelfAPRUtil.getRandomInt(arguments.size());
+					if(((CtTypedElement) arguments.get(j)).getType()!=null) {
+					String typej = ((CtTypedElement) arguments.get(j)).getType().toString();
+					if(typei.equals(typej)) {
+						typeEquals=true;
+					}
+					}
+				} 
+				
+				while(i==j) {
+					j = SelfAPRUtil.getRandomInt(arguments.size());
+				}
+				
+			}
+			
+			
+			
 
-			CtElement arg = allist.get(i);
-			CtElement argAnother = allist.get(j);
+			CtElement arg = arguments.get(i);
+			Object argAnother = arguments.get(j);
+			
+			if(argumentsWrite.size()>0) {
+				 argAnother = argumentsWrite.get(0).getSimpleName();
+			}
+			
 
 			String varStr = SelfAPRUtil.getSimpleVarName(arg.toString());
+			
 
 			if (groundTruth.contains(" " + varStr) || groundTruth.contains( varStr+" " ) ) {
 				
@@ -102,10 +115,58 @@ public class VariablePerturbation {
 					} else {
 						corruptedCode = groundTruth.replaceFirst(varStr+" " , corruptedVar+" ");
 					}
+					corruptedCodeList.add(corruptedCode);
 				}
 			}
-		}
+		} 
 
-		return corruptedCode;
+		}
+		
+			
+	//swap
+		else if(arguments.size() > 1 && isSwap) {
+			for(int i = 0; i<arguments.size(); i ++) {
+			String corruptedCode = null;
+			if(((CtTypedElement) arguments.get(i)).getType()==null) {
+				return null;
+			}
+			String typei = ((CtTypedElement) arguments.get(i)).getType().toString();
+
+            int j=i;
+            int count=0;
+            boolean typeEquals=false;
+			while((i==j||!typeEquals) && count<10 ) {
+				count++;
+				j = SelfAPRUtil.getRandomInt(arguments.size());
+				if(((CtTypedElement) arguments.get(j)).getType()!=null) {
+				String typej = ((CtTypedElement) arguments.get(j)).getType().toString();
+				if(typei.equals(typej)) {
+					typeEquals=true;
+				}
+				}
+			} 
+			
+			while(i==j) {
+				j = SelfAPRUtil.getRandomInt(arguments.size());
+			}
+			
+			
+			
+			CtElement arg = arguments.get(i);
+			CtElement argAnother = arguments.get(j);
+			
+			String varStr = SelfAPRUtil.getSimpleVarName(arg.toString());
+			String varAnotherStr = SelfAPRUtil.getSimpleVarName(argAnother.toString());
+			if(groundTruth.contains(" "+varStr) && groundTruth.contains(" "+varAnotherStr)  ) {
+				corruptedCode = groundTruth.replaceFirst(" "+varStr , "_tmp_");
+				corruptedCode = corruptedCode.replaceFirst(" "+varAnotherStr , " "+varStr);
+				corruptedCode = corruptedCode.replaceFirst("_tmp_" , " "+varAnotherStr);
+			}
+			corruptedCodeList.add(corruptedCode);
+
+		}
 	}
-}
+		return corruptedCodeList;
+
+} }
+

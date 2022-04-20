@@ -27,7 +27,7 @@ public class TypePerturbation {
 			if (TypeUtil.isBasicType(origType)) {
 				if(!origType.equals("boolean")) {
 				String randomType = TypeUtil.getRandomBasicType(origType);
-				perturbCode = groundTruth.replace(origType, randomType);
+				perturbCode = groundTruth.replace(origType+" ", randomType+" ");
 				}
 			} 
 			

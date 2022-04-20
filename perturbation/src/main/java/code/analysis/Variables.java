@@ -29,7 +29,7 @@ public class Variables {
 
 	static HashMap<String, Set<String>> _fieldByTypeMap = new HashMap<String, Set<String>>();
 
-	public static String getRandomVariablesForAssignment(CtElement var1, CtElement var2) {
+	public static String getRandomVariablesForAssignment(CtElement var1, Object var2) {
 
 		String type = null;
 		String target = null;
@@ -47,7 +47,7 @@ public class Variables {
 
 		try {
 
-			if (type!=null && SelfAPRUtil.getRandomDouble() > 0.15) {
+			if (type!=null && SelfAPRUtil.getRandomDouble() > 0.1) {
 				type = SelfAPRUtil.getSimpleVarName(type);
 
 				String origValue1 = SelfAPRUtil.getSimpleVarName(var1.toString());
@@ -57,10 +57,10 @@ public class Variables {
 				for (String v : values) {
 					if (!v.equals(origValue1) && !v.equals(origValue2)) {
 						double score = EditDistance.similarity(v, origValue1);
-						if (score > maxScore) {
+						if (score >= maxScore) {
 							target = v;
 							count++;
-							if (count > values.size() / 2 && SelfAPRUtil.getRandomDouble() > 0.85) {
+							if (count > values.size() / 2 && SelfAPRUtil.getRandomDouble() > 0.7) {
 								return target;
 							}
 						}
@@ -214,13 +214,13 @@ public class Variables {
 		// add true false in boolean
 		if (_variableByTypeMap.containsKey("boolean")) {
 			Set<String> lst = _variableByTypeMap.get("boolean");
-			lst.add("true");
-			lst.add("false");
+//			lst.add("true");
+//			lst.add("false");
 			_variableByTypeMap.put("boolean", lst);
 		} else {
 			Set<String> lst = new TreeSet<String>();
-			lst.add("true");
-			lst.add("false");
+//			lst.add("true");
+//			lst.add("false");
 			_variableByTypeMap.put("boolean", lst);
 		}
 
@@ -236,7 +236,7 @@ public class Variables {
 			for (String s : values) {
 				valStr += " " + s + " ";
 			}
-			info += " [TYPE]  " + key + valStr;
+			info +=  key +" "+ valStr+" ";
 		}
 
 		return info;

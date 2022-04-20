@@ -1,5 +1,7 @@
 package code.perturbation.replace;
 
+import java.util.List;
+
 import code.output.result.PerturbResult;
 import code.perturbation.ConstructorPerturbation;
 import code.perturbation.VariablePerturbation;
@@ -14,18 +16,30 @@ public class P5_Replace_Variable {
 		 * P5 Variable Perturbation
 		 */
 
-		String actionNo = "[P5]";
-		
-		String perturbCode = null;
-		
+		String actionNo = "[P5_Replace_Variable]";
 
-		perturbCode = VariablePerturbation.perturb(st, groundTruth);
-
-		
 	
 
-		if (!groundTruth.equals(perturbCode) && perturbCode != null) {
-			PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
-		}
+		List<String> perturbCode1  = VariablePerturbation.perturb(st, groundTruth, false);
+		List<String> perturbCode2 = VariablePerturbation.perturb(st, groundTruth, true);
+		
+
+		if(perturbCode1 != null) {
+		for (String perturbCode : perturbCode1) {
+			if (!groundTruth.equals(perturbCode) && perturbCode != null) {
+				PerturbResult.parsePerturb(actionNo, perturbCode, methStart + "", methEnd + "", lineNo1 + "", lineNo2,
+						lineNo3, lineNo4, lineNo5, groundTruth);
+			}
+		}}
+
+		if(perturbCode2 != null) {
+		for (String perturbCode : perturbCode2) {
+			if (!groundTruth.equals(perturbCode) && perturbCode != null) {
+				PerturbResult.parsePerturb(actionNo, perturbCode, methStart + "", methEnd + "", lineNo1 + "", lineNo2,
+						lineNo3, lineNo4, lineNo5, groundTruth);
+			}
+		}}
+				
+
 	}
 }
