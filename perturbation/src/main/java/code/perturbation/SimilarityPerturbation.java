@@ -3,6 +3,7 @@ package code.perturbation;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import code.analysis.Variables;
 import code.perturbation.utils.EditDistance;
@@ -41,8 +42,14 @@ public class SimilarityPerturbation {
 	static HashSet<String> _conditionHeadList = new HashSet<String>();
 	static HashSet<String> _forHeadList = new HashSet<String>();
 
-	public static String perturb(CtElement st, String groundTruth, StatementType type, Double similarity, String withoutStr) {
+	public static Set<String> perturb(CtElement st, String groundTruth, StatementType type, Double similarity, String withoutStr) {
 
+		List<String> simStmList = new ArrayList();
+		Set<String> simStmSet = new HashSet();
+
+		
+		
+		
 		HashSet<String> targetList = null;
 
 		if (similarity == null) {
@@ -76,9 +83,6 @@ public class SimilarityPerturbation {
 		System.out.println("=========" + targetList.size() + "===============");
 
 		// get the most similar statement
-		double maxScore = 0;
-		String simStatement = null;
-		int count = 0;
 		String target = st.toString();
 		if (type ==StatementType.ConditionHead || type ==StatementType.LocalVariable || type ==StatementType.Assignment
 				|| type ==StatementType.Statement || type ==StatementType.For || type ==StatementType.Return || type ==StatementType.Throw) {
@@ -96,27 +100,23 @@ public class SimilarityPerturbation {
 					}
 				}
 				double score = EditDistance.similarity(s, target);
-				if (score > maxScore && score > similarity) {
-					maxScore = score;
-					simStatement = s;
-				}
-
-				if (maxScore > similarity) {
-					break;
-				}
+				if (score > similarity) {
+					simStmList.add(s);
+				}			
 			}
 		}
 
-		System.out.println("=========" + maxScore + "===============");
 
+		
+		for(String simStatement: simStmList) {
+			
 		if (simStatement != null) {
 
 			if (type ==StatementType.ConditionHead || type ==StatementType.LocalVariable || type ==StatementType.Assignment
 					|| type ==StatementType.Statement || type ==StatementType.For || type ==StatementType.Return || type ==StatementType.Throw) {
 
 				simStatement = simStatement.replace("\r", "").replace("\n", "");
-
-				return simStatement;
+				simStmSet.add(simStatement);
 
 			} else {
 				String simpleSimStatement = "";
@@ -141,15 +141,15 @@ public class SimilarityPerturbation {
 
 				simpleSimStatement = simpleSimStatement.replace("\r", " ");
 				simpleSimStatement = simpleSimStatement.replace("\n", " ");
-
-				return simpleSimStatement;
-
+				simStmSet.add(simpleSimStatement);
 			}
-
-		} else {
-			return null;
+		} 
 		}
+		return simStmSet;
+
 	}
+
+
 
 	public static void analysis(CtElement root) {
 		_statementList = new HashSet<String>();

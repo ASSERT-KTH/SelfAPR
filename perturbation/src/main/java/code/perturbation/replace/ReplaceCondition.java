@@ -245,11 +245,13 @@ public class ReplaceCondition {
 		if("".equals(lineNo3)) {
 			if (((groundTruth.equals(perturbCode) || perturbCode==null)) ) {
 				System.out.println("sim condition head");
-				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,StatementType.ConditionHead,0.75 - (0.5*count),null);
-				if(newperturbCode!=null) {
+				List<String> sets= (List<String>) SimilarityPerturbation.perturb(st, originGroundTruth,StatementType.ConditionHead,0.75-(count*0.5),null);
+				if(sets!=null & sets.size()>0) {
+				String newperturbCode = sets.get(0);
+				if(newperturbCode!=null) {				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode;
-				} }
+				}}
 				
 			}		
 		}

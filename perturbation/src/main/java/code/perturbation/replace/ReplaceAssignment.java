@@ -2,6 +2,7 @@ package code.perturbation.replace;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import code.analysis.AssignmentAnalysis;
 import code.analysis.Variables;
@@ -80,14 +81,17 @@ public class ReplaceAssignment {
 		 */
 		if("".equals(lineNo2)) {
 			if ((groundTruth.equals(perturbCode) || perturbCode==null)  || SelfAPRUtil.getRandomDouble() > prob) {
-				System.out.print("");
-				String newperturbCode = SimilarityPerturbation.perturb(st, groundTruth,StatementType.Assignment, 0.7 - (0.9*(count)),null);
-				System.out.print("");
 				
+				List<String> sets= (List<String>) SimilarityPerturbation.perturb(st, groundTruth,StatementType.Assignment,0.75-(count*0.5),null);
+				if(sets!=null & sets.size()>0) {
+				String newperturbCode = sets.get(0);
+				if(newperturbCode!=null) {				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
-					perturbCode = newperturbCode+" ;";
+					perturbCode = newperturbCode;
 				}
-
+				
+				}
+				
 			}		
 		}
 
@@ -161,11 +165,13 @@ public class ReplaceAssignment {
 		if("".equals(lineNo2)) {
 			if (((groundTruth.equals(perturbCode) || perturbCode==null) )) {
 				System.out.println("sim assignment");
-				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,type,0.75-(count*0.5),null);
-				System.out.println("sim assignment");
+				List<String> sets= (List<String>) SimilarityPerturbation.perturb(st, originGroundTruth,type,0.75-(count*0.5),null);
+				if(sets!=null & sets.size()>0) {
+				String newperturbCode = sets.get(0);
 				if(newperturbCode!=null) {				
 				if(newperturbCode!=null && !"".equals(newperturbCode)) {
 					perturbCode = newperturbCode;
+				}
 				}
 				}
 
@@ -203,4 +209,4 @@ public class ReplaceAssignment {
 		}
 
 	}
-}
+} }

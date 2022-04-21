@@ -89,10 +89,10 @@ public class PerturbResult {
 		}		
 		
 		String classinfo = ClassAnalysis.getCurrentClass();
-//		String method = MethodSignature.getCurrentMethod();
+		String method = MethodSignature.getCurrentMethod();
 		String variables = Variables.getVariableInfo();
 		
-		String meta =  variables;
+		String meta =  classinfo+" "+method+" "+variables;
 		
 		String emsembleStr = action+"^"+perturbCode+"^"+lineNo1+"^"
 							+lineNo2+"^"
