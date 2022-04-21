@@ -78,16 +78,12 @@ public class ExecutableAnalysis {
 		//get the most similar exectuable
 		double maxScore=0;
 		String simExec=null;
-		int count = 0;
 		for(String execName : names) {
 			if(!execName.equals(origName)) {
 			double score = EditDistance.similarity(execName, origName);
 			if (score > maxScore) {
 				maxScore = score;
 				simExec = execName;
-			}
-			if(count>names.size()/1.5 && SelfAPRUtil.getRandomDouble()>0.8) {
-				break;
 			}
 			}
 		}

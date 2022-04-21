@@ -43,10 +43,14 @@ public class ReplaceReturn {
 		 * Invocation
 		 */
 		if (perturbCode == null) {
-			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
+			List<String> l = InvocationPerturbation.perturb(st, groundTruth);	
+			 perturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));
+			
 		}else if (SelfAPRUtil.getRandomDouble() > prob) {
-			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
-			if(newperturbCode!=null) {
+				List<String> l = InvocationPerturbation.perturb(st, perturbCode);	
+				String newperturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));
+				
+				if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
 			}
 		}

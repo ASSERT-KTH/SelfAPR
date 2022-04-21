@@ -71,8 +71,6 @@ public class MethodSignature {
 			return null;
 			}
 		} else {
-			System.out.println(exec);
-
 			methName = exec.split("@@")[0];
 			String sub = exec.substring(exec.indexOf("@@"), exec.length());
 			if(sub.length()>2) {
@@ -82,10 +80,7 @@ public class MethodSignature {
 			}
 		}
 		
-
-
-		
-		
+	
 		
 		if(paramStr==null) {
 		int i = SelfAPRUtil.getRandomInt(params.size());
@@ -103,7 +98,6 @@ public class MethodSignature {
 
 		methName += " ( ";
 		// Now we construct a method call
-
 		if (!" ".equals(paramStr) && !"".equals(paramStr) && paramStr!=null) {
 			String[] paramList = paramStr.split(" ");
 			

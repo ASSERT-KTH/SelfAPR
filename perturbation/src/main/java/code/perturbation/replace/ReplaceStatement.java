@@ -90,9 +90,14 @@ public class ReplaceStatement {
 		 * Invocation
 		 */
 		if (perturbCode == null) {
-			perturbCode = InvocationPerturbation.perturb(st, groundTruth);
+			List<String> l = InvocationPerturbation.perturb(st, groundTruth);	
+			String newperturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));
+			
+			
+			
 		}else if (SelfAPRUtil.getRandomDouble() > 0.7) {
-			String newperturbCode = InvocationPerturbation.perturb(st, perturbCode);
+			List<String> l = InvocationPerturbation.perturb(st, perturbCode);	
+			String newperturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));
 			if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
 			}

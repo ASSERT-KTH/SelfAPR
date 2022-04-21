@@ -88,12 +88,15 @@ public class SelfAPRUtil {
 	public static String randomReturnElement() {
 		
 		String randV = "";
-		double r = Math.random();
+		double r = getRandomDouble();
 		
-		String[] lst = {"null","this","false","null","true","null"};
+		String[] lst = {"null","this","null"};
 		
 		if(r>0.1) {
-			randV=lst[SelfAPRUtil.getRandomInt(6)];
+			randV=null;
+		}
+		else if(r>0.05) {
+			randV=lst[SelfAPRUtil.getRandomInt(3)];
 		} else  {
 			randV = getRandomInt(5)+"";
 		} 
@@ -145,20 +148,13 @@ public class SelfAPRUtil {
 	
 	
 	public static int getArgsSize(CtElement inv) {
-		String invStr = inv.toString().split("\\(")[1];
-		if(invStr.length()<2) {
-			return 0;
-
-		}
-		invStr = invStr.toString().split("\\)")[0];
-
-		if(invStr.contains(",")) {
-			String[] commas = invStr.split("\\,");
-			return commas.length;
-			
-		}else {
-			return 1;
-		}	
+		
+		List<CtVariableReadImpl> arguments = inv
+		.getElements(new TypeFilter<CtVariableReadImpl>(CtVariableReadImpl.class));
+		List<CtLiteralImpl> literals = inv
+				.getElements(new TypeFilter<CtLiteralImpl>(CtLiteralImpl.class));
+		return arguments.size() + literals.size();
+		
 }
 	
 	

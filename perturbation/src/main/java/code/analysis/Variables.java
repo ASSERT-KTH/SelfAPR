@@ -159,10 +159,10 @@ public class Variables {
 				}
 
 			} catch (Exception e) {
-				return SelfAPRUtil.randomReturnElement();
+				return SelfAPRUtil.randomReturnElement();			
 			}
 
-			return SelfAPRUtil.randomReturnElement();
+			return SelfAPRUtil.randomReturnElement();	
 		}
 	}
 

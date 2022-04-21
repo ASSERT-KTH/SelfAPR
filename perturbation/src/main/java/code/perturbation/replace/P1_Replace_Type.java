@@ -13,7 +13,7 @@ public class P1_Replace_Type {
 	public static void perturb(CtElement st, StatementType type, int methStart, int methEnd, String groundTruth, int lineNo1,
 			String lineNo2, String lineNo3,String lineNo4,String lineNo5) {
 		String perturbCode = null;
-		String actionNo = "[P1]";
+		String actionNo = "[P1_Replace_Type]";
 		
 		/**
 		 * type perturbation

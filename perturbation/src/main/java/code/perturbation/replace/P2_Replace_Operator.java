@@ -22,7 +22,7 @@ public class P2_Replace_Operator {
 		 * operator perturbation
 		 */
 
-		String actionNo = "[P2]";
+		String actionNo = "[P2_Replace_Operator]";
 		// CtBinaryOperatorImpl expression
 		List<CtBinaryOperatorImpl> expressions = st
 				.getElements(new TypeFilter<CtBinaryOperatorImpl>(CtBinaryOperatorImpl.class));

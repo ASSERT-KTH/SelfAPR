@@ -51,7 +51,7 @@ public class Main {
 	
 	public static void main(String[] args) {		
 //		path = args[0];	
-		path = "/Users/sophie/Documents/SelfAPR/D4JTraining/Closure_113.java";
+		path = "/Users/sophie/Documents/SelfAPR/D4JTraining/P7Invocations.java";
 		sourceReader(path);	
 	}
 	

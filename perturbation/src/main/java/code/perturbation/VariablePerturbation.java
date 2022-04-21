@@ -131,7 +131,7 @@ public class VariablePerturbation {
 				return null;
 			}
 			String typei = ((CtTypedElement) arguments.get(i)).getType().toString();
-
+			
             int j=i;
             int count=0;
             boolean typeEquals=false;
@@ -161,10 +161,31 @@ public class VariablePerturbation {
 				corruptedCode = groundTruth.replaceFirst(" "+varStr , "_tmp_");
 				corruptedCode = corruptedCode.replaceFirst(" "+varAnotherStr , " "+varStr);
 				corruptedCode = corruptedCode.replaceFirst("_tmp_" , " "+varAnotherStr);
+				corruptedCodeList.add(corruptedCode);
 			}
+			
+			//remove one
+			if(groundTruth.contains(varStr+",")) {
+			corruptedCode = groundTruth.replaceFirst(varStr+"," , "");
 			corruptedCodeList.add(corruptedCode);
 
+			} else if(groundTruth.contains(", "+varStr)) {
+				corruptedCode = groundTruth.replaceFirst(", "+varStr, "");
+				corruptedCodeList.add(corruptedCode);
+			}
+			
+		
+			
+			
+			
+			
+			
+
 		}
+			
+			
+			
+			
 	}
 		return corruptedCodeList;
 

@@ -22,7 +22,7 @@ public class P3_Replace_Literal {
 		 * P3 Literal Perturbation
 		 */
 
-		String actionNo = "[P3]";
+		String actionNo = "[P3_Replace_Literal]";
 
 		TypeFilter<CtLiteralImpl> literalfilter = new TypeFilter<CtLiteralImpl>(CtLiteralImpl.class);
 		List<CtLiteralImpl> literals = st.getElements(literalfilter);

@@ -178,6 +178,15 @@ public class P6_Replace_Expression {
 			}
 		}
 
+		
+	//else if -> else
+	if (groundTruth.contains("else") && groundTruth.contains("if")) {
+		groundTruth = groundTruth.trim();
+		if(groundTruth.startsWith("}") && groundTruth.endsWith("{")) {
+			perturbCodeList.add(" } else {");
+		}
+	}
+		
 		if (perturbCodeList != null) {
 			for (String perturbCode : perturbCodeList) {
 				if (!groundTruth.equals(perturbCode) && perturbCode != null) {

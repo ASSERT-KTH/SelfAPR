@@ -55,7 +55,7 @@ public class ConstructorPerturbation {
 
 			if (groundTruth.contains(excStr)) {
 
-				String corruptedExe = SimilarityPerturbation.perturb(inv, groundTruth, StatementType.Constructor, 0.65, null);
+				String corruptedExe = SimilarityPerturbation.perturb(inv, groundTruth, StatementType.Constructor, 0.7, null);
 
 				if (corruptedExe != null) {
 
