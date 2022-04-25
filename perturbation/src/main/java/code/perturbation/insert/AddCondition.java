@@ -1,6 +1,7 @@
-package code.perturbation.add;
+package code.perturbation.insert;
 
 import java.util.HashMap;
+import java.util.List;
 
 import code.analysis.StatementAnalysis;
 import code.output.result.PerturbResult;
@@ -37,7 +38,8 @@ public class AddCondition {
 		//add similar statement;		
 		
 		
-		String perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,StatementType.Condition, 0.4,"null");
+		List<String> sets= (List<String>) SimilarityPerturbation.perturb(st, groundTruth,StatementType.ConditionHead,0.4,"null");
+		 String perturbCode= sets.size()>0 ?sets.get(0):null;
 		
 		if(perturbCode==null) {
 			return;

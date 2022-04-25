@@ -92,18 +92,17 @@ public class PerturbResult {
 		String method = MethodSignature.getCurrentMethod();
 		String variables = Variables.getVariableInfo();
 		
-		String meta =  classinfo+" "+method+" "+variables;
+		String meta =  classinfo+" "+method+" [VARIABLES] "+variables;
 		
-		String emsembleStr = action+"^"+perturbCode+"^"+lineNo1+"^"
+		String emsembleStr = perturbCode+"^"+lineNo1+"^"
 							+lineNo2+"^"
 							+lineNo3+"^"
 							+lineNo4+"^"
 							+lineNo5+"^"
 							+methodStart+"^"+methodEnd+"^"
-							+ action +" "+groundTruth+"^"+meta;
+							+groundTruth+"^"+meta;
 				
 				
-		System.out.println(emsembleStr);
 //		copy targetFile
 		String filename = Main.getPathDir();
 		if(filename.contains("Bears")) {
@@ -170,9 +169,12 @@ public class PerturbResult {
 		if (!exist) {
 			
 		try {
+			emsembleStr=action+"^"+emsembleStr;
 			BufferedWriter writer = 	new BufferedWriter(new FileWriter(filename,true));
 			writer.append(emsembleStr+"\n");
 			writer.close();
+			System.out.println(emsembleStr);
+
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -247,7 +249,7 @@ public class PerturbResult {
 			 try {
 				while ((thisLine = br.readLine()) != null) {
 					thisLine = thisLine.replace(" ", "");
-				        if (emsembleStr.equals(thisLine)){
+				        if (thisLine.contains(emsembleStr)){
 				        	return true;
 				        }
 				     }

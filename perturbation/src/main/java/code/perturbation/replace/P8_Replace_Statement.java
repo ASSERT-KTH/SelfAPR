@@ -20,8 +20,7 @@ public class P8_Replace_Statement {
 		 */
 		String actionNo = "[P8_Replace_Statement]";
 		
-		Set<String> perturbCodeSet = new HashSet();
-		perturbCodeSet = SimilarityPerturbation.perturb(st, groundTruth, type, 0.7, null);
+		List<String> perturbCodeSet = SimilarityPerturbation.perturb(st, groundTruth, type, 0.7, null);
 		
 
 		if (perturbCodeSet != null) {

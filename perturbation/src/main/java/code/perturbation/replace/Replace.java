@@ -59,7 +59,8 @@ public class Replace {
 //		P5_Replace_Variable.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
 ////		P6_Replace_Expression.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
 //		P7_Replace_Invocation.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
-		P8_Replace_Statement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+//		P8_Replace_Statement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+		P9_Replace_Mix.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
 
 		
 		
@@ -68,40 +69,7 @@ public class Replace {
 		
 		
 
-//		if (type == StatementType.Declaration) {
-//			ReplaceDeclaration.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0.9);
-//			ReplaceDeclaration.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0.7);
-//
-//		}
-//
-//		else if (type == StatementType.Assignment) {
-//			ReplaceAssignment.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.9);
-//			ReplaceAssignment.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.7);
-//
-//		}
-//		
-//		else if (type== StatementType.Condition) {
-//			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.9);
-//			ReplaceCondition.perturb(st, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0,0.7);
-//		}
-//
-//		else if (type==StatementType.Return) {
-//			 ReplaceReturn.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0,0.9);
-//			 ReplaceReturn.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0,0.7);
-//
-//		 }	
-//		 
-//		else if(type==StatementType.Throw) {
-//			double r = SUPREUtil.getRandomDouble();
-//			if(r>0.5) {
-//			 ReplaceThrow.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4, 0);
-//			}
-//
-//		 }
-//		 
-//		else  {
-//			 ReplaceStatement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3,lineNo4,0);
-//		 }
+
 		 
 		
 

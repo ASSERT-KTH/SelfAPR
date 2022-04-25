@@ -1,6 +1,8 @@
 package code.perturbation;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import code.analysis.MethodSignature;
 import code.analysis.Variables;
@@ -55,8 +57,10 @@ public class ConstructorPerturbation {
 
 			if (groundTruth.contains(excStr)) {
 
-				String corruptedExe = SimilarityPerturbation.perturb(inv, groundTruth, StatementType.Constructor, 0.7, null);
+				
 
+				List<String> perturbCodeSet = (List<String>) SimilarityPerturbation.perturb(inv, groundTruth, StatementType.Constructor, 0.7, null);
+				String corruptedExe = perturbCodeSet.size()>0 ?	perturbCodeSet.get(0):null;		
 				if (corruptedExe != null) {
 
 					int index = groundTruth.indexOf(excStr);

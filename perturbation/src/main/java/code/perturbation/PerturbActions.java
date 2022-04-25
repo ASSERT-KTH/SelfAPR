@@ -14,8 +14,8 @@ import code.analysis.ConditionAnalysis;
 import code.analysis.MethodSignature;
 import code.analysis.StatementAnalysis;
 import code.analysis.Variables;
-import code.perturbation.add.AddCondition;
-import code.perturbation.add.AddStatement;
+import code.perturbation.insert.AddCondition;
+import code.perturbation.insert.AddStatement;
 import code.perturbation.remove.Remove;
 import code.perturbation.remove.RemoveTry;
 import code.perturbation.replace.Replace;
@@ -64,6 +64,10 @@ public class PerturbActions {
 		}
 			
 		Replace.replace(st, type, methStart, methEnd);
+		AddCondition.add(st, type, methStart, methEnd);
+		Remove.remove(st, type, methStart, methEnd);
+		AddStatement.add(st, type, methStart, methEnd);
+
 		
 //
 //			else if (type==StatementType.Condition) {

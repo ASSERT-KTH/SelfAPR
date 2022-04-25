@@ -1,4 +1,4 @@
-package code.perturbation.replace;
+package code.perturbation.replace.mix;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +25,7 @@ import spoon.support.reflect.code.CtVariableReadImpl;
 public class ReplaceReturn {
 
 	public static void perturb(CtElement st, StatementType type, int methStart, int methEnd, String groundTruth, int lineNo1,
-			String lineNo2, String lineNo3, String lineNo4,int count,double prob) {
+			String lineNo2, String lineNo3, String lineNo4,String lineNo5,double prob,String actionNo) {
 		
 		String perturbCode = null;
 		String originGroundTruth = groundTruth;
@@ -44,14 +44,17 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			List<String> l = InvocationPerturbation.perturb(st, groundTruth);	
-			 perturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));
-			
+			if (l!=null && l.size()>0) {
+			perturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));
+			}
 		}else if (SelfAPRUtil.getRandomDouble() > prob) {
 				List<String> l = InvocationPerturbation.perturb(st, perturbCode);	
+				if (l!=null && l.size()>0) {
 				String newperturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));
 				
 				if(newperturbCode!=null) {
 				perturbCode = newperturbCode;
+				}
 			}
 		}
 
@@ -101,11 +104,15 @@ public class ReplaceReturn {
 		 */
 		if (perturbCode == null) {
 			List<String> l = VariablePerturbation.perturb(st, groundTruth, false);		
-			perturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));		
+			if (l.size()>0) {
+			perturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));	
+			}
 			} else if (SelfAPRUtil.getRandomDouble() > prob) {
 				List<String> l = VariablePerturbation.perturb(st, perturbCode, false);	
+				if (l.size()>0) {
 				String newperturbCode = l.get(SelfAPRUtil.getRandomInt(l.size()));			if(newperturbCode!=null) {
-				perturbCode = newperturbCode;
+					perturbCode = newperturbCode;
+				}
 			}
 		}
 		
@@ -124,54 +131,16 @@ public class ReplaceReturn {
 		
 
 		
-		/**
-		 * similarity perturbation on the single line
-		 */
-		if("".equals(lineNo3)) {
-			if (((groundTruth.equals(perturbCode) || perturbCode==null) && count<2) || r>0.85) {
-				System.out.println("sim return");
-
-				String newperturbCode = SimilarityPerturbation.perturb(st, originGroundTruth,type,0.8 - (0.5*count),null);
-				if(newperturbCode!=null) {
-				if(newperturbCode!=null && !"".equals(newperturbCode)) {
-					perturbCode = newperturbCode;
-				} }
-				
-			}		
-		}
+	
 		
 		
 		
 		
 				
-			
-		if((groundTruth.equals(perturbCode) || perturbCode==null )  && count<3 ) {
-			perturb( st, type, methStart, methEnd,  groundTruth, lineNo1,
-					lineNo2, lineNo3,lineNo4, count+1,prob);
-		} else {
-			
-		HashMap<String, String> map = new HashMap<String, String>();
-				
-				
-		map.put("lineNo1", lineNo1 + "");
-		map.put("lineNo2", lineNo2 + "");
-		map.put("lineNo3", lineNo3);
-		map.put("lineNo4", lineNo4);
-		map.put("lineNo5", "");
-		map.put("line1", perturbCode);
-		map.put("line2", "");
-		map.put("line3", "");
-		map.put("line4", "");
-		map.put("line5", "");
-		map.put("groundTruth", groundTruth);
-		map.put("methodStart", methStart + "");
-		map.put("methodEnd", methEnd + "");
-		map.put("repairAction", "[REPLACE]");
-		map.put("targetFile", "");
-
-		System.out.println("replace return");
-		PerturbResult.getCorruptedResult(map);	
-		
+	
+		if (!groundTruth.equals(perturbCode) && perturbCode != null) {
+			PerturbResult.parsePerturb(actionNo, perturbCode, methStart + "", methEnd + "", lineNo1 + "",
+					lineNo2, lineNo3, lineNo4, lineNo5, groundTruth);
 		}	
 	}
 	

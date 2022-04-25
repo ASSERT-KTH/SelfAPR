@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import code.analysis.Variables;
 import code.perturbation.utils.EditDistance;
@@ -42,7 +43,7 @@ public class SimilarityPerturbation {
 	static HashSet<String> _conditionHeadList = new HashSet<String>();
 	static HashSet<String> _forHeadList = new HashSet<String>();
 
-	public static Set<String> perturb(CtElement st, String groundTruth, StatementType type, Double similarity, String withoutStr) {
+	public static List<String> perturb(CtElement st, String groundTruth, StatementType type, Double similarity, String withoutStr) {
 
 		List<String> simStmList = new ArrayList();
 		Set<String> simStmSet = new HashSet();
@@ -145,7 +146,7 @@ public class SimilarityPerturbation {
 			}
 		} 
 		}
-		return simStmSet;
+		return  new ArrayList<>(simStmSet);
 
 	}
 

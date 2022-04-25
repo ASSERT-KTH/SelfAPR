@@ -68,8 +68,10 @@ public class InvocationPerturbation {
 					}
 
 					end = (String) later.subSequence(finalstr + 1, later.length());
-
-					String origV = later_ori.substring(2, lst);
+					String origV=null;
+					if(later_ori.length()>2 && lst>2&&later_ori.length()>lst) {
+					 origV = later_ori.substring(2, lst);
+					}
 
 					// varaible
 

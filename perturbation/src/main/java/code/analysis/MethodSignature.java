@@ -224,7 +224,7 @@ public class MethodSignature {
 		_currentMethodInfo = "";
 		String signature = ((CtExecutable) method).getSignature();
 		String simpleName = ((CtNamedElement) method).getSimpleName();
-		String parameters = "[PARAMETER]";
+		String parameters = " ";
 		String paras = "";
 		List paramList = ((CtExecutable) method).getParameters();
 		if (paramList.size() > 0) {
@@ -243,7 +243,7 @@ public class MethodSignature {
 		}
 		
 
-		_currentMethodInfo = "[METHOD] "+ simpleName +" [TYPE] " + returnType + " "+parameters ;
+		_currentMethodInfo = "[METHOD] "+ simpleName +" [RETURN_TYPE] " + returnType + " "+parameters ;
 		
 	}
 	
@@ -363,7 +363,7 @@ public class MethodSignature {
 			LinkedHashSet<String> types = _methodByMethodNames.get(key);
 
 			for (String methodParam : lhset) {
-				_methodInfo += " [METHOD] " + types.toArray()[0] + " " + key + " " + methodParam;
+				_methodInfo += " [METHOD] " + types.toArray()[0] + " " + key + " [PARAMETERS] " + methodParam;
 			}
 		}
 

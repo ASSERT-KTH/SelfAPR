@@ -1,11 +1,12 @@
-package code.perturbation.add;
+package code.perturbation.insert;
 
 import java.util.HashMap;
+import java.util.List;
 
 import code.analysis.StatementAnalysis;
 import code.output.result.PerturbResult;
 import code.perturbation.SimilarityPerturbation;
-import code.perturbation.replace.ReplaceStatement;
+import code.perturbation.replace.mix.ReplaceStatement;
 import code.perturbation.utils.SelfAPRUtil;
 import code.perturbation.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
@@ -62,7 +63,11 @@ public class AddStatement {
 		
 		//add similar statement;		
 		if(SelfAPRUtil.getRandomDouble()>0.3) {
-		 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,StatementType.Statement,0.3,null);
+		 List<String> l= (List<String>) SimilarityPerturbation.perturb(st, groundTruth,StatementType.Statement,0.3,null);
+		 if(l == null) {
+			 return;
+		 }
+		 String newperturbCode= l.size()>0 ?l.get(0):null;
 				
 		if( perturbCode==null) {
 			return;
@@ -81,7 +86,10 @@ public class AddStatement {
 		}
 		else {
 			//add condition wrap this statement;	
-			 perturbCode =  SimilarityPerturbation.perturb(st, groundTruth,StatementType.ConditionHead,0.3,"null");
+			 List<String> sets= (List<String>) SimilarityPerturbation.perturb(st, groundTruth,StatementType.ConditionHead,0.3,"null");
+			 String newperturbCode= sets.size()>0 ?sets.get(0):null;
+			 
+			 
 			if(perturbCode==null) {
 				return;
 			}
