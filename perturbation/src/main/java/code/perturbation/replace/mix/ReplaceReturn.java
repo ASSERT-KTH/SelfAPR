@@ -29,15 +29,7 @@ public class ReplaceReturn {
 		
 		String perturbCode = null;
 		String originGroundTruth = groundTruth;
-		/**
-		 * This is a random number to decide the perturbation
-		 */
-		double r = SelfAPRUtil.getRandomDouble();
 		
-		
-		if (groundTruth.contains("Math.max")) {
-			System.out.print("");
-		}
 		
 		/**
 		 * Invocation

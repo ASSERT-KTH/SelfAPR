@@ -46,29 +46,7 @@ public class ReplaceStatement {
 
 		String perturbCode = null;
 
-		/**
-		 * operators
-		 */
-		if (perturbCode == null) {
-			perturbCode = OperatorPerturbation_bak.perturb(st, groundTruth);
-		} else if (SelfAPRUtil.getRandomDouble() > 0.7) {
-			String newperturbCode = OperatorPerturbation_bak.perturb(st, perturbCode);
-			if (newperturbCode != null) {
-				perturbCode = newperturbCode;
-			}
-		}
-
-		/**
-		 * Literal
-		 */
-		if (perturbCode == null) {
-			perturbCode = LiteralPerturbation.perturb(st, groundTruth);
-		} else if (SelfAPRUtil.getRandomDouble() > 0.7) {
-			String newperturbCode = LiteralPerturbation.perturb(st, perturbCode);
-			if (newperturbCode != null) {
-				perturbCode = newperturbCode;
-			}
-		}
+		
 
 		/**
 		 * variable

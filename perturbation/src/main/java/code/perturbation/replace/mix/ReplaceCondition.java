@@ -32,14 +32,7 @@ public class ReplaceCondition {
 		String perturbCode = null;
 		
 		
-		/**
-		 * operators
-		 */
-		if (perturbCode == null) {
-			perturbCode = OperatorPerturbation_bak.perturb(st, groundTruth);
-		} else if (SelfAPRUtil.getRandomDouble() > prob) {
-			perturbCode = OperatorPerturbation_bak.perturb(st, perturbCode);
-		}
+		
 
 		/**
 		 * Literal

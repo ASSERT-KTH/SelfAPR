@@ -38,17 +38,6 @@ public class ReplaceAssignment {
 
 	
 
-		/**
-		 * operators
-		 */
-		if (perturbCode == null) {
-			perturbCode = OperatorPerturbation_bak.perturb(st, groundTruth);
-		} else if (SelfAPRUtil.getRandomDouble() > prob ) {
-			String newperturbCode = OperatorPerturbation_bak.perturb(st, perturbCode);
-			if(newperturbCode!=null) {
-				perturbCode = newperturbCode;
-			}
-		}
 		
 		
 		/**
