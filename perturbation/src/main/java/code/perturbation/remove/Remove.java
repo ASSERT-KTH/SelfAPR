@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import code.output.result.PerturbResult;
+import code.perturbation.replace.P9_Replace_Mix;
 import code.perturbation.utils.SelfAPRUtil;
 import code.perturbation.utils.StatementType;
 
@@ -37,7 +38,7 @@ public class Remove {
 		}
 
 		/**
-		 * We care about the complete block at most three lines
+		 * We care about the complete block at most five lines
 		 */
 		groundTruth = groundTruth.trim();
 
@@ -162,25 +163,16 @@ public class Remove {
 		}
 		
 		
+		 if (type == StatementType.Statement) {
+				P10_Remove_Statement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+		 }
+		 
+		 if (type == StatementType.Condition) {
+			 	P11_Remove_Condition.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
 
-		HashMap<String, String> map = new HashMap<String, String>();
+				P12_Remove_Block.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+		 }
 
-		map.put("lineNo1", lineNo1 + "");
-		map.put("lineNo2", lineNo2 );
-		map.put("lineNo3", lineNo3 );
-		map.put("lineNo4", lineNo4);
-		map.put("lineNo5", lineNo5);
-		map.put("line1", perturbCode);
-		map.put("line2", "");
-		map.put("line3", "");
-		map.put("line4", "");
-		map.put("line5", "");
-		map.put("groundTruth", groundTruth);
-		map.put("methodStart", methStart + "");
-		map.put("methodEnd", methEnd + "");
-		map.put("repairAction", "[ADD]");
-
-		PerturbResult.getCorruptedResult(map);
 
 	}
 

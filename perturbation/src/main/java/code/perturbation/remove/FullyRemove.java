@@ -17,7 +17,7 @@ public class FullyRemove {
              return false;
        - }
 	 * 
-	 * or one line of code insider of condition (type=statement)
+	 * or one line of code inside of condition (type=statement)
 	 * @param exp
 	 * @param type
 	 * @returns
