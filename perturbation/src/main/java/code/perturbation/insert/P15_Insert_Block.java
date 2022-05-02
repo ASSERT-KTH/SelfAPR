@@ -53,7 +53,6 @@ public static void insert(CtElement st, StatementType type, int methStart, int m
 		
 		//add extract if wrap the statement
 		if(perturbCode!=null) {		
-
 		PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);	
 		}
 

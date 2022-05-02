@@ -7,7 +7,7 @@ public class OperatorUtil {
 
 	public static String getRandomLogicOperator(String orig,String groundTruth) {
 		String[] los = {"||","&&","|","^","&","==","!=",
-				"<",">","<=",">="," instanceof "};	
+				"<",">","<=",">="," instanceof ",">>","<<"};	
 		
 		
 		
@@ -96,13 +96,14 @@ public class OperatorUtil {
 		
 		else if("-=".equals(orig)) {		
 			return SelfAPRUtil.getRandomDouble() > 0.5 ? "=": "+=" ;
-		}
+		} 
+		
 		
 		
 		
 		else {
 		//random
-		int rint = SelfAPRUtil.getRandomInt(11);
+		int rint = SelfAPRUtil.getRandomInt(14);
 		
 		if (!los[rint].contains(orig)) {
 			return " "+los[rint]+" ";

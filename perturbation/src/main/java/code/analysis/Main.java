@@ -51,7 +51,7 @@ public class Main {
 	
 	public static void main(String[] args) {		
 		path = args[0];	
-//		path = "/Users/sophie/Documents/SelfAPR/D4JTraining/Chart-26/source/org/jfree/data/xy/XYSeries.java";
+//		path = "/Users/sophie/Documents/selfapr-closure134/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java";
 //		/Users/sophie/Documents/SelfAPR/D4JTraining/Chart-26/source/org/jfree/data/xy/XYSeries.java
 		sourceReader(path);	
 	}
