@@ -84,9 +84,17 @@ public class PerturbResult {
 
 		//not a block
 		if(methodStart.equals(methodEnd)) {
-			methodStart = "";
-			methodEnd="";
-		}		
+			methodStart = Integer.parseInt(lineNo1)-5+"";
+			methodEnd=Integer.parseInt(lineNo1)+5+"";
+		} else if((Integer.parseInt(methodEnd) - Integer.parseInt(methodStart))>30) {
+			methodStart = Integer.parseInt(lineNo1)-15+"";
+			methodEnd=Integer.parseInt(lineNo1)+15+"";
+		}
+		
+		
+		
+		
+		
 		
 		String classinfo = ClassAnalysis.getCurrentClass();
 		String method = MethodSignature.getCurrentMethod();
@@ -240,7 +248,7 @@ public class PerturbResult {
 	
 	
 	private static Boolean existInFile(String filename, String emsembleStr) {
-		emsembleStr=emsembleStr.replace(" ", "");
+		emsembleStr="^"+emsembleStr.replace(" ", "");
 		boolean flag = false;
 		BufferedReader br;
 		try {
@@ -249,9 +257,15 @@ public class PerturbResult {
 			 try {
 				while ((thisLine = br.readLine()) != null) {
 					thisLine = thisLine.replace(" ", "");
-				        if (thisLine.contains(emsembleStr)){
+					if(thisLine.startsWith("[")) {
+					int index = thisLine.indexOf("]");
+					thisLine = (String) thisLine.subSequence(index+1, thisLine.length());
+		        		
+
+				        if (thisLine.equals(emsembleStr)){
 				        	return true;
 				        }
+					}
 				     }
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

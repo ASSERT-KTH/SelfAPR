@@ -51,9 +51,14 @@ public class Main {
 	
 	public static void main(String[] args) {		
 		path = args[0];	
+		String choice = args[1];
+		//BugLab||selfAPR
+		if(choice=="") {
+			 choice = "selfAPR";
+		}
 //		path = "/Users/sophie/Documents/selfapr-closure134/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java";
 //		/Users/sophie/Documents/SelfAPR/D4JTraining/Chart-26/source/org/jfree/data/xy/XYSeries.java
-		sourceReader(path);	
+		sourceReader(path,choice);	
 	}
 	
 	public static String getPathDir ( ) {
@@ -66,7 +71,7 @@ public class Main {
 	 *            is the input path of java source files
 	 * @return
 	 */
-	public static  void sourceReader(String path) {
+	public static  void sourceReader(String path,String choice) {
 		final SpoonAPI spoon = new Launcher();
 		
 		
@@ -99,7 +104,7 @@ public class Main {
 		String methodInfo=MethodSignature.getMethodSignature(methodList);	
 		
 		//Data corruption		
-		PerturbActions.perturb(filedList,constructorList,methodList);
+		PerturbActions.perturb(filedList,constructorList,methodList,choice);
 		
 		}
 		

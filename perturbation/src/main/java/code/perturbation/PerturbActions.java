@@ -14,9 +14,10 @@ import code.analysis.ConditionAnalysis;
 import code.analysis.MethodSignature;
 import code.analysis.StatementAnalysis;
 import code.analysis.Variables;
-import code.perturbation.insert.P14_Insert_Condition;
-import code.perturbation.insert.Insert;
-import code.perturbation.insert.P13_Insert_Statement;
+import code.perturbation.insert.P11_Transplant_Condition;
+import code.perturbation.buglab.BugLabPerturb;
+import code.perturbation.insert.Transplant;
+import code.perturbation.insert.P10_Transplant_Statement;
 import code.perturbation.remove.Remove;
 import code.perturbation.remove.RemoveTry;
 import code.perturbation.replace.Replace;
@@ -51,7 +52,7 @@ import spoon.support.reflect.declaration.CtFieldImpl;
 
 public class PerturbActions {
 
-	public static void randomPerturb(CtElement st, StatementType type, int methStart, int methEnd) {
+	public static void randomPerturb(CtElement st, StatementType type, int methStart, int methEnd, String choice) {
 		try {
 			String stStr = st.toString().replace("\r", " ").replace("\n", " ");
 			System.out.println(" ==== type =====" + type + "===== st: ====" + stStr);
@@ -61,10 +62,14 @@ public class PerturbActions {
 			if (o instanceof NoSourcePosition) {
 				return;
 			}
-
-			Replace.replace(st, type, methStart, methEnd);
-			Remove.remove(st, type, methStart, methEnd);
-			Insert.insert(st, type, methStart, methEnd);
+			
+			if ("selfAPR".contains(choice)) {
+				Replace.replace(st, type, methStart, methEnd);
+				Remove.remove(st, type, methStart, methEnd);
+				Transplant.insert(st, type, methStart, methEnd);
+			} else if  ("BugLab".contains(choice)) {
+				BugLabPerturb.perturb(st, type, methStart, methEnd);
+			}
 
 		} catch (Exception e) {
 			System.out.println("=============exception=========" + e.getLocalizedMessage());
@@ -79,14 +84,14 @@ public class PerturbActions {
 	 * @param methodList
 	 */
 	public static void perturb(List<CtFieldImpl> fieldList, List<CtConstructor> constructorList,
-			List<CtMethod> methodList) {
-		fieldPerturb(fieldList);
-		constructorPerturb(constructorList);
-		methodPerturb(methodList);
+			List<CtMethod> methodList, String choice) {
+		fieldPerturb(fieldList,choice);
+		constructorPerturb(constructorList,choice);
+		methodPerturb(methodList,choice);
 
 	}
 
-	private static void methodPerturb(List<CtMethod> methodList) {
+	private static void methodPerturb(List<CtMethod> methodList,String choice) {
 		for (CtMethod method : methodList) {
 			List<CtVariable> variablesList = method.getElements(new TypeFilter<CtVariable>(CtVariable.class));
 			Variables.getVariables(variablesList);
@@ -102,14 +107,14 @@ public class PerturbActions {
 			if (block != null) {
 				List<CtStatement> statements = block.getStatements();
 				for (CtStatement st : statements) {
-					processStatement(st, methStart, methEnd);
+					processStatement(st, methStart, methEnd,choice);
 				}
 
 			}
 		}
 	}
 
-	private static void processStatement(CtStatement st, int methStart, int methEnd) {
+	private static void processStatement(CtStatement st, int methStart, int methEnd,String choice) {
 
 		if (methEnd - methStart > 25) {
 			int pos = st.getPosition().getLine();
@@ -145,10 +150,10 @@ public class PerturbActions {
 		if (whiles.size() > 0) {
 			System.out.println();
 			for (CtWhileImpl w : whiles) {
-				PerturbActions.randomPerturb(w, StatementType.Whiles, methStart, methEnd);
+				PerturbActions.randomPerturb(w, StatementType.Whiles, methStart, methEnd,choice);
 				CtStatement s = w.getBody();
 				if (s != null) {
-					processStatement(s, methStart, methEnd);
+					processStatement(s, methStart, methEnd,choice);
 				}
 
 			}
@@ -156,14 +161,14 @@ public class PerturbActions {
 
 		if (conditions.size() > 0) {
 			for (CtIfImpl cond : conditions) {
-				PerturbActions.randomPerturb(cond, StatementType.Condition, methStart, methEnd);
+				PerturbActions.randomPerturb(cond, StatementType.Condition, methStart, methEnd,choice);
 				CtStatement elseStatement = cond.getElseStatement();
 				CtStatement thenStatement = cond.getThenStatement();
 				if (elseStatement != null) {
-					processStatement(elseStatement, methStart, methEnd);
+					processStatement(elseStatement, methStart, methEnd,choice);
 				}
 				if (thenStatement != null) {
-					processStatement(thenStatement, methStart, methEnd);
+					processStatement(thenStatement, methStart, methEnd,choice);
 				}
 			}
 		}
@@ -171,13 +176,13 @@ public class PerturbActions {
 		if (fors.size() > 0) {
 			for (CtForImpl foreach : fors) {
 
-				PerturbActions.randomPerturb(foreach, StatementType.For, methStart, methEnd);
+				PerturbActions.randomPerturb(foreach, StatementType.For, methStart, methEnd,choice);
 
 				CtStatement forbody = foreach.getBody();
 
 				if (forbody != null) {
 					System.out.println();
-					processStatement(forbody, methStart, methEnd);
+					processStatement(forbody, methStart, methEnd,choice);
 				}
 
 			}
@@ -185,66 +190,66 @@ public class PerturbActions {
 
 		if (trys.size() > 0) {
 			for (CtTryImpl t : trys) {
-				PerturbActions.randomPerturb(t, StatementType.Try, methStart, methEnd);
+				PerturbActions.randomPerturb(t, StatementType.Try, methStart, methEnd,choice);
 				List<CtCatch> catchers = t.getCatchers();
 				CtBlock<?> b = t.getBody();
-				processStatement(b, methStart, methEnd);
+				processStatement(b, methStart, methEnd,choice);
 			}
 		}
 
 		if (assignments.size() > 0) {
 			for (CtAssignmentImpl a : assignments) {
-				PerturbActions.randomPerturb(a, StatementType.Assignment, methStart, methEnd);
+				PerturbActions.randomPerturb(a, StatementType.Assignment, methStart, methEnd,choice);
 			}
 		}
 
 		if (returns.size() > 0) {
 			for (CtReturnImpl r : returns) {
-				PerturbActions.randomPerturb(r, StatementType.Return, methStart, methEnd);
+				PerturbActions.randomPerturb(r, StatementType.Return, methStart, methEnd,choice);
 			}
 		}
 
 		if (constructorCall.size() > 0) {
 			for (CtConstructorCallImpl c : constructorCall) {
-				PerturbActions.randomPerturb(c, StatementType.Constructor, methStart, methEnd);
+				PerturbActions.randomPerturb(c, StatementType.Constructor, methStart, methEnd,choice);
 			}
 		}
 
 		if (localVariableImpl.size() > 0) {
 			for (CtLocalVariableImpl l : localVariableImpl) {
-				PerturbActions.randomPerturb(l, StatementType.LocalVariable, methStart, methEnd);
+				PerturbActions.randomPerturb(l, StatementType.LocalVariable, methStart, methEnd,choice);
 			}
 		}
 
 		if (throwss.size() > 0) {
 			for (CtThrowImpl t : throwss) {
-				PerturbActions.randomPerturb(t, StatementType.Throw, methStart, methEnd);
+				PerturbActions.randomPerturb(t, StatementType.Throw, methStart, methEnd,choice);
 			}
 		}
 
 		if (catchs.size() > 0) {
 			for (CtCatchImpl c : catchs) {
-				PerturbActions.randomPerturb(c, StatementType.Catch, methStart, methEnd);
+				PerturbActions.randomPerturb(c, StatementType.Catch, methStart, methEnd,choice);
 			}
 		}
 
 		if (invocations.size() > 0) {
 			for (CtInvocationImpl i : invocations) {
-				PerturbActions.randomPerturb(i, StatementType.Statement, methStart, methEnd);
+				PerturbActions.randomPerturb(i, StatementType.Statement, methStart, methEnd,choice);
 			}
 		}
 
 	}
 
-	public static void fieldPerturb(List<CtFieldImpl> fieldList) {
+	public static void fieldPerturb(List<CtFieldImpl> fieldList,String choice) {
 		for (CtFieldImpl variable : fieldList) {
 			int start = variable.getPosition().getLine();
 			int end = variable.getPosition().getEndLine();
-			PerturbActions.randomPerturb(variable, StatementType.Declaration, start, end);
+			PerturbActions.randomPerturb(variable, StatementType.Declaration, start, end,choice);
 		}
 	}
 
-	public static void constructorPerturb(List<CtConstructor> constructors) {
+	public static void constructorPerturb(List<CtConstructor> constructors,String choice) {
 		for (CtConstructor cons : constructors) {
 
 			List<CtVariable> variablesList = cons.getElements(new TypeFilter<CtVariable>(CtVariable.class));
@@ -261,7 +266,7 @@ public class PerturbActions {
 				List<CtStatement> statements = block.getStatements();
 				for (CtStatement st : statements) {
 
-					processStatement(st, methStart, methEnd);
+					processStatement(st, methStart, methEnd,choice);
 
 				}
 

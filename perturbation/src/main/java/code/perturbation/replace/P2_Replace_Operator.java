@@ -51,9 +51,37 @@ public class P2_Replace_Operator {
 						perturbCode = groundTruth.replace(simplefyExpression, perturbExpression);
 
 					} else {
-					perturbCode = groundTruth.replaceFirst(" " + origOpKindValue + " ", " " + perturbOpKindValue + " ");
+						origOpKindValue = " " + origOpKindValue + " ";
+						if ("OR".equals(origOpKind)) {
+							int index =  groundTruth.indexOf("||");
+							String before = groundTruth.subSequence(0, index)+"";
+							String later = groundTruth.subSequence(index+2,groundTruth.length())+"";
+
+							perturbCode =before+ perturbOpKindValue + later;
+
+						} else {
+							perturbCode = groundTruth.replaceFirst(origOpKindValue, " " + perturbOpKindValue + " ");
+						}
 					}
 					if (!groundTruth.equals(perturbCode) && perturbCode != null) {
+						
+						perturbCode=perturbCode.trim();
+						groundTruth=groundTruth.trim();
+
+						String lstP = perturbCode.charAt(perturbCode.length()-1)+"";
+						String lstG = groundTruth.charAt(groundTruth.length()-1)+"";
+						
+						String frsP = perturbCode.charAt(0)+"";
+						String ftsG = groundTruth.charAt(0)+"";
+						
+						if(!lstP.equals(lstG)) {
+							break;
+						}
+						
+						if(!frsP.equals(ftsG)) {
+							break;
+						}
+						
 						PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
 					}
 

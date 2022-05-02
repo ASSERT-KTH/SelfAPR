@@ -97,6 +97,9 @@ public class OperatorUtil {
 		else if("-=".equals(orig)) {		
 			return SelfAPRUtil.getRandomDouble() > 0.5 ? "=": "+=" ;
 		} 
+		else if("^".equals(orig)) {		
+			return "&";
+		} 
 		
 		
 		

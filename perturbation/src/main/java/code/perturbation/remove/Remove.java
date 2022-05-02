@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import code.output.result.PerturbResult;
-import code.perturbation.replace.P9_Replace_Mix;
+import code.perturbation.replace.P8_Replace_Mix;
 import code.perturbation.utils.SelfAPRUtil;
 import code.perturbation.utils.StatementType;
 
@@ -22,7 +22,6 @@ public class Remove {
 
 	public static void remove(CtElement st, StatementType type, int methStart, int methEnd) {
 
-		double r = SelfAPRUtil.getRandomDouble();
 
 		String perturbCode = "";
 
@@ -118,10 +117,28 @@ public class Remove {
 
 						}
 					}
-				}							
+				}	
+				
+				lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
+				if (!"}".equals(lastChar)) {
+					String l6 = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 5).trim();
+					if (l6.length() > 0) {
+						groundTruth += " " + l6;
+						}
+					}
+				
+				
+				lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
+				if (!"}".equals(lastChar)) {
+					return;
+				}	
+				
+				
+				
+				
 			}
 		 
-		
+		//statements
 		else {
 		 if(!";".equals(lastChar) ) {
 			lineNo2 = lineNo1 + 1 + "";
@@ -152,26 +169,35 @@ public class Remove {
 				lineNo3 = lineNo1 + 2 + "";
 				String l3 = SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
 				groundTruth += " " + l3;
-			}			 	
-		}
-		
-		
-		
-		groundTruth = groundTruth.trim();
-		if(groundTruth.startsWith("}")) {
-			groundTruth = groundTruth.substring(1,groundTruth.length());
-		}
-		
-		
-		 if (type == StatementType.Statement) {
-				P10_Remove_Statement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+			} 
+		 
+		 
+		 lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";	
+		 if(!";".equals(lastChar)) {
+			 return;
 		 }
 		 
-		 if (type == StatementType.Condition) {
-			 	P11_Remove_Condition.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+		 
+		 
+		}
+		
+		
+		
 
-				P12_Remove_Block.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+		
+		
+		 if (type == StatementType.Statement ||type == StatementType.Return||type == StatementType.LocalVariable) {
+				P13_Remove_Statement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
 		 }
+		 
+			if(type.equals(StatementType.Condition)) {
+				if (groundTruth.contains("if")  || groundTruth.contains("else")) {
+			 	P14_Remove_Condition.perturb((CtIfImpl) st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);			
+				P15_Remove_Block.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+				}
+			
+			}
+		 
 
 
 	}

@@ -15,14 +15,14 @@ import code.perturbation.utils.SelfAPRUtil;
 import code.perturbation.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
 
-public class P9_Replace_Mix {
+public class P8_Replace_Mix {
 
 	public static void perturb(CtElement st, StatementType type, int methStart, int methEnd, String groundTruth,
 			int lineNo1, String lineNo2, String lineNo3, String lineNo4, String lineNo5) {
 		/**
-		 * P9 Mix Perturbation of P1-P8
+		 * P8 Mix Perturbation of P1-P7
 		 */
-		String actionNo = "[P9_Replace_Mix]";
+		String actionNo = "[P8_Replace_Mix]";
 
 		double probility = 0.8;
 		if (type == StatementType.Declaration) {
