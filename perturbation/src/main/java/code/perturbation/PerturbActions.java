@@ -10,6 +10,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import code.analysis.ClassAnalysis;
 import code.analysis.ConditionAnalysis;
 import code.analysis.MethodSignature;
 import code.analysis.StatementAnalysis;
@@ -69,7 +70,22 @@ public class PerturbActions {
 				Transplant.insert(st, type, methStart, methEnd);
 			} else if  ("BugLab".contains(choice)) {
 				BugLabPerturb.perturb(st, type, methStart, methEnd);
+			} 
+			else if (choice.contains("test")) {
+				String buggyline=choice.split("-")[1];
+				int bugint = Integer.parseInt(buggyline);
+				if(Math.abs(bugint -  st.getPosition().getLine())<3) {
+					String classinfo = ClassAnalysis.getCurrentClass();
+					String method = MethodSignature.getCurrentMethod();
+					String variables = Variables.getVariableInfo();
+					
+					String meta =  classinfo+" "+method+" [VARIABLES] "+variables;
+					System.out.print(meta);
+					System.exit(0);
+				}
 			}
+			
+			
 
 		} catch (Exception e) {
 			System.out.println("=============exception=========" + e.getLocalizedMessage());

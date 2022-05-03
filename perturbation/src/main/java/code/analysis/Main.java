@@ -53,9 +53,11 @@ public class Main {
 		path = args[0];	
 		String choice = args[1];
 		//BugLab||selfAPR
+		
 		if(choice=="") {
 			 choice = "selfAPR";
 		}
+		
 //		path = "/Users/sophie/Documents/selfapr-closure134/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java";
 //		/Users/sophie/Documents/SelfAPR/D4JTraining/Chart-26/source/org/jfree/data/xy/XYSeries.java
 		sourceReader(path,choice);	
