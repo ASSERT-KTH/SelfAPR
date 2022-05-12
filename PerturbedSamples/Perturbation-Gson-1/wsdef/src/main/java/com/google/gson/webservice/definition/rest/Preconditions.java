@@ -1,7 +1,0 @@
-[REPLACE]^if  ( !true )  {^21^^^^^20^24^[REPLACE] if  ( !condition )  {^[METHOD] checkArgument [TYPE] void [PARAMETER] boolean condition [CLASS] Preconditions   [TYPE]  boolean condition  false  true 
-[ADD]^^21^22^23^^^20^24^[ADD] if  ( !condition )  { throw new IllegalArgumentException  (" ")  ; }^[METHOD] checkArgument [TYPE] void [PARAMETER] boolean condition [CLASS] Preconditions   [TYPE]  boolean condition  false  true 
-[REPLACE]^return ;^22^^^^^20^24^[REPLACE] throw new IllegalArgumentException  (" ")  ;^[METHOD] checkArgument [TYPE] void [PARAMETER] boolean condition [CLASS] Preconditions   [TYPE]  boolean condition  false  true 
-[REPLACE]^if  ( obj != this )  {^27^^^^^26^30^[REPLACE] if  ( obj == null )  {^[METHOD] checkNotNull [TYPE] void [PARAMETER] Object obj [CLASS] Preconditions   [TYPE]  boolean false  true  [TYPE]  Object obj 
-[ADD]^^27^28^29^^^26^30^[ADD] if  ( obj == null )  { throw new IllegalArgumentException  (" ")  ; }^[METHOD] checkNotNull [TYPE] void [PARAMETER] Object obj [CLASS] Preconditions   [TYPE]  boolean false  true  [TYPE]  Object obj 
-[REPLACE]^return ;^28^^^^^26^30^[REPLACE] throw new IllegalArgumentException  (" ")  ;^[METHOD] checkNotNull [TYPE] void [PARAMETER] Object obj [CLASS] Preconditions   [TYPE]  boolean false  true  [TYPE]  Object obj 
-[ADD]^^28^^^^^26^30^[ADD] throw new IllegalArgumentException  (" ")  ;^[METHOD] checkNotNull [TYPE] void [PARAMETER] Object obj [CLASS] Preconditions   [TYPE]  boolean false  true  [TYPE]  Object obj 

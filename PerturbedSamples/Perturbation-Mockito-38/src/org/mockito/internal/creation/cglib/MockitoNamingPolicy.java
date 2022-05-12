@@ -1,1 +1,0 @@
-[REPLACE]^public static final MockitoNamingPolicy INSTANCE  = null ;^11^^^^^^^[REPLACE] public static final MockitoNamingPolicy INSTANCE = new MockitoNamingPolicy (  ) ;^ [CLASS] MockitoNamingPolicy  

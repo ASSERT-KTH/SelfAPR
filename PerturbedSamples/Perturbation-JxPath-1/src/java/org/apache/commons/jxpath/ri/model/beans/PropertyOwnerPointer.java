@@ -1,4 +1,0 @@
-[REPLACE]^private static final Object UNINITIALIZED ;^99^^^^^^^[REPLACE] private static final Object UNINITIALIZED = new Object (  ) ;^ [CLASS] PropertyOwnerPointer  
-[REPLACE]^private Object value ;^101^^^^^^^[REPLACE] private Object value = UNINITIALIZED;^ [CLASS] PropertyOwnerPointer  
-[REPLACE]^property = testName.getName (  ) ;^85^^^^^84^86^[REPLACE] super ( parent, locale ) ;^[METHOD] <init> [TYPE] Locale) [PARAMETER] NodePointer parent Locale locale [CLASS] PropertyOwnerPointer   [TYPE]  Locale locale  [TYPE]  Object UNINITIALIZED  value  [TYPE]  NodePointer parent  [TYPE]  boolean false  true 
-[REPLACE]^property = testName.getName (  ) ;^89^^^^^88^90^[REPLACE] super ( parent ) ;^[METHOD] <init> [TYPE] NodePointer) [PARAMETER] NodePointer parent [CLASS] PropertyOwnerPointer   [TYPE]  Object UNINITIALIZED  value  [TYPE]  NodePointer parent  [TYPE]  boolean false  true 

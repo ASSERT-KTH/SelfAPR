@@ -1,2 +1,0 @@
-[REPLACE]^return true;^30^^^^^29^31^[REPLACE] return null;^[METHOD] findTypeMapping [TYPE] JavaType [PARAMETER] DeserializationConfig config JavaType type [CLASS] AbstractTypeResolver   [TYPE]  JavaType type  [TYPE]  boolean false  true  [TYPE]  DeserializationConfig config 
-[REPLACE]^return this;^50^^^^^48^51^[REPLACE] return null;^[METHOD] resolveAbstractType [TYPE] JavaType [PARAMETER] DeserializationConfig config JavaType type [CLASS] AbstractTypeResolver   [TYPE]  JavaType type  [TYPE]  boolean false  true  [TYPE]  DeserializationConfig config 

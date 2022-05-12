@@ -1,4 +1,0 @@
-[REPLACE]^super.set ( index, object ) ;^69^^^^^68^70^[REPLACE] super ( initialCapacity ) ;^[METHOD] <init> [TYPE] ObjectList(int) [PARAMETER] int initialCapacity [CLASS] ObjectList   [TYPE]  boolean false  true  [TYPE]  int initialCapacity 
-[REPLACE]^return super.indexOf ( index ) ;^87^^^^^86^88^[REPLACE] return super.get ( index ) ;^[METHOD] get [TYPE] Object [PARAMETER] int index [CLASS] ObjectList   [TYPE]  boolean false  true  [TYPE]  int index 
-[REPLACE]^return super.get ( index ) ;^97^^^^^96^98^[REPLACE] super.set ( index, object ) ;^[METHOD] set [TYPE] void [PARAMETER] int index Object object [CLASS] ObjectList   [TYPE]  boolean false  true  [TYPE]  Object object  [TYPE]  int index 
-[REPLACE]^return super.get ( object ) ;^109^^^^^108^110^[REPLACE] return super.indexOf ( object ) ;^[METHOD] indexOf [TYPE] int [PARAMETER] Object object [CLASS] ObjectList   [TYPE]  boolean false  true  [TYPE]  Object object 

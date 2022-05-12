@@ -1,6 +1,0 @@
-[REPLACE]^private static  long serialVersionUID = 4029025366392702726;^32^^^^^^^[REPLACE] private static final long serialVersionUID = 4029025366392702726L;^ [CLASS] SerializationException  
-[REPLACE]^super ( msg ) ;^39^^^^^38^40^[REPLACE] super (  ) ;^[METHOD] <init> [TYPE] SerializationException() [PARAMETER] [CLASS] SerializationException   [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 
-[REPLACE]^super (  ) ;^49^^^^^48^50^[REPLACE] super ( msg ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String msg [CLASS] SerializationException   [TYPE]  long serialVersionUID  [TYPE]  String msg  [TYPE]  boolean false  true 
-[ADD]^^49^^^^^48^50^[ADD] super ( msg ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String msg [CLASS] SerializationException   [TYPE]  long serialVersionUID  [TYPE]  String msg  [TYPE]  boolean false  true 
-[REPLACE]^super (  ) ;^60^^^^^59^61^[REPLACE] super ( cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable cause [CLASS] SerializationException   [TYPE]  Throwable cause  [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 
-[REPLACE]^super (  ) ;^72^^^^^71^73^[REPLACE] super ( msg, cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] String msg Throwable cause [CLASS] SerializationException   [TYPE]  Throwable cause  [TYPE]  String msg  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 

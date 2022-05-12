@@ -1,2 +1,0 @@
-[REPLACE]^private  FieldNamingStrategy2 namingPolicy;^90^^^^^^^[REPLACE] private final FieldNamingStrategy2 namingPolicy;^ [CLASS] FieldNamingPolicy  
-[REPLACE]^this.namingPolicy =  null;^93^^^^^92^94^[REPLACE] this.namingPolicy = namingPolicy;^[METHOD] <init> [TYPE] FieldNamingStrategy2) [PARAMETER] FieldNamingStrategy2 namingPolicy [CLASS] FieldNamingPolicy   [TYPE]  FieldNamingStrategy2 namingPolicy  [TYPE]  FieldNamingPolicy LOWER_CASE_WITH_DASHES  LOWER_CASE_WITH_UNDERSCORES  UPPER_CAMEL_CASE  UPPER_CAMEL_CASE_WITH_SPACES  [TYPE]  boolean false  true 

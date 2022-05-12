@@ -1,5 +1,0 @@
-[REPLACE]^private float mean;^52^^^^^^^[REPLACE] private double mean;^ [CLASS] NormalDistributionFunction2D  
-[REPLACE]^this.mean =  null;^64^^^^^63^66^[REPLACE] this.mean = mean;^[METHOD] <init> [TYPE] NormalDistributionFunction2D(double,double) [PARAMETER] double mean double std [CLASS] NormalDistributionFunction2D   [TYPE]  double mean  std  [TYPE]  boolean false  true 
-[REPLACE]^this.std =  null;^65^^^^^63^66^[REPLACE] this.std = std;^[METHOD] <init> [TYPE] NormalDistributionFunction2D(double,double) [PARAMETER] double mean double std [CLASS] NormalDistributionFunction2D   [TYPE]  double mean  std  [TYPE]  boolean false  true 
-[REPLACE]^return this.std;^74^^^^^73^75^[REPLACE] return this.mean;^[METHOD] getMean [TYPE] double [PARAMETER] [CLASS] NormalDistributionFunction2D   [TYPE]  double mean  std  [TYPE]  boolean false  true 
-[REPLACE]^return this.mean;^83^^^^^82^84^[REPLACE] return this.std;^[METHOD] getStandardDeviation [TYPE] double [PARAMETER] [CLASS] NormalDistributionFunction2D   [TYPE]  double mean  std  [TYPE]  boolean false  true 

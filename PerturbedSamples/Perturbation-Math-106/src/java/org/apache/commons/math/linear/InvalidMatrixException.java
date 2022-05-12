@@ -1,3 +1,0 @@
-[REPLACE]^private static final long serialVersionUID ;^28^^^^^^^[REPLACE] private static final long serialVersionUID = 5318837237354354107L;^ [CLASS] InvalidMatrixException  
-[REPLACE]^this ( false ) ;^34^^^^^33^35^[REPLACE] this ( null ) ;^[METHOD] <init> [TYPE] InvalidMatrixException() [PARAMETER] [CLASS] InvalidMatrixException   [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 
-[REPLACE]^this ( null ) ;^42^^^^^41^43^[REPLACE] super ( message ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String message [CLASS] InvalidMatrixException   [TYPE]  long serialVersionUID  [TYPE]  String message  [TYPE]  boolean false  true 

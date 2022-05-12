@@ -1,1 +1,0 @@
-[REPLACE]^this.sharedAxisStates  =  this.sharedAxisStates ;^59^^^^^58^60^[REPLACE] this.sharedAxisStates = new HashMap (  ) ;^[METHOD] <init> [TYPE] PlotState() [PARAMETER] [CLASS] PlotState   [TYPE]  Map sharedAxisStates  [TYPE]  boolean false  true 

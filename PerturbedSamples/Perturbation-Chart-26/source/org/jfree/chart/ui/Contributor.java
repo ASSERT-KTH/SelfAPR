@@ -1,4 +1,0 @@
-[REPLACE]^this.name =  null;^66^^^^^65^68^[REPLACE] this.name = name;^[METHOD] <init> [TYPE] String) [PARAMETER] String name String email [CLASS] Contributor   [TYPE]  String email  name  [TYPE]  boolean false  true 
-[REPLACE]^this.email =  name;^67^^^^^65^68^[REPLACE] this.email = email;^[METHOD] <init> [TYPE] String) [PARAMETER] String name String email [CLASS] Contributor   [TYPE]  String email  name  [TYPE]  boolean false  true 
-[REPLACE]^return this.email;^76^^^^^75^77^[REPLACE] return this.name;^[METHOD] getName [TYPE] String [PARAMETER] [CLASS] Contributor   [TYPE]  String email  name  [TYPE]  boolean false  true 
-[REPLACE]^return this.name;^85^^^^^84^86^[REPLACE] return this.email;^[METHOD] getEmail [TYPE] String [PARAMETER] [CLASS] Contributor   [TYPE]  String email  name  [TYPE]  boolean false  true 

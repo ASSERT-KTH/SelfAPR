@@ -1,2 +1,0 @@
-[REPLACE]^this.renderer =  null;^64^^^^^62^65^[REPLACE] this.renderer = renderer;^[METHOD] <init> [TYPE] Object) [PARAMETER] Object renderer [CLASS] RendererChangeEvent   [TYPE]  Object renderer  [TYPE]  boolean false  true 
-[ADD]^^64^^^^^62^65^[ADD] this.renderer = renderer;^[METHOD] <init> [TYPE] Object) [PARAMETER] Object renderer [CLASS] RendererChangeEvent   [TYPE]  Object renderer  [TYPE]  boolean false  true 

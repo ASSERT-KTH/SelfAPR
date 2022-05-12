@@ -1,6 +1,0 @@
-[REPLACE]^private static final long serialVersionUID ;^23^^^^^^^[REPLACE] private static final long serialVersionUID = -2770299103090672278L;^ [CLASS] CompressorException  
-[REPLACE]^super ( arg0, arg1 ) ;^26^^^^^25^27^[REPLACE] super (  ) ;^[METHOD] <init> [TYPE] CompressorException() [PARAMETER] [CLASS] CompressorException   [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 
-[REPLACE]^super (  ) ;^30^^^^^29^31^[REPLACE] super ( arg0, arg1 ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] String arg0 Throwable arg1 [CLASS] CompressorException   [TYPE]  Throwable arg1  [TYPE]  String arg0  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 
-[REPLACE]^super (  ) ;^34^^^^^33^35^[REPLACE] super ( arg0 ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String arg0 [CLASS] CompressorException   [TYPE]  long serialVersionUID  [TYPE]  String arg0  [TYPE]  boolean false  true 
-[REPLACE]^super (  ) ;^38^^^^^37^39^[REPLACE] super ( arg0 ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable arg0 [CLASS] CompressorException   [TYPE]  Throwable arg0  [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 
-[ADD]^^38^^^^^37^39^[ADD] super ( arg0 ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable arg0 [CLASS] CompressorException   [TYPE]  Throwable arg0  [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 

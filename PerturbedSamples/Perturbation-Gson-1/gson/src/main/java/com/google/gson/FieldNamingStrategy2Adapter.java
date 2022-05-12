@@ -1,3 +1,0 @@
-[REPLACE]^private  FieldNamingStrategy adaptee;^27^^^^^^^[REPLACE] private final FieldNamingStrategy adaptee;^ [CLASS] FieldNamingStrategy2Adapter  
-[REPLACE]^adaptee   ;^30^^^^^29^32^[REPLACE] Preconditions.checkNotNull ( adaptee ) ;^[METHOD] <init> [TYPE] FieldNamingStrategy) [PARAMETER] FieldNamingStrategy adaptee [CLASS] FieldNamingStrategy2Adapter   [TYPE]  FieldNamingStrategy adaptee  [TYPE]  boolean false  true 
-[REPLACE]^this.adaptee =  null;^31^^^^^29^32^[REPLACE] this.adaptee = adaptee;^[METHOD] <init> [TYPE] FieldNamingStrategy) [PARAMETER] FieldNamingStrategy adaptee [CLASS] FieldNamingStrategy2Adapter   [TYPE]  FieldNamingStrategy adaptee  [TYPE]  boolean false  true 

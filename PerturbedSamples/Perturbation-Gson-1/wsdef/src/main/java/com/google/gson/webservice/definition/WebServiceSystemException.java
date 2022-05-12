@@ -1,3 +1,0 @@
-[REPLACE]^private static final long serialVersionUID  = null ;^27^^^^^^^[REPLACE] private static final long serialVersionUID = -2511829073381716183L;^ [CLASS] WebServiceSystemException  
-[REPLACE]^super ( msg, cause ) ;^30^^^^^29^31^[REPLACE] super ( cause ) ;^[METHOD] <init> [TYPE] Exception) [PARAMETER] Exception cause [CLASS] WebServiceSystemException   [TYPE]  long serialVersionUID  [TYPE]  Exception cause  [TYPE]  boolean false  true 
-[REPLACE]^super ( cause ) ;^34^^^^^33^35^[REPLACE] super ( msg, cause ) ;^[METHOD] <init> [TYPE] Exception) [PARAMETER] String msg Exception cause [CLASS] WebServiceSystemException   [TYPE]  String msg  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID  [TYPE]  Exception cause 

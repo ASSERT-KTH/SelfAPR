@@ -1,3 +1,0 @@
-[REPLACE]^private static final long serialVersionUID  = null ;^48^^^^^^^[REPLACE] private static final long serialVersionUID = 1174360235354917591L;^ [CLASS] NullArgumentException  
-[REPLACE]^super   "Argument" ;^56^^^^^55^57^[REPLACE] super (  ( argName == null ? "Argument" : argName )  + " must not be null." ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String argName [CLASS] NullArgumentException   [TYPE]  long serialVersionUID  [TYPE]  String argName  [TYPE]  boolean false  true 
-[ADD]^^56^^^^^55^57^[ADD] super (  ( argName == null ? "Argument" : argName )  + " must not be null." ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String argName [CLASS] NullArgumentException   [TYPE]  long serialVersionUID  [TYPE]  String argName  [TYPE]  boolean false  true 
