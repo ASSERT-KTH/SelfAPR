@@ -4,7 +4,7 @@ import java.util.List;
 
 import code.output.result.PerturbResult;
 import code.perturbation.VariablePerturbation;
-import code.perturbation.replace.P1_Replace_Type;
+import code.perturbation.selfAPR.P1_Replace_Type;
 import code.perturbation.utils.SelfAPRUtil;
 import code.perturbation.utils.StatementType;
 import spoon.reflect.declaration.CtElement;

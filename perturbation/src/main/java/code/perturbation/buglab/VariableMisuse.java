@@ -15,7 +15,7 @@ public class VariableMisuse {
 		 */
 
 		String actionNo = "[BugLab_Variable_Misuse]";
-		List<String> perturbCodeList = VariablePerturbation.perturb(st, groundTruth, false);
+		List<String> perturbCodeList = VariablePerturbation.perturb(st, groundTruth, 1);
 
 		if (perturbCodeList != null) {
 			for (String perturbCode : perturbCodeList) {

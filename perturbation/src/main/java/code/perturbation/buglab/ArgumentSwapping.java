@@ -16,7 +16,7 @@ public class ArgumentSwapping {
 		 */
 
 		String actionNo = "[BugLab_Argument_Swapping]";
-		List<String> perturbCodeList = VariablePerturbation.perturb(st, groundTruth, true);
+		List<String> perturbCodeList = VariablePerturbation.perturb(st, groundTruth, 3);
 		
 		if(perturbCodeList != null) {
 			for (String perturbCode : perturbCodeList) {

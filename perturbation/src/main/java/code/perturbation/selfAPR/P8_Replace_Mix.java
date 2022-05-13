@@ -1,16 +1,16 @@
-package code.perturbation.replace;
+package code.perturbation.selfAPR;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import code.output.result.PerturbResult;
 import code.perturbation.SimilarityPerturbation;
-import code.perturbation.replace.mix.ReplaceAssignment;
-import code.perturbation.replace.mix.ReplaceCondition;
-import code.perturbation.replace.mix.ReplaceDeclaration;
-import code.perturbation.replace.mix.ReplaceReturn;
-import code.perturbation.replace.mix.ReplaceStatement;
-import code.perturbation.replace.mix.ReplaceThrow;
+import code.perturbation.selfAPR.mix.ReplaceAssignment;
+import code.perturbation.selfAPR.mix.ReplaceCondition;
+import code.perturbation.selfAPR.mix.ReplaceDeclaration;
+import code.perturbation.selfAPR.mix.ReplaceReturn;
+import code.perturbation.selfAPR.mix.ReplaceStatement;
+import code.perturbation.selfAPR.mix.ReplaceThrow;
 import code.perturbation.utils.SelfAPRUtil;
 import code.perturbation.utils.StatementType;
 import spoon.reflect.declaration.CtElement;

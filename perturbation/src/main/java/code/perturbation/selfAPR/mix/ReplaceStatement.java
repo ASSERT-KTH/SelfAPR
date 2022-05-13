@@ -1,4 +1,4 @@
-package code.perturbation.replace.mix;
+package code.perturbation.selfAPR.mix;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ import code.perturbation.OperatorPerturbation_bak;
 import code.perturbation.SimilarityPerturbation;
 import code.perturbation.TypePerturbation;
 import code.perturbation.VariablePerturbation;
-import code.perturbation.remove.FullyRemove;
+import code.perturbation.selfAPR.FullyRemove;
 import code.perturbation.utils.SelfAPRUtil;
 import code.perturbation.utils.StatementType;
 import spoon.reflect.code.BinaryOperatorKind;

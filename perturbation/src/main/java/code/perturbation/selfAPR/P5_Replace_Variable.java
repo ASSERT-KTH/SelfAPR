@@ -1,4 +1,4 @@
-package code.perturbation.replace;
+package code.perturbation.selfAPR;
 
 import java.util.List;
 
@@ -20,9 +20,10 @@ public class P5_Replace_Variable {
 
 	
 
-		List<String> perturbCode1  = VariablePerturbation.perturb(st, groundTruth, false);
-		List<String> perturbCode2 = VariablePerturbation.perturb(st, groundTruth, true);
-		
+		List<String> perturbCode1  = VariablePerturbation.perturb(st, groundTruth, 1);
+		List<String> perturbCode2 = VariablePerturbation.perturb(st, groundTruth, 2);
+		List<String> perturbCode3 = VariablePerturbation.perturb(st, groundTruth, 3);
+
 
 		if(perturbCode1 != null) {
 		for (String perturbCode : perturbCode1) {
@@ -39,6 +40,14 @@ public class P5_Replace_Variable {
 						lineNo3, lineNo4, lineNo5, groundTruth);
 			}
 		}}
+		
+		if(perturbCode3 != null) {
+			for (String perturbCode : perturbCode3) {
+				if (!groundTruth.equals(perturbCode) && perturbCode != null) {
+					PerturbResult.parsePerturb(actionNo, perturbCode, methStart + "", methEnd + "", lineNo1 + "", lineNo2,
+							lineNo3, lineNo4, lineNo5, groundTruth);
+				}
+			}}
 				
 
 	}

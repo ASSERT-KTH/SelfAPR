@@ -1,4 +1,4 @@
-package code.perturbation.insert;
+package code.perturbation.selfAPR;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,12 +7,12 @@ import java.util.List;
 import code.analysis.StatementAnalysis;
 import code.output.result.PerturbResult;
 import code.perturbation.SimilarityPerturbation;
-import code.perturbation.replace.mix.ReplaceStatement;
+import code.perturbation.selfAPR.mix.ReplaceStatement;
 import code.perturbation.utils.SelfAPRUtil;
 import code.perturbation.utils.StatementType;
 import spoon.reflect.declaration.CtElement;
 
-public class P10_Transplant_Statement {
+public class P11_Transplant_Statement {
 
 	public static void insert(CtElement st, StatementType type, int methStart, int methEnd) {
 		
@@ -20,7 +20,7 @@ public class P10_Transplant_Statement {
 			return;
 		}
 		
-		String actionNo = "[P10_Insert_Statement]";
+		String actionNo = "[P11_Insert_Donor_Statement]";
 
 		int lineNo1 = st.getPosition().getLine();
 		String lineNo2 = "";
@@ -39,60 +39,25 @@ public class P10_Transplant_Statement {
 		groundTruth = groundTruth.trim();
 		
 		String lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
-		String perturbCodeMove = groundTruth;
-		
-		
-		//statemnet 1, statement 2;
-		String lineNo2String = " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
 
-		if (";".equals(lastChar) ) {
+		if ("{".equals(lastChar)){
+			return;			
+		}
+		
+		if ("}".equals(lastChar)){
+			return;			
+		}
+		
+
+		if (!";".equals(lastChar)){
+			String lineNo2String = " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 1).trim();
 			lastChar = lineNo2String.charAt(lineNo2String.length() - 1) + "";
-
-			if(!";".equals(lastChar)) {
+			if (!";".equals(lastChar)){
 				return;
 			} else {
-				if(SelfAPRUtil.getRandomDouble() > 0.5) {
-					//move
-					
-					if(SelfAPRUtil.getRandomDouble() > 0.5) {
-						lineNo2 = lineNo1 + 1 + "";
-						groundTruth+=lineNo2String;
-					}
-					perturbCodeMove = lineNo2String + " "+perturbCodeMove; //learn to move code statement 1 to statement 2
-					perturbList.add(perturbCodeMove);
-					
-					
-					
-					
-				} else {
-					//the third line as the donor statement
-					String lineNo3String = " " + SelfAPRUtil.getSpecificLine(st.getPosition(), lineNo1 + 2).trim();
-					lastChar = lineNo3String.charAt(lineNo3String.length() - 1) + "";
-					if(!";".equals(lastChar)) {
-						//remove: 
-						perturbCodeMove = lineNo3String + " "+ groundTruth;
-						perturbList.add(perturbCodeMove);
-
-					}
-
-					
-				}
-				
+				groundTruth = groundTruth + lineNo2String;
+				lineNo2 = lineNo1 + 1 + "";
 			}
-			
-			
-			
-			
-			
-			
-						
-		} else if (!"{".equals(lastChar)){
-			groundTruth+=lineNo2String;
-			lastChar = groundTruth.charAt(groundTruth.length() - 1) + "";
-			if(!";".equals(lastChar)) {
-				return;
-			}
-			
 		}
 		
 		
@@ -133,10 +98,8 @@ public class P10_Transplant_Statement {
 			if(transplantString.contains("return") && groundTruth.contains("return") ) {
 				return ;
 			}
-			
-			
-			
-			
+					
+					
 			transplantString = transplantString.replace("\r", " ").replace("\n", " ");
 			
 			perturbCode = transplantString + groundTruth;
@@ -146,34 +109,6 @@ public class P10_Transplant_Statement {
 		 }
 						
 		
-		
-		
-		
-//		else {
-//			//add condition wrap this statement;	
-//			 List<String> sets= (List<String>) SimilarityPerturbation.perturb(st, groundTruth,StatementType.ConditionHead,0.3,"null");
-//			 String newperturbCode= sets.size()>0 ?sets.get(0):null;
-//			 
-//			 
-//			if(perturbCode==null) {
-//				return;
-//			}
-//			
-//			
-//			if(perturbCode.contains("{")) {
-//				int index = perturbCode.indexOf("{");
-//				String before = perturbCode.substring(0, index);
-//				
-//				perturbCode = before + " { "+ groundTruth + " } ";
-//				
-//			}
-//		}
-		
-		
-
-		
-		
-		//add extract if wrap the statement
 	
 		for(String perturberd : perturbList) {
 		if(perturberd!=null) {		

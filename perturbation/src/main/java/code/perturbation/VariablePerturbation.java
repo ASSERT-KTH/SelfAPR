@@ -25,7 +25,9 @@ import spoon.support.reflect.code.CtVariableWriteImpl;
 
 public class VariablePerturbation {
 
-	public static List<String> perturb(CtElement st, String groundTruth, boolean isSwap) {
+	//case 1 : replace; case 2: remove; case 3: swap;
+	public static List<String> perturb(CtElement st, String groundTruth, Integer cases) {
+		
 		List<CtVariableReadImpl> argumentsDuplicates = st
 				.getElements(new TypeFilter<CtVariableReadImpl>(CtVariableReadImpl.class));
 		List<CtLocalVariableImpl> argumentsWDuplicates = st
@@ -59,7 +61,7 @@ public class VariablePerturbation {
 		  
 		
 		// replace argument with the same type argument
-		if (arguments.size() > 0 && !isSwap) {
+		if (arguments.size() > 0 && cases==1) {
 			
 			for(int i = 0; i<arguments.size(); i ++) {
 			String corruptedCode = null;
@@ -121,10 +123,29 @@ public class VariablePerturbation {
 		} 
 
 		}
+	
+	
+	//remove
+	else if(arguments.size() > 1  && cases==2 ) {
 		
+		for(int i = 0; i<arguments.size(); i ++) {
+			String corruptedCode = null;
+			//remove last one
+			CtElement arg = arguments.get(i);
+			String varStr = SelfAPRUtil.getSimpleVarName(arg.toString());
+			if(groundTruth.contains(varStr+",")) {
+			corruptedCode = groundTruth.replaceFirst(varStr+"," , "");
+			corruptedCodeList.add(corruptedCode);
+			} else if(groundTruth.contains(", "+varStr)) {
+				corruptedCode = groundTruth.replaceFirst(", "+varStr, "");
+				corruptedCodeList.add(corruptedCode);
+			}			
+		}
+			
+	}
 			
 	//swap
-		else if(arguments.size() > 1 && isSwap) {
+		else if(arguments.size() > 1 && cases==3) {
 			for(int i = 0; i<arguments.size(); i ++) {
 			String corruptedCode = null;
 			if(((CtTypedElement) arguments.get(i)).getType()==null) {
@@ -149,8 +170,7 @@ public class VariablePerturbation {
 			while(i==j) {
 				j = SelfAPRUtil.getRandomInt(arguments.size());
 			}
-			
-			
+						
 			
 			CtElement arg = arguments.get(i);
 			CtElement argAnother = arguments.get(j);
@@ -164,28 +184,10 @@ public class VariablePerturbation {
 				corruptedCodeList.add(corruptedCode);
 			}
 			
-			//remove one
-			if(groundTruth.contains(varStr+",")) {
-			corruptedCode = groundTruth.replaceFirst(varStr+"," , "");
-			corruptedCodeList.add(corruptedCode);
-
-			} else if(groundTruth.contains(", "+varStr)) {
-				corruptedCode = groundTruth.replaceFirst(", "+varStr, "");
-				corruptedCodeList.add(corruptedCode);
-			}
 			
-		
-			
-			
-			
-			
-			
-
 		}
 			
-			
-			
-			
+						
 	}
 		return corruptedCodeList;
 

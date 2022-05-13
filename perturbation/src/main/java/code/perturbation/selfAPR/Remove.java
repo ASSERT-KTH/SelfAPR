@@ -1,4 +1,4 @@
-package code.perturbation.remove;
+package code.perturbation.selfAPR;
 
 import spoon.reflect.code.CtCodeElement;
 import spoon.reflect.code.CtExpression;
@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import code.output.result.PerturbResult;
-import code.perturbation.replace.P8_Replace_Mix;
 import code.perturbation.utils.SelfAPRUtil;
 import code.perturbation.utils.StatementType;
 
@@ -187,13 +186,13 @@ public class Remove {
 		
 		
 		 if (type == StatementType.Statement ||type == StatementType.Return||type == StatementType.LocalVariable) {
-				P13_Remove_Statement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+				P14_Delete_Statement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
 		 }
 		 
 			if(type.equals(StatementType.Condition)) {
 				if (groundTruth.contains("if")  || groundTruth.contains("else")) {
-			 	P14_Remove_Condition.perturb((CtIfImpl) st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);			
-				P15_Remove_Block.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
+			 	P15_Unwrap_Block.perturb((CtIfImpl) st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);			
+				P16_Remove_Block.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
 				}
 			
 			}
