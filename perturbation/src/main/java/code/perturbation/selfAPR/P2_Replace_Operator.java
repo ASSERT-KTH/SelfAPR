@@ -49,6 +49,7 @@ public class P2_Replace_Operator {
 					if (groundTruth.contains(simplefyExpression)) {
 						String perturbExpression = simplefyExpression.replace(origOpKindValue, perturbOpKindValue);
 						perturbCode = groundTruth.replace(simplefyExpression, perturbExpression);
+						PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
 
 					} else {
 						origOpKindValue = " " + origOpKindValue + " ";
@@ -58,9 +59,12 @@ public class P2_Replace_Operator {
 							String later = groundTruth.subSequence(index+2,groundTruth.length())+"";
 
 							perturbCode =before+ perturbOpKindValue + later;
+							PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
 
 						} else {
 							perturbCode = groundTruth.replaceFirst(origOpKindValue, " " + perturbOpKindValue + " ");
+							PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
+
 						}
 					}
 					if (!groundTruth.equals(perturbCode) && perturbCode != null) {

@@ -28,6 +28,8 @@ public class WrongOperator {
 				.getElements(new TypeFilter<CtOperatorAssignmentImpl>(CtOperatorAssignmentImpl.class));
 
 
+		
+
 		if (expressions.size() > 0) {
 
 			for (CtBinaryOperatorImpl expression : expressions) {
@@ -40,61 +42,93 @@ public class WrongOperator {
 				
 				String simplefyExpression = SelfAPRUtil.simplefyExpression(expression);
 
-		if (groundTruth.contains(origOpKindValue)) {
+				if (groundTruth.contains(origOpKindValue)) {
 
-			String perturbOpKindValue = OperatorUtil.getRandomLogicOperator(origOpKindValue, groundTruth);
-			
-			if (groundTruth.contains(simplefyExpression)) {
-				String perturbExpression = simplefyExpression.replace(origOpKindValue, perturbOpKindValue);
-				perturbCode = groundTruth.replace(simplefyExpression, perturbExpression);
+					String perturbOpKindValue = OperatorUtil.getRandomLogicOperator(origOpKindValue, groundTruth);
+					
+					if (groundTruth.contains(simplefyExpression)) {
+						String perturbExpression = simplefyExpression.replace(origOpKindValue, perturbOpKindValue);
+						perturbCode = groundTruth.replace(simplefyExpression, perturbExpression);
+						PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
 
-			} else {
-				origOpKindValue = " " + origOpKindValue + " ";
-				if ("OR".equals(origOpKind)) {
-					int index =  groundTruth.indexOf("||");
-					String before = groundTruth.subSequence(0, index)+"";
-					String later = groundTruth.subSequence(index+2,groundTruth.length())+"";
+					} else {
+						origOpKindValue = " " + origOpKindValue + " ";
+						if ("OR".equals(origOpKind)) {
+							int index =  groundTruth.indexOf("||");
+							String before = groundTruth.subSequence(0, index)+"";
+							String later = groundTruth.subSequence(index+2,groundTruth.length())+"";
 
-					perturbCode =before+ perturbOpKindValue + later;
+							perturbCode =before+ perturbOpKindValue + later;
+							PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
 
-				} else {
-					perturbCode = groundTruth.replaceFirst(origOpKindValue, " " + perturbOpKindValue + " ");
+						} else {
+							perturbCode = groundTruth.replaceFirst(origOpKindValue, " " + perturbOpKindValue + " ");
+							PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
+
+						}
+					}
+					if (!groundTruth.equals(perturbCode) && perturbCode != null) {
+						
+						perturbCode=perturbCode.trim();
+						groundTruth=groundTruth.trim();
+
+						String lstP = perturbCode.charAt(perturbCode.length()-1)+"";
+						String lstG = groundTruth.charAt(groundTruth.length()-1)+"";
+						
+						String frsP = perturbCode.charAt(0)+"";
+						String ftsG = groundTruth.charAt(0)+"";
+						
+						if(!lstP.equals(lstG)) {
+							break;
+						}
+						
+						if(!frsP.equals(ftsG)) {
+							break;
+						}
+						
+						PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
+					}
+
 				}
-			}
-			if (!groundTruth.equals(perturbCode) && perturbCode != null) {
-				
-				perturbCode=perturbCode.trim();
-				groundTruth=groundTruth.trim();
 
-				String lstP = perturbCode.charAt(perturbCode.length()-1)+"";
-				String lstG = groundTruth.charAt(groundTruth.length()-1)+"";
-				
-				String frsP = perturbCode.charAt(0)+"";
-				String ftsG = groundTruth.charAt(0)+"";
-				
-				if(!lstP.equals(lstG)) {
-					break;
-				}
-				
-				if(!frsP.equals(ftsG)) {
-					break;
-				}
-				
-				PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
 			}
 
 		}
-			}
-		
-		
-		if (perturbCodeList != null) {
-			for (String perturbCode : perturbCodeList) {
-				if (!groundTruth.equals(perturbCode) && perturbCode != null) {
-					PerturbResult.parsePerturb(actionNo, perturbCode, methStart + "", methEnd + "", lineNo1 + "",
-							lineNo2, lineNo3, lineNo4, lineNo5, groundTruth);
+
+		if (assignmentOperators.size() > 0) {
+
+			for (CtOperatorAssignmentImpl assignments : assignmentOperators) {
+
+				if (assignments.getKind().toString().equals("PLUS")  || assignments.getKind().toString().equals("MINUS") ) {
+					String perturbCode = null;
+					String origOpKindValue = "";
+					if(assignments.getKind().toString().equals("PLUS")) {
+						if(groundTruth.contains("+=")) {
+						 origOpKindValue = "+=";
+						}else {
+							origOpKindValue = "+";
+						}
+					} else if(assignments.getKind().toString().equals("MINUS")){
+						if(groundTruth.contains("-=")) {
+							 origOpKindValue = "-=";
+							}else {
+								origOpKindValue = "-";
+							}
+					}									
+					
+					if (groundTruth.contains(origOpKindValue)) {
+
+						String perturbOpKindValue = OperatorUtil.getRandomLogicOperator(origOpKindValue, groundTruth);
+						perturbCode = groundTruth.replaceFirst(" " + origOpKindValue + " ",
+								" " + perturbOpKindValue + " ");
+
+						if (!groundTruth.equals(perturbCode) && perturbCode != null) {
+							PerturbResult.parsePerturb(actionNo,perturbCode,methStart+"",methEnd+"",lineNo1+"",lineNo2,lineNo3,lineNo4,lineNo5,groundTruth);
+
+						}
+					}
 				}
 			}
 		}
-	}
 	}
 }
