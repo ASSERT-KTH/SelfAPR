@@ -1,2 +1,0 @@
-[REPLACE]^super ( pointer, true, null ) ;^38^^^^^34^40^[REPLACE] super ( pointer, false, null ) ;^[METHOD] <init> [TYPE] QName) [PARAMETER] CollectionPointer pointer QName name [CLASS] CollectionAttributeNodeIterator   [TYPE]  QName name  [TYPE]  CollectionPointer pointer  [TYPE]  boolean false  true 
-[REPLACE]^this.name =  null;^39^^^^^34^40^[REPLACE] this.name = name;^[METHOD] <init> [TYPE] QName) [PARAMETER] CollectionPointer pointer QName name [CLASS] CollectionAttributeNodeIterator   [TYPE]  QName name  [TYPE]  CollectionPointer pointer  [TYPE]  boolean false  true 

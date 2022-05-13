@@ -1,2 +1,0 @@
-[REPLACE]^this.dataset =  null;^74^^^^^72^75^[REPLACE] this.dataset = dataset;^[METHOD] <init> [TYPE] Dataset) [PARAMETER] Object source Dataset dataset [CLASS] DatasetChangeEvent   [TYPE]  Dataset dataset  [TYPE]  Object source  [TYPE]  boolean false  true 
-[ADD]^^74^^^^^72^75^[ADD] this.dataset = dataset;^[METHOD] <init> [TYPE] Dataset) [PARAMETER] Object source Dataset dataset [CLASS] DatasetChangeEvent   [TYPE]  Dataset dataset  [TYPE]  Object source  [TYPE]  boolean false  true 

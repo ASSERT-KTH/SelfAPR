@@ -1,8 +1,0 @@
-[REPLACE]^private static final long serialVersionUID  = null ;^50^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] TemplateType  
-[REPLACE]^private  String name;^52^^^^^^^[REPLACE] private final String name;^ [CLASS] TemplateType  
-[ADD]^^55^^^^^54^57^[ADD] super ( registry, registry.getNativeObjectType ( JSTypeNative.UNKNOWN_TYPE )  ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] JSTypeRegistry registry String name [CLASS] TemplateType   [TYPE]  JSTypeRegistry registry  [TYPE]  String name  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 
-[REPLACE]^this.name =  null;^56^^^^^54^57^[REPLACE] this.name = name;^[METHOD] <init> [TYPE] String) [PARAMETER] JSTypeRegistry registry String name [CLASS] TemplateType   [TYPE]  JSTypeRegistry registry  [TYPE]  String name  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 
-[ADD]^^56^^^^^54^57^[ADD] this.name = name;^[METHOD] <init> [TYPE] String) [PARAMETER] JSTypeRegistry registry String name [CLASS] TemplateType   [TYPE]  JSTypeRegistry registry  [TYPE]  String name  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 
-[REPLACE]^return true;^61^^^^^60^62^[REPLACE] return name;^[METHOD] getReferenceName [TYPE] String [PARAMETER] [CLASS] TemplateType   [TYPE]  long serialVersionUID  [TYPE]  String name  [TYPE]  boolean false  true 
-[REPLACE]^return true;^66^^^^^65^67^[REPLACE] return name;^[METHOD] toString [TYPE] String [PARAMETER] [CLASS] TemplateType   [TYPE]  long serialVersionUID  [TYPE]  String name  [TYPE]  boolean false  true 
-[REPLACE]^return false;^71^^^^^70^72^[REPLACE] return true;^[METHOD] isTemplateType [TYPE] boolean [PARAMETER] [CLASS] TemplateType   [TYPE]  long serialVersionUID  [TYPE]  String name  [TYPE]  boolean false  true 

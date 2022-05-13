@@ -1,2 +1,0 @@
-[REPLACE]^System.out.println ( what .Object (  )   ) ;^13^^^^^12^14^[REPLACE] System.out.println ( what.toString (  )  ) ;^[METHOD] log [TYPE] void [PARAMETER] Object what [CLASS] MockitoLoggerImpl   [TYPE]  boolean false  true  [TYPE]  Object what 
-[ADD]^^13^^^^^12^14^[ADD] System.out.println ( what.toString (  )  ) ;^[METHOD] log [TYPE] void [PARAMETER] Object what [CLASS] MockitoLoggerImpl   [TYPE]  boolean false  true  [TYPE]  Object what 

@@ -1,5 +1,0 @@
-[REPLACE]^public  String orderNumber;^25^^^^^^^[REPLACE] public final String orderNumber;^ [CLASS] Order  
-[REPLACE]^this.postedCart =  null;^28^^^^^27^30^[REPLACE] this.postedCart = postedCart;^[METHOD] <init> [TYPE] String) [PARAMETER] Cart postedCart String orderNumber [CLASS] Order   [TYPE]  String orderNumber  [TYPE]  Cart postedCart  [TYPE]  boolean false  true 
-[REPLACE]^this.orderNumber =  null;^29^^^^^27^30^[REPLACE] this.orderNumber = orderNumber;^[METHOD] <init> [TYPE] String) [PARAMETER] Cart postedCart String orderNumber [CLASS] Order   [TYPE]  String orderNumber  [TYPE]  Cart postedCart  [TYPE]  boolean false  true 
-[REPLACE]^return orderNumber;^33^^^^^32^34^[REPLACE] return postedCart;^[METHOD] getPostedCart [TYPE] Cart [PARAMETER] [CLASS] Order   [TYPE]  String orderNumber  [TYPE]  Cart postedCart  [TYPE]  boolean false  true 
-[REPLACE]^return postedCart;^37^^^^^36^38^[REPLACE] return orderNumber;^[METHOD] getOrderNumber [TYPE] String [PARAMETER] [CLASS] Order   [TYPE]  String orderNumber  [TYPE]  Cart postedCart  [TYPE]  boolean false  true 

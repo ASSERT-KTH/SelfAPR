@@ -1,5 +1,0 @@
-[REPLACE]^static final long serialVersionUID  = null ;^33^^^^^^^[REPLACE] static final long serialVersionUID = -4086729973971783390L;^ [CLASS] JsonParseException  
-[REPLACE]^super ( cause ) ;^42^^^^^41^43^[REPLACE] super ( msg ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String msg [CLASS] JsonParseException   [TYPE]  long serialVersionUID  [TYPE]  String msg  [TYPE]  boolean false  true 
-[REPLACE]^super ( msg ) ;^52^^^^^51^53^[REPLACE] super ( msg, cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] String msg Throwable cause [CLASS] JsonParseException   [TYPE]  Throwable cause  [TYPE]  String msg  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 
-[ADD]^^52^^^^^51^53^[ADD] super ( msg, cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] String msg Throwable cause [CLASS] JsonParseException   [TYPE]  Throwable cause  [TYPE]  String msg  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 
-[REPLACE]^super ( msg ) ;^62^^^^^61^63^[REPLACE] super ( cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable cause [CLASS] JsonParseException   [TYPE]  Throwable cause  [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 

@@ -1,4 +1,0 @@
-[REPLACE]^private static final long serialVersionUID = 1;^27^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] JsonSyntaxException  
-[REPLACE]^super ( cause ) ;^30^^^^^29^31^[REPLACE] super ( msg ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String msg [CLASS] JsonSyntaxException   [TYPE]  long serialVersionUID  [TYPE]  String msg  [TYPE]  boolean false  true 
-[REPLACE]^super ( msg ) ;^34^^^^^33^35^[REPLACE] super ( msg, cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] String msg Throwable cause [CLASS] JsonSyntaxException   [TYPE]  Throwable cause  [TYPE]  String msg  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 
-[REPLACE]^super ( msg ) ;^44^^^^^43^45^[REPLACE] super ( cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable cause [CLASS] JsonSyntaxException   [TYPE]  Throwable cause  [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 

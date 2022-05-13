@@ -1,5 +1,0 @@
-[REPLACE]^private final static EmptyIterator<?> instance ;^15^^^^^^^[REPLACE] private final static EmptyIterator<?> instance = new EmptyIterator<Object> (  ) ;^ [CLASS] EmptyIterator  
-[REPLACE]^public boolean hasNext (  )  { return false; } @Override^21^^^^^20^22^[REPLACE] return  ( Iterator<T> )  instance;^[METHOD] instance [TYPE] <T> [PARAMETER] [CLASS] EmptyIterator   [TYPE]  EmptyIterator instance  [TYPE]  boolean false  true 
-[REPLACE]^public boolean hasNext (  )  { return true; }^25^^^^^^^[REPLACE] public boolean hasNext (  )  { return false; }^[METHOD] hasNext [TYPE] boolean [PARAMETER] [CLASS] EmptyIterator   [TYPE]  EmptyIterator instance  [TYPE]  boolean false  true 
-[REPLACE]^return ;^27^^^^^^^[REPLACE] public T next  (" ")  ; }^[METHOD] next [TYPE] T [PARAMETER] [CLASS] EmptyIterator   [TYPE]  EmptyIterator instance  [TYPE]  boolean false  true 
-[REPLACE]^return ;^31^^^^^30^32^[REPLACE] throw new UnsupportedOperationException  (" ")  ;^[METHOD] remove [TYPE] void [PARAMETER] [CLASS] EmptyIterator   [TYPE]  EmptyIterator instance  [TYPE]  boolean false  true 

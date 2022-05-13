@@ -1,1 +1,0 @@
-[REPLACE]^private static final long serialVersionUID = -4403564377958943239;^29^^^^^^^[REPLACE] private static final long serialVersionUID = -4403564377958943239L;^ [CLASS] JXPathAbstractFactoryException  

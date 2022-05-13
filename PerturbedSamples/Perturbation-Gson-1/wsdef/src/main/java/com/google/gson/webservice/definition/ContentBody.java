@@ -1,4 +1,0 @@
-[REPLACE]^super ( spec, null ) ;^30^^^^^29^31^[REPLACE] super ( spec, contents ) ;^[METHOD] <init> [TYPE] Map) [PARAMETER] ContentBodySpec spec Object> contents [CLASS] ContentBody   [TYPE]  ContentBodySpec spec  [TYPE]  boolean false  true  [TYPE]  Map contents 
-[REPLACE]^return getSpec (  ) .getContentType (  ) ;^35^^^^^34^36^[REPLACE] return  ( ContentBodySpec )  spec;^[METHOD] getSpec [TYPE] ContentBodySpec [PARAMETER] [CLASS] ContentBody   [TYPE]  boolean false  true 
-[REPLACE]^return  ( ContentBodySpec )  spec;^39^^^^^38^40^[REPLACE] return getSpec (  ) .getContentType (  ) ;^[METHOD] getContentType [TYPE] String [PARAMETER] [CLASS] ContentBody   [TYPE]  boolean false  true 
-[REPLACE]^return  ( ContentBodySpec )  spec;^43^^^^^42^44^[REPLACE] return getSpec (  ) .getCharacterEncoding (  ) ;^[METHOD] getCharacterEncoding [TYPE] String [PARAMETER] [CLASS] ContentBody   [TYPE]  boolean false  true 

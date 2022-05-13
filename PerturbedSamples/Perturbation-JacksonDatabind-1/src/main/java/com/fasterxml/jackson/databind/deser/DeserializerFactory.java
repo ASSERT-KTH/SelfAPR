@@ -1,1 +1,0 @@
-[REPLACE]^protected final  Deserializers[] NO_DESERIALIZERS = new Deserializers[0];^43^^^^^^^[REPLACE] protected final static Deserializers[] NO_DESERIALIZERS = new Deserializers[0];^ [CLASS] DeserializerFactory  

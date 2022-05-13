@@ -1,6 +1,0 @@
-[REPLACE]^private static final long serialVersionUID ;^27^^^^^^^[REPLACE] private static final long serialVersionUID = 1L;^ [CLASS] JsonIOException  
-[REPLACE]^super ( cause ) ;^30^^^^^29^31^[REPLACE] super ( msg ) ;^[METHOD] <init> [TYPE] String) [PARAMETER] String msg [CLASS] JsonIOException   [TYPE]  long serialVersionUID  [TYPE]  String msg  [TYPE]  boolean false  true 
-[REPLACE]^super ( msg ) ;^34^^^^^33^35^[REPLACE] super ( msg, cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] String msg Throwable cause [CLASS] JsonIOException   [TYPE]  Throwable cause  [TYPE]  String msg  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 
-[ADD]^^34^^^^^33^35^[ADD] super ( msg, cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] String msg Throwable cause [CLASS] JsonIOException   [TYPE]  Throwable cause  [TYPE]  String msg  [TYPE]  boolean false  true  [TYPE]  long serialVersionUID 
-[REPLACE]^super ( msg ) ;^44^^^^^43^45^[REPLACE] super ( cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable cause [CLASS] JsonIOException   [TYPE]  Throwable cause  [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 
-[ADD]^^44^^^^^43^45^[ADD] super ( cause ) ;^[METHOD] <init> [TYPE] Throwable) [PARAMETER] Throwable cause [CLASS] JsonIOException   [TYPE]  Throwable cause  [TYPE]  long serialVersionUID  [TYPE]  boolean false  true 
