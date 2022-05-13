@@ -64,7 +64,7 @@ public class PerturbActions {
 				return;
 			}
 			
-			if ("selfAPR".contains(choice)) {
+			if ("SelfAPR".contains(choice)) {
 				Replace.replace(st, type, methStart, methEnd);
 				Remove.remove(st, type, methStart, methEnd);
 				Transplant.insert(st, type, methStart, methEnd);
@@ -79,7 +79,11 @@ public class PerturbActions {
 					String method = MethodSignature.getCurrentMethod();
 					String variables = Variables.getVariableInfo();
 					
-					String meta =  classinfo+" "+method+" [VARIABLES] "+variables;
+					String meta = classinfo+" "+method+" [VARIABLES] "+variables;
+					
+					meta += " startline:" + methStart;
+					meta += " endline:" + methEnd;
+
 					System.out.print(meta);
 					System.exit(0);
 				}

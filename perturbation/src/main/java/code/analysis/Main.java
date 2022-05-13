@@ -55,7 +55,7 @@ public class Main {
 		//BugLab||selfAPR
 		
 		if(choice=="") {
-			 choice = "selfAPR";
+			 choice = "SelfAPR";
 		}
 		
 //		path = "/Users/sophie/Documents/selfapr-closure134/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java";
