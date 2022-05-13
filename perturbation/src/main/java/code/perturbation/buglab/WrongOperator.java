@@ -20,7 +20,6 @@ public class WrongOperator {
 		 */
 
 		String actionNo = "[BugLab_Wrong_Operator]";
-		List<String> perturbCodeList = VariablePerturbation.perturb(st, groundTruth, false);
 
 		List<CtBinaryOperatorImpl> expressions = st
 				.getElements(new TypeFilter<CtBinaryOperatorImpl>(CtBinaryOperatorImpl.class));
