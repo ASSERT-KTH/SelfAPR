@@ -1,0 +1,1 @@
+[buglab_swap_variables]^Object ret = invocation.answer ( delegate ) ;^19^^^^^18^25^Object ret = delegate.answer ( invocation ) ;^[CLASS] ReturnsMocks  [METHOD] answer [RETURN_TYPE] Object   InvocationOnMock invocation [VARIABLES] Answer  delegate  MockitoCore  mockitoCore  Object  ret  boolean  InvocationOnMock  invocation  

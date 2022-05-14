@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( this.extension.endsWith ( name )  )  {^86^^^^^79^93^if  ( name.endsWith ( this.extension )  )  {^[CLASS] ExtensionFileFilter  [METHOD] accept [RETURN_TYPE] boolean   File file [VARIABLES] File  file  String  description  extension  name  boolean  

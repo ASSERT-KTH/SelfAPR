@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( object.evaluate ( predicate )  )  {^176^^^^^173^183^if  ( predicate.evaluate ( object )  )  {^[CLASS] FilterIterator  [METHOD] setNextObject [RETURN_TYPE] boolean   [VARIABLES] Iterator  iterator  boolean  nextObjectSet  E  nextObject  object  Predicate  predicate  

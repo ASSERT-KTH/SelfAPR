@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return  ( clazz != null )  && actual.isAssignableFrom ( actual.getClass (  )  ) ;^20^^^^^19^21^return  ( actual != null )  && clazz.isAssignableFrom ( actual.getClass (  )  ) ;^[CLASS] InstanceOf  [METHOD] matches [RETURN_TYPE] boolean   Object actual [VARIABLES] Class  clazz  Object  actual  boolean  

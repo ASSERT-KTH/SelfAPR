@@ -1,0 +1,2 @@
+[buglab_swap_variables]^for  ( i = 0; j != 0; i ^= j )  {^39^^^^^37^43^for  ( j = 0; i != 0; i ^= j )  {^[CLASS] TinyBitSet  [METHOD] topbit [RETURN_TYPE] int   int i [VARIABLES] int[]  T  int  c  i  j  value  x  boolean  
+[buglab_swap_variables]^return  ( index &  ( 1 << value )  )  != 0;^68^^^^^67^69^return  ( value &  ( 1 << index )  )  != 0;^[CLASS] TinyBitSet  [METHOD] get [RETURN_TYPE] boolean   int index [VARIABLES] int[]  T  int  c  i  index  j  value  w  x  boolean  

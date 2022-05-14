@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( !this.name.equals ( type.name.name )  )  {^98^^^^^89^103^if  ( !this.name.equals ( type.name )  )  {^[CLASS] KeyedValueComparatorType  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] Object  o  String  name  boolean  KeyedValueComparatorType  BY_KEY  BY_VALUE  type  

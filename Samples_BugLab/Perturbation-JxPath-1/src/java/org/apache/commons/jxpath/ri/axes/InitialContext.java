@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( nodePointer >= 1 && position <= position.getLength (  )  )  {^66^^^^^63^75^if  ( position >= 1 && position <= nodePointer.getLength (  )  )  {^[CLASS] InitialContext  [METHOD] setPosition [RETURN_TYPE] boolean   int position [VARIABLES] int  position  boolean  collection  started  startedSet  NodePointer  nodePointer  

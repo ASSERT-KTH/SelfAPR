@@ -1,0 +1,2 @@
+[buglab_swap_variables]^stubbing = v.thenReturn ( stubbing ) ;^24^^^^^18^27^stubbing = stubbing.thenReturn ( v ) ;^[CLASS] BaseStubbing  [METHOD] thenReturn [RETURN_TYPE] OngoingStubbing   T value  values [VARIABLES] boolean  T  v  value  T[]  values  OngoingStubbing  stubbing  
+[buglab_swap_variables]^stubbing = t.thenThrow ( stubbing ) ;^42^^^^^33^46^stubbing = stubbing.thenThrow ( t ) ;^[CLASS] BaseStubbing  [METHOD] thenThrow [RETURN_TYPE] OngoingStubbing    throwables [VARIABLES] boolean  Throwable  t  OngoingStubbing  stubbing  Throwable[]  throwables  

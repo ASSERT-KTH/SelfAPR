@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return chart.createEditor ( factory ) ;^94^^^^^93^95^return factory.createEditor ( chart ) ;^[CLASS] ChartEditorManager  [METHOD] getChartEditor [RETURN_TYPE] ChartEditor   JFreeChart chart [VARIABLES] ChartEditorFactory  f  factory  JFreeChart  chart  boolean  

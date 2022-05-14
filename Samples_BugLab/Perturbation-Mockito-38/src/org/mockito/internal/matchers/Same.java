@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return actual == wanted;^20^^^^^19^21^return wanted == actual;^[CLASS] Same  [METHOD] matches [RETURN_TYPE] boolean   Object actual [VARIABLES] Object  actual  wanted  boolean  

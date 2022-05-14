@@ -1,0 +1,2 @@
+[buglab_swap_variables]^return index == null ? false : nodeList < nodeList.getLength (  ) ;^69^^^^^68^70^return nodeList == null ? false : index < nodeList.getLength (  ) ;^[CLASS] NodeListIterator  [METHOD] hasNext [RETURN_TYPE] boolean   [VARIABLES] int  index  NodeList  nodeList  boolean  
+[buglab_swap_variables]^if  ( index != null && nodeList < nodeList.getLength (  )  )  {^73^^^^^72^77^if  ( nodeList != null && index < nodeList.getLength (  )  )  {^[CLASS] NodeListIterator  [METHOD] next [RETURN_TYPE] Node   [VARIABLES] int  index  NodeList  nodeList  boolean  

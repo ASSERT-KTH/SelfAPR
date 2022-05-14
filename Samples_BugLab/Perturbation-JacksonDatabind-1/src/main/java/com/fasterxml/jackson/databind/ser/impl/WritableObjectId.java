@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return  ( id = forPojo.generateId ( generator )  ) ;^39^^^^^38^40^return  ( id = generator.generateId ( forPojo )  ) ;^[CLASS] WritableObjectId  [METHOD] generateId [RETURN_TYPE] Object   Object forPojo [VARIABLES] ObjectIdGenerator  generator  Object  forPojo  id  boolean  idWritten  

@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return createValue (   ( Class )  obj ) ;^49^^^^^47^50^return createValue ( str,  ( Class )  obj ) ;^[CLASS] TypeHandler  [METHOD] createValue [RETURN_TYPE] Object   String str Object obj [VARIABLES] boolean  Object  obj  String  str  

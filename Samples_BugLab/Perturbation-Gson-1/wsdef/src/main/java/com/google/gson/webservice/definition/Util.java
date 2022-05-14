@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return expectedType.equals ( typeOfValue ) ;^25^^^^^24^26^return typeOfValue.equals ( expectedType ) ;^[CLASS] Util  [METHOD] isAssignableFrom [RETURN_TYPE] boolean   Type typeOfValue Type expectedType [VARIABLES] Type  expectedType  typeOfValue  boolean  

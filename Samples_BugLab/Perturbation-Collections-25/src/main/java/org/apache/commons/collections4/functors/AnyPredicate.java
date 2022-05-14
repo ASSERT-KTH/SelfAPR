@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( object.evaluate ( iPredicate )  )  {^105^^^^^103^110^if  ( iPredicate.evaluate ( object )  )  {^[CLASS] AnyPredicate  [METHOD] evaluate [RETURN_TYPE] boolean   final T object [VARIABLES] boolean  T  object  long  serialVersionUID  Predicate  iPredicate  

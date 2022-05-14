@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return item.matches ( actualMatcher ) ;^28^^^^^27^29^return actualMatcher.matches ( item ) ;^[CLASS] LocalizedMatcher  [METHOD] matches [RETURN_TYPE] boolean   Object item [VARIABLES] Object  item  boolean  Matcher  actualMatcher  Location  location  

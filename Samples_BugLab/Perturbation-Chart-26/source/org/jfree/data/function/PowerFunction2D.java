@@ -1,0 +1,5 @@
+[buglab_swap_variables]^return x * Math.pow ( this.a, this.b ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[buglab_swap_variables]^return this.a * Math.pow (  this.b ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[buglab_swap_variables]^return this.b * Math.pow ( x, this.a ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[buglab_swap_variables]^return this.a * Math.pow ( this.b, x ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[buglab_swap_variables]^return this.a * Math.pow ( x ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  

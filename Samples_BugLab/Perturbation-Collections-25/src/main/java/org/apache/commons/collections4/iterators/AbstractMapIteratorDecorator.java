@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return obj.setValue ( iterator ) ;^87^^^^^86^88^return iterator.setValue ( obj ) ;^[CLASS] AbstractMapIteratorDecorator  [METHOD] setValue [RETURN_TYPE] V   final V obj [VARIABLES] MapIterator  iterator  V  obj  boolean  

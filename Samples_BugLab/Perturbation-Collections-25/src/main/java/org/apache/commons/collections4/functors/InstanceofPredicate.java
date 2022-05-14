@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return object.isInstance ( iType ) ;^70^^^^^69^71^return iType.isInstance ( object ) ;^[CLASS] InstanceofPredicate  [METHOD] evaluate [RETURN_TYPE] boolean   Object object [VARIABLES] Class  iType  type  Object  object  boolean  long  serialVersionUID  

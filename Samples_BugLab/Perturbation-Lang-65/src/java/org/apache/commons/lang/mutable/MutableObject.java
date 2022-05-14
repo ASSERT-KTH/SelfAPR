@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return other == value ||  ( value != null && value.equals ( other )  ) ;^86^^^^^83^89^return value == other ||  ( value != null && value.equals ( other )  ) ;^[CLASS] MutableObject  [METHOD] equals [RETURN_TYPE] boolean   Object obj [VARIABLES] Object  obj  other  value  long  serialVersionUID  boolean  

@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( value.value (  )  == node )  {^38^^^^^35^44^if  ( node.value (  )  == value )  {^[CLASS] LinkedNode  [METHOD] contains [RETURN_TYPE] <ST>   LinkedNode<ST> node ST value [VARIABLES] LinkedNode  _next  next  node  ST  value  boolean  T  _value  value  

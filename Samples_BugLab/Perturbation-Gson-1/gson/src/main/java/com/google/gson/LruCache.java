@@ -1,0 +1,3 @@
+[buglab_swap_variables]^put ( value, key ) ;^41^^^^^40^42^put ( key, value ) ;^[CLASS] LruCache  [METHOD] addElement [RETURN_TYPE] void   K key V value [VARIABLES] K  key  boolean  long  serialVersionUID  int  maxCapacity  V  value  
+[buglab_swap_variables]^put (  value ) ;^41^^^^^40^42^put ( key, value ) ;^[CLASS] LruCache  [METHOD] addElement [RETURN_TYPE] void   K key V value [VARIABLES] K  key  boolean  long  serialVersionUID  int  maxCapacity  V  value  
+[buglab_swap_variables]^put ( key ) ;^41^^^^^40^42^put ( key, value ) ;^[CLASS] LruCache  [METHOD] addElement [RETURN_TYPE] void   K key V value [VARIABLES] K  key  boolean  long  serialVersionUID  int  maxCapacity  V  value  

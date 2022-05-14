@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return obj.push ( stack ) ;^40^^^^^37^41^return stack.push ( obj ) ;^[CLASS] MemoryRefStack  [METHOD] push [RETURN_TYPE] ObjectTypePair   ObjectTypePair obj [VARIABLES] Stack  stack  ObjectTypePair  obj  boolean  

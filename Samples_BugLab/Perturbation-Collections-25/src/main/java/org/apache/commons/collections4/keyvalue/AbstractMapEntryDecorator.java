@@ -1,0 +1,2 @@
+[buglab_swap_variables]^return object.setValue ( entry ) ;^68^^^^^67^69^return entry.setValue ( object ) ;^[CLASS] AbstractMapEntryDecorator  [METHOD] setValue [RETURN_TYPE] V   final V object [VARIABLES] Entry  entry  V  object  boolean  
+[buglab_swap_variables]^return object.equals ( entry ) ;^76^^^^^72^77^return entry.equals ( object ) ;^[CLASS] AbstractMapEntryDecorator  [METHOD] equals [RETURN_TYPE] boolean   Object object [VARIABLES] Entry  entry  Object  object  boolean  

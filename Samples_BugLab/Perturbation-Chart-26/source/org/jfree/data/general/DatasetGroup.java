@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( !this.id.equals ( that.id.id )  )  {^116^^^^^108^120^if  ( !this.id.equals ( that.id )  )  {^[CLASS] DatasetGroup  [METHOD] equals [RETURN_TYPE] boolean   Object obj [VARIABLES] Object  obj  String  id  boolean  long  serialVersionUID  DatasetGroup  that  

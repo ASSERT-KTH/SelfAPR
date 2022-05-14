@@ -1,0 +1,3 @@
+[buglab_swap_variables]^super ( value, key ) ;^39^^^^^38^40^super ( key, value ) ;^[CLASS] DefaultMapEntry  [METHOD] <init> [RETURN_TYPE] DefaultMapEntry(K,V)   final K key final V value [VARIABLES] boolean  V  value  K  key  
+[buglab_swap_variables]^super (  value ) ;^39^^^^^38^40^super ( key, value ) ;^[CLASS] DefaultMapEntry  [METHOD] <init> [RETURN_TYPE] DefaultMapEntry(K,V)   final K key final V value [VARIABLES] boolean  V  value  K  key  
+[buglab_swap_variables]^super ( key ) ;^39^^^^^38^40^super ( key, value ) ;^[CLASS] DefaultMapEntry  [METHOD] <init> [RETURN_TYPE] DefaultMapEntry(K,V)   final K key final V value [VARIABLES] boolean  V  value  K  key  

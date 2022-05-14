@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return caverphone ( str2 ) .equals ( caverphone ( str1 )  ) ;^180^^^^^179^181^return caverphone ( str1 ) .equals ( caverphone ( str2 )  ) ;^[CLASS] Caverphone  [METHOD] isCaverphoneEqual [RETURN_TYPE] boolean   String str1 String str2 [VARIABLES] boolean  String  str1  str2  

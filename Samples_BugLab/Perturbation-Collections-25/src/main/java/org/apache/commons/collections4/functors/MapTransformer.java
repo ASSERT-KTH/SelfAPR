@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return input.get ( iMap ) ;^74^^^^^73^75^return iMap.get ( input ) ;^[CLASS] MapTransformer  [METHOD] transform [RETURN_TYPE] O   final I input [VARIABLES] I  input  boolean  Map  iMap  map  long  serialVersionUID  

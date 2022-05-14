@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return name.attributeIterator ( elementPointer ) ;^43^^^^^42^44^return elementPointer.attributeIterator ( name ) ;^[CLASS] CollectionAttributeNodeIterator  [METHOD] getElementNodeIterator [RETURN_TYPE] NodeIterator   NodePointer elementPointer [VARIABLES] QName  name  NodePointer  elementPointer  boolean  

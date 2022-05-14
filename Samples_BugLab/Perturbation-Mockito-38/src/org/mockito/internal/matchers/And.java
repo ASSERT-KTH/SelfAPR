@@ -1,0 +1,1 @@
+[buglab_swap_variables]^for  ( Iterator<Matcher> matchers = it.iterator (  ) ; it.hasNext (  ) ; )  {^34^^^^^32^41^for  ( Iterator<Matcher> it = matchers.iterator (  ) ; it.hasNext (  ) ; )  {^[CLASS] And  [METHOD] describeTo [RETURN_TYPE] void   Description description [VARIABLES] Iterator  it  List  matchers  Description  description  boolean  

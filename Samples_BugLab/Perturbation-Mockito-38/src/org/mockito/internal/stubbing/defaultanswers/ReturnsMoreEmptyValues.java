@@ -1,0 +1,1 @@
+[buglab_swap_variables]^Object ret = invocation.answer ( delegate ) ;^51^^^^^50^58^Object ret = delegate.answer ( invocation ) ;^[CLASS] ReturnsMoreEmptyValues  [METHOD] answer [RETURN_TYPE] Object   InvocationOnMock invocation [VARIABLES] Answer  delegate  Object  ret  Class  returnType  boolean  InvocationOnMock  invocation  

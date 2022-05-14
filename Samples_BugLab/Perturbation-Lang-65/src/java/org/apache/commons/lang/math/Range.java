@@ -1,0 +1,2 @@
+[buglab_swap_variables]^return compareMax <= 0 && compareMin >= 0;^271^^^^^268^272^return compareMin <= 0 && compareMax >= 0;^[CLASS] Range  [METHOD] containsDouble [RETURN_TYPE] boolean   double value [VARIABLES] boolean  double  value  int  compareMax  compareMin  
+[buglab_swap_variables]^return compareMax <= 0 && compareMin >= 0;^307^^^^^304^308^return compareMin <= 0 && compareMax >= 0;^[CLASS] Range  [METHOD] containsFloat [RETURN_TYPE] boolean   float value [VARIABLES] boolean  float  value  int  compareMax  compareMin  

@@ -1,0 +1,3 @@
+[buglab_swap_variables]^super ( name, parent ) ;^34^^^^^33^35^super ( parent, name ) ;^[CLASS] DynamicAttributeIterator  [METHOD] <init> [RETURN_TYPE] QName)   PropertyOwnerPointer parent QName name [VARIABLES] boolean  QName  name  PropertyOwnerPointer  parent  
+[buglab_swap_variables]^super (  name ) ;^34^^^^^33^35^super ( parent, name ) ;^[CLASS] DynamicAttributeIterator  [METHOD] <init> [RETURN_TYPE] QName)   PropertyOwnerPointer parent QName name [VARIABLES] boolean  QName  name  PropertyOwnerPointer  parent  
+[buglab_swap_variables]^super ( parent ) ;^34^^^^^33^35^super ( parent, name ) ;^[CLASS] DynamicAttributeIterator  [METHOD] <init> [RETURN_TYPE] QName)   PropertyOwnerPointer parent QName name [VARIABLES] boolean  QName  name  PropertyOwnerPointer  parent  

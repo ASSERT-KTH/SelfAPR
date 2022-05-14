@@ -1,0 +1,3 @@
+[buglab_swap_variables]^serialize ( baos, obj ) ;^132^^^^^130^134^serialize ( obj, baos ) ;^[CLASS] SerializationUtils  [METHOD] serialize [RETURN_TYPE] byte[]   Serializable obj [VARIABLES] Serializable  obj  boolean  ByteArrayOutputStream  baos  
+[buglab_swap_variables]^serialize (  baos ) ;^132^^^^^130^134^serialize ( obj, baos ) ;^[CLASS] SerializationUtils  [METHOD] serialize [RETURN_TYPE] byte[]   Serializable obj [VARIABLES] Serializable  obj  boolean  ByteArrayOutputStream  baos  
+[buglab_swap_variables]^serialize ( obj ) ;^132^^^^^130^134^serialize ( obj, baos ) ;^[CLASS] SerializationUtils  [METHOD] serialize [RETURN_TYPE] byte[]   Serializable obj [VARIABLES] Serializable  obj  boolean  ByteArrayOutputStream  baos  

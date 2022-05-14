@@ -1,0 +1,1 @@
+[buglab_swap_variables]^transform ( cw ) .generateClass ( cg ) ;^25^^^^^23^27^transform ( cg ) .generateClass ( cw ) ;^[CLASS] DefaultGeneratorStrategy  [METHOD] generate [RETURN_TYPE] byte[]   ClassGenerator cg [VARIABLES] ClassGenerator  cg  boolean  DefaultGeneratorStrategy  INSTANCE  ClassWriter  cw  

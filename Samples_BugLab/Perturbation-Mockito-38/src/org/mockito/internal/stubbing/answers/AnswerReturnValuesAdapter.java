@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return invocation.valueFor ( returnValues ) ;^22^^^^^21^23^return returnValues.valueFor ( invocation ) ;^[CLASS] AnswerReturnValuesAdapter  [METHOD] answer [RETURN_TYPE] Object   InvocationOnMock invocation [VARIABLES] InvocationOnMock  invocation  ReturnValues  returnValues  boolean  

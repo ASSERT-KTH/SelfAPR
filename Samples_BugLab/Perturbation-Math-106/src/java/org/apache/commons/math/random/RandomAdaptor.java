@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return n.nextInt ( randomGenerator ) ;^147^^^^^146^148^return randomGenerator.nextInt ( n ) ;^[CLASS] RandomAdaptor  [METHOD] nextInt [RETURN_TYPE] int   int n [VARIABLES] RandomGenerator  randomGenerator  int  n  boolean  

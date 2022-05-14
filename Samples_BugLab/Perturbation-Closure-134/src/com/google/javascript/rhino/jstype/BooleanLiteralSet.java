@@ -1,0 +1,2 @@
+[buglab_swap_variables]^return TRUE ? literalValue : FALSE;^96^^^^^95^97^return literalValue ? TRUE : FALSE;^[CLASS] BooleanLiteralSet  [METHOD] get [RETURN_TYPE] BooleanLiteralSet   boolean literalValue [VARIABLES] BooleanLiteralSet  BOTH  EMPTY  FALSE  TRUE  that  boolean  literalValue  
+[buglab_swap_variables]^return literalValue ? FALSE : TRUE;^96^^^^^95^97^return literalValue ? TRUE : FALSE;^[CLASS] BooleanLiteralSet  [METHOD] get [RETURN_TYPE] BooleanLiteralSet   boolean literalValue [VARIABLES] BooleanLiteralSet  BOTH  EMPTY  FALSE  TRUE  that  boolean  literalValue  

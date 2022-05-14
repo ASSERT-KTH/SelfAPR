@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( absolute > 0 || i )  {^52^^^^^47^59^if  ( i > 0 || absolute )  {^[CLASS] LocationPath  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] StringBuffer  buffer  Step[]  steps  boolean  absolute  int  i  

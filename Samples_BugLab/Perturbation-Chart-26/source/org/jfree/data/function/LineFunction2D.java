@@ -1,0 +1,2 @@
+[buglab_swap_variables]^return x + this.b * this.a;^76^^^^^75^77^return this.a + this.b * x;^[CLASS] LineFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[buglab_swap_variables]^return this.a + x * this.b;^76^^^^^75^77^return this.a + this.b * x;^[CLASS] LineFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  

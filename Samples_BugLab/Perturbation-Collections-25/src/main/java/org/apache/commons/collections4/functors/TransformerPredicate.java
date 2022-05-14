@@ -1,0 +1,1 @@
+[buglab_swap_variables]^final Boolean result = object.transform ( iTransformer ) ;^73^^^^^72^79^final Boolean result = iTransformer.transform ( object ) ;^[CLASS] TransformerPredicate  [METHOD] evaluate [RETURN_TYPE] boolean   final T object [VARIABLES] Transformer  iTransformer  transformer  boolean  T  object  Boolean  result  long  serialVersionUID  

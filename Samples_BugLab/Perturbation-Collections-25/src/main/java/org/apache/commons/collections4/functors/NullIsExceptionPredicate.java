@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return object.evaluate ( iPredicate ) ;^76^^^^^72^77^return iPredicate.evaluate ( object ) ;^[CLASS] NullIsExceptionPredicate  [METHOD] evaluate [RETURN_TYPE] boolean   final T object [VARIABLES] boolean  T  object  long  serialVersionUID  Predicate  iPredicate  predicate  

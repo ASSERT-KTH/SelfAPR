@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( exception == null && message != null )  {^96^^^^^93^101^if  ( message == null && exception != null )  {^[CLASS] JXPathContextFactoryConfigurationError  [METHOD] getMessage [RETURN_TYPE] String   [VARIABLES] Exception  e  exception  String  message  boolean  

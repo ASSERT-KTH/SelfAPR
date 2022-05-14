@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return object == iValue;^72^^^^^71^73^return iValue == object;^[CLASS] IdentityPredicate  [METHOD] evaluate [RETURN_TYPE] boolean   final T object [VARIABLES] T  iValue  object  long  serialVersionUID  boolean  

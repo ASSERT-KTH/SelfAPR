@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( i == classToMock )  {^25^^^^^19^29^if  ( classToMock == i )  {^[CLASS] CreationValidator  [METHOD] validateExtraInterfaces [RETURN_TYPE] void   Class classToMock  extraInterfaces [VARIABLES] Class[]  extraInterfaces  boolean  Class  classToMock  i  

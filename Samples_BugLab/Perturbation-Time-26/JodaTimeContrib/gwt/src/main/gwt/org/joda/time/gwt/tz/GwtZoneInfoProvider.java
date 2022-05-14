@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return  ( DateTimeZone )  id.get ( map ) ;^440^^^^^436^441^return  ( DateTimeZone )  map.get ( id ) ;^[CLASS] GwtZoneInfoProvider  [METHOD] getZone [RETURN_TYPE] DateTimeZone   String id [VARIABLES] GwtZoneInfoProvider  singleton  Set  set  String  id  boolean  Map  map  TimeZoneConstants  timeZoneConstants  

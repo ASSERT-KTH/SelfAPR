@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return nodePointer == null || nodeTest.testNode ( nodeTest ) ;^77^^^^^63^78^return nodeTest == null || nodePointer.testNode ( nodeTest ) ;^[CLASS] SelfContext  [METHOD] setPosition [RETURN_TYPE] boolean   int position [VARIABLES] boolean  startedSet  NodePointer  nodePointer  NodeTest  nodeTest  int  position  

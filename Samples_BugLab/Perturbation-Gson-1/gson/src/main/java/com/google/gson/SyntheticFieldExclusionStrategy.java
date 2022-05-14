@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return f && skipSyntheticFields.isSynthetic (  ) ;^41^^^^^40^42^return skipSyntheticFields && f.isSynthetic (  ) ;^[CLASS] SyntheticFieldExclusionStrategy  [METHOD] shouldSkipField [RETURN_TYPE] boolean   FieldAttributes f [VARIABLES] FieldAttributes  f  boolean  skipSyntheticFields  

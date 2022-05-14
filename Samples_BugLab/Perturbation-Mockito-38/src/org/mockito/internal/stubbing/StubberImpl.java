@@ -1,0 +1,1 @@
+[buglab_swap_variables]^mockUtil.getMockHandler ( answers ) .setAnswersForStubbing ( mock ) ;^35^^^^^24^37^mockUtil.getMockHandler ( mock ) .setAnswersForStubbing ( answers ) ;^[CLASS] StubberImpl  [METHOD] when [RETURN_TYPE] <T>   T mock [VARIABLES] List  answers  boolean  T  mock  MockUtil  mockUtil  Reporter  reporter  

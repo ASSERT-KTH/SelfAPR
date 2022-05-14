@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return Boolean.valueOf ( input.evaluate ( iPredicate )  ) ;^72^^^^^71^73^return Boolean.valueOf ( iPredicate.evaluate ( input )  ) ;^[CLASS] PredicateTransformer  [METHOD] transform [RETURN_TYPE] Boolean   final T input [VARIABLES] boolean  T  input  long  serialVersionUID  Predicate  iPredicate  predicate  

@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return !items.isEmpty (  )  ? iterator.pop (  )  : items.next (  ) ;^95^^^^^94^96^return !items.isEmpty (  )  ? items.pop (  )  : iterator.next (  ) ;^[CLASS] PushbackIterator  [METHOD] next [RETURN_TYPE] E   [VARIABLES] Iterator  iterator  Deque  items  boolean  

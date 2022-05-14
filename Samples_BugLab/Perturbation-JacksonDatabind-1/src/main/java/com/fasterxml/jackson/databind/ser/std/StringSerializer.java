@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( typeHint != null )  visitor.expectStringFormat ( visitor ) ;^52^^^^^49^53^if  ( visitor != null )  visitor.expectStringFormat ( typeHint ) ;^[CLASS] StringSerializer  [METHOD] acceptJsonFormatVisitor [RETURN_TYPE] void   JsonFormatVisitorWrapper visitor JavaType typeHint [VARIABLES] JavaType  typeHint  boolean  JsonFormatVisitorWrapper  visitor  

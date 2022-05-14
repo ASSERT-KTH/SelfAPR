@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return f.translateName ( adaptee.getFieldObject (  )  ) ;^36^^^^^35^37^return adaptee.translateName ( f.getFieldObject (  )  ) ;^[CLASS] FieldNamingStrategy2Adapter  [METHOD] translateName [RETURN_TYPE] String   FieldAttributes f [VARIABLES] FieldNamingStrategy  adaptee  FieldAttributes  f  boolean  

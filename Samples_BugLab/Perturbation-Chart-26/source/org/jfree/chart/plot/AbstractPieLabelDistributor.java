@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return  ( PieLabelRecord )  index.get ( this.labels ) ;^74^^^^^73^75^return  ( PieLabelRecord )  this.labels.get ( index ) ;^[CLASS] AbstractPieLabelDistributor  [METHOD] getPieLabelRecord [RETURN_TYPE] PieLabelRecord   int index [VARIABLES] List  labels  int  index  boolean  

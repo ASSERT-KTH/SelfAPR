@@ -1,0 +1,3 @@
+[buglab_swap_variables]^set ( b, index ) ;^84^^^^^83^85^set ( index, b ) ;^[CLASS] BooleanList  [METHOD] setBoolean [RETURN_TYPE] void   int index Boolean b [VARIABLES] boolean  Boolean  b  long  serialVersionUID  int  index  
+[buglab_swap_variables]^set (  b ) ;^84^^^^^83^85^set ( index, b ) ;^[CLASS] BooleanList  [METHOD] setBoolean [RETURN_TYPE] void   int index Boolean b [VARIABLES] boolean  Boolean  b  long  serialVersionUID  int  index  
+[buglab_swap_variables]^set ( index ) ;^84^^^^^83^85^set ( index, b ) ;^[CLASS] BooleanList  [METHOD] setBoolean [RETURN_TYPE] void   int index Boolean b [VARIABLES] boolean  Boolean  b  long  serialVersionUID  int  index  

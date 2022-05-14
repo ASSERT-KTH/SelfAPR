@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( !this.name.equals ( t.name.name )  )  {^115^^^^^105^120^if  ( !this.name.equals ( t.name )  )  {^[CLASS] GradientPaintTransformType  [METHOD] equals [RETURN_TYPE] boolean   Object obj [VARIABLES] GradientPaintTransformType  CENTER_HORIZONTAL  CENTER_VERTICAL  HORIZONTAL  VERTICAL  t  Object  obj  String  name  boolean  long  serialVersionUID  

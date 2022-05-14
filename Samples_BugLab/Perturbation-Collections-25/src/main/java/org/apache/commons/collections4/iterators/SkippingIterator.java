@@ -1,0 +1,2 @@
+[buglab_swap_variables]^while  ( offset < pos && hasNext (  )  )  {^65^^^^^64^68^while  ( pos < offset && hasNext (  )  )  {^[CLASS] SkippingIterator  [METHOD] init [RETURN_TYPE] void   [VARIABLES] long  offset  pos  boolean  
+[buglab_swap_variables]^if  ( offset <= pos )  {^89^^^^^88^93^if  ( pos <= offset )  {^[CLASS] SkippingIterator  [METHOD] remove [RETURN_TYPE] void   [VARIABLES] long  offset  pos  boolean  

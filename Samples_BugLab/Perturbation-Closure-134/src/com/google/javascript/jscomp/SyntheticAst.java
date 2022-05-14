@@ -1,0 +1,1 @@
+[buglab_swap_variables]^root.putProp ( Node.SOURCENAME_PROP ) ;^48^^^^^46^49^root.putProp ( Node.SOURCENAME_PROP, sourceName ) ;^[CLASS] SyntheticAst  [METHOD] clearAst [RETURN_TYPE] void   [VARIABLES] String  sourceName  boolean  long  serialVersionUID  Node  root  

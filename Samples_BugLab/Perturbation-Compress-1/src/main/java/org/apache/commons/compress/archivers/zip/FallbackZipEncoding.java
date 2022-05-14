@@ -1,0 +1,2 @@
+[buglab_swap_variables]^return ByteBuffer.wrap ( this.charset.getBytes ( name )  ) ;^79^^^^^75^81^return ByteBuffer.wrap ( name.getBytes ( this.charset )  ) ;^[CLASS] FallbackZipEncoding  [METHOD] encode [RETURN_TYPE] ByteBuffer   String name [VARIABLES] String  charset  name  boolean  
+[buglab_swap_variables]^return new String ( this.charset ) ;^91^^^^^87^93^return new String ( data,this.charset ) ;^[CLASS] FallbackZipEncoding  [METHOD] decode [RETURN_TYPE] String   byte[] data [VARIABLES] byte[]  data  String  charset  name  boolean  

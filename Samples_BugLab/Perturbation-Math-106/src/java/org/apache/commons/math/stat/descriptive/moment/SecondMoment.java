@@ -1,0 +1,1 @@
+[buglab_swap_variables]^m2 +=  (  ( double )  n - 1 )  * nDev * dev;^68^^^^^63^69^m2 +=  (  ( double )  n - 1 )  * dev * nDev;^[CLASS] SecondMoment  [METHOD] increment [RETURN_TYPE] void   final double d [VARIABLES] double  d  m2  long  serialVersionUID  boolean  

@@ -1,0 +1,1 @@
+[buglab_swap_variables]^iClosures = closures ? FunctorUtils.copy ( clone )  : closures;^92^^^^^90^93^iClosures = clone ? FunctorUtils.copy ( closures )  : closures;^[CLASS] ChainedClosure  [METHOD] <init> [RETURN_TYPE] Closure[])   final boolean clone  closures [VARIABLES] Closure[]  closures  iClosures  long  serialVersionUID  boolean  clone  

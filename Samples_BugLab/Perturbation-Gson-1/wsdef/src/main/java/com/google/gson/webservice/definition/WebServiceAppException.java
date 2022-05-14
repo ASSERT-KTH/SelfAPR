@@ -1,0 +1,3 @@
+[buglab_swap_variables]^super ( cause, msg ) ;^35^^^^^34^36^super ( msg, cause ) ;^[CLASS] WebServiceAppException  [METHOD] <init> [RETURN_TYPE] Exception)   String msg Exception cause [VARIABLES] String  msg  boolean  long  serialVersionUID  Exception  cause  
+[buglab_swap_variables]^super (  cause ) ;^35^^^^^34^36^super ( msg, cause ) ;^[CLASS] WebServiceAppException  [METHOD] <init> [RETURN_TYPE] Exception)   String msg Exception cause [VARIABLES] String  msg  boolean  long  serialVersionUID  Exception  cause  
+[buglab_swap_variables]^super ( msg ) ;^35^^^^^34^36^super ( msg, cause ) ;^[CLASS] WebServiceAppException  [METHOD] <init> [RETURN_TYPE] Exception)   String msg Exception cause [VARIABLES] String  msg  boolean  long  serialVersionUID  Exception  cause  

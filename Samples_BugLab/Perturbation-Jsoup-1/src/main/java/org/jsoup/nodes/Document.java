@@ -1,0 +1,3 @@
+[buglab_swap_variables]^if  ( title == null )  {^74^^^^^71^79^if  ( titleEl == null )  {^[CLASS] Document  [METHOD] title [RETURN_TYPE] void   String title [VARIABLES] boolean  Element  titleEl  String  title  
+[buglab_swap_variables]^if  ( titleElEl == null )  {^74^^^^^71^79^if  ( titleEl == null )  {^[CLASS] Document  [METHOD] title [RETURN_TYPE] void   String title [VARIABLES] boolean  Element  titleEl  String  title  
+[buglab_swap_variables]^if  ( !tn.isBlank (  )  ) tn.add ( toMove ) ;^118^119^^^^113^128^if  ( !tn.isBlank (  )  ) toMove.add ( tn ) ;^[CLASS] Document  [METHOD] normalise [RETURN_TYPE] void   Element element [VARIABLES] boolean  Element  element  Node  node  List  toMove  TextNode  tn  

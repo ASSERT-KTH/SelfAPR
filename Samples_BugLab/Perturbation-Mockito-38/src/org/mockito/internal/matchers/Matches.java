@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return  ( regex instanceof String )  &&  (  ( String )  actual ) .matches ( actual ) ;^20^^^^^19^21^return  ( actual instanceof String )  &&  (  ( String )  actual ) .matches ( regex ) ;^[CLASS] Matches  [METHOD] matches [RETURN_TYPE] boolean   Object actual [VARIABLES] Object  actual  String  regex  boolean  

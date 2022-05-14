@@ -1,0 +1,1 @@
+[buglab_swap_variables]^double a = InfoSetUtil.doubleValue ( context[0].computeValue ( args )  ) ;^35^^^^^34^37^double a = InfoSetUtil.doubleValue ( args[0].computeValue ( context )  ) ;^[CLASS] CoreOperationNegate  [METHOD] computeValue [RETURN_TYPE] Object   EvalContext context [VARIABLES] boolean  double  a  EvalContext  context  

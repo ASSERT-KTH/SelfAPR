@@ -1,0 +1,4 @@
+[buglab_swap_variables]^return JVM_RANDOMextInt ( n, n ) ;^72^^^^^71^73^return nextInt ( JVM_RANDOM, n ) ;^[CLASS] RandomUtils  [METHOD] nextInt [RETURN_TYPE] int   int n [VARIABLES] Random  JVM_RANDOM  random  int  n  boolean  
+[buglab_swap_variables]^return nextInt ( JVM_RANDOM ) ;^72^^^^^71^73^return nextInt ( JVM_RANDOM, n ) ;^[CLASS] RandomUtils  [METHOD] nextInt [RETURN_TYPE] int   int n [VARIABLES] Random  JVM_RANDOM  random  int  n  boolean  
+[buglab_swap_variables]^return nextInt (  n ) ;^72^^^^^71^73^return nextInt ( JVM_RANDOM, n ) ;^[CLASS] RandomUtils  [METHOD] nextInt [RETURN_TYPE] int   int n [VARIABLES] Random  JVM_RANDOM  random  int  n  boolean  
+[buglab_swap_variables]^return n.nextInt ( random ) ;^86^^^^^84^87^return random.nextInt ( n ) ;^[CLASS] RandomUtils  [METHOD] nextInt [RETURN_TYPE] int   Random random int n [VARIABLES] Random  JVM_RANDOM  random  int  n  boolean  

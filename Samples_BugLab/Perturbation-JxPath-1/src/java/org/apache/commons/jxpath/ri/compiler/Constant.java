@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( longValue == doubleValue )  {^68^^^^^64^78^if  ( doubleValue == longValue )  {^[CLASS] Constant  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] Object  value  boolean  double  doubleValue  long  longValue  

@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return name && local.startsWith ( "$super" ) ;^60^^^^^59^61^return local && name.startsWith ( "$super" ) ;^[CLASS] DefaultCodingConvention  [METHOD] isExported [RETURN_TYPE] boolean   String name boolean local [VARIABLES] boolean  local  String  name  

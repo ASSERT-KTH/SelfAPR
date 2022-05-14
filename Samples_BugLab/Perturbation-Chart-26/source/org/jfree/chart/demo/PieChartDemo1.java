@@ -1,0 +1,1 @@
+[buglab_swap_variables]^plot.setLabelFont ( new Font ( "SansSerif", Font. 12 )  ) ;^111^^^^^99^117^plot.setLabelFont ( new Font ( "SansSerif", Font.PLAIN, 12 )  ) ;^[CLASS] PieChartDemo1  [METHOD] createChart [RETURN_TYPE] JFreeChart   PieDataset dataset [VARIABLES] boolean  PieDataset  dataset  PiePlot  plot  JFreeChart  chart  

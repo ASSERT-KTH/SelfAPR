@@ -1,0 +1,2 @@
+[buglab_swap_variables]^return keyword.equals ( variable ) ;^39^^^^^38^40^return variable.equals ( keyword ) ;^[CLASS] KeywordVariables  [METHOD] isDeclaredVariable [RETURN_TYPE] boolean   String variable [VARIABLES] Object  object  String  keyword  variable  boolean  
+[buglab_swap_variables]^if  ( keyword.equals ( variable )  )  {^43^^^^^42^47^if  ( variable.equals ( keyword )  )  {^[CLASS] KeywordVariables  [METHOD] getVariable [RETURN_TYPE] Object   String variable [VARIABLES] Object  object  String  keyword  variable  boolean  

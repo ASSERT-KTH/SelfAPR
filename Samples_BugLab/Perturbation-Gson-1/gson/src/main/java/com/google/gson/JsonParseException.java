@@ -1,0 +1,3 @@
+[buglab_swap_variables]^super ( cause, msg ) ;^52^^^^^51^53^super ( msg, cause ) ;^[CLASS] JsonParseException  [METHOD] <init> [RETURN_TYPE] Throwable)   String msg Throwable cause [VARIABLES] Throwable  cause  String  msg  boolean  long  serialVersionUID  
+[buglab_swap_variables]^super (  cause ) ;^52^^^^^51^53^super ( msg, cause ) ;^[CLASS] JsonParseException  [METHOD] <init> [RETURN_TYPE] Throwable)   String msg Throwable cause [VARIABLES] Throwable  cause  String  msg  boolean  long  serialVersionUID  
+[buglab_swap_variables]^super ( msg ) ;^52^^^^^51^53^super ( msg, cause ) ;^[CLASS] JsonParseException  [METHOD] <init> [RETURN_TYPE] Throwable)   String msg Throwable cause [VARIABLES] Throwable  cause  String  msg  boolean  long  serialVersionUID  

@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return stream.build ( builder ) ;^44^^^^^32^49^return builder.build ( stream ) ;^[CLASS] JDOMParser  [METHOD] parseXML [RETURN_TYPE] Object   InputStream stream [VARIABLES] SAXBuilder  builder  boolean  InputStream  stream  Exception  ex  

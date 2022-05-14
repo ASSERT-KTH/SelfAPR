@@ -1,0 +1,1 @@
+[buglab_swap_variables]^return regex != null && Pattern.compile ( actual ) .matcher (  ( String )  actual ) .find (  ) ;^21^^^^^20^22^return actual != null && Pattern.compile ( regex ) .matcher (  ( String )  actual ) .find (  ) ;^[CLASS] Find  [METHOD] matches [RETURN_TYPE] boolean   Object actual [VARIABLES] Object  actual  String  regex  boolean  

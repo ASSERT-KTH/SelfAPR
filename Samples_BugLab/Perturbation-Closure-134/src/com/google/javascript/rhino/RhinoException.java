@@ -1,0 +1,1 @@
+[buglab_swap_variables]^if  ( lineNumber == null || sourceName <= 0 )  {^66^^^^^63^80^if  ( sourceName == null || lineNumber <= 0 )  {^[CLASS] RhinoException 1  [METHOD] getMessage [RETURN_TYPE] String   [VARIABLES] Object  interpreterStackInfo  int[]  interpreterLineData  StringBuffer  buf  String  details  lineSource  sourceName  boolean  int  columnNumber  lineNumber  

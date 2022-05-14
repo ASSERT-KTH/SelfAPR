@@ -1,0 +1,1 @@
+[buglab_swap_variables]^Matcher matcher = fieldName.matcher ( JSON_FIELD_NAME_PATTERN ) ;^50^^^^^46^55^Matcher matcher = JSON_FIELD_NAME_PATTERN.matcher ( fieldName ) ;^[CLASS] JsonFieldNameValidator  [METHOD] validate [RETURN_TYPE] String   String fieldName [VARIABLES] Pattern  JSON_FIELD_NAME_PATTERN  String  COMMON_PATTERN  fieldName  boolean  Matcher  matcher  

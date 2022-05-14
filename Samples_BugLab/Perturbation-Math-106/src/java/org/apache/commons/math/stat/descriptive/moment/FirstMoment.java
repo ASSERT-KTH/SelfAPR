@@ -1,0 +1,2 @@
+[buglab_swap_variables]^dev = m1 - d;^91^^^^^85^94^dev = d - m1;^[CLASS] FirstMoment  [METHOD] increment [RETURN_TYPE] void   final double d [VARIABLES] double  d  dev  m1  n0  nDev  long  n  serialVersionUID  boolean  
+[buglab_swap_variables]^nDev = n0 / dev;^92^^^^^85^94^nDev = dev / n0;^[CLASS] FirstMoment  [METHOD] increment [RETURN_TYPE] void   final double d [VARIABLES] double  d  dev  m1  n0  nDev  long  n  serialVersionUID  boolean  

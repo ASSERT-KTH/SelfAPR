@@ -1,0 +1,1 @@
+[buglab_swap_variables]^result.add (  ( T )  iYear.create ( sdf )  ) ;^44^^^^^41^48^result.add (  ( T )  sdf.create ( iYear )  ) ;^[CLASS] AnnualHolidays  [METHOD] getHolidaysForYear [RETURN_TYPE] List   int iYear [VARIABLES] List  fHolidayFactories  result  boolean  AF  sdf  int  iYear  

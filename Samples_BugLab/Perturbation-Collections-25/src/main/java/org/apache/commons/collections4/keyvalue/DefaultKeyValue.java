@@ -1,0 +1,3 @@
+[buglab_swap_variables]^super ( value, key ) ;^49^^^^^48^50^super ( key, value ) ;^[CLASS] DefaultKeyValue  [METHOD] <init> [RETURN_TYPE] DefaultKeyValue(K,V)   final K key final V value [VARIABLES] boolean  V  value  K  key  
+[buglab_swap_variables]^super (  value ) ;^49^^^^^48^50^super ( key, value ) ;^[CLASS] DefaultKeyValue  [METHOD] <init> [RETURN_TYPE] DefaultKeyValue(K,V)   final K key final V value [VARIABLES] boolean  V  value  K  key  
+[buglab_swap_variables]^super ( key ) ;^49^^^^^48^50^super ( key, value ) ;^[CLASS] DefaultKeyValue  [METHOD] <init> [RETURN_TYPE] DefaultKeyValue(K,V)   final K key final V value [VARIABLES] boolean  V  value  K  key  
