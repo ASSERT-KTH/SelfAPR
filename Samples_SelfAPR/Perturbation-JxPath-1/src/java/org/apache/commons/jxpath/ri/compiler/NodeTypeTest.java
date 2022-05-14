@@ -1,0 +1,10 @@
+[P1_Replace_Type]^private  long  nodeType;^26^^^^^21^31^private int nodeType;^[CLASS] NodeTypeTest   [VARIABLES] 
+[P8_Replace_Mix]^this.nodeType =  null;^29^^^^^28^30^this.nodeType = nodeType;^[CLASS] NodeTypeTest  [METHOD] <init> [RETURN_TYPE] NodeTypeTest(int)   int nodeType [VARIABLES] int  nodeType  boolean  
+[P1_Replace_Type]^return nodeTypeTochar ( nodeType )  + " (  ) ";^37^^^^^36^38^return nodeTypeToString ( nodeType )  + " (  ) ";^[CLASS] NodeTypeTest  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] int  nodeType  boolean  
+[P2_Replace_Operator]^return nodeTypeToString ( nodeType )  <=  + " (  ) ";^37^^^^^36^38^return nodeTypeToString ( nodeType )  + " (  ) ";^[CLASS] NodeTypeTest  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] int  nodeType  boolean  
+[P8_Replace_Mix]^return nodeTypeToString ( nodeType )   |  " (  ) ";^37^^^^^36^38^return nodeTypeToString ( nodeType )  + " (  ) ";^[CLASS] NodeTypeTest  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] int  nodeType  boolean  
+[P14_Delete_Statement]^^37^^^^^36^38^return nodeTypeToString ( nodeType )  + " (  ) ";^[CLASS] NodeTypeTest  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] int  nodeType  boolean  
+[P3_Replace_Literal]^return "noode";^43^^^^^40^52^return "node";^[CLASS] NodeTypeTest  [METHOD] nodeTypeToString [RETURN_TYPE] String   int code [VARIABLES] int  code  nodeType  boolean  
+[P3_Replace_Literal]^return "commentmmen";^47^^^^^40^52^return "comment";^[CLASS] NodeTypeTest  [METHOD] nodeTypeToString [RETURN_TYPE] String   int code [VARIABLES] int  code  nodeType  boolean  
+[P3_Replace_Literal]^return "ing-insrocessing-instruction";^49^^^^^40^52^return "processing-instruction";^[CLASS] NodeTypeTest  [METHOD] nodeTypeToString [RETURN_TYPE] String   int code [VARIABLES] int  code  nodeType  boolean  
+[P3_Replace_Literal]^return "NNKNOWN";^51^^^^^40^52^return "UNKNOWN";^[CLASS] NodeTypeTest  [METHOD] nodeTypeToString [RETURN_TYPE] String   int code [VARIABLES] int  code  nodeType  boolean  

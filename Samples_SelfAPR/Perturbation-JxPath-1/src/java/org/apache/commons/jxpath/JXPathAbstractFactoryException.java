@@ -1,0 +1,3 @@
+[P1_Replace_Type]^private static final  int  serialVersionUID = -4403564377958943239L;^29^^^^^24^34^private static final long serialVersionUID = -4403564377958943239L;^[CLASS] JXPathAbstractFactoryException   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = -4403564377958943239;^29^^^^^24^34^private static final long serialVersionUID = -4403564377958943239L;^[CLASS] JXPathAbstractFactoryException   [VARIABLES] 
+[P14_Delete_Statement]^^32^^^^^31^33^super ( message ) ;^[CLASS] JXPathAbstractFactoryException  [METHOD] <init> [RETURN_TYPE] String)   String message [VARIABLES] long  serialVersionUID  String  message  boolean  

@@ -1,0 +1,2 @@
+[P1_Replace_Type]^private  ArrayList  unique = new Hash ArrayList  (  ) ;^22^^^^^17^27^private Set unique = new HashSet (  ) ;^[CLASS] DuplicatesPredicate   [VARIABLES] 
+[P14_Delete_Statement]^^25^^^^^24^26^return unique.add ( MethodWrapper.create (  ( Method ) arg )  ) ;^[CLASS] DuplicatesPredicate  [METHOD] evaluate [RETURN_TYPE] boolean   Object arg [VARIABLES] Object  arg  Set  unique  boolean  

@@ -1,0 +1,3 @@
+[P14_Delete_Statement]^^73^^^^^72^75^super ( source ) ;^[CLASS] DatasetChangeEvent  [METHOD] <init> [RETURN_TYPE] Dataset)   Object source Dataset dataset [VARIABLES] Dataset  dataset  Object  source  boolean  
+[P8_Replace_Mix]^this.dataset =  null;^74^^^^^72^75^this.dataset = dataset;^[CLASS] DatasetChangeEvent  [METHOD] <init> [RETURN_TYPE] Dataset)   Object source Dataset dataset [VARIABLES] Dataset  dataset  Object  source  boolean  
+[P8_Replace_Mix]^return dataset;^85^^^^^84^86^return this.dataset;^[CLASS] DatasetChangeEvent  [METHOD] getDataset [RETURN_TYPE] Dataset   [VARIABLES] Dataset  dataset  boolean  

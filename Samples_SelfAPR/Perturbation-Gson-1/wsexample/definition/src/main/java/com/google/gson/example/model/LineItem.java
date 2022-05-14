@@ -1,0 +1,10 @@
+[P1_Replace_Type]^private final char name;^24^^^^^19^29^private final String name;^[CLASS] LineItem   [VARIABLES] 
+[P1_Replace_Type]^private final  short  quantity;^25^^^^^20^30^private final int quantity;^[CLASS] LineItem   [VARIABLES] 
+[P1_Replace_Type]^private final  short  priceInMicros;^26^^^^^21^31^private final long priceInMicros;^[CLASS] LineItem   [VARIABLES] 
+[P1_Replace_Type]^private final char currencyCode;^27^^^^^22^32^private final String currencyCode;^[CLASS] LineItem   [VARIABLES] 
+[P5_Replace_Variable]^this.name = currencyCode;^30^^^^^29^34^this.name = name;^[CLASS] LineItem  [METHOD] <init> [RETURN_TYPE] String)   String name int quantity long priceInMicros String currencyCode [VARIABLES] String  currencyCode  name  boolean  int  quantity  long  priceInMicros  
+[P8_Replace_Mix]^this.quantity =  null;^31^^^^^29^34^this.quantity = quantity;^[CLASS] LineItem  [METHOD] <init> [RETURN_TYPE] String)   String name int quantity long priceInMicros String currencyCode [VARIABLES] String  currencyCode  name  boolean  int  quantity  long  priceInMicros  
+[P8_Replace_Mix]^this.priceInMicros =  null;^32^^^^^29^34^this.priceInMicros = priceInMicros;^[CLASS] LineItem  [METHOD] <init> [RETURN_TYPE] String)   String name int quantity long priceInMicros String currencyCode [VARIABLES] String  currencyCode  name  boolean  int  quantity  long  priceInMicros  
+[P5_Replace_Variable]^this.currencyCode = name;^33^^^^^29^34^this.currencyCode = currencyCode;^[CLASS] LineItem  [METHOD] <init> [RETURN_TYPE] String)   String name int quantity long priceInMicros String currencyCode [VARIABLES] String  currencyCode  name  boolean  int  quantity  long  priceInMicros  
+[P5_Replace_Variable]^return currencyCode;^37^^^^^36^38^return name;^[CLASS] LineItem  [METHOD] getName [RETURN_TYPE] String   [VARIABLES] String  currencyCode  name  boolean  int  quantity  long  priceInMicros  
+[P8_Replace_Mix]^return name;^49^^^^^48^50^return currencyCode;^[CLASS] LineItem  [METHOD] getCurrencyCode [RETURN_TYPE] String   [VARIABLES] String  currencyCode  name  boolean  int  quantity  long  priceInMicros  

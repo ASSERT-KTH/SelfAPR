@@ -1,0 +1,5 @@
+[P1_Replace_Type]^static final char US_ASCII = "US-ASCII";^53^^^^^48^58^static final String US_ASCII = "US-ASCII";^[CLASS] CharacterEncodingNames   [VARIABLES] 
+[P3_Replace_Literal]^static final String US_ASCII = "US-ASCIIU";^53^^^^^48^58^static final String US_ASCII = "US-ASCII";^[CLASS] CharacterEncodingNames   [VARIABLES] 
+[P1_Replace_Type]^static final char UTF8 = "UTF-8";^66^^^^^61^71^static final String UTF8 = "UTF-8";^[CLASS] CharacterEncodingNames   [VARIABLES] 
+[P3_Replace_Literal]^static final String UTF8 = "UTF-8UT";^66^^^^^61^71^static final String UTF8 = "UTF-8";^[CLASS] CharacterEncodingNames   [VARIABLES] 
+[P8_Replace_Mix]^static final String UTF8  = null ;^66^^^^^61^71^static final String UTF8 = "UTF-8";^[CLASS] CharacterEncodingNames   [VARIABLES] 

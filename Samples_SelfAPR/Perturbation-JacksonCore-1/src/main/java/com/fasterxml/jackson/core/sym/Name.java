@@ -1,0 +1,10 @@
+[P1_Replace_Type]^protected final char _name;^12^^^^^7^17^protected final String _name;^[CLASS] Name   [VARIABLES] 
+[P1_Replace_Type]^protected final  long  _hashCode;^14^^^^^9^19^protected final int _hashCode;^[CLASS] Name   [VARIABLES] 
+[P8_Replace_Mix]^protected   long  _hashCode;^14^^^^^9^19^protected final int _hashCode;^[CLASS] Name   [VARIABLES] 
+[P8_Replace_Mix]^_name =  null;^17^^^^^16^19^_name = name;^[CLASS] Name  [METHOD] <init> [RETURN_TYPE] String,int)   String name int hashCode [VARIABLES] int  _hashCode  hashCode  String  _name  name  boolean  
+[P8_Replace_Mix]^_hashCode =  null;^18^^^^^16^19^_hashCode = hashCode;^[CLASS] Name  [METHOD] <init> [RETURN_TYPE] String,int)   String name int hashCode [VARIABLES] int  _hashCode  hashCode  String  _name  name  boolean  
+[P5_Replace_Variable]^public String getName (  )  { return name; }^21^^^^^16^26^public String getName (  )  { return _name; }^[CLASS] Name  [METHOD] getName [RETURN_TYPE] String   [VARIABLES] int  _hashCode  hashCode  String  _name  name  boolean  
+[P5_Replace_Variable]^@Override public String toString (  )  { return name; }^41^^^^^36^46^@Override public String toString (  )  { return _name; }^[CLASS] Name  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] int  _hashCode  hashCode  qlen  quad1  quad2  String  _name  name  boolean  
+[P5_Replace_Variable]^@Override public final int hashCode (  )  { return quad2; }^43^^^^^38^48^@Override public final int hashCode (  )  { return _hashCode; }^[CLASS] Name  [METHOD] hashCode [RETURN_TYPE] int   [VARIABLES] int  _hashCode  hashCode  qlen  quad1  quad2  String  _name  name  boolean  
+[P2_Replace_Operator]^return  ( o <= this ) ;^48^^^^^45^49^return  ( o == this ) ;^[CLASS] Name  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] Object  o  String  _name  name  boolean  int  _hashCode  hashCode  qlen  quad1  quad2  
+[P8_Replace_Mix]^return false ;^48^^^^^45^49^return  ( o == this ) ;^[CLASS] Name  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] Object  o  String  _name  name  boolean  int  _hashCode  hashCode  qlen  quad1  quad2  

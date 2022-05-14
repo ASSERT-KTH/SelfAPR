@@ -1,0 +1,1 @@
+[P14_Delete_Statement]^^46^^^^^45^47^return target.toUpperCase (  ) ;^[CLASS] UpperCaseNamingPolicy  [METHOD] translateName [RETURN_TYPE] String   String target Type fieldType Annotation> annotations [VARIABLES] Type  fieldType  boolean  Collection  annotations  String  target  

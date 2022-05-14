@@ -1,0 +1,7 @@
+[P1_Replace_Type]^private static final  int  serialVersionUID = 1L;^16^^^^^11^21^private static final long serialVersionUID = 1L;^[CLASS] FailingDeserializer   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = 1;^16^^^^^11^21^private static final long serialVersionUID = 1L;^[CLASS] FailingDeserializer   [VARIABLES] 
+[P1_Replace_Type]^protected final char _message;^18^^^^^13^23^protected final String _message;^[CLASS] FailingDeserializer   [VARIABLES] 
+[P14_Delete_Statement]^^21^^^^^20^23^super ( Object.class ) ;^[CLASS] FailingDeserializer  [METHOD] <init> [RETURN_TYPE] String)   String m [VARIABLES] long  serialVersionUID  String  _message  m  boolean  
+[P5_Replace_Variable]^_message = _message;^22^^^^^20^23^_message = m;^[CLASS] FailingDeserializer  [METHOD] <init> [RETURN_TYPE] String)   String m [VARIABLES] long  serialVersionUID  String  _message  m  boolean  
+[P8_Replace_Mix]^_message =  null;^22^^^^^20^23^_message = m;^[CLASS] FailingDeserializer  [METHOD] <init> [RETURN_TYPE] String)   String m [VARIABLES] long  serialVersionUID  String  _message  m  boolean  
+[P14_Delete_Statement]^^29^^^^^26^30^throw ctxt.mappingException  (" ")  ;^[CLASS] FailingDeserializer  [METHOD] deserialize [RETURN_TYPE] Object   JsonParser jp DeserializationContext ctxt [VARIABLES] DeserializationContext  ctxt  String  _message  m  boolean  long  serialVersionUID  JsonParser  jp  

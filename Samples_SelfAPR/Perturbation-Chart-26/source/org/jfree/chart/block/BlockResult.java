@@ -1,0 +1,5 @@
+[P8_Replace_Mix]^this.entities = false;^60^^^^^59^61^this.entities = null;^[CLASS] BlockResult  [METHOD] <init> [RETURN_TYPE] BlockResult()   [VARIABLES] EntityCollection  entities  boolean  
+[P11_Insert_Donor_Statement]^this.entities = entities;this.entities = null;^60^^^^^59^61^this.entities = null;^[CLASS] BlockResult  [METHOD] <init> [RETURN_TYPE] BlockResult()   [VARIABLES] EntityCollection  entities  boolean  
+[P5_Replace_Variable]^return entities;^69^^^^^68^70^return this.entities;^[CLASS] BlockResult  [METHOD] getEntityCollection [RETURN_TYPE] EntityCollection   [VARIABLES] EntityCollection  entities  boolean  
+[P8_Replace_Mix]^this.entities =  null;^78^^^^^77^79^this.entities = entities;^[CLASS] BlockResult  [METHOD] setEntityCollection [RETURN_TYPE] void   EntityCollection entities [VARIABLES] EntityCollection  entities  boolean  
+[P11_Insert_Donor_Statement]^this.entities = null;this.entities = entities;^78^^^^^77^79^this.entities = entities;^[CLASS] BlockResult  [METHOD] setEntityCollection [RETURN_TYPE] void   EntityCollection entities [VARIABLES] EntityCollection  entities  boolean  

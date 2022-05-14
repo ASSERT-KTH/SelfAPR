@@ -1,0 +1,7 @@
+[P5_Replace_Variable]^return instance;^27^^^^^25^28^return JsonNodeType.NULL;^[CLASS] NullNode  [METHOD] getNodeType [RETURN_TYPE] JsonNodeType   [VARIABLES] NullNode  instance  boolean  
+[P5_Replace_Variable]^@Override public JsonToken asToken (  )  { return instance; }^30^^^^^25^35^@Override public JsonToken asToken (  )  { return JsonToken.VALUE_NULL; }^[CLASS] NullNode  [METHOD] asToken [RETURN_TYPE] JsonToken   [VARIABLES] NullNode  instance  boolean  
+[P3_Replace_Literal]^return "nulull";^34^^^^^33^35^return "null";^[CLASS] NullNode  [METHOD] asText [RETURN_TYPE] String   [VARIABLES] NullNode  instance  boolean  
+[P8_Replace_Mix]^return "false";^34^^^^^33^35^return "null";^[CLASS] NullNode  [METHOD] asText [RETURN_TYPE] String   [VARIABLES] NullNode  instance  boolean  
+[P14_Delete_Statement]^^50^^^^^47^51^jg.writeNull (  ) ;^[CLASS] NullNode  [METHOD] serialize [RETURN_TYPE] void   JsonGenerator jg SerializerProvider provider [VARIABLES] JsonGenerator  jg  boolean  SerializerProvider  provider  NullNode  instance  
+[P2_Replace_Operator]^return  ( o < this ) ;^56^^^^^54^57^return  ( o == this ) ;^[CLASS] NullNode  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] NullNode  instance  Object  o  boolean  
+[P8_Replace_Mix]^return  ( o  !=  this ) ;;^56^^^^^54^57^return  ( o == this ) ;^[CLASS] NullNode  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] NullNode  instance  Object  o  boolean  

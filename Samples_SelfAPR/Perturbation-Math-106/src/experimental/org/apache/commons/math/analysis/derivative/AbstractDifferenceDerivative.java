@@ -1,0 +1,6 @@
+[P1_Replace_Type]^private int delta;^30^^^^^25^35^private double delta;^[CLASS] AbstractDifferenceDerivative   [VARIABLES] 
+[P14_Delete_Statement]^^36^^^^^35^38^super ( function ) ;^[CLASS] AbstractDifferenceDerivative  [METHOD] <init> [RETURN_TYPE] UnivariateRealFunction,double)   UnivariateRealFunction function double h [VARIABLES] double  delta  h  UnivariateRealFunction  function  boolean  
+[P5_Replace_Variable]^setDelta ( delta ) ;^37^^^^^35^38^setDelta ( h ) ;^[CLASS] AbstractDifferenceDerivative  [METHOD] <init> [RETURN_TYPE] UnivariateRealFunction,double)   UnivariateRealFunction function double h [VARIABLES] double  delta  h  UnivariateRealFunction  function  boolean  
+[P14_Delete_Statement]^^37^^^^^35^38^setDelta ( h ) ;^[CLASS] AbstractDifferenceDerivative  [METHOD] <init> [RETURN_TYPE] UnivariateRealFunction,double)   UnivariateRealFunction function double h [VARIABLES] double  delta  h  UnivariateRealFunction  function  boolean  
+[P5_Replace_Variable]^this.delta = delta;^41^^^^^40^42^this.delta = h;^[CLASS] AbstractDifferenceDerivative  [METHOD] setDelta [RETURN_TYPE] void   double h [VARIABLES] double  delta  h  boolean  
+[P5_Replace_Variable]^return h;^45^^^^^44^46^return delta;^[CLASS] AbstractDifferenceDerivative  [METHOD] getDelta [RETURN_TYPE] double   [VARIABLES] double  delta  h  boolean  

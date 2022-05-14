@@ -1,0 +1,4 @@
+[P8_Replace_Mix]^private static  Key FACTORY =  ( Key ) KeyFactory.create ( Key.class, KeyFactory.OBJECT_BY_CLASS ) ;^19^^^^^14^24^private static final Key FACTORY =  ( Key ) KeyFactory.create ( Key.class, KeyFactory.OBJECT_BY_CLASS ) ;^[CLASS] ClassesKey   [VARIABLES] 
+[P5_Replace_Variable]^return array.newInstance ( FACTORY ) ;^29^^^^^28^30^return FACTORY.newInstance ( array ) ;^[CLASS] ClassesKey  [METHOD] create [RETURN_TYPE] Object   Object[] array [VARIABLES] Key  FACTORY  Object[]  array  boolean  
+[P8_Replace_Mix]^return FACTORY .newInstance ( array )  ;^29^^^^^28^30^return FACTORY.newInstance ( array ) ;^[CLASS] ClassesKey  [METHOD] create [RETURN_TYPE] Object   Object[] array [VARIABLES] Key  FACTORY  Object[]  array  boolean  
+[P14_Delete_Statement]^^29^^^^^28^30^return FACTORY.newInstance ( array ) ;^[CLASS] ClassesKey  [METHOD] create [RETURN_TYPE] Object   Object[] array [VARIABLES] Key  FACTORY  Object[]  array  boolean  

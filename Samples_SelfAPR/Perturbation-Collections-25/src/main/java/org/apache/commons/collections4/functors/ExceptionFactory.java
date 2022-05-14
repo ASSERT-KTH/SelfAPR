@@ -1,0 +1,4 @@
+[P1_Replace_Type]^private static final  short  serialVersionUID = 7179106032121985545L;^33^^^^^28^38^private static final long serialVersionUID = 7179106032121985545L;^[CLASS] ExceptionFactory   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = 7179106032121985545;^33^^^^^28^38^private static final long serialVersionUID = 7179106032121985545L;^[CLASS] ExceptionFactory   [VARIABLES] 
+[P8_Replace_Mix]^public static  Factory INSTANCE = new ExceptionFactory<Object> (  ) ;^37^^^^^32^42^public static final Factory INSTANCE = new ExceptionFactory<Object> (  ) ;^[CLASS] ExceptionFactory   [VARIABLES] 
+[P14_Delete_Statement]^^55^^^^^54^56^super (  ) ;^[CLASS] ExceptionFactory  [METHOD] <init> [RETURN_TYPE] ExceptionFactory()   [VARIABLES] Factory  INSTANCE  long  serialVersionUID  boolean  

@@ -1,0 +1,3 @@
+[P1_Replace_Type]^private static final  short  serialVersionUID = 1408944367355875472L;^49^^^^^44^54^private static final long serialVersionUID = 1408944367355875472L;^[CLASS] JodaTimePermission   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = 1408944367355875472;^49^^^^^44^54^private static final long serialVersionUID = 1408944367355875472L;^[CLASS] JodaTimePermission   [VARIABLES] 
+[P14_Delete_Statement]^^57^^^^^56^58^super ( name ) ;^[CLASS] JodaTimePermission  [METHOD] <init> [RETURN_TYPE] String)   String name [VARIABLES] long  serialVersionUID  String  name  boolean  

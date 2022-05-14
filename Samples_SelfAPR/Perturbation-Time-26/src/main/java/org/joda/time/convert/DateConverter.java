@@ -1,0 +1,2 @@
+[P14_Delete_Statement]^^41^^^^^40^42^super (  ) ;^[CLASS] DateConverter  [METHOD] <init> [RETURN_TYPE] DateConverter()   [VARIABLES] DateConverter  INSTANCE  boolean  
+[P14_Delete_Statement]^^56^^^^^54^57^return date.getTime (  ) ;^[CLASS] DateConverter  [METHOD] getInstantMillis [RETURN_TYPE] long   Object object Chronology chrono [VARIABLES] Object  object  DateConverter  INSTANCE  Chronology  chrono  boolean  Date  date  

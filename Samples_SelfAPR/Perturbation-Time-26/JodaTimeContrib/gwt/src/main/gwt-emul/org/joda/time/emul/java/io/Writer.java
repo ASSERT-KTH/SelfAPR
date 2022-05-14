@@ -1,0 +1,5 @@
+[P14_Delete_Statement]^^6^^^^^5^7^throw writerUnsupportedInGwt (  ) ;^[CLASS] Writer  [METHOD] write [RETURN_TYPE] void   int i [VARIABLES] boolean  int  i  
+[P8_Replace_Mix]^return ;^10^^^^^9^11^throw writerUnsupportedInGwt (  ) ;^[CLASS] Writer  [METHOD] write [RETURN_TYPE] void   String string [VARIABLES] boolean  String  string  
+[P14_Delete_Statement]^^10^^^^^9^11^throw writerUnsupportedInGwt (  ) ;^[CLASS] Writer  [METHOD] write [RETURN_TYPE] void   String string [VARIABLES] boolean  String  string  
+[P3_Replace_Literal]^return new UnsupportedOperationException ( "nriter not supported in GWT" ) ;^14^^^^^13^15^return new UnsupportedOperationException ( "Writer not supported in GWT" ) ;^[CLASS] Writer  [METHOD] writerUnsupportedInGwt [RETURN_TYPE] UnsupportedOperationException   [VARIABLES] boolean  
+[P3_Replace_Literal]^return new UnsupportedOperationException ( "Writer not supported in GWTW" ) ;^14^^^^^13^15^return new UnsupportedOperationException ( "Writer not supported in GWT" ) ;^[CLASS] Writer  [METHOD] writerUnsupportedInGwt [RETURN_TYPE] UnsupportedOperationException   [VARIABLES] boolean  

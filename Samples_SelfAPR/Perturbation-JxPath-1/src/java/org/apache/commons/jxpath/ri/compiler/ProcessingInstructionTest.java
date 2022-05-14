@@ -1,0 +1,4 @@
+[P1_Replace_Type]^private char target;^24^^^^^19^29^private String target;^[CLASS] ProcessingInstructionTest   [VARIABLES] 
+[P8_Replace_Mix]^this.target =  null;^27^^^^^26^28^this.target = target;^[CLASS] ProcessingInstructionTest  [METHOD] <init> [RETURN_TYPE] String)   String target [VARIABLES] String  target  boolean  
+[P2_Replace_Operator]^return "processing-instruction ( '"  ^  target + "' ) ";^35^^^^^34^36^return "processing-instruction ( '" + target + "' ) ";^[CLASS] ProcessingInstructionTest  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] String  target  boolean  
+[P8_Replace_Mix]^return "processing-instruction ( '"  &  target  &  "' ) ";^35^^^^^34^36^return "processing-instruction ( '" + target + "' ) ";^[CLASS] ProcessingInstructionTest  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] String  target  boolean  

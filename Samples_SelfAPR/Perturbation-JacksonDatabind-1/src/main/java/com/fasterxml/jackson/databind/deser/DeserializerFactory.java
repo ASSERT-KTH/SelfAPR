@@ -1,0 +1,2 @@
+[P3_Replace_Literal]^protected final static Deserializers[] NO_DESERIALIZERS = new Deserializers[4];^43^^^^^38^48^protected final static Deserializers[] NO_DESERIALIZERS = new Deserializers[0];^[CLASS] DeserializerFactory   [VARIABLES] 
+[P8_Replace_Mix]^protected final static Deserializers[] NO_DESERIALIZERS = new Deserializers[1];^43^^^^^38^48^protected final static Deserializers[] NO_DESERIALIZERS = new Deserializers[0];^[CLASS] DeserializerFactory   [VARIABLES] 

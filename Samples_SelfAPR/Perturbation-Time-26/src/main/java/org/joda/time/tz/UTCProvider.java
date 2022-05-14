@@ -1,0 +1,8 @@
+[P14_Delete_Statement]^^37^^^^^36^38^super (  ) ;^[CLASS] UTCProvider  [METHOD] <init> [RETURN_TYPE] UTCProvider()   [VARIABLES] boolean  
+[P3_Replace_Literal]^if  ( "".equalsIgnoreCase ( id )  )  {^45^^^^^44^49^if  ( "UTC".equalsIgnoreCase ( id )  )  {^[CLASS] UTCProvider  [METHOD] getZone [RETURN_TYPE] DateTimeZone   String id [VARIABLES] boolean  String  id  
+[P15_Unwrap_Block]^return org.joda.time.DateTimeZone.UTC;^45^46^47^^^44^49^if  ( "UTC".equalsIgnoreCase ( id )  )  { return DateTimeZone.UTC; }^[CLASS] UTCProvider  [METHOD] getZone [RETURN_TYPE] DateTimeZone   String id [VARIABLES] boolean  String  id  
+[P16_Remove_Block]^^45^46^47^^^44^49^if  ( "UTC".equalsIgnoreCase ( id )  )  { return DateTimeZone.UTC; }^[CLASS] UTCProvider  [METHOD] getZone [RETURN_TYPE] DateTimeZone   String id [VARIABLES] boolean  String  id  
+[P3_Replace_Literal]^if  ( "UTCT".equalsIgnoreCase ( id )  )  {^45^^^^^44^49^if  ( "UTC".equalsIgnoreCase ( id )  )  {^[CLASS] UTCProvider  [METHOD] getZone [RETURN_TYPE] DateTimeZone   String id [VARIABLES] boolean  String  id  
+[P8_Replace_Mix]^return this;^48^^^^^44^49^return null;^[CLASS] UTCProvider  [METHOD] getZone [RETURN_TYPE] DateTimeZone   String id [VARIABLES] boolean  String  id  
+[P3_Replace_Literal]^return Collections.singleton ( "TC" ) ;^55^^^^^54^56^return Collections.singleton ( "UTC" ) ;^[CLASS] UTCProvider  [METHOD] getAvailableIDs [RETURN_TYPE] Set   [VARIABLES] boolean  
+[P14_Delete_Statement]^^55^^^^^54^56^return Collections.singleton ( "UTC" ) ;^[CLASS] UTCProvider  [METHOD] getAvailableIDs [RETURN_TYPE] Set   [VARIABLES] boolean  

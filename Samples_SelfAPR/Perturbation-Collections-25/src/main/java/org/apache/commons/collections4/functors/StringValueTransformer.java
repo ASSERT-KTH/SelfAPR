@@ -1,0 +1,4 @@
+[P1_Replace_Type]^private static final  int  serialVersionUID = 7511110693171758606L;^33^^^^^28^38^private static final long serialVersionUID = 7511110693171758606L;^[CLASS] StringValueTransformer   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = 7511110693171758606;^33^^^^^28^38^private static final long serialVersionUID = 7511110693171758606L;^[CLASS] StringValueTransformer   [VARIABLES] 
+[P14_Delete_Statement]^^54^^^^^53^55^super (  ) ;^[CLASS] StringValueTransformer  [METHOD] <init> [RETURN_TYPE] StringValueTransformer()   [VARIABLES] long  serialVersionUID  Transformer  INSTANCE  boolean  
+[P14_Delete_Statement]^^64^^^^^63^65^return String.valueOf ( input ) ;^[CLASS] StringValueTransformer  [METHOD] transform [RETURN_TYPE] String   final T input [VARIABLES] Transformer  INSTANCE  boolean  T  input  long  serialVersionUID  

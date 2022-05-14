@@ -1,0 +1,6 @@
+[P1_Replace_Type]^public final char buildMethodName;^65^^^^^60^70^public final String buildMethodName;^[CLASS] Value   [VARIABLES] 
+[P1_Replace_Type]^public final char withPrefix;^66^^^^^61^71^public final String withPrefix;^[CLASS] Value   [VARIABLES] 
+[P8_Replace_Mix]^buildMethodName =  null.buildMethodName (  ) ;^70^^^^^68^72^buildMethodName = ann.buildMethodName (  ) ;^[CLASS] Value  [METHOD] <init> [RETURN_TYPE] JsonPOJOBuilder)   JsonPOJOBuilder ann [VARIABLES] JsonPOJOBuilder  ann  String  buildMethodName  withPrefix  boolean  
+[P14_Delete_Statement]^^70^71^^^^68^72^buildMethodName = ann.buildMethodName (  ) ; withPrefix = ann.withPrefix (  ) ;^[CLASS] Value  [METHOD] <init> [RETURN_TYPE] JsonPOJOBuilder)   JsonPOJOBuilder ann [VARIABLES] JsonPOJOBuilder  ann  String  buildMethodName  withPrefix  boolean  
+[P8_Replace_Mix]^withPrefix =  null.withPrefix (  ) ;^71^^^^^68^72^withPrefix = ann.withPrefix (  ) ;^[CLASS] Value  [METHOD] <init> [RETURN_TYPE] JsonPOJOBuilder)   JsonPOJOBuilder ann [VARIABLES] JsonPOJOBuilder  ann  String  buildMethodName  withPrefix  boolean  
+[P14_Delete_Statement]^^71^^^^^68^72^withPrefix = ann.withPrefix (  ) ;^[CLASS] Value  [METHOD] <init> [RETURN_TYPE] JsonPOJOBuilder)   JsonPOJOBuilder ann [VARIABLES] JsonPOJOBuilder  ann  String  buildMethodName  withPrefix  boolean  

@@ -1,0 +1,4 @@
+[P8_Replace_Mix]^private  ReturnValues returnValues;^15^^^^^10^20^private final ReturnValues returnValues;^[CLASS] AnswerReturnValuesAdapter   [VARIABLES] 
+[P8_Replace_Mix]^this.returnValues =  null;^18^^^^^17^19^this.returnValues = returnValues;^[CLASS] AnswerReturnValuesAdapter  [METHOD] <init> [RETURN_TYPE] ReturnValues)   ReturnValues returnValues [VARIABLES] ReturnValues  returnValues  boolean  
+[P5_Replace_Variable]^return invocation.valueFor ( returnValues ) ;^22^^^^^21^23^return returnValues.valueFor ( invocation ) ;^[CLASS] AnswerReturnValuesAdapter  [METHOD] answer [RETURN_TYPE] Object   InvocationOnMock invocation [VARIABLES] InvocationOnMock  invocation  ReturnValues  returnValues  boolean  
+[P14_Delete_Statement]^^22^^^^^21^23^return returnValues.valueFor ( invocation ) ;^[CLASS] AnswerReturnValuesAdapter  [METHOD] answer [RETURN_TYPE] Object   InvocationOnMock invocation [VARIABLES] InvocationOnMock  invocation  ReturnValues  returnValues  boolean  

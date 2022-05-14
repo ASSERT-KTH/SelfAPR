@@ -1,0 +1,8 @@
+[P1_Replace_Type]^private static final  short  serialVersionUID = 1L;^16^^^^^11^21^private static final long serialVersionUID = 1L;^[CLASS] NopAnnotationIntrospector 1   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = 1;^16^^^^^11^21^private static final long serialVersionUID = 1L;^[CLASS] NopAnnotationIntrospector 1   [VARIABLES] 
+[P8_Replace_Mix]^public  static NopAnnotationIntrospector instance = new NopAnnotationIntrospector (  )  {^23^^^^^23^30^public final static NopAnnotationIntrospector instance = new NopAnnotationIntrospector (  )  {^[CLASS] NopAnnotationIntrospector 1   [VARIABLES] 
+[P1_Replace_Type]^private static final  short  serialVersionUID = 1L;^24^^^^^19^29^private static final long serialVersionUID = 1L;^[CLASS] NopAnnotationIntrospector 1   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = 1;^24^^^^^19^29^private static final long serialVersionUID = 1L;^[CLASS] NopAnnotationIntrospector 1   [VARIABLES] 
+[P14_Delete_Statement]^^34^^^^^33^35^return Version.unknownVersion (  ) ;^[CLASS] NopAnnotationIntrospector 1  [METHOD] version [RETURN_TYPE] Version   [VARIABLES] NopAnnotationIntrospector  instance  long  serialVersionUID  boolean  
+[P1_Replace_Type]^private static final  int  serialVersionUID = 1L;^24^^^^^19^29^private static final long serialVersionUID = 1L;^[CLASS] 1  [METHOD] version [RETURN_TYPE] Version   [VARIABLES] NopAnnotationIntrospector  instance  long  serialVersionUID  boolean  
+[P8_Replace_Mix]^private static final long serialVersionUID = 1;^24^^^^^19^29^private static final long serialVersionUID = 1L;^[CLASS] 1  [METHOD] version [RETURN_TYPE] Version   [VARIABLES] NopAnnotationIntrospector  instance  long  serialVersionUID  boolean  

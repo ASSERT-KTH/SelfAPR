@@ -1,0 +1,5 @@
+[P1_Replace_Type]^private static final  short  serialVersionUID = 7533784454832764388L;^32^^^^^27^37^private static final long serialVersionUID = 7533784454832764388L;^[CLASS] NotNullPredicate   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = 7533784454832764388;^32^^^^^27^37^private static final long serialVersionUID = 7533784454832764388L;^[CLASS] NotNullPredicate   [VARIABLES] 
+[P14_Delete_Statement]^^54^^^^^53^55^super (  ) ;^[CLASS] NotNullPredicate  [METHOD] <init> [RETURN_TYPE] NotNullPredicate()   [VARIABLES] long  serialVersionUID  Predicate  INSTANCE  boolean  
+[P2_Replace_Operator]^return object == null;^64^^^^^63^65^return object != null;^[CLASS] NotNullPredicate  [METHOD] evaluate [RETURN_TYPE] boolean   final T object [VARIABLES] boolean  T  object  long  serialVersionUID  Predicate  INSTANCE  
+[P8_Replace_Mix]^return object ;^64^^^^^63^65^return object != null;^[CLASS] NotNullPredicate  [METHOD] evaluate [RETURN_TYPE] boolean   final T object [VARIABLES] boolean  T  object  long  serialVersionUID  Predicate  INSTANCE  

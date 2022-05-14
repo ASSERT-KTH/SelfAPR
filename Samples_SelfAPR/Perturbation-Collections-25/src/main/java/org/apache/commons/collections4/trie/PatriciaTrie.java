@@ -1,0 +1,4 @@
+[P1_Replace_Type]^private static final  short  serialVersionUID = 4446367780901817838L;^59^^^^^54^64^private static final long serialVersionUID = 4446367780901817838L;^[CLASS] PatriciaTrie   [VARIABLES] 
+[P8_Replace_Mix]^private static  long serialVersionUID = 4446367780901817838;^59^^^^^54^64^private static final long serialVersionUID = 4446367780901817838L;^[CLASS] PatriciaTrie   [VARIABLES] 
+[P14_Delete_Statement]^^62^^^^^61^63^super ( new StringKeyAnalyzer (  )  ) ;^[CLASS] PatriciaTrie  [METHOD] <init> [RETURN_TYPE] PatriciaTrie()   [VARIABLES] long  serialVersionUID  boolean  
+[P14_Delete_Statement]^^66^^^^^65^67^super ( new StringKeyAnalyzer (  ) , m ) ;^[CLASS] PatriciaTrie  [METHOD] <init> [RETURN_TYPE] Map)   String, ? extends E> m [VARIABLES] Map  m  long  serialVersionUID  boolean  

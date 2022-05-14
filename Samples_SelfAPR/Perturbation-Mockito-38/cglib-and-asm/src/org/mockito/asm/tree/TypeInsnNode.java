@@ -1,0 +1,10 @@
+[P1_Replace_Type]^public char desc;^48^^^^^43^53^public String desc;^[CLASS] TypeInsnNode   [VARIABLES] 
+[P14_Delete_Statement]^^59^60^^^^58^61^super ( opcode ) ; this.desc = desc;^[CLASS] TypeInsnNode  [METHOD] <init> [RETURN_TYPE] String)   final int opcode String desc [VARIABLES] int  opcode  String  desc  boolean  
+[P8_Replace_Mix]^this.desc =  null;^60^^^^^58^61^this.desc = desc;^[CLASS] TypeInsnNode  [METHOD] <init> [RETURN_TYPE] String)   final int opcode String desc [VARIABLES] int  opcode  String  desc  boolean  
+[P8_Replace_Mix]^this.opcode =  null;^70^^^^^69^71^this.opcode = opcode;^[CLASS] TypeInsnNode  [METHOD] setOpcode [RETURN_TYPE] void   final int opcode [VARIABLES] int  opcode  String  desc  boolean  
+[P5_Replace_Variable]^mv.visitTypeInsn (  desc ) ;^78^^^^^77^79^mv.visitTypeInsn ( opcode, desc ) ;^[CLASS] TypeInsnNode  [METHOD] accept [RETURN_TYPE] void   MethodVisitor mv [VARIABLES] String  desc  MethodVisitor  mv  boolean  
+[P5_Replace_Variable]^mv.visitTypeInsn ( opcode ) ;^78^^^^^77^79^mv.visitTypeInsn ( opcode, desc ) ;^[CLASS] TypeInsnNode  [METHOD] accept [RETURN_TYPE] void   MethodVisitor mv [VARIABLES] String  desc  MethodVisitor  mv  boolean  
+[P14_Delete_Statement]^^78^^^^^77^79^mv.visitTypeInsn ( opcode, desc ) ;^[CLASS] TypeInsnNode  [METHOD] accept [RETURN_TYPE] void   MethodVisitor mv [VARIABLES] String  desc  MethodVisitor  mv  boolean  
+[P5_Replace_Variable]^return new TypeInsnNode (  desc ) ;^82^^^^^81^83^return new TypeInsnNode ( opcode, desc ) ;^[CLASS] TypeInsnNode  [METHOD] clone [RETURN_TYPE] AbstractInsnNode   Map labels [VARIABLES] Map  labels  String  desc  boolean  
+[P5_Replace_Variable]^return new TypeInsnNode ( opcode ) ;^82^^^^^81^83^return new TypeInsnNode ( opcode, desc ) ;^[CLASS] TypeInsnNode  [METHOD] clone [RETURN_TYPE] AbstractInsnNode   Map labels [VARIABLES] Map  labels  String  desc  boolean  
+[P5_Replace_Variable]^return new TypeInsnNode ( desc, opcode ) ;^82^^^^^81^83^return new TypeInsnNode ( opcode, desc ) ;^[CLASS] TypeInsnNode  [METHOD] clone [RETURN_TYPE] AbstractInsnNode   Map labels [VARIABLES] Map  labels  String  desc  boolean  

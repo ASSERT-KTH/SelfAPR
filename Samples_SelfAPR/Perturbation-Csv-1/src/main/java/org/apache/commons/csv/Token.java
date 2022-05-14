@@ -1,0 +1,10 @@
+[P1_Replace_Type]^private static final  short  INITIAL_TOKEN_LENGTH = 50;^31^^^^^26^36^private static final int INITIAL_TOKEN_LENGTH = 50;^[CLASS] Token Type   [VARIABLES] 
+[P3_Replace_Literal]^private static final int INITIAL_TOKEN_LENGTH = 48;^31^^^^^26^36^private static final int INITIAL_TOKEN_LENGTH = 50;^[CLASS] Token Type   [VARIABLES] 
+[P8_Replace_Mix]^private static final int INITIAL_TOKEN_LENGTH = 50L;^31^^^^^26^36^private static final int INITIAL_TOKEN_LENGTH = 50;^[CLASS] Token Type   [VARIABLES] 
+[P8_Replace_Mix]^Token.Type type ;^48^^^^^43^53^Token.Type type = INVALID;^[CLASS] Token Type   [VARIABLES] 
+[P3_Replace_Literal]^content.setLength ( INITIAL_TOKEN_LENGTH ) ;^57^^^^^56^61^content.setLength ( 0 ) ;^[CLASS] Token Type  [METHOD] reset [RETURN_TYPE] Token   [VARIABLES] Type  EOF  EORECORD  INVALID  TOKEN  type  boolean  isReady  StringBuilder  content  int  INITIAL_TOKEN_LENGTH  
+[P14_Delete_Statement]^^57^58^^^^56^61^content.setLength ( 0 ) ; type = INVALID;^[CLASS] Token Type  [METHOD] reset [RETURN_TYPE] Token   [VARIABLES] Type  EOF  EORECORD  INVALID  TOKEN  type  boolean  isReady  StringBuilder  content  int  INITIAL_TOKEN_LENGTH  
+[P5_Replace_Variable]^type = type;^58^^^^^56^61^type = INVALID;^[CLASS] Token Type  [METHOD] reset [RETURN_TYPE] Token   [VARIABLES] Type  EOF  EORECORD  INVALID  TOKEN  type  boolean  isReady  StringBuilder  content  int  INITIAL_TOKEN_LENGTH  
+[P8_Replace_Mix]^type  = null ;^58^^^^^56^61^type = INVALID;^[CLASS] Token Type  [METHOD] reset [RETURN_TYPE] Token   [VARIABLES] Type  EOF  EORECORD  INVALID  TOKEN  type  boolean  isReady  StringBuilder  content  int  INITIAL_TOKEN_LENGTH  
+[P3_Replace_Literal]^isReady = true;^59^^^^^56^61^isReady = false;^[CLASS] Token Type  [METHOD] reset [RETURN_TYPE] Token   [VARIABLES] Type  EOF  EORECORD  INVALID  TOKEN  type  boolean  isReady  StringBuilder  content  int  INITIAL_TOKEN_LENGTH  
+[P8_Replace_Mix]^return null;^60^^^^^56^61^return this;^[CLASS] Token Type  [METHOD] reset [RETURN_TYPE] Token   [VARIABLES] Type  EOF  EORECORD  INVALID  TOKEN  type  boolean  isReady  StringBuilder  content  int  INITIAL_TOKEN_LENGTH  

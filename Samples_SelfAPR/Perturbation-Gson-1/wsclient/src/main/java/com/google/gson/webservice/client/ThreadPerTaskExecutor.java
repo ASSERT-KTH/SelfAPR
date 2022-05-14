@@ -1,0 +1,11 @@
+[P8_Replace_Mix]^thread =  new Thnullead ( null ) ;^26^^^^^25^28^thread = new Thread ( r ) ;^[CLASS] ThreadPerTaskExecutor  [METHOD] execute [RETURN_TYPE] void   Runnable r [VARIABLES] Thread  thread  Runnable  r  boolean  
+[P7_Replace_Invocation]^thread.interrupt (  ) ;^27^^^^^25^28^thread.start (  ) ;^[CLASS] ThreadPerTaskExecutor  [METHOD] execute [RETURN_TYPE] void   Runnable r [VARIABLES] Thread  thread  Runnable  r  boolean  
+[P14_Delete_Statement]^^27^^^^^25^28^thread.start (  ) ;^[CLASS] ThreadPerTaskExecutor  [METHOD] execute [RETURN_TYPE] void   Runnable r [VARIABLES] Thread  thread  Runnable  r  boolean  
+[P11_Insert_Donor_Statement]^thread.interrupt (  ) ;thread.start (  ) ;^27^^^^^25^28^thread.start (  ) ;^[CLASS] ThreadPerTaskExecutor  [METHOD] execute [RETURN_TYPE] void   Runnable r [VARIABLES] Thread  thread  Runnable  r  boolean  
+[P2_Replace_Operator]^if  ( thread == null )  {^32^^^^^31^35^if  ( thread != null )  {^[CLASS] ThreadPerTaskExecutor  [METHOD] shutdownNow [RETURN_TYPE] void   [VARIABLES] Thread  thread  boolean  
+[P8_Replace_Mix]^if  ( thread != false )  {^32^^^^^31^35^if  ( thread != null )  {^[CLASS] ThreadPerTaskExecutor  [METHOD] shutdownNow [RETURN_TYPE] void   [VARIABLES] Thread  thread  boolean  
+[P15_Unwrap_Block]^thread.interrupt();^32^33^34^^^31^35^if  ( thread != null )  { thread.interrupt (  ) ; }^[CLASS] ThreadPerTaskExecutor  [METHOD] shutdownNow [RETURN_TYPE] void   [VARIABLES] Thread  thread  boolean  
+[P16_Remove_Block]^^32^33^34^^^31^35^if  ( thread != null )  { thread.interrupt (  ) ; }^[CLASS] ThreadPerTaskExecutor  [METHOD] shutdownNow [RETURN_TYPE] void   [VARIABLES] Thread  thread  boolean  
+[P7_Replace_Invocation]^thread.start (  ) ;^33^^^^^31^35^thread.interrupt (  ) ;^[CLASS] ThreadPerTaskExecutor  [METHOD] shutdownNow [RETURN_TYPE] void   [VARIABLES] Thread  thread  boolean  
+[P14_Delete_Statement]^^33^^^^^31^35^thread.interrupt (  ) ;^[CLASS] ThreadPerTaskExecutor  [METHOD] shutdownNow [RETURN_TYPE] void   [VARIABLES] Thread  thread  boolean  
+[P11_Insert_Donor_Statement]^thread.start (  ) ;thread.interrupt (  ) ;^33^^^^^31^35^thread.interrupt (  ) ;^[CLASS] ThreadPerTaskExecutor  [METHOD] shutdownNow [RETURN_TYPE] void   [VARIABLES] Thread  thread  boolean  

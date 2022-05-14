@@ -1,0 +1,7 @@
+[P8_Replace_Mix]^Mockito.argThat ( 1 ) ;^55^^^^^54^57^Mockito.argThat ( capturingMatcher ) ;^[CLASS] ArgumentCaptor  [METHOD] capture [RETURN_TYPE] T   [VARIABLES] CapturingMatcher  capturingMatcher  boolean  
+[P14_Delete_Statement]^^55^^^^^54^57^Mockito.argThat ( capturingMatcher ) ;^[CLASS] ArgumentCaptor  [METHOD] capture [RETURN_TYPE] T   [VARIABLES] CapturingMatcher  capturingMatcher  boolean  
+[P8_Replace_Mix]^return false;^56^^^^^54^57^return null;^[CLASS] ArgumentCaptor  [METHOD] capture [RETURN_TYPE] T   [VARIABLES] CapturingMatcher  capturingMatcher  boolean  
+[P7_Replace_Invocation]^return this.capturingMatcher.getAllValues (  ) ;^69^^^^^68^70^return this.capturingMatcher.getLastValue (  ) ;^[CLASS] ArgumentCaptor  [METHOD] getValue [RETURN_TYPE] T   [VARIABLES] CapturingMatcher  capturingMatcher  boolean  
+[P14_Delete_Statement]^^69^^^^^68^70^return this.capturingMatcher.getLastValue (  ) ;^[CLASS] ArgumentCaptor  [METHOD] getValue [RETURN_TYPE] T   [VARIABLES] CapturingMatcher  capturingMatcher  boolean  
+[P7_Replace_Invocation]^return this.capturingMatcher.getLastValue (  ) ;^89^^^^^88^90^return this.capturingMatcher.getAllValues (  ) ;^[CLASS] ArgumentCaptor  [METHOD] getAllValues [RETURN_TYPE] List   [VARIABLES] CapturingMatcher  capturingMatcher  boolean  
+[P14_Delete_Statement]^^89^^^^^88^90^return this.capturingMatcher.getAllValues (  ) ;^[CLASS] ArgumentCaptor  [METHOD] getAllValues [RETURN_TYPE] List   [VARIABLES] CapturingMatcher  capturingMatcher  boolean  

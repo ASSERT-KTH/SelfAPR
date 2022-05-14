@@ -1,0 +1,16 @@
+[P1_Replace_Type]^public  short  var;^47^^^^^42^52^public int var;^[CLASS] IincInsnNode   [VARIABLES] 
+[P1_Replace_Type]^public  long  incr;^52^^^^^47^57^public int incr;^[CLASS] IincInsnNode   [VARIABLES] 
+[P8_Replace_Mix]^public  short  incr;^52^^^^^47^57^public int incr;^[CLASS] IincInsnNode   [VARIABLES] 
+[P14_Delete_Statement]^^61^^^^^60^64^super ( Opcodes.IINC ) ;^[CLASS] IincInsnNode  [METHOD] <init> [RETURN_TYPE] IincInsnNode(int,int)   final int var final int incr [VARIABLES] int  incr  var  boolean  
+[P5_Replace_Variable]^this.var = incr;^62^^^^^60^64^this.var = var;^[CLASS] IincInsnNode  [METHOD] <init> [RETURN_TYPE] IincInsnNode(int,int)   final int var final int incr [VARIABLES] int  incr  var  boolean  
+[P11_Insert_Donor_Statement]^this.incr = incr;this.var = var;^62^^^^^60^64^this.var = var;^[CLASS] IincInsnNode  [METHOD] <init> [RETURN_TYPE] IincInsnNode(int,int)   final int var final int incr [VARIABLES] int  incr  var  boolean  
+[P5_Replace_Variable]^this.incr = var;^63^^^^^60^64^this.incr = incr;^[CLASS] IincInsnNode  [METHOD] <init> [RETURN_TYPE] IincInsnNode(int,int)   final int var final int incr [VARIABLES] int  incr  var  boolean  
+[P11_Insert_Donor_Statement]^this.var = var;this.incr = incr;^63^^^^^60^64^this.incr = incr;^[CLASS] IincInsnNode  [METHOD] <init> [RETURN_TYPE] IincInsnNode(int,int)   final int var final int incr [VARIABLES] int  incr  var  boolean  
+[P5_Replace_Variable]^mv.visitIincInsn ( incr, incr ) ;^71^^^^^70^72^mv.visitIincInsn ( var, incr ) ;^[CLASS] IincInsnNode  [METHOD] accept [RETURN_TYPE] void   MethodVisitor mv [VARIABLES] int  incr  var  MethodVisitor  mv  boolean  
+[P5_Replace_Variable]^mv.visitIincInsn (  incr ) ;^71^^^^^70^72^mv.visitIincInsn ( var, incr ) ;^[CLASS] IincInsnNode  [METHOD] accept [RETURN_TYPE] void   MethodVisitor mv [VARIABLES] int  incr  var  MethodVisitor  mv  boolean  
+[P5_Replace_Variable]^mv.visitIincInsn ( var ) ;^71^^^^^70^72^mv.visitIincInsn ( var, incr ) ;^[CLASS] IincInsnNode  [METHOD] accept [RETURN_TYPE] void   MethodVisitor mv [VARIABLES] int  incr  var  MethodVisitor  mv  boolean  
+[P5_Replace_Variable]^mv.visitIincInsn ( incr, var ) ;^71^^^^^70^72^mv.visitIincInsn ( var, incr ) ;^[CLASS] IincInsnNode  [METHOD] accept [RETURN_TYPE] void   MethodVisitor mv [VARIABLES] int  incr  var  MethodVisitor  mv  boolean  
+[P14_Delete_Statement]^^71^^^^^70^72^mv.visitIincInsn ( var, incr ) ;^[CLASS] IincInsnNode  [METHOD] accept [RETURN_TYPE] void   MethodVisitor mv [VARIABLES] int  incr  var  MethodVisitor  mv  boolean  
+[P5_Replace_Variable]^return new IincInsnNode (  incr ) ;^75^^^^^74^76^return new IincInsnNode ( var, incr ) ;^[CLASS] IincInsnNode  [METHOD] clone [RETURN_TYPE] AbstractInsnNode   Map labels [VARIABLES] Map  labels  int  incr  var  boolean  
+[P5_Replace_Variable]^return new IincInsnNode ( var ) ;^75^^^^^74^76^return new IincInsnNode ( var, incr ) ;^[CLASS] IincInsnNode  [METHOD] clone [RETURN_TYPE] AbstractInsnNode   Map labels [VARIABLES] Map  labels  int  incr  var  boolean  
+[P5_Replace_Variable]^return new IincInsnNode ( incr, var ) ;^75^^^^^74^76^return new IincInsnNode ( var, incr ) ;^[CLASS] IincInsnNode  [METHOD] clone [RETURN_TYPE] AbstractInsnNode   Map labels [VARIABLES] Map  labels  int  incr  var  boolean  

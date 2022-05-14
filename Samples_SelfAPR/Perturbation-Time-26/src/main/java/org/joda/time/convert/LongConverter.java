@@ -1,0 +1,3 @@
+[P14_Delete_Statement]^^40^^^^^39^41^super (  ) ;^[CLASS] LongConverter  [METHOD] <init> [RETURN_TYPE] LongConverter()   [VARIABLES] LongConverter  INSTANCE  boolean  
+[P14_Delete_Statement]^^54^^^^^53^55^return  (  ( Long )  object ) .longValue (  ) ;^[CLASS] LongConverter  [METHOD] getInstantMillis [RETURN_TYPE] long   Object object Chronology chrono [VARIABLES] Object  object  LongConverter  INSTANCE  Chronology  chrono  boolean  
+[P14_Delete_Statement]^^67^^^^^66^68^return  (  ( Long )  object ) .longValue (  ) ;^[CLASS] LongConverter  [METHOD] getDurationMillis [RETURN_TYPE] long   Object object [VARIABLES] Object  object  LongConverter  INSTANCE  boolean  

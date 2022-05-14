@@ -1,0 +1,9 @@
+[P1_Replace_Type]^private  long  index;^22^^^^^17^27^private int index;^[CLASS] BulkBeanException   [VARIABLES] 
+[P8_Replace_Mix]^private  short  index;^22^^^^^17^27^private int index;^[CLASS] BulkBeanException   [VARIABLES] 
+[P14_Delete_Statement]^^26^27^^^^25^28^super ( message ) ; this.index = index;^[CLASS] BulkBeanException  [METHOD] <init> [RETURN_TYPE] String,int)   String message int index [VARIABLES] Throwable  cause  String  message  boolean  int  index  
+[P11_Insert_Donor_Statement]^super ( cause.getMessage (  )  ) ;super ( message ) ;^26^^^^^25^28^super ( message ) ;^[CLASS] BulkBeanException  [METHOD] <init> [RETURN_TYPE] String,int)   String message int index [VARIABLES] Throwable  cause  String  message  boolean  int  index  
+[P8_Replace_Mix]^this.index =  null;^27^^^^^25^28^this.index = index;^[CLASS] BulkBeanException  [METHOD] <init> [RETURN_TYPE] String,int)   String message int index [VARIABLES] Throwable  cause  String  message  boolean  int  index  
+[P14_Delete_Statement]^^31^32^^^^30^34^super ( cause.getMessage (  )  ) ; this.index = index;^[CLASS] BulkBeanException  [METHOD] <init> [RETURN_TYPE] Throwable,int)   Throwable cause int index [VARIABLES] Throwable  cause  int  index  boolean  
+[P11_Insert_Donor_Statement]^super ( message ) ;super ( cause.getMessage (  )  ) ;^31^^^^^30^34^super ( cause.getMessage (  )  ) ;^[CLASS] BulkBeanException  [METHOD] <init> [RETURN_TYPE] Throwable,int)   Throwable cause int index [VARIABLES] Throwable  cause  int  index  boolean  
+[P8_Replace_Mix]^this.index =  null;^32^^^^^30^34^this.index = index;^[CLASS] BulkBeanException  [METHOD] <init> [RETURN_TYPE] Throwable,int)   Throwable cause int index [VARIABLES] Throwable  cause  int  index  boolean  
+[P8_Replace_Mix]^this.cause =  null;^33^^^^^30^34^this.cause = cause;^[CLASS] BulkBeanException  [METHOD] <init> [RETURN_TYPE] Throwable,int)   Throwable cause int index [VARIABLES] Throwable  cause  int  index  boolean  

@@ -1,0 +1,2 @@
+[P8_Replace_Mix]^private final static EmptyIterator<?> instance  = null ;^15^^^^^10^20^private final static EmptyIterator<?> instance = new EmptyIterator<Object> (  ) ;^[CLASS] EmptyIterator   [VARIABLES] 
+[P3_Replace_Literal]^public boolean hasNext (  )  { return true; }^25^^^^^20^30^public boolean hasNext (  )  { return false; }^[CLASS] EmptyIterator  [METHOD] hasNext [RETURN_TYPE] boolean   [VARIABLES] EmptyIterator  instance  boolean  
