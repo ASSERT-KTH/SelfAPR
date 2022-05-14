@@ -23,7 +23,7 @@ mvn package assembly:single
 Please check perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar under perturbation/target folder.
 Simplely check it with the following script:
 ```
-java -jar ./perturbation/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar   Your/JAVA/FILE/PATH
+java -jar ./perturbation/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar Options=SelfAPR|BugLab|test  Your/JAVA/FILE/PATH
 ```
 
 ##  Code perturbation scripts
@@ -66,7 +66,7 @@ python3 6_evaluate_patch.py
 
 
 
-## All perturbed samples under the folder: PerturbedSamples 
+## All perturbed samples under the folder: Samples_SelfAPR 
 
 An example is as follow, for replace the variable shartName with variable longName. 
 
