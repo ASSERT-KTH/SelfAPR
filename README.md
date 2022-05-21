@@ -68,12 +68,12 @@ python3 6_evaluate_patch.py
 
 ## All perturbed samples under the folder: Samples_SelfAPR 
 
-An example is as follow, for replace the variable shartName with variable longName. 
-
-|Perturbed Sample(P')|Before Being Perturbed(P)|
-|---|---|
-|obuilder.withShortName ( longName ) ; | obuilder.withShortName ( shortName ) ;|
-| RectangleEdge domainEdge = Plot .resolveRangeAxisLocation ( orientation )  ;| RectangleEdge domainEdge = Plot.resolveDomainAxisLocation ( plot.getDomainAxisLocation (  ) , orientation ) ;|
+For examplem, a training sample is represented as:
+|P|P'|Rule|
+|--|--|---|
+|```[PATCH]  if  (  rand  ==  null  )  {	```|```[BUG]  [BUGGY]  if  (  rand  !=  null)  {[FE]  NullPointerException  testGetSortedValues ...  [CONTEXT]  private  RandomGenerator  getRan()  {...```|[P2_Replace_Operator]|
+|```[PATCH]  list[i]  =  temp;	```|```[BUG]  [BUGGY]  list[i]  =  target;[FE] AssertionFailedError  expected:<0.01>  but  was:<0.0>  testPercentiles  ...  [CONTEXT]  ...```|    	[P5_Replace_Variable]|
+|```[PATCH]  if  (  this.runningState  ==  STATE_RUNNING  )  {	```|```[BUG]  [BUGGY]  if(  this.runningState  ==  STATE_STOPPED)  {[FE]  Illegal  running  state  has  occured....  [CONTEXT]  public  long  getTime() ....```|[P9_Replace_Statement]|
 
 
 
@@ -104,47 +104,51 @@ An example is as follow, for replace the variable shartName with variable longNa
 |Closure_62|Closure_2|Lang_26|Closure_40|Closure_13|
 |Chart_24|Closure_31|Lang_29|Closure_46|Closure_18|
 |Closure_86|Closure_33|Lang_33|Closure_57|Closure_31|
-|Closure_70|Closure_40|Lang_51|Closure_62|Closure_40|
-|Closure_18|Closure_46|Lang_57|Closure_70|Closure_46|
-|Chart_11|Closure_57|Lang_59|Closure_73|Closure_57|
-|Math_11|Closure_62|Math_2|Closure_86|Closure_62|
-|Lang_6|Closure_70|Math_22|Closure_92|Closure_70|
-|Closure_31|Closure_73|Math_27|Lang_10|Closure_73|
-|Lang_33|Closure_86|Math_30|Lang_26|Closure_86|
-|Mockito_26|Closure_92|Math_34|Lang_29|Closure_92|
-|Math_33|Lang_26|Math_56|Lang_38|Lang_10|
-|Math_75|Lang_29|Math_57|Lang_43|Lang_21|
-|Math_94|Lang_33|Math_58|Lang_51|Lang_26|
-|Math_80|Lang_38|Math_59|Lang_57|Lang_43|
-|Mockito_5|Lang_43|Math_65|Lang_59|Lang_51|
-|Closure_11|Lang_51|Math_77|Lang_6|Lang_55|
-|Chart_1|Lang_55|Math_80|Math_2|Lang_57|
-|Closure_1|Lang_57|Math_82|Math_22|Lang_59|
-|Math_50|Lang_59|Math_90|Math_27|Lang_6|
-|Closure_126|Lang_6|Math_94|Math_30|Lang_8|
-|Closure_92|Math_105|Math_98|Math_34|Math_104|
-|Lang_57|Math_27|Mockito_29|Math_41|Math_22|
-|Math_2|Math_30|Mockito_5|Math_50|Math_30|
-|Closure_38|Math_33|Mockito_8|Math_56|Math_41|
-|Math_104|Math_34|Time_19|Math_57|Math_46|
-|Math_105|Math_41||Math_58|Math_49|
+|Closure_70|Closure_40|Lang_51|Closure_62|Closure_38|
+|Closure_18|Closure_46|Lang_57|Closure_70|Closure_40|
+|Chart_11|Closure_57|Lang_59|Closure_73|Closure_46|
+|Math_11|Closure_62|Math_2|Closure_86|Closure_57|
+|Lang_6|Closure_70|Math_22|Closure_92|Closure_62|
+|Closure_31|Closure_73|Math_27|Lang_10|Closure_70|
+|Lang_33|Closure_86|Math_30|Lang_26|Closure_73|
+|Mockito_26|Closure_92|Math_34|Lang_29|Closure_86|
+|Math_33|Lang_26|Math_56|Lang_38|Closure_92|
+|Math_75|Lang_29|Math_57|Lang_43|Lang_10|
+|Math_94|Lang_33|Math_58|Lang_51|Lang_21|
+|Math_80|Lang_38|Math_59|Lang_57|Lang_26|
+|Mockito_5|Lang_43|Math_65|Lang_59|lang_33|
+|Closure_11|Lang_51|Math_77|Lang_6|Lang_38|
+|Chart_1|Lang_55|Math_80|Math_2|Lang_43|
+|Closure_1|Lang_57|Math_82|Math_22|Lang_51|
+|Math_50|Lang_59|Math_90|Math_27|Lang_57|
+|Closure_126|Lang_6|Math_94|Math_30|Lang_59|
+|Closure_92|Math_105|Math_98|Math_34|Lang_6|
+|Lang_57|Math_27|Mockito_29|Math_41|Math_104|
+|Math_2|Math_30|Mockito_5|Math_50|Math_22|
+|Closure_38|Math_33|Mockito_8|Math_56|Math_30|
+|Math_104|Math_34|Time_19|Math_57|Math_41|
+|Math_105|Math_41||Math_58|Math_46|
 |Chart_9|Math_5||Math_59|Math_5|
 ||Math_50||Math_65|Math_50|
 ||Math_57||Math_70|Math_57|
-||Math_58||Math_75|Math_70|
-||Math_70||Math_79|Math_72|
-||Math_75||Math_80|Math_75|
-||Math_82||Math_82|Math_77|
-||Math_85||Math_94|Math_79|
-||Math_94||Math_98|Math_80|
-||Math_96||Mockito_29|Math_82|
-||Math_98||Time_19|Math_85|
-||Mockito_29||Mockito_5|Math_98|
-||Time_19|||Mockito_26|
-||Time_4|||Mockito_29|
-||Time_7|||Mockito_34|
+||Math_58||Math_75|Math_58|
+||Math_70||Math_79|Math_70|
+||Math_75||Math_80|Math_72|
+||Math_82||Math_82|Math_75|
+||Math_85||Math_94|Math_77|
+||Math_94||Math_98|Math_79|
+||Math_96||Mockito_29|Math_80|
+||Math_98||Time_19|Math_82|
+||Mockito_29||Mockito_5|Math_85|
+||Time_19|||Math_94|
+||Time_4|||Math_98|
+||Time_7|||Mockito_24|
+|||||Mockito_26|
+|||||Mockito_29|
+|||||Mockito_34|
 |||||Mockito_5|
 |||||Mockito_8|
-|||||Closure_38|
-|||||lang_33|
+|||||Time_4|
+|||||Time_19|
+
 
