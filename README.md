@@ -69,6 +69,8 @@ python3 6_evaluate_patch.py
 ## All perturbed samples under the folder: Samples_SelfAPR 
 
 Some samples are below, all samples are found in Samples_SelfAPR.
+
+
 |P|P'|Rule|
 |---|---|---|
 |[PATCH]  if  (  rand  ==  null  )  {	|[BUG]  [BUGGY]  if  (  rand  !=  null)  {[FE]  NullPointerException  testGetSortedValues ...  [CONTEXT]  private  RandomGenerator  getRan()  {...|[P2_Replace_Operator]|
