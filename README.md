@@ -15,7 +15,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
  ```
  
-## Go to the perturbation folder and build the model:
+## Go to the perturbation_model folder and build the model:
  ```
 cd perturbation
 mvn package assembly:single
