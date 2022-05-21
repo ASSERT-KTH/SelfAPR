@@ -70,7 +70,7 @@ python3 6_evaluate_patch.py
 
 Some samples are below, all samples are found in Samples_SelfAPR.
 |P|P'|Rule|
-|--|--|---|
+|---|---|---|
 |[PATCH]  if  (  rand  ==  null  )  {	|[BUG]  [BUGGY]  if  (  rand  !=  null)  {[FE]  NullPointerException  testGetSortedValues ...  [CONTEXT]  private  RandomGenerator  getRan()  {...|[P2_Replace_Operator]|
 |[PATCH]  list[i]  =  temp;	|[BUG]  [BUGGY]  list[i]  =  target;[FE] AssertionFailedError  expected:<0.01>  but  was:<0.0>  testPercentiles  ...  [CONTEXT]  ...```|    	[P5_Replace_Variable]|
 |[PATCH]  if  (  this.runningState  ==  STATE_RUNNING  )  {	| [BUG]  [BUGGY]  if(  this.runningState  ==  STATE_STOPPED)  {[FE]  Illegal  running  state  has  occured....  [CONTEXT]  public  long  getTime() ....|[P9_Replace_Statement]|
