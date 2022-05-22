@@ -20,10 +20,10 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 cd perturbation
 mvn package assembly:single
 ```
-Please check perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar under perturbation/target folder.
+Please check perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar under perturbation_model/target folder.
 Simplely check it with the following script:
 ```
-java -jar ./perturbation/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar Options=SelfAPR|BugLab|test  Your/JAVA/FILE/PATH
+java -jar ./perturbation_model/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar Options=SelfAPR|BugLab|test  Your/JAVA/FILE/PATH
 ```
 
 ##  Code perturbation scripts
@@ -74,7 +74,7 @@ Some samples are below, all samples are found in Samples_SelfAPR.
 |P|P'|Rule|
 |---|---|---|
 |[PATCH]  if  (  rand  ==  null  )  {	|[BUG]  [BUGGY]  if  (  rand  !=  null)  {[FE]  NullPointerException  testGetSortedValues ...  [CONTEXT]  private  RandomGenerator  getRan()  {...|[P2_Replace_Operator]|
-|[PATCH]  list[i]  =  temp;	|[BUG]  [BUGGY]  list[i]  =  target;[FE] AssertionFailedError  expected:<0.01>  but  was:<0.0>  testPercentiles  ...  [CONTEXT]  ...```|    	[P5_Replace_Variable]|
+|[PATCH]  list[i]  =  temp;	|[BUG]  [BUGGY]  list[i]  =  target;[FE] AssertionFailedError  expected:<0.01>  but  was:<0.0>  testPercentiles  ...  [CONTEXT]  ...|    	[P5_Replace_Variable]|
 |[PATCH]  if  (  this.runningState  ==  STATE_RUNNING  )  {	| [BUG]  [BUGGY]  if(  this.runningState  ==  STATE_STOPPED)  {[FE]  Illegal  running  state  has  occured....  [CONTEXT]  public  long  getTime() ....|[P9_Replace_Statement]|
 
 
