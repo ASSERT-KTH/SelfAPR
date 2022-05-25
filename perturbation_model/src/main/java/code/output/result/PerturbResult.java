@@ -152,7 +152,7 @@ public class PerturbResult {
                         filename = filename.replace("Collections-", "Perturbation-Collections-");
                 }
 		else  {
-            filename = "Perturbation-"+filename;
+            filename = filename.replace(".java","Perturbation.java");
             System.out.println("saved to "+filename);
 		}
 		
