@@ -59,7 +59,7 @@
 	1	IDENTICAL	Math_79	src/main/java/org/apache/commons/math/util/MathUtils.java	double  sum  =  0;	double  sum  =  0;	
 	7	IDENTICAL	Math_82	src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java	[REPLACE]  if  (  MathUtils.  compareTo  (  entry,  0,  epsilon  )  >  0  )  {	if  (MathUtils.compareTo(entry,  0,  epsilon)  >  0)  {	
 	8	IDENTICAL	Math_85	src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java	[REPLACE]  if  (  fa  *  fb  >  0.  0  )  {	if  (fa  *  fb  >  0.0  )  {	
-	10	IDENTICAL	Math_98	src/java/org/apache/commons/math/linear/BigMatrixImpl.java	final  BigDecimal[]  out  =  new  BigDecimal[nRows];	final  BigDecimal[]  out  =  new  BigDecimal[nRows];	
+	11	IDENTICAL	Math_98	src/java/org/apache/commons/math/linear/BigMatrixImpl.java	final  BigDecimal[]  out  =  new  BigDecimal[nRows];	final  BigDecimal[]  out  =  new  BigDecimal[nRows];	
 	67	IDENTICAL	Mockito_11	src/org/mockito/internal/creation/DelegatingMethod.java	[REPLACE]  return  method.  hashCode  (  )  ;	return  method.hashCode();	
 	69	IDENTICAL	Mockito_29	src/org/mockito/internal/matchers/Same.java	description. appendText( wanted  ==  null ?   "  null   "  :  wanted.  toString ( )  );	description.appendText(wanted  ==  null?   "null   "  :  wanted.toString());	
 	9	IDENTICAL	Mockito_34	src/org/mockito/internal/invocation/InvocationMatcher.java	[REPLACE]  if  (  m  instanceof  CapturesArguments  && i. getArguments ( ). length  >  k)   {	if  (m  instanceof  CapturesArguments  &&  i.getArguments().length  >  k)  {	
@@ -75,6 +75,7 @@
 	100	IDENTICAL	Codec_2	src/java/org/apache/commons/codec/binary/Base64.java	if  (  lineLength  >  0  &&   pos  >  0 )  {	if  (lineLength  >  0  &&  pos  >  0)  {	
 	5	IDENTICAL	Cli_17	src/java/org/apache/commons/cli/PosixParser.java	break	break;	
 	56	IDENTICAL	Closure_46	src/com/google/javascript/rhino/jstype/RecordType.java	[REPLACE]	nan	
+	32	IDENTICAL	Jsoup_62	src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java	String name = t.asEndTag().name();	String name = t.asEndTag().name();
 	1	Semantic	JacksonDatabind_49	src/main/java/com/fasterxml/jackson/databind/ser/impl/WritableObjectId.java	[ADD]  if  (  id  ==  null  )	if  (id  ==  null)  {  }	
 	7	Semantic	Closure_38	src/com/google/javascript/jscomp/CodeConsumer.java	[REPLACE]  if  (  negativeZero  		  x  <=  0  &&  prev  ==  '-'  )  {	if  ((x  <  0  		  negativeZero)  &&  prev  ==  '-')  {	
 	3	Semantic	Lang_33	src/main/java/org/apache/commons/lang3/ClassUtils.java	classes[i]  =  (  array[i]  ==  null  )?  null  :  array[i].  getClass  (  )  ;	classes[i]  =  array[i]  ==  null?  null  :  array[i].getClass();	
@@ -84,11 +85,11 @@
 	8	Semantic	Closure_104	src/com/google/javascript/rhino/jstype/UnionType.java	[REPLACE]  if  (  result  !=  null  &&  !result.  isUnknownType  (  )  )  {	if  (!result.isNoType())  {	
 	18	Semantic	src/java/org/apache/commons/codec/language/DoubleMetaphone.java	index  =  contains  (  value,  index  +  1,  3,   "IER   "  )	}  else  if  (contains(value,  index  +  1,  3,   "IER   "))  { 
 	12	Semantic	Closure_11	src/com/google/javascript/jscomp/TypeCheck.java	[REPLACE]  else  if  (!childType.  isUnknownType  (  )  &&  n.  getJSType  (  )!=  null  &&  parent.  isAssignment  (  )  )  {	nan	
-	51	Semantic	Closure_118	src/com/google/javascript/jscomp/DisambiguateProperties.java	[ADD]  if  (  child.  getType  (  )  ==  Token.  STRING  )  {  continue;  }	if  (child.isQuotedString())  {  continue;  }	
+	50	Semantic	Closure_118	src/com/google/javascript/jscomp/DisambiguateProperties.java	[ADD]  if  (  child.  getType  (  )  ==  Token.  STRING  )  {  continue;  }	if  (child.isQuotedString())  {  continue;  }	
 	18	Semantic	Closure_126	src/com/google/javascript/jscomp/MinimizeExitPoints.java	[REPLACE]  if  (  NodeUtil.  hasFinally  (  n  )  &&  n.  getLastChild  (  ).  getString  (  ).  equals  (   "false   "  )  )  {	nan	
 	2	Semantic	Closure_31	src/com/google/javascript/jscomp/Compiler.java	[REPLACE]!options.  skipAllPasses  		 options.  skipAllPasses &&	nan	
 	54	Semantic	Lang_51	src/java/org/apache/commons/lang/BooleanUtils.java	[ADD]  return  (  str.  charAt  (  0  )  ==  'e'  &&  str.  charAt  (  0  )  ==  'E'  )  &&  (  str.  charAt  (  1  )  ==  'S'  ) ;	return  false;	
-	30	Semantic	Lang_55	src/java/org/apache/commons/lang/time/StopWatch.java	[ADD]  if  (  this.  runningState ==  STATE_RUNNING  &&  this.  runningState!=  STATE_SUSPENDED  )  {	if(this.runningState  ==  STATE_RUNNING)	
+	31	Semantic	Lang_55	src/java/org/apache/commons/lang/time/StopWatch.java	[ADD]  if  (  this.  runningState ==  STATE_RUNNING  &&  this.  runningState!=  STATE_SUSPENDED  )  {	if(this.runningState  ==  STATE_RUNNING)	
 	3	Semantic	Lang_57	src/java/org/apache/commons/lang/LocaleUtils.java	[REPLACE]  return  cAvailableLocaleSet.  contains  (  locale  )  		  cAvailableLocaleList.  contains  (  locale  )  ;	return  availableLocaleList().contains(locale);	
 	45	Semantic	Math_46	src/main/java/org/apache/commons/math/complex/Complex.java	return  isZero?  NaN  :  NaN;	return  NaN;	
 	26	Semantic	Math_50	src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java	if  (  x  ==  x1  &&  x0  <   x0  )  {  x0  =  0.  5  *  (  x0  +  x1  -  FastMath.  max  (  rtol  *  FastMath.  ab	nan	
