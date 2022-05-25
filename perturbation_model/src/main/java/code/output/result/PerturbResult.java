@@ -151,6 +151,10 @@ public class PerturbResult {
 		else if (filename.contains("Collections-")) {
                         filename = filename.replace("Collections-", "Perturbation-Collections-");
                 }
+		else  {
+            filename = "Perturbation-"+filename;
+            System.out.println("saved to "+filename);
+		}
 		
 //		else {
 //			filename="./perturbationFile.txt";
