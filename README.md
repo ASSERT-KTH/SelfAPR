@@ -15,16 +15,30 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
  ```
  
-## Go to the perturbation_model folder and build the model:
+
+ 
+## Go to the perturbation_model folder to check the source code and build the model:
+
+##### We upload the build jar package on Zenodo. Download the jar file and execute it as 
+```
+https://doi.org/10.5281/zenodo.6582348
+java -jar ./perturbation_model/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar Your/JAVA/FILE/PATH Options=SelfAPR|BugLab|test
+```
+##### Check the source code and build the package as below.
+
  ```
 cd perturbation
 mvn package assembly:single
 ```
 Please check perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar under perturbation_model/target folder.
-Simplely check it with the following script:
+Simplely check it with the usage shown above:
 ```
-java -jar ./perturbation_model/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar Options=SelfAPR|BugLab|test  Your/JAVA/FILE/PATH
+java -jar ./perturbation_model/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar  Your/JAVA/FILE/PATH Options=SelfAPR|BugLab|test
 ```
+
+
+
+
 
 ##  Code perturbation scripts
 
