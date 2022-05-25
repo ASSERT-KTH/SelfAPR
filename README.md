@@ -33,7 +33,11 @@ mvn package assembly:single
 Please check perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar under perturbation_model/target folder.
 Simplely check it with the usage shown above:
 ```
-java -jar ./perturbation_model/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar  Your/JAVA/FILE/PATH Options=SelfAPR|BugLab|test
+java -jar XX.jar  path Options=SelfAPR|BugLab|test
+With option SelfAPR: we perturb with all 16 rules in SelfAPR (Then the perturbation-based samples are executed).
+With option BugLab: we perturb with all 16 rules in BugLab (No execution will be conducted).
+With option test: we extract context information for testing samples.
+
 ```
 
 
