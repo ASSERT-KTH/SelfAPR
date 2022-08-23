@@ -19,28 +19,9 @@ def traveProject(bugId,projectPath,repodir):
                     lines = perturbFile.readlines()
                     if len(lines)>0:
                         for k in range(0,len(lines)):
-                            #if not linexist(lines[k],repodir):
-                            constructTrainSample(bugId, lines[k], p, repodir, False,rootdir)
+                            constructTrainSample(bugId, lines[k], p, repodir, True, rootdir)
         else:
             traveProject(bugId,p,repodir)
-
-
-def linexist(targetline,repodir):
-    targetline=targetline.replace('\r','').replace('\n','').replace(' ','')
-    print(targetline)
-    flag=False
-    with open(repodir+'/diagnostic.csv','r') as trainf:
-        lines = trainf.readlines()
-        for l in lines:
-            #print(l)
-            l = l.replace('\r','').replace('\n','').replace(' ','')
-            if targetline in l:
-                print('@@@@@@@@@@@@@!!exist!!exist!!@@@@@@@@@@')
-                flag= True
-                break
-    return flag
-
-
 
 
 
@@ -62,9 +43,7 @@ def constructTrainSample(bugId,line,targetfile,repodir,diagnosticFlag,rootdir):
     if len(infos) > 11:
         return
     curruptCode =  infos[1]
-    curruptCode = curruptCode.replace('.',' . ')
-    if curruptCode.startswith('}'):
-        curruptCode = curruptCode[1:]
+
 
     lineNo1 =  infos[2] 
     lineNo2 =  infos[3] 
@@ -75,21 +54,22 @@ def constructTrainSample(bugId,line,targetfile,repodir,diagnosticFlag,rootdir):
     cxtEnd = infos[8]
     groundTruth = infos[9]
     metaInfo = infos[10]
-    groundTruth = groundTruth.replace('  ',' ').replace('\r','').replace('\n','').replace('.',' . ')
+    groundTruth = groundTruth.replace('  ',' ').replace('\r','').replace('\n','')
     action = infos[0] 
 
     try:
         string_int = int(lineNo1)
     except ValueError:
         return
+    
 
-
-
-
+    curruptCode = curruptCode.replace(' (','(').replace(' )',')')
+    curruptCode = curruptCode.replace('(  )','()')
+    curruptCode = curruptCode.replace(' .','.')
     
     # get diagnostic by execution
-    diagnosticMsg = diagnostic(bugId,line,targetfile,repodir,action,diagnosticFlag,rootdir)
-    
+#     diagnosticMsg = diagnostic(bugId,line,targetfile,repodir,action,diagnosticFlag,rootdir)
+    diagnosticMsg = ' '
     #get context info
     if cxtStart not in '' and cxtEnd not in '':
         with open(originFile,'r') as perturbFile:
@@ -102,38 +82,34 @@ def constructTrainSample(bugId,line,targetfile,repodir,diagnosticFlag,rootdir):
                     if  l.startswith('/') or l.startswith('*'):
                         l = ' '
                     l = l.replace('  ','').replace('\r','').replace('\n','')
-                    l = l.replace('(',' ( ').replace(')',' ) ')
-                    l = l.replace('.',' . ')
                     if i == int(lineNo1)-1:
-                        l='[ATTENTION] '+l
+                        l='[BUGGY] '+curruptCode + ' [BUGGY] '
                     cxt+=l+' '
 
-    # resume the original file
+
     os.system("mv "+repodir+"/"+filename +"  "+originFile)
+    sample+='[BUG] [BUGGY] ' + curruptCode + diagnosticMsg+ ' [CONTEXT] ' + cxt +' '+'  '+ metaInfo
+    sample = sample.replace('\t',' ').replace('\n',' ').replace('\r',' ').replace('  ',' ')
+    groundTruth = '[PATCH] '+groundTruth.replace('\t',' ').replace('\n',' ').replace('\r',' ').replace('  ',' ')
+    
+    print("*****sample**** :"+sample)
 
-    sample+='[BUGGY] ' + curruptCode + diagnosticMsg+ ' [CONTEXT] ' + cxt +' '+'  '+ metaInfo
-    sample = sample.replace(',',' , ').replace(';',' ; ').replace('=',' = ').replace('  ',' ').replace('\r','').replace('\n','').replace('\t','')
-    groundTruth = groundTruth.replace('\t','').replace('\n','').replace('\r','')
-
-    with open(repodir+'/train.csv','a')  as csvfile:
-        filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
-                                quoting=csv.QUOTE_NONE)               
-        filewriter.writerow([groundTruth,sample])
 
     with open(repodir+'/train-'+bugId+'.csv','a')  as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
                                 quoting=csv.QUOTE_NONE)               
-        filewriter.writerow([groundTruth,sample])
+        filewriter.writerow([groundTruth,sample,action])
 
 
 
 
 def diagnostic(bugId,line,targetfile,repodir,action,executeFlag,rootdir):
     project = bugId.split('-')[0]
-    line=line.replace('\r','').replace('\n','')
+    line=line.replace('\r',' ').replace('\n',' ')
     filename = targetfile.split('/')[-1]
     originFile = targetfile.replace("Perturbation-","")
     print("*****originFile originFile**** :"+originFile)
+    print("*****diagnostics**** :")
 
 
     #copy the origin file outside the project
@@ -150,7 +126,10 @@ def diagnostic(bugId,line,targetfile,repodir,action,executeFlag,rootdir):
     lineNo4 =  infos[5]
     lineNo5 =  infos[6]
 
-    if "ADD" in action or "REPLACE" in action:
+    print('**************Currupt Code*************'+curruptCode)
+    
+    
+    if "Transplant" in action or "Replace" in action or "Move" in action or  "Insert" in action:
         # read and perturb code 
         with open(originFile,'r') as perturbFile:
             lines = perturbFile.readlines()
@@ -179,14 +158,15 @@ def diagnostic(bugId,line,targetfile,repodir,action,executeFlag,rootdir):
                         perturbStr+=lines[i]
                     else:
                         perturbStr+=" \n"
-    elif "REMOVE" in action :
+    #REMOVE actions
+    elif "P14_" in action or 'P15_' in action or 'P16_' in action:
         with open(originFile,'r') as perturbFile:
             lines = perturbFile.readlines()
             for i in range(0,len(lines)):
                 if i+1< int(lineNo1) or i+1> int(lineNo1)+4:
                     perturbStr+=lines[i]
                 elif i+1==int(lineNo1):
-                    perturbStr+= lines[i]+" \n" +curruptCode
+                    perturbStr+= curruptCode
                 elif i+1==int(lineNo1)+1: 
                     if lineNo2=='':
                         perturbStr+=lines[i]
@@ -232,7 +212,7 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     print('****************'+program_path+'******************')
     #get compile result
     cmd = "cd " + program_path + ";"
-    cmd += "timeout 90 your/defects4j/pathdefects4j compile"
+    cmd += "timeout 90 defects4j compile"
     exectresult='[TIMEOUT]'
     symbolVaraible=''
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
@@ -240,6 +220,8 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     # Running ant (compile.tests)
     if 'Running ant (compile)' in str(result):
         result = str(result).split("Running ant (compile)")[1]
+        print('===result==='+str(result))
+
         result=result.split('\n')
         for i in range(0,len(result)):
             if 'error: ' in result[i]:
@@ -247,7 +229,7 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
                 exectresult=firstError.split('[javac]')[0]
                 if '\\' in exectresult:
                     exectresult=exectresult.split('\\')[0]
-                print('firstErrorfirstErrorfirstError'+firstError)
+                print('===FirstError==='+firstError)
                 # 'cannot  find  symbol      
                 if 'symbol' in firstError and 'cannot' in firstError and 'find' in firstError:       
                     if '[javac]' in firstError:
@@ -272,7 +254,7 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
     if not compile_error_flag:
         #get test result
         cmd = "cd " + program_path + ";"
-        cmd += "timeout 180 your/defects4j/pathdefects4j test"
+        cmd += "timeout 180 defects4j test"
         result=''
         result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         print(result)
@@ -288,10 +270,11 @@ def executePerturbation(bugId,repodir,originFile,action,line,rootdir):
                 if '\\' in failingtest:
                     failingtest = failingtest.split('\\')[0]
                 failingtest=failingtest.strip()
+
                 if '::' in failingtest:
+                    failingTestMethod=failingtest.split('::')[1]
                     faildiag = getFailingTestDiagnostic(failingtest,program_path)
-                    failTestCode = getFailingTestSourceCode(failingtest,program_path)
-                    exectresult = '[FE] ' + faildiag +' '+failTestCode
+                    exectresult = '[FE] ' + faildiag +' '+failingTestMethod
                 else:
                     exectresult = '[FE] '
                 break
@@ -313,8 +296,9 @@ def getFailingTestDiagnostic(failingtest,program_path):
     testclass = failingtest.split("::")[0]
 
     cmd = "cd " + program_path + ";"
-    cmd += "timeout 120 your/defects4j/pathdefects4j monitor.test -t "+failingtest
+    cmd += "timeout 120 defects4j monitor.test -t "+failingtest
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    print('====result===='+str(result))
     if 'failed!' in str(result) :
         result = str(result).split('failed!')[1]
         if testclass in str(result):
@@ -325,17 +309,9 @@ def getFailingTestDiagnostic(failingtest,program_path):
                     result = str(result).split('\\')[0]
     else:
         result =''
-
-    if 'null' in result and result in 'null':
-        result = 'NullPointerException'
-    elif 'expected' in result and 'but' in result:
-        result =  'AssertionFailedError  ' +result
-    elif 'Size' in result and 'Index' in result:
-        result =  'IndexOutOfBoundsException ' + result
-    elif 'Requires' in result :
-        result =  'IllegalArgumentException ' + result
     
     return str(result)
+
 
 
 
@@ -374,7 +350,7 @@ def getFailingTestSourceCode(failingtest,program_path):
                     if 'assert' in l:
                         l = l.strip()
                         if l not in code:
-                            code+=l
+                            code=l
     return code
 
 
@@ -385,10 +361,9 @@ def getFailingTestSourceCode(failingtest,program_path):
 
 
 if __name__ == '__main__':
-    bugIds = ['Lang-65','Chart-26','Math-106','Mockito-38','Time-26','Closure-134','Cli-1','Collections-25','Codec-1','Compress-1','Csv-1','Gson-1','JacksonCore-1','JacksonDatabind-1','JacksonXml-1','Jsoup-1','JxPath-1']
-    #bugIds = ['Collections-25']    
-    rootdir= '/home/yule/y/SUPRE'
-    repodir = rootdir+'/D4JTraining'
+    bugIds = ['Lang-65','Chart-26','Math-106','Mockito-38','Time-26','Closure-134','Cli-1','Collections-25','Codec-1','Compress-1','Csv-1','Gson-1','JacksonCore-1','JacksonDatabind-1','JacksonXml-1','Jsoup-1','JxPath-1'] 
+    rootdir= '/path/to/root/SelfAPR'
+    repodir = rootdir+'/Samples_SelfAPR'
 
     for bugId in bugIds:
         project=bugId.split('-')[0]
@@ -396,7 +371,7 @@ if __name__ == '__main__':
 
         if os.path.exists(repodir+'/'+bugId):
             os.system('rm -rf '+repodir+'/'+bugId)
-        os.system('your/defects4j/pathdefects4j checkout -p '+ str(project)+' -v '+str(bugNo)+'f   -w '+repodir+'/'+bugId)
+        os.system('defects4j checkout -p '+ str(project)+' -v '+str(bugNo)+'f   -w '+repodir+'/'+bugId)
 
         bugId = bugId.replace(project, "Perturbation-"+project)
         start(bugId,repodir,rootdir)
