@@ -1,6 +1,0 @@
-[P8_Replace_Mix]^this.left =  right;^37^^^^^36^38^this.left = left;^[CLASS] Equals  [METHOD] setLeftOperand [RETURN_TYPE] void   Evaluation left [VARIABLES] Evaluation  left  right  boolean  
-[P11_Insert_Donor_Statement]^this.right = right;this.left = left;^37^^^^^36^38^this.left = left;^[CLASS] Equals  [METHOD] setLeftOperand [RETURN_TYPE] void   Evaluation left [VARIABLES] Evaluation  left  right  boolean  
-[P5_Replace_Variable]^this.right = left;^41^^^^^40^42^this.right = right;^[CLASS] Equals  [METHOD] setRightOperand [RETURN_TYPE] void   Evaluation right [VARIABLES] Evaluation  left  right  boolean  
-[P11_Insert_Donor_Statement]^this.left = left;this.right = right;^41^^^^^40^42^this.right = right;^[CLASS] Equals  [METHOD] setRightOperand [RETURN_TYPE] void   Evaluation right [VARIABLES] Evaluation  left  right  boolean  
-[P8_Replace_Mix]^return false;^46^^^^^44^47^return null;^[CLASS] Equals  [METHOD] evaluate [RETURN_TYPE] Evaluation   EvaluationContext context [VARIABLES] Evaluation  left  right  EvaluationContext  context  boolean  
-[P3_Replace_Literal]^return "EqualsEqu";^50^^^^^49^51^return "Equals";^[CLASS] Equals  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] Evaluation  left  right  boolean  

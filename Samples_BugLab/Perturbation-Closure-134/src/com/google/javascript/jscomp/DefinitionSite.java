@@ -1,0 +1,1 @@
+[BugLab_Variable_Misuse]^this.inExterns = inGlobalScope;^46^^^^^37^47^this.inExterns = inExterns;^[CLASS] DefinitionSite  [METHOD] <init> [RETURN_TYPE] JSModule,boolean,boolean)   Node node Definition definition JSModule module boolean inGlobalScope boolean inExterns [VARIABLES] Definition  definition  JSModule  module  boolean  inExterns  inGlobalScope  Node  node  

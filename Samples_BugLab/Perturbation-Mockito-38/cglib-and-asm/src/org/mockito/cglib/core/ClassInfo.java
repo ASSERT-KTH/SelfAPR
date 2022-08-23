@@ -1,0 +1,6 @@
+[BugLab_Wrong_Operator]^if  ( o != null ) return false;^32^33^^^^31^37^if  ( o == null ) return false;^[CLASS] ClassInfo  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] boolean  Object  o  
+[BugLab_Wrong_Literal]^if  ( o == null ) return true;^32^33^^^^31^37^if  ( o == null ) return false;^[CLASS] ClassInfo  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] boolean  Object  o  
+[BugLab_Wrong_Literal]^return true;^33^^^^^31^37^return false;^[CLASS] ClassInfo  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] boolean  Object  o  
+[BugLab_Wrong_Operator]^if  ( ! ( o  ^  ClassInfo )  ) return false;^34^35^^^^31^37^if  ( ! ( o instanceof ClassInfo )  ) return false;^[CLASS] ClassInfo  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] boolean  Object  o  
+[BugLab_Wrong_Literal]^if  ( ! ( o instanceof ClassInfo )  ) return true;^34^35^^^^31^37^if  ( ! ( o instanceof ClassInfo )  ) return false;^[CLASS] ClassInfo  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] boolean  Object  o  
+[BugLab_Wrong_Literal]^return true;^35^^^^^31^37^return false;^[CLASS] ClassInfo  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] boolean  Object  o  

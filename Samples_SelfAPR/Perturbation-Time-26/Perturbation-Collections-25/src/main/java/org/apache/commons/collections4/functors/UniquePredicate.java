@@ -1,0 +1,6 @@
+[P1_Replace_Type]^private static final  short  serialVersionUID = -3319417438027438040L;^35^^^^^30^40^private static final long serialVersionUID = -3319417438027438040L;^[CLASS] UniquePredicate   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = -3319417438027438040;^35^^^^^30^40^private static final long serialVersionUID = -3319417438027438040L;^[CLASS] UniquePredicate   [VARIABLES] 
+[P8_Replace_Mix]^private final Set<T> iSet ;^38^^^^^33^43^private final Set<T> iSet = new HashSet<T> (  ) ;^[CLASS] UniquePredicate   [VARIABLES] 
+[P14_Delete_Statement]^^56^^^^^55^57^super (  ) ;^[CLASS] UniquePredicate  [METHOD] <init> [RETURN_TYPE] UniquePredicate()   [VARIABLES] long  serialVersionUID  Set  iSet  boolean  
+[P5_Replace_Variable]^return object.add ( iSet ) ;^67^^^^^66^68^return iSet.add ( object ) ;^[CLASS] UniquePredicate  [METHOD] evaluate [RETURN_TYPE] boolean   final T object [VARIABLES] Set  iSet  boolean  T  object  long  serialVersionUID  
+[P14_Delete_Statement]^^67^^^^^66^68^return iSet.add ( object ) ;^[CLASS] UniquePredicate  [METHOD] evaluate [RETURN_TYPE] boolean   final T object [VARIABLES] Set  iSet  boolean  T  object  long  serialVersionUID  

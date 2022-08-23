@@ -1,0 +1,9 @@
+[P1_Replace_Type]^private static final  int  serialVersionUID = 3256440322136748848L;^26^^^^^21^31^private static final long serialVersionUID = 3256440322136748848L;^[CLASS] ArchiveException   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = 3256440322136748848;^26^^^^^21^31^private static final long serialVersionUID = 3256440322136748848L;^[CLASS] ArchiveException   [VARIABLES] 
+[P14_Delete_Statement]^^29^^^^^28^30^super (  ) ;^[CLASS] ArchiveException  [METHOD] <init> [RETURN_TYPE] ArchiveException()   [VARIABLES] long  serialVersionUID  boolean  
+[P11_Insert_Donor_Statement]^super ( message ) ;super (  ) ;^29^^^^^28^30^super (  ) ;^[CLASS] ArchiveException  [METHOD] <init> [RETURN_TYPE] ArchiveException()   [VARIABLES] long  serialVersionUID  boolean  
+[P14_Delete_Statement]^^33^^^^^32^34^super ( message ) ;^[CLASS] ArchiveException  [METHOD] <init> [RETURN_TYPE] String)   String message [VARIABLES] long  serialVersionUID  String  message  boolean  
+[P11_Insert_Donor_Statement]^super (  ) ;super ( message ) ;^33^^^^^32^34^super ( message ) ;^[CLASS] ArchiveException  [METHOD] <init> [RETURN_TYPE] String)   String message [VARIABLES] long  serialVersionUID  String  message  boolean  
+[P14_Delete_Statement]^^37^^^^^36^39^super ( message ) ;^[CLASS] ArchiveException  [METHOD] <init> [RETURN_TYPE] Exception)   String message Exception e [VARIABLES] String  message  boolean  long  serialVersionUID  Exception  e  
+[P11_Insert_Donor_Statement]^super (  ) ;super ( message ) ;^37^^^^^36^39^super ( message ) ;^[CLASS] ArchiveException  [METHOD] <init> [RETURN_TYPE] Exception)   String message Exception e [VARIABLES] String  message  boolean  long  serialVersionUID  Exception  e  
+[P14_Delete_Statement]^^38^^^^^36^39^this.initCause ( e ) ;^[CLASS] ArchiveException  [METHOD] <init> [RETURN_TYPE] Exception)   String message Exception e [VARIABLES] String  message  boolean  long  serialVersionUID  Exception  e  

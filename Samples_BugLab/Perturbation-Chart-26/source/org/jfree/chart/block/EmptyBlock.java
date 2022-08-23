@@ -1,0 +1,1 @@
+[BugLab_Variable_Misuse]^setWidth ( height ) ;^71^^^^^70^73^setWidth ( width ) ;^[CLASS] EmptyBlock  [METHOD] <init> [RETURN_TYPE] EmptyBlock(double,double)   double width double height [VARIABLES] long  serialVersionUID  double  height  width  boolean  

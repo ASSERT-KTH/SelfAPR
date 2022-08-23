@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^if  ( bag  >=  Unmodifiable )  {^59^^^^^58^65^if  ( bag instanceof Unmodifiable )  {^[CLASS] UnmodifiableBag  [METHOD] unmodifiableBag [RETURN_TYPE] <E>   Bag<? extends E> bag [VARIABLES] Bag  bag  tmpBag  long  serialVersionUID  boolean  

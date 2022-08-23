@@ -1,0 +1,4 @@
+[P1_Replace_Type]^private static final  short  serialVersionUID = -1341109412864309526L;^27^^^^^22^32^private static final long serialVersionUID = -1341109412864309526L;^[CLASS] MatrixIndexException   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = -1341109412864309526;^27^^^^^22^32^private static final long serialVersionUID = -1341109412864309526L;^[CLASS] MatrixIndexException   [VARIABLES] 
+[P14_Delete_Statement]^^33^^^^^32^34^this ( null ) ;^[CLASS] MatrixIndexException  [METHOD] <init> [RETURN_TYPE] MatrixIndexException()   [VARIABLES] long  serialVersionUID  boolean  
+[P14_Delete_Statement]^^41^^^^^40^42^super ( message ) ;^[CLASS] MatrixIndexException  [METHOD] <init> [RETURN_TYPE] String)   String message [VARIABLES] long  serialVersionUID  String  message  boolean  

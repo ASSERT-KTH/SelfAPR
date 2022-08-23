@@ -1,0 +1,8 @@
+[BugLab_Wrong_Literal]^return true;^59^^^^^58^60^return false;^[CLASS] NumberType  [METHOD] isNullable [RETURN_TYPE] boolean   [VARIABLES] long  serialVersionUID  boolean  
+[BugLab_Wrong_Operator]^if  ( that.isUnknownType (  )  && that.isSubtype ( getNativeType ( JSTypeNative.OBJECT_NUMBER_STRING_BOOLEAN )  )  )  {^67^68^^^^63^72^if  ( that.isUnknownType (  )  || that.isSubtype ( getNativeType ( JSTypeNative.OBJECT_NUMBER_STRING_BOOLEAN )  )  )  {^[CLASS] NumberType  [METHOD] testForEquality [RETURN_TYPE] TernaryValue   JSType that [VARIABLES] long  serialVersionUID  JSType  that  boolean  
+[BugLab_Variable_Misuse]^return null;^71^^^^^63^72^return FALSE;^[CLASS] NumberType  [METHOD] testForEquality [RETURN_TYPE] TernaryValue   JSType that [VARIABLES] long  serialVersionUID  JSType  that  boolean  
+[BugLab_Wrong_Literal]^return false;^76^^^^^75^77^return true;^[CLASS] NumberType  [METHOD] isNumberValueType [RETURN_TYPE] boolean   [VARIABLES] long  serialVersionUID  boolean  
+[BugLab_Wrong_Literal]^return false;^81^^^^^80^82^return true;^[CLASS] NumberType  [METHOD] matchesNumberContext [RETURN_TYPE] boolean   [VARIABLES] long  serialVersionUID  boolean  
+[BugLab_Wrong_Literal]^return false;^86^^^^^85^87^return true;^[CLASS] NumberType  [METHOD] matchesStringContext [RETURN_TYPE] boolean   [VARIABLES] long  serialVersionUID  boolean  
+[BugLab_Wrong_Literal]^return false;^92^^^^^90^93^return true;^[CLASS] NumberType  [METHOD] matchesObjectContext [RETURN_TYPE] boolean   [VARIABLES] long  serialVersionUID  boolean  
+[BugLab_Variable_Misuse]^return null;^102^^^^^101^103^return BooleanLiteralSet.BOTH;^[CLASS] NumberType  [METHOD] getPossibleToBooleanOutcomes [RETURN_TYPE] BooleanLiteralSet   [VARIABLES] long  serialVersionUID  boolean  

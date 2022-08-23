@@ -1,0 +1,1 @@
+[BugLab_Wrong_Literal]^return false;^24^^^^^22^25^return true;^[CLASS] CapturingMatcher  [METHOD] matches [RETURN_TYPE] boolean   Object argument [VARIABLES] LinkedList  arguments  Object  argument  boolean  

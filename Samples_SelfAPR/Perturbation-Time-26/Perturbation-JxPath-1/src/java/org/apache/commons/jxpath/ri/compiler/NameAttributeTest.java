@@ -1,0 +1,7 @@
+[P5_Replace_Variable]^super (  nameValue ) ;^31^^^^^30^32^super ( namePath, nameValue ) ;^[CLASS] NameAttributeTest  [METHOD] <init> [RETURN_TYPE] Expression)   Expression namePath Expression nameValue [VARIABLES] boolean  Expression  namePath  nameValue  
+[P5_Replace_Variable]^super ( namePath ) ;^31^^^^^30^32^super ( namePath, nameValue ) ;^[CLASS] NameAttributeTest  [METHOD] <init> [RETURN_TYPE] Expression)   Expression namePath Expression nameValue [VARIABLES] boolean  Expression  namePath  nameValue  
+[P5_Replace_Variable]^super ( nameValue, namePath ) ;^31^^^^^30^32^super ( namePath, nameValue ) ;^[CLASS] NameAttributeTest  [METHOD] <init> [RETURN_TYPE] Expression)   Expression namePath Expression nameValue [VARIABLES] boolean  Expression  namePath  nameValue  
+[P14_Delete_Statement]^^31^^^^^30^32^super ( namePath, nameValue ) ;^[CLASS] NameAttributeTest  [METHOD] <init> [RETURN_TYPE] Expression)   Expression namePath Expression nameValue [VARIABLES] boolean  Expression  namePath  nameValue  
+[P3_Replace_Literal]^return args[-2];^35^^^^^34^36^return args[1];^[CLASS] NameAttributeTest  [METHOD] getNameTestExpression [RETURN_TYPE] Expression   [VARIABLES] boolean  
+[P8_Replace_Mix]^return args[0];^35^^^^^34^36^return args[1];^[CLASS] NameAttributeTest  [METHOD] getNameTestExpression [RETURN_TYPE] Expression   [VARIABLES] boolean  
+[P3_Replace_Literal]^return false;^42^^^^^41^43^return true;^[CLASS] NameAttributeTest  [METHOD] computeContextDependent [RETURN_TYPE] boolean   [VARIABLES] boolean  

@@ -1,0 +1,3 @@
+[P1_Replace_Type]^private static final  short  serialVersionUID = 504555366032561816L;^27^^^^^22^32^private static final long serialVersionUID = 504555366032561816L;^[CLASS] JXPathInvalidSyntaxException   [VARIABLES] 
+[P8_Replace_Mix]^private static final  short  serialVersionUID = 504555366032561816;^27^^^^^22^32^private static final long serialVersionUID = 504555366032561816L;^[CLASS] JXPathInvalidSyntaxException   [VARIABLES] 
+[P14_Delete_Statement]^^30^^^^^29^31^super ( message ) ;^[CLASS] JXPathInvalidSyntaxException  [METHOD] <init> [RETURN_TYPE] String)   String message [VARIABLES] long  serialVersionUID  String  message  boolean  

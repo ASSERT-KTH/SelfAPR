@@ -1,0 +1,1 @@
+[BugLab_Variable_Misuse]^return new InsnNode ( 4 ) ;^79^^^^^78^80^return new InsnNode ( opcode ) ;^[CLASS] InsnNode  [METHOD] clone [RETURN_TYPE] AbstractInsnNode   Map labels [VARIABLES] boolean  Map  labels  

@@ -1,0 +1,3 @@
+[BugLab_Variable_Misuse]^return instance;^27^^^^^25^28^return JsonNodeType.NULL;^[CLASS] NullNode  [METHOD] getNodeType [RETURN_TYPE] JsonNodeType   [VARIABLES] NullNode  instance  boolean  
+[BugLab_Variable_Misuse]^@Override public JsonToken asToken (  )  { return instance; }^30^^^^^25^35^@Override public JsonToken asToken (  )  { return JsonToken.VALUE_NULL; }^[CLASS] NullNode  [METHOD] asToken [RETURN_TYPE] JsonToken   [VARIABLES] NullNode  instance  boolean  
+[BugLab_Wrong_Operator]^return  ( o != this ) ;^56^^^^^54^57^return  ( o == this ) ;^[CLASS] NullNode  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] NullNode  instance  Object  o  boolean  

@@ -1,0 +1,15 @@
+[P8_Replace_Mix]^this.e =  null;^27^^^^^26^29^this.e = e;^[CLASS] Block  [METHOD] <init> [RETURN_TYPE] CodeEmitter)   CodeEmitter e [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P8_Replace_Mix]^start =  null.mark (  ) ;^28^^^^^26^29^start = e.mark (  ) ;^[CLASS] Block  [METHOD] <init> [RETURN_TYPE] CodeEmitter)   CodeEmitter e [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P11_Insert_Donor_Statement]^end = e.mark (  ) ;start = e.mark (  ) ;^28^^^^^26^29^start = e.mark (  ) ;^[CLASS] Block  [METHOD] <init> [RETURN_TYPE] CodeEmitter)   CodeEmitter e [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P14_Delete_Statement]^^28^^^^^26^29^start = e.mark (  ) ;^[CLASS] Block  [METHOD] <init> [RETURN_TYPE] CodeEmitter)   CodeEmitter e [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P2_Replace_Operator]^if  ( end == null )  {^36^^^^^35^40^if  ( end != null )  {^[CLASS] Block  [METHOD] end [RETURN_TYPE] void   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P5_Replace_Variable]^if  ( start != null )  {^36^^^^^35^40^if  ( end != null )  {^[CLASS] Block  [METHOD] end [RETURN_TYPE] void   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P8_Replace_Mix]^if  ( end != false )  {^36^^^^^35^40^if  ( end != null )  {^[CLASS] Block  [METHOD] end [RETURN_TYPE] void   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P15_Unwrap_Block]^throw new java.lang.IllegalStateException("end of label already set");^36^37^38^^^35^40^if  ( end != null )  { throw new IllegalStateException  (" ")  ; }^[CLASS] Block  [METHOD] end [RETURN_TYPE] void   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P16_Remove_Block]^^36^37^38^^^35^40^if  ( end != null )  { throw new IllegalStateException  (" ")  ; }^[CLASS] Block  [METHOD] end [RETURN_TYPE] void   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P13_Insert_Block]^if  (  ( end )  != null )  {     throw new IllegalStateException ( "end of label already set" ) ; }^37^^^^^35^40^[Delete]^[CLASS] Block  [METHOD] end [RETURN_TYPE] void   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P8_Replace_Mix]^end  = null ;^39^^^^^35^40^end = e.mark (  ) ;^[CLASS] Block  [METHOD] end [RETURN_TYPE] void   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P11_Insert_Donor_Statement]^start = e.mark (  ) ;end = e.mark (  ) ;^39^^^^^35^40^end = e.mark (  ) ;^[CLASS] Block  [METHOD] end [RETURN_TYPE] void   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P14_Delete_Statement]^^39^^^^^35^40^end = e.mark (  ) ;^[CLASS] Block  [METHOD] end [RETURN_TYPE] void   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P5_Replace_Variable]^return end;^43^^^^^42^44^return start;^[CLASS] Block  [METHOD] getStart [RETURN_TYPE] Label   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  
+[P5_Replace_Variable]^return start;^47^^^^^46^48^return end;^[CLASS] Block  [METHOD] getEnd [RETURN_TYPE] Label   [VARIABLES] CodeEmitter  e  Label  end  start  boolean  

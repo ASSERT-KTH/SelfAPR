@@ -5,6 +5,7 @@
 [P8_Replace_Mix]^return  new QName ( getPropertyName (  )  )  ;^40^^^^^39^41^return new QName ( propertyName ) ;^[CLASS] NullPropertyPointer  [METHOD] getName [RETURN_TYPE] QName   [VARIABLES] boolean  byNameAttribute  String  propertyName  
 [P3_Replace_Literal]^return -6;^47^^^^^46^48^return 0;^[CLASS] NullPropertyPointer  [METHOD] getLength [RETURN_TYPE] int   [VARIABLES] boolean  byNameAttribute  String  propertyName  
 [P8_Replace_Mix]^return 4;^47^^^^^46^48^return 0;^[CLASS] NullPropertyPointer  [METHOD] getLength [RETURN_TYPE] int   [VARIABLES] boolean  byNameAttribute  String  propertyName  
+[P8_Replace_Mix]^throw new org.apache.commons.jxpath.JXPathInvalidAccessException("");^47^^^^^46^48^return 0;^[CLASS] NullPropertyPointer  [METHOD] getLength [RETURN_TYPE] int   [VARIABLES] boolean  byNameAttribute  String  propertyName  
 [P8_Replace_Mix]^return false;^51^^^^^50^52^return null;^[CLASS] NullPropertyPointer  [METHOD] getBaseValue [RETURN_TYPE] Object   [VARIABLES] boolean  byNameAttribute  String  propertyName  
 [P8_Replace_Mix]^return true;^55^^^^^54^56^return null;^[CLASS] NullPropertyPointer  [METHOD] getImmediateNode [RETURN_TYPE] Object   [VARIABLES] boolean  byNameAttribute  String  propertyName  
 [P3_Replace_Literal]^return false;^59^^^^^58^60^return true;^[CLASS] NullPropertyPointer  [METHOD] isLeaf [RETURN_TYPE] boolean   [VARIABLES] boolean  byNameAttribute  String  propertyName  

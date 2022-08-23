@@ -1,0 +1,4 @@
+[BugLab_Wrong_Operator]^if  ( c == Chronology.getISO (  )  )  {^30^^^^^29^35^if  ( c != Chronology.getISO (  )  )  {^[CLASS] AnniversaryFactory  [METHOD] <init> [RETURN_TYPE] Chronology)   String str Chronology c [VARIABLES] String  holidayID  str  Chronology  c  boolean  
+[BugLab_Variable_Misuse]^this.holidayID = holidayID;^34^^^^^29^35^this.holidayID = str;^[CLASS] AnniversaryFactory  [METHOD] <init> [RETURN_TYPE] Chronology)   String str Chronology c [VARIABLES] String  holidayID  str  Chronology  c  boolean  
+[BugLab_Variable_Misuse]^this.holidayID = holidayID;^38^^^^^37^39^this.holidayID = str;^[CLASS] AnniversaryFactory  [METHOD] <init> [RETURN_TYPE] String)   String str [VARIABLES] String  holidayID  str  boolean  
+[BugLab_Variable_Misuse]^return str;^44^^^^^43^45^return holidayID;^[CLASS] AnniversaryFactory  [METHOD] getId [RETURN_TYPE] String   [VARIABLES] String  holidayID  str  boolean  

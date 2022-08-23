@@ -1,0 +1,9 @@
+[P5_Replace_Variable]^super (  contents ) ;^30^^^^^29^31^super ( spec, contents ) ;^[CLASS] ContentBody  [METHOD] <init> [RETURN_TYPE] Map)   ContentBodySpec spec Object> contents [VARIABLES] ContentBodySpec  spec  boolean  Map  contents  
+[P5_Replace_Variable]^super ( spec ) ;^30^^^^^29^31^super ( spec, contents ) ;^[CLASS] ContentBody  [METHOD] <init> [RETURN_TYPE] Map)   ContentBodySpec spec Object> contents [VARIABLES] ContentBodySpec  spec  boolean  Map  contents  
+[P5_Replace_Variable]^super ( contents, spec ) ;^30^^^^^29^31^super ( spec, contents ) ;^[CLASS] ContentBody  [METHOD] <init> [RETURN_TYPE] Map)   ContentBodySpec spec Object> contents [VARIABLES] ContentBodySpec  spec  boolean  Map  contents  
+[P8_Replace_Mix]^super ( spec, 3 ) ;^30^^^^^29^31^super ( spec, contents ) ;^[CLASS] ContentBody  [METHOD] <init> [RETURN_TYPE] Map)   ContentBodySpec spec Object> contents [VARIABLES] ContentBodySpec  spec  boolean  Map  contents  
+[P14_Delete_Statement]^^30^^^^^29^31^super ( spec, contents ) ;^[CLASS] ContentBody  [METHOD] <init> [RETURN_TYPE] Map)   ContentBodySpec spec Object> contents [VARIABLES] ContentBodySpec  spec  boolean  Map  contents  
+[P7_Replace_Invocation]^return getSpec (  ) .getCharacterEncoding (  ) ;^39^^^^^38^40^return getSpec (  ) .getContentType (  ) ;^[CLASS] ContentBody  [METHOD] getContentType [RETURN_TYPE] String   [VARIABLES] boolean  
+[P14_Delete_Statement]^^39^^^^^38^40^return getSpec (  ) .getContentType (  ) ;^[CLASS] ContentBody  [METHOD] getContentType [RETURN_TYPE] String   [VARIABLES] boolean  
+[P7_Replace_Invocation]^return getSpec (  ) .getContentType (  ) ;^43^^^^^42^44^return getSpec (  ) .getCharacterEncoding (  ) ;^[CLASS] ContentBody  [METHOD] getCharacterEncoding [RETURN_TYPE] String   [VARIABLES] boolean  
+[P14_Delete_Statement]^^43^^^^^42^44^return getSpec (  ) .getCharacterEncoding (  ) ;^[CLASS] ContentBody  [METHOD] getCharacterEncoding [RETURN_TYPE] String   [VARIABLES] boolean  

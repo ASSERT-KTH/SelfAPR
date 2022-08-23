@@ -1,0 +1,19 @@
+[P1_Replace_Type]^private int a;^52^^^^^47^57^private double a;^[CLASS] PowerFunction2D   [VARIABLES] 
+[P1_Replace_Type]^private int b;^55^^^^^50^60^private double b;^[CLASS] PowerFunction2D   [VARIABLES] 
+[P8_Replace_Mix]^private float b;^55^^^^^50^60^private double b;^[CLASS] PowerFunction2D   [VARIABLES] 
+[P5_Replace_Variable]^this.a = b;^64^^^^^63^66^this.a = a;^[CLASS] PowerFunction2D  [METHOD] <init> [RETURN_TYPE] PowerFunction2D(double,double)   double a double b [VARIABLES] double  a  b  boolean  
+[P11_Insert_Donor_Statement]^this.b = b;this.a = a;^64^^^^^63^66^this.a = a;^[CLASS] PowerFunction2D  [METHOD] <init> [RETURN_TYPE] PowerFunction2D(double,double)   double a double b [VARIABLES] double  a  b  boolean  
+[P5_Replace_Variable]^this.b = a;^65^^^^^63^66^this.b = b;^[CLASS] PowerFunction2D  [METHOD] <init> [RETURN_TYPE] PowerFunction2D(double,double)   double a double b [VARIABLES] double  a  b  boolean  
+[P11_Insert_Donor_Statement]^this.a = a;this.b = b;^65^^^^^63^66^this.b = b;^[CLASS] PowerFunction2D  [METHOD] <init> [RETURN_TYPE] PowerFunction2D(double,double)   double a double b [VARIABLES] double  a  b  boolean  
+[P2_Replace_Operator]^return / this.a * Math.pow ( x, this.b ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P5_Replace_Variable]^return this.a * Math.pow ( b, this.b ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P5_Replace_Variable]^return b * Math.pow ( x, this.b ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P5_Replace_Variable]^return this.a * Math.pow ( x, x ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P5_Replace_Variable]^return this.a * Math.pow (  this.b ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P5_Replace_Variable]^return this.a * Math.pow ( x ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P5_Replace_Variable]^return x * Math.pow ( this.a, this.b ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P5_Replace_Variable]^return this.b * Math.pow ( x, this.a ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P8_Replace_Mix]^return this.a  ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P5_Replace_Variable]^return this.a * Math.pow ( x, b ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P5_Replace_Variable]^return this.a * Math.pow ( this.b, x ) ;^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[P14_Delete_Statement]^^76^^^^^75^77^return this.a * Math.pow ( x, this.b ) ;^[CLASS] PowerFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  

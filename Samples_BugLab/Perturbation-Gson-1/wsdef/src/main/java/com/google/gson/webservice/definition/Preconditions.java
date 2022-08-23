@@ -1,0 +1,2 @@
+[BugLab_Wrong_Operator]^if  ( obj != null )  {^33^^^^^32^36^if  ( obj == null )  {^[CLASS] Preconditions  [METHOD] checkNotNull [RETURN_TYPE] void   Object obj [VARIABLES] boolean  Object  obj  
+[BugLab_Wrong_Operator]^if  ( obj != null )  {^39^^^^^38^42^if  ( obj == null )  {^[CLASS] Preconditions  [METHOD] checkNotNull [RETURN_TYPE] void   Object obj String msg  msgArgs [VARIABLES] boolean  Object  obj  String  msg  Object[]  msgArgs  

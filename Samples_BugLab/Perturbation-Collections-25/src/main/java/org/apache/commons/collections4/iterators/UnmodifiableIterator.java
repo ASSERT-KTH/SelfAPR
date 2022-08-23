@@ -1,0 +1,2 @@
+[BugLab_Wrong_Operator]^if  ( iterator != null )  {^48^^^^^47^57^if  ( iterator == null )  {^[CLASS] UnmodifiableIterator  [METHOD] unmodifiableIterator [RETURN_TYPE] <E>   Iterator<? extends E> iterator [VARIABLES] Iterator  iterator  tmpIterator  boolean  
+[BugLab_Wrong_Operator]^if  ( iterator  <  Unmodifiable )  {^51^^^^^47^57^if  ( iterator instanceof Unmodifiable )  {^[CLASS] UnmodifiableIterator  [METHOD] unmodifiableIterator [RETURN_TYPE] <E>   Iterator<? extends E> iterator [VARIABLES] Iterator  iterator  tmpIterator  boolean  

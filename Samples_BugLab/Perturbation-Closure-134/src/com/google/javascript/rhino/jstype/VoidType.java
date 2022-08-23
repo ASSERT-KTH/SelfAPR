@@ -1,0 +1,7 @@
+[BugLab_Wrong_Operator]^if  ( that.isSubtype ( this )  && that.isSubtype ( getNativeType ( JSTypeNative.NULL_TYPE )  )  )  {^68^69^^^^64^73^if  ( that.isSubtype ( this )  || that.isSubtype ( getNativeType ( JSTypeNative.NULL_TYPE )  )  )  {^[CLASS] VoidType  [METHOD] testForEquality [RETURN_TYPE] TernaryValue   JSType that [VARIABLES] long  serialVersionUID  JSType  that  boolean  
+[BugLab_Wrong_Literal]^return true;^77^^^^^76^78^return false;^[CLASS] VoidType  [METHOD] matchesNumberContext [RETURN_TYPE] boolean   [VARIABLES] long  serialVersionUID  boolean  
+[BugLab_Wrong_Literal]^return true;^82^^^^^81^83^return false;^[CLASS] VoidType  [METHOD] matchesObjectContext [RETURN_TYPE] boolean   [VARIABLES] long  serialVersionUID  boolean  
+[BugLab_Wrong_Literal]^return false;^87^^^^^86^88^return true;^[CLASS] VoidType  [METHOD] matchesStringContext [RETURN_TYPE] boolean   [VARIABLES] long  serialVersionUID  boolean  
+[BugLab_Wrong_Literal]^return false;^92^^^^^91^93^return true;^[CLASS] VoidType  [METHOD] isVoidType [RETURN_TYPE] boolean   [VARIABLES] long  serialVersionUID  boolean  
+[BugLab_Variable_Misuse]^return 1;^102^^^^^101^103^return BooleanLiteralSet.FALSE;^[CLASS] VoidType  [METHOD] getPossibleToBooleanOutcomes [RETURN_TYPE] BooleanLiteralSet   [VARIABLES] long  serialVersionUID  boolean  
+[BugLab_Variable_Misuse]^return 3.caseVoidType (  ) ;^107^^^^^106^108^return visitor.caseVoidType (  ) ;^[CLASS] VoidType  [METHOD] visit [RETURN_TYPE] <T>   Visitor<T> visitor [VARIABLES] Visitor  visitor  long  serialVersionUID  boolean  

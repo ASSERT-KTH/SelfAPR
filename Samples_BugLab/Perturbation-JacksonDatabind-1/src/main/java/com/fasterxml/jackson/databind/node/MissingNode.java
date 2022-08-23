@@ -1,0 +1,3 @@
+[BugLab_Variable_Misuse]^return instance;^40^^^^^38^41^return JsonNodeType.MISSING;^[CLASS] MissingNode  [METHOD] getNodeType [RETURN_TYPE] JsonNodeType   [VARIABLES] MissingNode  instance  boolean  
+[BugLab_Variable_Misuse]^@Override public JsonToken asToken (  )  { return instance; }^43^^^^^38^48^@Override public JsonToken asToken (  )  { return JsonToken.NOT_AVAILABLE; }^[CLASS] MissingNode  [METHOD] asToken [RETURN_TYPE] JsonToken   [VARIABLES] MissingNode  instance  boolean  
+[BugLab_Wrong_Operator]^return  ( o != this ) ;^89^^^^^79^90^return  ( o == this ) ;^[CLASS] MissingNode  [METHOD] equals [RETURN_TYPE] boolean   Object o [VARIABLES] MissingNode  instance  Object  o  boolean  

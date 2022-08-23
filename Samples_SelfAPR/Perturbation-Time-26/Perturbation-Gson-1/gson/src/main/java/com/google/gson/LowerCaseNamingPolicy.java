@@ -1,0 +1,1 @@
+[P14_Delete_Statement]^^48^^^^^46^49^return target.toLowerCase (  ) ;^[CLASS] LowerCaseNamingPolicy  [METHOD] translateName [RETURN_TYPE] String   String target Type fieldType Annotation> annotations [VARIABLES] Type  fieldType  boolean  Collection  annotations  String  target  

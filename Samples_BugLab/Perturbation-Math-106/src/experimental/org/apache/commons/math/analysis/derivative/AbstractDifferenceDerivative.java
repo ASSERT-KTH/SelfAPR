@@ -1,0 +1,3 @@
+[BugLab_Variable_Misuse]^setDelta ( delta ) ;^37^^^^^35^38^setDelta ( h ) ;^[CLASS] AbstractDifferenceDerivative  [METHOD] <init> [RETURN_TYPE] UnivariateRealFunction,double)   UnivariateRealFunction function double h [VARIABLES] double  delta  h  UnivariateRealFunction  function  boolean  
+[BugLab_Variable_Misuse]^this.delta = delta;^41^^^^^40^42^this.delta = h;^[CLASS] AbstractDifferenceDerivative  [METHOD] setDelta [RETURN_TYPE] void   double h [VARIABLES] double  delta  h  boolean  
+[BugLab_Variable_Misuse]^return h;^45^^^^^44^46^return delta;^[CLASS] AbstractDifferenceDerivative  [METHOD] getDelta [RETURN_TYPE] double   [VARIABLES] double  delta  h  boolean  

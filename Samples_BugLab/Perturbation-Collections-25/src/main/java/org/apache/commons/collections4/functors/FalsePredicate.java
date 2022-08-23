@@ -1,0 +1,1 @@
+[BugLab_Wrong_Literal]^return true;^64^^^^^63^65^return false;^[CLASS] FalsePredicate  [METHOD] evaluate [RETURN_TYPE] boolean   final T object [VARIABLES] boolean  T  object  long  serialVersionUID  Predicate  INSTANCE  

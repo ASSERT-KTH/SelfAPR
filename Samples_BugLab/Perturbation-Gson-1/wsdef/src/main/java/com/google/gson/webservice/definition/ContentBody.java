@@ -1,3 +1,1 @@
-[buglab_swap_variables]^super ( contents, spec ) ;^30^^^^^29^31^super ( spec, contents ) ;^[CLASS] ContentBody  [METHOD] <init> [RETURN_TYPE] Map)   ContentBodySpec spec Object> contents [VARIABLES] ContentBodySpec  spec  boolean  Map  contents  
-[buglab_swap_variables]^super (  contents ) ;^30^^^^^29^31^super ( spec, contents ) ;^[CLASS] ContentBody  [METHOD] <init> [RETURN_TYPE] Map)   ContentBodySpec spec Object> contents [VARIABLES] ContentBodySpec  spec  boolean  Map  contents  
-[buglab_swap_variables]^super ( spec ) ;^30^^^^^29^31^super ( spec, contents ) ;^[CLASS] ContentBody  [METHOD] <init> [RETURN_TYPE] Map)   ContentBodySpec spec Object> contents [VARIABLES] ContentBodySpec  spec  boolean  Map  contents  
+[BugLab_Argument_Swapping]^super ( contents, spec ) ;^30^^^^^29^31^super ( spec, contents ) ;^[CLASS] ContentBody  [METHOD] <init> [RETURN_TYPE] Map)   ContentBodySpec spec Object> contents [VARIABLES] ContentBodySpec  spec  boolean  Map  contents  

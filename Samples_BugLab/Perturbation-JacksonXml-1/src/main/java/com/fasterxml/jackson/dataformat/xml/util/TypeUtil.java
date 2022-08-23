@@ -1,0 +1,5 @@
+[BugLab_Wrong_Literal]^return true;^21^^^^^14^30^return false;^[CLASS] TypeUtil  [METHOD] isIndexedType [RETURN_TYPE] boolean   JavaType type [VARIABLES] JavaType  type  boolean  Class  cls  
+[BugLab_Wrong_Literal]^return true;^25^^^^^14^30^return false;^[CLASS] TypeUtil  [METHOD] isIndexedType [RETURN_TYPE] boolean   JavaType type [VARIABLES] JavaType  type  boolean  Class  cls  
+[BugLab_Wrong_Literal]^return false;^27^^^^^14^30^return true;^[CLASS] TypeUtil  [METHOD] isIndexedType [RETURN_TYPE] boolean   JavaType type [VARIABLES] JavaType  type  boolean  Class  cls  
+[BugLab_Variable_Misuse]^if  ( Map.class.isAssignableFrom ( 2 )  )  {^24^^^^^14^30^if  ( Map.class.isAssignableFrom ( cls )  )  {^[CLASS] TypeUtil  [METHOD] isIndexedType [RETURN_TYPE] boolean   JavaType type [VARIABLES] JavaType  type  boolean  Class  cls  
+[BugLab_Wrong_Literal]^return true;^29^^^^^14^30^return false;^[CLASS] TypeUtil  [METHOD] isIndexedType [RETURN_TYPE] boolean   JavaType type [VARIABLES] JavaType  type  boolean  Class  cls  

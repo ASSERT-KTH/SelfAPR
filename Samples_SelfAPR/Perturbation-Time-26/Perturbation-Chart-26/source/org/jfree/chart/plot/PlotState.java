@@ -1,0 +1,2 @@
+[P8_Replace_Mix]^this.sharedAxisStates  =  this.sharedAxisStates ;^59^^^^^58^60^this.sharedAxisStates = new HashMap (  ) ;^[CLASS] PlotState  [METHOD] <init> [RETURN_TYPE] PlotState()   [VARIABLES] Map  sharedAxisStates  boolean  
+[P8_Replace_Mix]^return sharedAxisStates;^68^^^^^67^69^return this.sharedAxisStates;^[CLASS] PlotState  [METHOD] getSharedAxisStates [RETURN_TYPE] Map   [VARIABLES] Map  sharedAxisStates  boolean  

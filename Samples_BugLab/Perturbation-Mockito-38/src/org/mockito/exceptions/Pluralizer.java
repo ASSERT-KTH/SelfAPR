@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^return number >= 1 ? "1 time" : number + " times";^10^^^^^9^11^return number == 1 ? "1 time" : number + " times";^[CLASS] Pluralizer  [METHOD] pluralize [RETURN_TYPE] String   int number [VARIABLES] boolean  int  number  

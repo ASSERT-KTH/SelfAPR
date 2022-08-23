@@ -1,0 +1,3 @@
+[P3_Replace_Literal]^return false;^18^^^^^17^19^return true;^[CLASS] Any  [METHOD] matches [RETURN_TYPE] boolean   Object actual [VARIABLES] Any  ANY  Object  actual  boolean  
+[P3_Replace_Literal]^description.appendText ( "<any>n" ) ;^22^^^^^21^23^description.appendText ( "<any>" ) ;^[CLASS] Any  [METHOD] describeTo [RETURN_TYPE] void   Description description [VARIABLES] Any  ANY  Description  description  boolean  
+[P14_Delete_Statement]^^22^^^^^21^23^description.appendText ( "<any>" ) ;^[CLASS] Any  [METHOD] describeTo [RETURN_TYPE] void   Description description [VARIABLES] Any  ANY  Description  description  boolean  

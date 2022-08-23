@@ -1,0 +1,7 @@
+[P8_Replace_Mix]^private  GZIPOutputStream out;^29^^^^^24^34^private final GZIPOutputStream out;^[CLASS] GzipCompressorOutputStream   [VARIABLES] 
+[P8_Replace_Mix]^out =  new GZIPOutputStream ( null ) ;^32^^^^^31^33^out = new GZIPOutputStream ( outputStream ) ;^[CLASS] GzipCompressorOutputStream  [METHOD] <init> [RETURN_TYPE] OutputStream)   OutputStream outputStream [VARIABLES] GZIPOutputStream  out  OutputStream  outputStream  boolean  
+[P7_Replace_Invocation]^out .close (  )  ;^36^^^^^35^37^out.write ( b ) ;^[CLASS] GzipCompressorOutputStream  [METHOD] write [RETURN_TYPE] void   int b [VARIABLES] GZIPOutputStream  out  int  b  boolean  
+[P14_Delete_Statement]^^36^^^^^35^37^out.write ( b ) ;^[CLASS] GzipCompressorOutputStream  [METHOD] write [RETURN_TYPE] void   int b [VARIABLES] GZIPOutputStream  out  int  b  boolean  
+[P11_Insert_Donor_Statement]^out.close (  ) ;out.write ( b ) ;^36^^^^^35^37^out.write ( b ) ;^[CLASS] GzipCompressorOutputStream  [METHOD] write [RETURN_TYPE] void   int b [VARIABLES] GZIPOutputStream  out  int  b  boolean  
+[P14_Delete_Statement]^^40^^^^^39^41^out.close (  ) ;^[CLASS] GzipCompressorOutputStream  [METHOD] close [RETURN_TYPE] void   [VARIABLES] GZIPOutputStream  out  boolean  
+[P11_Insert_Donor_Statement]^out.write ( b ) ;out.close (  ) ;^40^^^^^39^41^out.close (  ) ;^[CLASS] GzipCompressorOutputStream  [METHOD] close [RETURN_TYPE] void   [VARIABLES] GZIPOutputStream  out  boolean  

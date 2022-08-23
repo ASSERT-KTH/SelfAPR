@@ -1,1 +1,7 @@
-[buglab_swap_variables]^if  ( longValue == doubleValue )  {^68^^^^^64^78^if  ( doubleValue == longValue )  {^[CLASS] Constant  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] Object  value  boolean  double  doubleValue  long  longValue  
+[BugLab_Wrong_Literal]^return true;^54^^^^^53^55^return false;^[CLASS] Constant  [METHOD] isContextDependent [RETURN_TYPE] boolean   [VARIABLES] Object  value  boolean  
+[BugLab_Wrong_Literal]^return true;^61^^^^^60^62^return false;^[CLASS] Constant  [METHOD] computeContextDependent [RETURN_TYPE] boolean   [VARIABLES] Object  value  boolean  
+[BugLab_Wrong_Operator]^if  ( value  >=  Number )  {^65^^^^^64^78^if  ( value instanceof Number )  {^[CLASS] Constant  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] Object  value  boolean  double  doubleValue  long  longValue  
+[BugLab_Wrong_Operator]^return "'"  !=  value + "'";^76^^^^^64^78^return "'" + value + "'";^[CLASS] Constant  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] Object  value  boolean  double  doubleValue  long  longValue  
+[BugLab_Argument_Swapping]^if  ( longValue == doubleValue )  {^68^^^^^64^78^if  ( doubleValue == longValue )  {^[CLASS] Constant  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] Object  value  boolean  double  doubleValue  long  longValue  
+[BugLab_Wrong_Operator]^if  ( doubleValue != longValue )  {^68^^^^^64^78^if  ( doubleValue == longValue )  {^[CLASS] Constant  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] Object  value  boolean  double  doubleValue  long  longValue  
+[BugLab_Wrong_Operator]^return "'"  <  value + "'";^76^^^^^64^78^return "'" + value + "'";^[CLASS] Constant  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] Object  value  boolean  double  doubleValue  long  longValue  

@@ -1,0 +1,3 @@
+[P8_Replace_Mix]^private  FieldNamingStrategy2 namingPolicy;^90^^^^^85^95^private final FieldNamingStrategy2 namingPolicy;^[CLASS] FieldNamingPolicy   [VARIABLES] 
+[P3_Replace_Literal]^LOWER_CASE_WITH_DASHES ( new LowerCamelCaseSeparatorNamingPolicy ( "" )  ) ;^88^^^^^83^93^LOWER_CASE_WITH_DASHES ( new LowerCamelCaseSeparatorNamingPolicy ( "-" )  ) ;^[CLASS] FieldNamingPolicy   [VARIABLES] 
+[P8_Replace_Mix]^this.namingPolicy =  null;^93^^^^^92^94^this.namingPolicy = namingPolicy;^[CLASS] FieldNamingPolicy  [METHOD] <init> [RETURN_TYPE] FieldNamingStrategy2)   FieldNamingStrategy2 namingPolicy [VARIABLES] FieldNamingStrategy2  namingPolicy  FieldNamingPolicy  LOWER_CASE_WITH_DASHES  LOWER_CASE_WITH_UNDERSCORES  UPPER_CAMEL_CASE  UPPER_CAMEL_CASE_WITH_SPACES  boolean  

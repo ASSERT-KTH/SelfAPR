@@ -1,0 +1,1 @@
+[BugLab_Variable_Misuse]^_message = _message;^22^^^^^20^23^_message = m;^[CLASS] FailingDeserializer  [METHOD] <init> [RETURN_TYPE] String)   String m [VARIABLES] long  serialVersionUID  String  _message  m  boolean  

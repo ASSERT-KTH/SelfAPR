@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^if  ( transformer != null )  {^49^^^^^48^53^if  ( transformer == null )  {^[CLASS] TransformerClosure  [METHOD] transformerClosure [RETURN_TYPE] <E>   Transformer<? super E, ?> transformer [VARIABLES] long  serialVersionUID  Transformer  iTransformer  transformer  boolean  

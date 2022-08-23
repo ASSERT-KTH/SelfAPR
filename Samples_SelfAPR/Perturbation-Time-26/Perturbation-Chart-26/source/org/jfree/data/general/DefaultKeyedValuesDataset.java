@@ -1,0 +1,2 @@
+[P1_Replace_Type]^private static final  short  serialVersionUID = 306264413152815781L;^54^^^^^49^59^private static final long serialVersionUID = 306264413152815781L;^[CLASS] DefaultKeyedValuesDataset   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID  = null ;^54^^^^^49^59^private static final long serialVersionUID = 306264413152815781L;^[CLASS] DefaultKeyedValuesDataset   [VARIABLES] 

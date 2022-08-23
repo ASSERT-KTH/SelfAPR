@@ -1,0 +1,2 @@
+[P1_Replace_Type]^private static final  int  serialVersionUID = -7793786349384231896L;^55^^^^^50^60^private static final long serialVersionUID = -7793786349384231896L;^[CLASS] DefaultCategoryItemRenderer   [VARIABLES] 
+[P8_Replace_Mix]^private static final long serialVersionUID = -7793786349384231896;^55^^^^^50^60^private static final long serialVersionUID = -7793786349384231896L;^[CLASS] DefaultCategoryItemRenderer   [VARIABLES] 

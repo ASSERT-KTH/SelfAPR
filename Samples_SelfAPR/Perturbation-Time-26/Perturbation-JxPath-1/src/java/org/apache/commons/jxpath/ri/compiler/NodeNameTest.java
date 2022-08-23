@@ -1,0 +1,9 @@
+[P1_Replace_Type]^private char namespaceURI;^27^^^^^22^32^private String namespaceURI;^[CLASS] NodeNameTest   [VARIABLES] 
+[P8_Replace_Mix]^this.qname =  null;^30^^^^^29^31^this.qname = qname;^[CLASS] NodeNameTest  [METHOD] <init> [RETURN_TYPE] QName)   QName qname [VARIABLES] QName  qname  String  namespaceURI  boolean  
+[P8_Replace_Mix]^this.qname =  null;^34^^^^^33^36^this.qname = qname;^[CLASS] NodeNameTest  [METHOD] <init> [RETURN_TYPE] String)   QName qname String namespaceURI [VARIABLES] QName  qname  String  namespaceURI  boolean  
+[P8_Replace_Mix]^this.namespaceURI =  null;^35^^^^^33^36^this.namespaceURI = namespaceURI;^[CLASS] NodeNameTest  [METHOD] <init> [RETURN_TYPE] String)   QName qname String namespaceURI [VARIABLES] QName  qname  String  namespaceURI  boolean  
+[P3_Replace_Literal]^return qname.getName (  ) .equals ( "" ) ;^47^^^^^46^48^return qname.getName (  ) .equals ( "*" ) ;^[CLASS] NodeNameTest  [METHOD] isWildcard [RETURN_TYPE] boolean   [VARIABLES] QName  qname  String  namespaceURI  boolean  
+[P7_Replace_Invocation]^return qname.toString (  ) .equals ( "*" ) ;^47^^^^^46^48^return qname.getName (  ) .equals ( "*" ) ;^[CLASS] NodeNameTest  [METHOD] isWildcard [RETURN_TYPE] boolean   [VARIABLES] QName  qname  String  namespaceURI  boolean  
+[P14_Delete_Statement]^^47^^^^^46^48^return qname.getName (  ) .equals ( "*" ) ;^[CLASS] NodeNameTest  [METHOD] isWildcard [RETURN_TYPE] boolean   [VARIABLES] QName  qname  String  namespaceURI  boolean  
+[P7_Replace_Invocation]^return qname.getName (  ) ;^51^^^^^50^52^return qname.toString (  ) ;^[CLASS] NodeNameTest  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] QName  qname  String  namespaceURI  boolean  
+[P14_Delete_Statement]^^51^^^^^50^52^return qname.toString (  ) ;^[CLASS] NodeNameTest  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] QName  qname  String  namespaceURI  boolean  

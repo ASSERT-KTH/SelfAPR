@@ -1,0 +1,10 @@
+[P14_Delete_Statement]^^65^^^^^64^67^super ( title ) ;^[CLASS] ApplicationFrame  [METHOD] <init> [RETURN_TYPE] String)   String title [VARIABLES] boolean  String  title  
+[P7_Replace_Invocation]^dispose ( this ) ;^66^^^^^64^67^addWindowListener ( this ) ;^[CLASS] ApplicationFrame  [METHOD] <init> [RETURN_TYPE] String)   String title [VARIABLES] boolean  String  title  
+[P14_Delete_Statement]^^66^^^^^64^67^addWindowListener ( this ) ;^[CLASS] ApplicationFrame  [METHOD] <init> [RETURN_TYPE] String)   String title [VARIABLES] boolean  String  title  
+[P2_Replace_Operator]^if  ( event.getWindow (  )  <= this )  {^75^^^^^74^79^if  ( event.getWindow (  )  == this )  {^[CLASS] ApplicationFrame  [METHOD] windowClosing [RETURN_TYPE] void   WindowEvent event [VARIABLES] boolean  WindowEvent  event  
+[P15_Unwrap_Block]^dispose(); java.lang.System.exit(0);^75^76^77^78^^74^79^if  ( event.getWindow (  )  == this )  { dispose (  ) ; System.exit ( 0 ) ; }^[CLASS] ApplicationFrame  [METHOD] windowClosing [RETURN_TYPE] void   WindowEvent event [VARIABLES] boolean  WindowEvent  event  
+[P16_Remove_Block]^^75^76^77^78^^74^79^if  ( event.getWindow (  )  == this )  { dispose (  ) ; System.exit ( 0 ) ; }^[CLASS] ApplicationFrame  [METHOD] windowClosing [RETURN_TYPE] void   WindowEvent event [VARIABLES] boolean  WindowEvent  event  
+[P14_Delete_Statement]^^76^77^^^^74^79^dispose (  ) ; System.exit ( 0 ) ;^[CLASS] ApplicationFrame  [METHOD] windowClosing [RETURN_TYPE] void   WindowEvent event [VARIABLES] boolean  WindowEvent  event  
+[P3_Replace_Literal]^System.exit ( -3 ) ;^77^^^^^74^79^System.exit ( 0 ) ;^[CLASS] ApplicationFrame  [METHOD] windowClosing [RETURN_TYPE] void   WindowEvent event [VARIABLES] boolean  WindowEvent  event  
+[P14_Delete_Statement]^^77^^^^^74^79^System.exit ( 0 ) ;^[CLASS] ApplicationFrame  [METHOD] windowClosing [RETURN_TYPE] void   WindowEvent event [VARIABLES] boolean  WindowEvent  event  
+[P3_Replace_Literal]^System.exit ( 9 ) ;^77^^^^^74^79^System.exit ( 0 ) ;^[CLASS] ApplicationFrame  [METHOD] windowClosing [RETURN_TYPE] void   WindowEvent event [VARIABLES] boolean  WindowEvent  event  

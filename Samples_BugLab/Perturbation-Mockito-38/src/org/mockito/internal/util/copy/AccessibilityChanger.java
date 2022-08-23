@@ -1,0 +1,1 @@
+[BugLab_Wrong_Literal]^field.setAccessible ( false ) ;^30^^^^^28^31^field.setAccessible ( true ) ;^[CLASS] AccessibilityChanger  [METHOD] enableAccess [RETURN_TYPE] void   Field field [VARIABLES] Boolean  wasAccessible  Field  field  boolean  

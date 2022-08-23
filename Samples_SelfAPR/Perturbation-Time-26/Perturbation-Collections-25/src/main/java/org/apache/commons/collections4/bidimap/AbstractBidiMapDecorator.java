@@ -1,0 +1,14 @@
+[P14_Delete_Statement]^^50^^^^^49^51^super ( map ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] <init> [RETURN_TYPE] BidiMap)   BidiMap<K, V> map [VARIABLES] boolean  BidiMap  map  
+[P7_Replace_Invocation]^return  ( BidiMap<K, V> )  super .decorated (  )  ;^60^^^^^59^61^return  ( BidiMap<K, V> )  super.decorated (  ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] decorated [RETURN_TYPE] BidiMap   [VARIABLES] boolean  
+[P14_Delete_Statement]^^60^^^^^59^61^return  ( BidiMap<K, V> )  super.decorated (  ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] decorated [RETURN_TYPE] BidiMap   [VARIABLES] boolean  
+[P7_Replace_Invocation]^return decorated (  ) .values (  ) ;^66^^^^^65^67^return decorated (  ) .mapIterator (  ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] mapIterator [RETURN_TYPE] MapIterator   [VARIABLES] boolean  
+[P14_Delete_Statement]^^66^^^^^65^67^return decorated (  ) .mapIterator (  ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] mapIterator [RETURN_TYPE] MapIterator   [VARIABLES] boolean  
+[P7_Replace_Invocation]^return decorated (  ) .removeValue ( value ) ;^70^^^^^69^71^return decorated (  ) .getKey ( value ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] getKey [RETURN_TYPE] K   Object value [VARIABLES] boolean  Object  value  
+[P14_Delete_Statement]^^70^^^^^69^71^return decorated (  ) .getKey ( value ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] getKey [RETURN_TYPE] K   Object value [VARIABLES] boolean  Object  value  
+[P7_Replace_Invocation]^return decorated (  ) .getKey ( value ) ;^74^^^^^73^75^return decorated (  ) .removeValue ( value ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] removeValue [RETURN_TYPE] K   Object value [VARIABLES] boolean  Object  value  
+[P7_Replace_Invocation]^return decorated (  )  .values (  )  ;^74^^^^^73^75^return decorated (  ) .removeValue ( value ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] removeValue [RETURN_TYPE] K   Object value [VARIABLES] boolean  Object  value  
+[P14_Delete_Statement]^^74^^^^^73^75^return decorated (  ) .removeValue ( value ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] removeValue [RETURN_TYPE] K   Object value [VARIABLES] boolean  Object  value  
+[P7_Replace_Invocation]^return decorated (  ) .values (  ) ;^78^^^^^77^79^return decorated (  ) .inverseBidiMap (  ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] inverseBidiMap [RETURN_TYPE] BidiMap   [VARIABLES] boolean  
+[P14_Delete_Statement]^^78^^^^^77^79^return decorated (  ) .inverseBidiMap (  ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] inverseBidiMap [RETURN_TYPE] BidiMap   [VARIABLES] boolean  
+[P7_Replace_Invocation]^return decorated (  ) .mapIterator (  ) ;^83^^^^^82^84^return decorated (  ) .values (  ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] values [RETURN_TYPE] Set   [VARIABLES] boolean  
+[P14_Delete_Statement]^^83^^^^^82^84^return decorated (  ) .values (  ) ;^[CLASS] AbstractBidiMapDecorator  [METHOD] values [RETURN_TYPE] Set   [VARIABLES] boolean  

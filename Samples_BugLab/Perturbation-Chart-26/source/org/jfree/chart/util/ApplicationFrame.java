@@ -1,0 +1,2 @@
+[BugLab_Wrong_Operator]^if  ( event.getWindow (  )  <= this )  {^75^^^^^74^79^if  ( event.getWindow (  )  == this )  {^[CLASS] ApplicationFrame  [METHOD] windowClosing [RETURN_TYPE] void   WindowEvent event [VARIABLES] boolean  WindowEvent  event  
+[BugLab_Wrong_Literal]^System.exit ( 1 ) ;^77^^^^^74^79^System.exit ( 0 ) ;^[CLASS] ApplicationFrame  [METHOD] windowClosing [RETURN_TYPE] void   WindowEvent event [VARIABLES] boolean  WindowEvent  event  

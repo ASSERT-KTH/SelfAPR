@@ -1,0 +1,3 @@
+[P7_Replace_Invocation]^execute ( input ) ;^60^^^^^58^66^executeAndThrow ( input ) ;^[CLASS] CatchAndRethrowClosure  [METHOD] execute [RETURN_TYPE] void   final E input [VARIABLES] RuntimeException  ex  boolean  E  input  Throwable  t  
+[P14_Delete_Statement]^^60^^^^^58^66^executeAndThrow ( input ) ;^[CLASS] CatchAndRethrowClosure  [METHOD] execute [RETURN_TYPE] void   final E input [VARIABLES] RuntimeException  ex  boolean  E  input  Throwable  t  
+[P8_Replace_Mix]^return ;^64^^^^^58^66^throw new FunctorException  (" ")  ;^[CLASS] CatchAndRethrowClosure  [METHOD] execute [RETURN_TYPE] void   final E input [VARIABLES] RuntimeException  ex  boolean  E  input  Throwable  t  

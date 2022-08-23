@@ -1,0 +1,3 @@
+[P14_Delete_Statement]^^47^^^^^46^48^super ( registry ) ;^[CLASS] ValueType  [METHOD] <init> [RETURN_TYPE] JSTypeRegistry)   JSTypeRegistry registry [VARIABLES] JSTypeRegistry  registry  boolean  
+[P8_Replace_Mix]^return JSType.isSubtype ( null, that ) ;^52^^^^^51^53^return JSType.isSubtype ( this, that ) ;^[CLASS] ValueType  [METHOD] isSubtype [RETURN_TYPE] boolean   JSType that [VARIABLES] JSType  that  boolean  
+[P14_Delete_Statement]^^52^^^^^51^53^return JSType.isSubtype ( this, that ) ;^[CLASS] ValueType  [METHOD] isSubtype [RETURN_TYPE] boolean   JSType that [VARIABLES] JSType  that  boolean  

@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^return other  <  JsonNull;^56^^^^^55^57^return other instanceof JsonNull;^[CLASS] JsonNull  [METHOD] equals [RETURN_TYPE] boolean   Object other [VARIABLES] Object  other  JsonNull  INSTANCE  boolean  

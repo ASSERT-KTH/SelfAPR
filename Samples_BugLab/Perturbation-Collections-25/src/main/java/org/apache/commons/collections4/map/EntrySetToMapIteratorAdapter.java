@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^if  ( entry != null )  {^108^^^^^107^112^if  ( entry == null )  {^[CLASS] EntrySetToMapIteratorAdapter  [METHOD] current [RETURN_TYPE] Map$Entry   [VARIABLES] Iterator  iterator  Entry  entry  Set  entrySet  boolean  

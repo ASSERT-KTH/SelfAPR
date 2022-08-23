@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^return " title=\""  <<  toolTipText + "\" alt=\"\"";^58^^^^^57^59^return " title=\"" + toolTipText + "\" alt=\"\"";^[CLASS] StandardToolTipTagFragmentGenerator  [METHOD] generateToolTipFragment [RETURN_TYPE] String   String toolTipText [VARIABLES] boolean  String  toolTipText  

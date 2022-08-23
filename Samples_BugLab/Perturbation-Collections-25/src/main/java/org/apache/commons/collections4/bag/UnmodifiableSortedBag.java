@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^if  ( bag  <<  Unmodifiable )  {^59^^^^^58^63^if  ( bag instanceof Unmodifiable )  {^[CLASS] UnmodifiableSortedBag  [METHOD] unmodifiableSortedBag [RETURN_TYPE] <E>   SortedBag<E> bag [VARIABLES] long  serialVersionUID  SortedBag  bag  boolean  

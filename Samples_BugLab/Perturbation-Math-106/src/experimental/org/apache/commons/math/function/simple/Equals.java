@@ -1,0 +1,2 @@
+[BugLab_Variable_Misuse]^this.left = right;^37^^^^^36^38^this.left = left;^[CLASS] Equals  [METHOD] setLeftOperand [RETURN_TYPE] void   Evaluation left [VARIABLES] Evaluation  left  right  boolean  
+[BugLab_Variable_Misuse]^this.right = left;^41^^^^^40^42^this.right = right;^[CLASS] Equals  [METHOD] setRightOperand [RETURN_TYPE] void   Evaluation right [VARIABLES] Evaluation  left  right  boolean  

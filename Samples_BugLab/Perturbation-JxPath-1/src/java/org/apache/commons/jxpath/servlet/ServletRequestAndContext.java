@@ -1,0 +1,2 @@
+[BugLab_Wrong_Operator]^if  ( request  ||  HttpServletRequest )  {^44^^^^^43^48^if  ( request instanceof HttpServletRequest )  {^[CLASS] ServletRequestAndContext  [METHOD] getSession [RETURN_TYPE] HttpSession   [VARIABLES] ServletRequest  request  boolean  
+[BugLab_Wrong_Literal]^return  (  ( HttpServletRequest ) request ) .getSession ( true ) ;^45^^^^^43^48^return  (  ( HttpServletRequest ) request ) .getSession ( false ) ;^[CLASS] ServletRequestAndContext  [METHOD] getSession [RETURN_TYPE] HttpSession   [VARIABLES] ServletRequest  request  boolean  

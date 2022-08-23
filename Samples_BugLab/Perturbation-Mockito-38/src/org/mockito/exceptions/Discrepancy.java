@@ -1,0 +1,5 @@
+[BugLab_Variable_Misuse]^this.actualCount = wantedCount;^14^^^^^12^15^this.actualCount = actualCount;^[CLASS] Discrepancy  [METHOD] <init> [RETURN_TYPE] Discrepancy(int,int)   int wantedCount int actualCount [VARIABLES] int  actualCount  wantedCount  boolean  
+[BugLab_Variable_Misuse]^return actualCount;^18^^^^^17^19^return wantedCount;^[CLASS] Discrepancy  [METHOD] getWantedCount [RETURN_TYPE] int   [VARIABLES] int  actualCount  wantedCount  boolean  
+[BugLab_Variable_Misuse]^return Pluralizer.pluralize ( actualCount ) ;^22^^^^^21^23^return Pluralizer.pluralize ( wantedCount ) ;^[CLASS] Discrepancy  [METHOD] getPluralizedWantedCount [RETURN_TYPE] String   [VARIABLES] int  actualCount  wantedCount  boolean  
+[BugLab_Variable_Misuse]^return wantedCount;^26^^^^^25^27^return actualCount;^[CLASS] Discrepancy  [METHOD] getActualCount [RETURN_TYPE] int   [VARIABLES] int  actualCount  wantedCount  boolean  
+[BugLab_Variable_Misuse]^return Pluralizer.pluralize ( wantedCount ) ;^30^^^^^29^31^return Pluralizer.pluralize ( actualCount ) ;^[CLASS] Discrepancy  [METHOD] getPluralizedActualCount [RETURN_TYPE] String   [VARIABLES] int  actualCount  wantedCount  boolean  

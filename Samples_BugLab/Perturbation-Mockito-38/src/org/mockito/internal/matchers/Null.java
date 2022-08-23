@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^return actual != null;^19^^^^^18^20^return actual == null;^[CLASS] Null  [METHOD] matches [RETURN_TYPE] boolean   Object actual [VARIABLES] Null  NULL  Object  actual  boolean  

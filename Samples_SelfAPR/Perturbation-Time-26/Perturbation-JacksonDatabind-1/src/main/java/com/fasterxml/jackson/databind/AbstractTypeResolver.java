@@ -1,0 +1,2 @@
+[P8_Replace_Mix]^return false;^30^^^^^29^31^return null;^[CLASS] AbstractTypeResolver  [METHOD] findTypeMapping [RETURN_TYPE] JavaType   DeserializationConfig config JavaType type [VARIABLES] JavaType  type  boolean  DeserializationConfig  config  
+[P8_Replace_Mix]^return false;^50^^^^^48^51^return null;^[CLASS] AbstractTypeResolver  [METHOD] resolveAbstractType [RETURN_TYPE] JavaType   DeserializationConfig config JavaType type [VARIABLES] JavaType  type  boolean  DeserializationConfig  config  

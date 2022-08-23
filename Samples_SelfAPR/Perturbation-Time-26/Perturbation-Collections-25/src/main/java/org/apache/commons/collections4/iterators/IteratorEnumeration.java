@@ -1,0 +1,6 @@
+[P8_Replace_Mix]^this.iterator =  null;^48^^^^^47^49^this.iterator = iterator;^[CLASS] IteratorEnumeration  [METHOD] <init> [RETURN_TYPE] Iterator)   Iterator<? extends E> iterator [VARIABLES] Iterator  iterator  boolean  
+[P7_Replace_Invocation]^return iterator.next (  ) ;^60^^^^^59^61^return iterator.hasNext (  ) ;^[CLASS] IteratorEnumeration  [METHOD] hasMoreElements [RETURN_TYPE] boolean   [VARIABLES] Iterator  iterator  boolean  
+[P14_Delete_Statement]^^60^^^^^59^61^return iterator.hasNext (  ) ;^[CLASS] IteratorEnumeration  [METHOD] hasMoreElements [RETURN_TYPE] boolean   [VARIABLES] Iterator  iterator  boolean  
+[P7_Replace_Invocation]^return iterator.hasNext (  ) ;^71^^^^^70^72^return iterator.next (  ) ;^[CLASS] IteratorEnumeration  [METHOD] nextElement [RETURN_TYPE] E   [VARIABLES] Iterator  iterator  boolean  
+[P14_Delete_Statement]^^71^^^^^70^72^return iterator.next (  ) ;^[CLASS] IteratorEnumeration  [METHOD] nextElement [RETURN_TYPE] E   [VARIABLES] Iterator  iterator  boolean  
+[P8_Replace_Mix]^this.iterator =  null;^92^^^^^91^93^this.iterator = iterator;^[CLASS] IteratorEnumeration  [METHOD] setIterator [RETURN_TYPE] void   Iterator<? extends E> iterator [VARIABLES] Iterator  iterator  boolean  

@@ -1,0 +1,10 @@
+[P8_Replace_Mix]^this.compiler =  null;^33^^^^^32^35^this.compiler = compiler;^[CLASS] PotentialCheck  [METHOD] <init> [RETURN_TYPE] JSError)   AbstractCompiler compiler JSError err [VARIABLES] AbstractCompiler  compiler  JSError  err  boolean  
+[P8_Replace_Mix]^this.err =  null;^34^^^^^32^35^this.err = err;^[CLASS] PotentialCheck  [METHOD] <init> [RETURN_TYPE] JSError)   AbstractCompiler compiler JSError err [VARIABLES] AbstractCompiler  compiler  JSError  err  boolean  
+[P14_Delete_Statement]^^41^^^^^40^42^compiler.report ( err ) ;^[CLASS] PotentialCheck  [METHOD] report [RETURN_TYPE] void   [VARIABLES] AbstractCompiler  compiler  JSError  err  boolean  
+[P11_Insert_Donor_Statement]^report (  ) ;compiler.report ( err ) ;^41^^^^^40^42^compiler.report ( err ) ;^[CLASS] PotentialCheck  [METHOD] report [RETURN_TYPE] void   [VARIABLES] AbstractCompiler  compiler  JSError  err  boolean  
+[P7_Replace_Invocation]^if  ( report (  )  )  {^48^^^^^47^51^if  ( stillRelevant (  )  )  {^[CLASS] PotentialCheck  [METHOD] evaluate [RETURN_TYPE] void   [VARIABLES] AbstractCompiler  compiler  JSError  err  boolean  
+[P15_Unwrap_Block]^report();^48^49^50^^^47^51^if  ( stillRelevant (  )  )  { report (  ) ; }^[CLASS] PotentialCheck  [METHOD] evaluate [RETURN_TYPE] void   [VARIABLES] AbstractCompiler  compiler  JSError  err  boolean  
+[P16_Remove_Block]^^48^49^50^^^47^51^if  ( stillRelevant (  )  )  { report (  ) ; }^[CLASS] PotentialCheck  [METHOD] evaluate [RETURN_TYPE] void   [VARIABLES] AbstractCompiler  compiler  JSError  err  boolean  
+[P7_Replace_Invocation]^stillRelevant (  ) ;^49^^^^^47^51^report (  ) ;^[CLASS] PotentialCheck  [METHOD] evaluate [RETURN_TYPE] void   [VARIABLES] AbstractCompiler  compiler  JSError  err  boolean  
+[P14_Delete_Statement]^^49^^^^^47^51^report (  ) ;^[CLASS] PotentialCheck  [METHOD] evaluate [RETURN_TYPE] void   [VARIABLES] AbstractCompiler  compiler  JSError  err  boolean  
+[P11_Insert_Donor_Statement]^compiler.report ( err ) ;report (  ) ;^49^^^^^47^51^report (  ) ;^[CLASS] PotentialCheck  [METHOD] evaluate [RETURN_TYPE] void   [VARIABLES] AbstractCompiler  compiler  JSError  err  boolean  

@@ -1,0 +1,2 @@
+[BugLab_Variable_Misuse]^if  ( this.get (  )  == null )  {^16^^^^^15^20^if  ( mockingProgress.get (  )  == null )  {^[CLASS] ThreadSafeMockingProgress  [METHOD] threadSafely [RETURN_TYPE] MockingProgress   [VARIABLES] ThreadLocal  mockingProgress  boolean  
+[BugLab_Wrong_Operator]^if  ( mockingProgress.get (  )  != null )  {^16^^^^^15^20^if  ( mockingProgress.get (  )  == null )  {^[CLASS] ThreadSafeMockingProgress  [METHOD] threadSafely [RETURN_TYPE] MockingProgress   [VARIABLES] ThreadLocal  mockingProgress  boolean  

@@ -1,0 +1,5 @@
+[P8_Replace_Mix]^private final JavaType _type;^34^^^^^29^39^protected final JavaType _type;^[CLASS] BeanDescription   [VARIABLES] 
+[P5_Replace_Variable]^_type = _type;^44^^^^^42^45^_type = type;^[CLASS] BeanDescription  [METHOD] <init> [RETURN_TYPE] JavaType)   JavaType type [VARIABLES] JavaType  _type  type  boolean  
+[P8_Replace_Mix]^_type =  null;^44^^^^^42^45^_type = type;^[CLASS] BeanDescription  [METHOD] <init> [RETURN_TYPE] JavaType)   JavaType type [VARIABLES] JavaType  _type  type  boolean  
+[P5_Replace_Variable]^public JavaType getType (  )  { return type; }^57^^^^^52^62^public JavaType getType (  )  { return _type; }^[CLASS] BeanDescription  [METHOD] getType [RETURN_TYPE] JavaType   [VARIABLES] JavaType  _type  type  boolean  
+[P5_Replace_Variable]^public Class<?> getBeanClass (  )  { return type.getRawClass (  ) ; }^59^^^^^54^64^public Class<?> getBeanClass (  )  { return _type.getRawClass (  ) ; }^[CLASS] BeanDescription  [METHOD] getBeanClass [RETURN_TYPE] Class   [VARIABLES] JavaType  _type  type  boolean  

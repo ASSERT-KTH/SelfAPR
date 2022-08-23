@@ -1,0 +1,1 @@
+[P14_Delete_Statement]^^32^^^^^31^33^return invocation.callRealMethod (  ) ;^[CLASS] CallsRealMethods  [METHOD] answer [RETURN_TYPE] Object   InvocationOnMock invocation [VARIABLES] boolean  InvocationOnMock  invocation  

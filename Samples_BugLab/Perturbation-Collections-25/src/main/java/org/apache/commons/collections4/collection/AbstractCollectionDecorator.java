@@ -1,0 +1,2 @@
+[BugLab_Wrong_Operator]^if  ( coll != null )  {^79^^^^^78^83^if  ( coll == null )  {^[CLASS] AbstractCollectionDecorator  [METHOD] <init> [RETURN_TYPE] Collection)   Collection<E> coll [VARIABLES] Collection  coll  collection  long  serialVersionUID  boolean  
+[BugLab_Variable_Misuse]^return null;^92^^^^^91^93^return collection;^[CLASS] AbstractCollectionDecorator  [METHOD] decorated [RETURN_TYPE] Collection   [VARIABLES] Collection  coll  collection  long  serialVersionUID  boolean  

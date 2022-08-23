@@ -1,0 +1,2 @@
+[P8_Replace_Mix]^private static final ListIterator INSTANCE = RESETTABLE_INSTANCE;^48^^^^^43^53^public static final ListIterator INSTANCE = RESETTABLE_INSTANCE;^[CLASS] EmptyListIterator   [VARIABLES] 
+[P14_Delete_Statement]^^74^^^^^73^75^super (  ) ;^[CLASS] EmptyListIterator  [METHOD] <init> [RETURN_TYPE] EmptyListIterator()   [VARIABLES] ListIterator  INSTANCE  ResettableListIterator  RESETTABLE_INSTANCE  boolean  

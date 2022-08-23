@@ -1,0 +1,3 @@
+[BugLab_Variable_Misuse]^return 2.hasMoreElements (  ) ;^82^^^^^81^83^return enumeration.hasMoreElements (  ) ;^[CLASS] EnumerationIterator  [METHOD] hasNext [RETURN_TYPE] boolean   [VARIABLES] Collection  collection  Enumeration  enumeration  boolean  E  last  
+[BugLab_Wrong_Operator]^if  ( collection == null )  {^107^^^^^106^116^if  ( collection != null )  {^[CLASS] EnumerationIterator  [METHOD] remove [RETURN_TYPE] void   [VARIABLES] Collection  collection  Enumeration  enumeration  boolean  E  last  
+[BugLab_Wrong_Operator]^if  ( last == null )  {^108^^^^^106^116^if  ( last != null )  {^[CLASS] EnumerationIterator  [METHOD] remove [RETURN_TYPE] void   [VARIABLES] Collection  collection  Enumeration  enumeration  boolean  E  last  

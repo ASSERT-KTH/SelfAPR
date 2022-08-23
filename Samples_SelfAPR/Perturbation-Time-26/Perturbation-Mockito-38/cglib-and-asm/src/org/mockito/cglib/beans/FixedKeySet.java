@@ -1,0 +1,12 @@
+[P1_Replace_Type]^private  List  set;^21^^^^^16^26^private Set set;^[CLASS] FixedKeySet   [VARIABLES] 
+[P1_Replace_Type]^private  short  size;^22^^^^^17^27^private int size;^[CLASS] FixedKeySet   [VARIABLES] 
+[P8_Replace_Mix]^private  long  size;^22^^^^^17^27^private int size;^[CLASS] FixedKeySet   [VARIABLES] 
+[P5_Replace_Variable]^size = size;^25^^^^^24^27^size = keys.length;^[CLASS] FixedKeySet  [METHOD] <init> [RETURN_TYPE] String[])   String[] keys [VARIABLES] Set  set  String[]  keys  boolean  int  size  
+[P5_Replace_Variable]^size = keys.length.length;^25^^^^^24^27^size = keys.length;^[CLASS] FixedKeySet  [METHOD] <init> [RETURN_TYPE] String[])   String[] keys [VARIABLES] Set  set  String[]  keys  boolean  int  size  
+[P5_Replace_Variable]^size = keys;^25^^^^^24^27^size = keys.length;^[CLASS] FixedKeySet  [METHOD] <init> [RETURN_TYPE] String[])   String[] keys [VARIABLES] Set  set  String[]  keys  boolean  int  size  
+[P8_Replace_Mix]^size =  null.length;^25^^^^^24^27^size = keys.length;^[CLASS] FixedKeySet  [METHOD] <init> [RETURN_TYPE] String[])   String[] keys [VARIABLES] Set  set  String[]  keys  boolean  int  size  
+[P1_Replace_Type]^set = Collections.unmodifiable LinkedList  ( new Hash LinkedList  ( Arrays.asList ( keys )  )  ) ;^26^^^^^24^27^set = Collections.unmodifiableSet ( new HashSet ( Arrays.asList ( keys )  )  ) ;^[CLASS] FixedKeySet  [METHOD] <init> [RETURN_TYPE] String[])   String[] keys [VARIABLES] Set  set  String[]  keys  boolean  int  size  
+[P8_Replace_Mix]^set =  Collections.unmodifiableSet ( new HashSet ( Arrays.asList ( null )  )  ) ;^26^^^^^24^27^set = Collections.unmodifiableSet ( new HashSet ( Arrays.asList ( keys )  )  ) ;^[CLASS] FixedKeySet  [METHOD] <init> [RETURN_TYPE] String[])   String[] keys [VARIABLES] Set  set  String[]  keys  boolean  int  size  
+[P14_Delete_Statement]^^26^27^^^^24^27^set = Collections.unmodifiableSet ( new HashSet ( Arrays.asList ( keys )  )  ) ; }^[CLASS] FixedKeySet  [METHOD] <init> [RETURN_TYPE] String[])   String[] keys [VARIABLES] Set  set  String[]  keys  boolean  int  size  
+[P7_Replace_Invocation]^return set .iterator (  )  ;^30^^^^^29^31^return set.iterator (  ) ;^[CLASS] FixedKeySet  [METHOD] iterator [RETURN_TYPE] Iterator   [VARIABLES] int  size  Set  set  boolean  
+[P14_Delete_Statement]^^30^^^^^29^31^return set.iterator (  ) ;^[CLASS] FixedKeySet  [METHOD] iterator [RETURN_TYPE] Iterator   [VARIABLES] int  size  Set  set  boolean  

@@ -1,0 +1,9 @@
+[P8_Replace_Mix]^private final List<PotentialCheck> checks ;^28^^^^^23^33^private final List<PotentialCheck> checks = Lists.newArrayList (  ) ;^[CLASS] PotentialCheckManager   [VARIABLES] 
+[P7_Replace_Invocation]^checks .add ( check )  ;^34^^^^^33^35^checks.add ( check ) ;^[CLASS] PotentialCheckManager  [METHOD] add [RETURN_TYPE] void   PotentialCheck check [VARIABLES] List  checks  PotentialCheck  check  boolean  
+[P14_Delete_Statement]^^34^^^^^33^35^checks.add ( check ) ;^[CLASS] PotentialCheckManager  [METHOD] add [RETURN_TYPE] void   PotentialCheck check [VARIABLES] List  checks  PotentialCheck  check  boolean  
+[P11_Insert_Donor_Statement]^checks.clear (  ) ;checks.add ( check ) ;^34^^^^^33^35^checks.add ( check ) ;^[CLASS] PotentialCheckManager  [METHOD] add [RETURN_TYPE] void   PotentialCheck check [VARIABLES] List  checks  PotentialCheck  check  boolean  
+[P14_Delete_Statement]^^43^^^^^41^46^check.evaluate (  ) ;^[CLASS] PotentialCheckManager  [METHOD] flush [RETURN_TYPE] void   [VARIABLES] List  checks  PotentialCheck  check  boolean  
+[P11_Insert_Donor_Statement]^checks.clear (  ) ;check.evaluate (  ) ;^43^^^^^41^46^check.evaluate (  ) ;^[CLASS] PotentialCheckManager  [METHOD] flush [RETURN_TYPE] void   [VARIABLES] List  checks  PotentialCheck  check  boolean  
+[P14_Delete_Statement]^^45^^^^^41^46^checks.clear (  ) ;^[CLASS] PotentialCheckManager  [METHOD] flush [RETURN_TYPE] void   [VARIABLES] List  checks  PotentialCheck  check  boolean  
+[P11_Insert_Donor_Statement]^checks.add ( check ) ;checks.clear (  ) ;^45^^^^^41^46^checks.clear (  ) ;^[CLASS] PotentialCheckManager  [METHOD] flush [RETURN_TYPE] void   [VARIABLES] List  checks  PotentialCheck  check  boolean  
+[P11_Insert_Donor_Statement]^check.evaluate (  ) ;checks.clear (  ) ;^45^^^^^41^46^checks.clear (  ) ;^[CLASS] PotentialCheckManager  [METHOD] flush [RETURN_TYPE] void   [VARIABLES] List  checks  PotentialCheck  check  boolean  

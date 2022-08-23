@@ -1,0 +1,2 @@
+[BugLab_Wrong_Operator]^if  ( mapper != null )  {^45^^^^^42^48^if  ( mapper == null )  {^[CLASS] MappingJsonFactory  [METHOD] <init> [RETURN_TYPE] ObjectMapper)   ObjectMapper mapper [VARIABLES] long  serialVersionUID  ObjectMapper  mapper  boolean  
+[BugLab_Wrong_Operator]^if  ( getClass (  )  != MappingJsonFactory.class )  {^90^^^^^88^94^if  ( getClass (  )  == MappingJsonFactory.class )  {^[CLASS] MappingJsonFactory  [METHOD] hasFormat [RETURN_TYPE] MatchStrength   InputAccessor acc [VARIABLES] InputAccessor  acc  long  serialVersionUID  boolean  

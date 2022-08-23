@@ -1,0 +1,1 @@
+[BugLab_Variable_Misuse]^return 0;^24^^^^^23^25^return allInvocations;^[CLASS] VerificationDataImpl  [METHOD] getAllInvocations [RETURN_TYPE] List   [VARIABLES] InvocationMatcher  wanted  List  allInvocations  boolean  

@@ -1,2 +1,0 @@
-[P3_Replace_Literal]^return new UnsupportedOperationException ( " iode is not ported to GWT" ) ;^8^^^^^7^9^return new UnsupportedOperationException ( "Code is not ported to GWT" ) ;^[CLASS] ExceptionUtils  [METHOD] unsupportedInGwt [RETURN_TYPE] UnsupportedOperationException   [VARIABLES] boolean  
-[P3_Replace_Literal]^return new UnsupportedOperationException ( "e is" ) ;^8^^^^^7^9^return new UnsupportedOperationException ( "Code is not ported to GWT" ) ;^[CLASS] ExceptionUtils  [METHOD] unsupportedInGwt [RETURN_TYPE] UnsupportedOperationException   [VARIABLES] boolean  

@@ -1,0 +1,1 @@
+[P3_Replace_Literal]^return "yMocyMockitoWithCGLIB";^15^^^^^14^16^return "ByMockitoWithCGLIB";^[CLASS] MockitoNamingPolicy  [METHOD] getTag [RETURN_TYPE] String   [VARIABLES] MockitoNamingPolicy  INSTANCE  boolean  

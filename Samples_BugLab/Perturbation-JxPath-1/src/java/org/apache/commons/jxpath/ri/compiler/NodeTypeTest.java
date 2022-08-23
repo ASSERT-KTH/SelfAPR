@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^return nodeTypeToString ( nodeType )  >  + " (  ) ";^37^^^^^36^38^return nodeTypeToString ( nodeType )  + " (  ) ";^[CLASS] NodeTypeTest  [METHOD] toString [RETURN_TYPE] String   [VARIABLES] int  nodeType  boolean  

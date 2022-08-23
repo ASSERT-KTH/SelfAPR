@@ -1,0 +1,14 @@
+[BugLab_Variable_Misuse]^value = value;^145^^^^^144^146^value = n;^[CLASS] DefaultContext DefaultValue  [METHOD] <init> [RETURN_TYPE] Number)   Number n [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.intValue (  ) ;^177^^^^^175^178^return value.intValue (  ) ;^[CLASS] DefaultContext DefaultValue  [METHOD] intValue [RETURN_TYPE] int   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.longValue (  ) ;^185^^^^^183^186^return value.longValue (  ) ;^[CLASS] DefaultContext DefaultValue  [METHOD] longValue [RETURN_TYPE] long   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.floatValue (  ) ;^193^^^^^191^194^return value.floatValue (  ) ;^[CLASS] DefaultContext DefaultValue  [METHOD] floatValue [RETURN_TYPE] float   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.doubleValue (  ) ;^201^^^^^199^202^return value.doubleValue (  ) ;^[CLASS] DefaultContext DefaultValue  [METHOD] doubleValue [RETURN_TYPE] double   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.byteValue (  ) ;^209^^^^^207^210^return value.byteValue (  ) ;^[CLASS] DefaultContext DefaultValue  [METHOD] byteValue [RETURN_TYPE] byte   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.shortValue (  ) ;^217^^^^^215^218^return value.shortValue (  ) ;^[CLASS] DefaultContext DefaultValue  [METHOD] shortValue [RETURN_TYPE] short   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^value = value;^145^^^^^144^146^value = n;^[CLASS] DefaultValue  [METHOD] <init> [RETURN_TYPE] Number)   Number n [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.intValue (  ) ;^177^^^^^175^178^return value.intValue (  ) ;^[CLASS] DefaultValue  [METHOD] intValue [RETURN_TYPE] int   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.longValue (  ) ;^185^^^^^183^186^return value.longValue (  ) ;^[CLASS] DefaultValue  [METHOD] longValue [RETURN_TYPE] long   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.floatValue (  ) ;^193^^^^^191^194^return value.floatValue (  ) ;^[CLASS] DefaultValue  [METHOD] floatValue [RETURN_TYPE] float   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.doubleValue (  ) ;^201^^^^^199^202^return value.doubleValue (  ) ;^[CLASS] DefaultValue  [METHOD] doubleValue [RETURN_TYPE] double   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.byteValue (  ) ;^209^^^^^207^210^return value.byteValue (  ) ;^[CLASS] DefaultValue  [METHOD] byteValue [RETURN_TYPE] byte   [VARIABLES] Number  n  value  boolean  
+[BugLab_Variable_Misuse]^return n.shortValue (  ) ;^217^^^^^215^218^return value.shortValue (  ) ;^[CLASS] DefaultValue  [METHOD] shortValue [RETURN_TYPE] short   [VARIABLES] Number  n  value  boolean  

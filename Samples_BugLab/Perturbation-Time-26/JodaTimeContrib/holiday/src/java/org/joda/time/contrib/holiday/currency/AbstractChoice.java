@@ -1,0 +1,3 @@
+[BugLab_Variable_Misuse]^_choices = _choices;^30^^^^^28^32^_choices = list;^[CLASS] AbstractChoice  [METHOD] <init> [RETURN_TYPE] String)   ChoiceList list String label [VARIABLES] ChoiceList  _choices  list  String  _label  label  boolean  
+[BugLab_Variable_Misuse]^_label = _label;^31^^^^^28^32^_label = label;^[CLASS] AbstractChoice  [METHOD] <init> [RETURN_TYPE] String)   ChoiceList list String label [VARIABLES] ChoiceList  _choices  list  String  _label  label  boolean  
+[BugLab_Variable_Misuse]^return list.choiceClass (  ) ;^35^^^^^34^36^return _choices.choiceClass (  ) ;^[CLASS] AbstractChoice  [METHOD] choiceClass [RETURN_TYPE] Class   [VARIABLES] ChoiceList  _choices  list  String  _label  label  boolean  

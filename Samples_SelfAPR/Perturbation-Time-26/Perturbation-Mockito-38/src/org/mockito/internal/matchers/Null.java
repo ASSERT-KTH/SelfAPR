@@ -1,0 +1,3 @@
+[P2_Replace_Operator]^return actual != null;^19^^^^^18^20^return actual == null;^[CLASS] Null  [METHOD] matches [RETURN_TYPE] boolean   Object actual [VARIABLES] Null  NULL  Object  actual  boolean  
+[P8_Replace_Mix]^return actual != null;;^19^^^^^18^20^return actual == null;^[CLASS] Null  [METHOD] matches [RETURN_TYPE] boolean   Object actual [VARIABLES] Null  NULL  Object  actual  boolean  
+[P14_Delete_Statement]^^23^^^^^22^24^description.appendText ( "isNull (  ) " ) ;^[CLASS] Null  [METHOD] describeTo [RETURN_TYPE] void   Description description [VARIABLES] Null  NULL  Description  description  boolean  

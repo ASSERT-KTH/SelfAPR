@@ -1,3 +1,1 @@
-[buglab_swap_variables]^super ( lock, bag ) ;^73^^^^^72^74^super ( bag, lock ) ;^[CLASS] SynchronizedSortedBag  [METHOD] <init> [RETURN_TYPE] Object)   Bag<E> bag Object lock [VARIABLES] Bag  bag  Object  lock  boolean  long  serialVersionUID  
-[buglab_swap_variables]^super (  lock ) ;^73^^^^^72^74^super ( bag, lock ) ;^[CLASS] SynchronizedSortedBag  [METHOD] <init> [RETURN_TYPE] Object)   Bag<E> bag Object lock [VARIABLES] Bag  bag  Object  lock  boolean  long  serialVersionUID  
-[buglab_swap_variables]^super ( bag ) ;^73^^^^^72^74^super ( bag, lock ) ;^[CLASS] SynchronizedSortedBag  [METHOD] <init> [RETURN_TYPE] Object)   Bag<E> bag Object lock [VARIABLES] Bag  bag  Object  lock  boolean  long  serialVersionUID  
+[BugLab_Argument_Swapping]^super ( lock, bag ) ;^73^^^^^72^74^super ( bag, lock ) ;^[CLASS] SynchronizedSortedBag  [METHOD] <init> [RETURN_TYPE] Object)   Bag<E> bag Object lock [VARIABLES] Bag  bag  Object  lock  boolean  long  serialVersionUID  

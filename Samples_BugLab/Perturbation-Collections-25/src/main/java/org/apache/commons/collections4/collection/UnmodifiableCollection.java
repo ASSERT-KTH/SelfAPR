@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^if  ( coll  ^  Unmodifiable )  {^55^^^^^54^61^if  ( coll instanceof Unmodifiable )  {^[CLASS] UnmodifiableCollection  [METHOD] unmodifiableCollection [RETURN_TYPE] <T>   Collection<? extends T> coll [VARIABLES] Collection  coll  tmpColl  long  serialVersionUID  boolean  

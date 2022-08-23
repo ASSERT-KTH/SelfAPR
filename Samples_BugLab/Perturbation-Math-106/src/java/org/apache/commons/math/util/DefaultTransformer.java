@@ -1,0 +1,2 @@
+[BugLab_Wrong_Operator]^if  ( o != null )  {^45^^^^^43^58^if  ( o == null )  {^[CLASS] DefaultTransformer  [METHOD] transform [RETURN_TYPE] double   Object o [VARIABLES] Object  o  boolean  long  serialVersionUID  Exception  e  
+[BugLab_Wrong_Operator]^if  ( o  ^  Number )  {^49^^^^^43^58^if  ( o instanceof Number )  {^[CLASS] DefaultTransformer  [METHOD] transform [RETURN_TYPE] double   Object o [VARIABLES] Object  o  boolean  long  serialVersionUID  Exception  e  

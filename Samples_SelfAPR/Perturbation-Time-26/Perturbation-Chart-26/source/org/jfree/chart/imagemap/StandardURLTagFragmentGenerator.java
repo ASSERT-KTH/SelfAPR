@@ -1,0 +1,2 @@
+[P2_Replace_Operator]^return " href=\""  &&  urlText + "\"";^58^^^^^57^59^return " href=\"" + urlText + "\"";^[CLASS] StandardURLTagFragmentGenerator  [METHOD] generateURLFragment [RETURN_TYPE] String   String urlText [VARIABLES] boolean  String  urlText  
+[P3_Replace_Literal]^return " href=\"hr" + urlText + "\"";^58^^^^^57^59^return " href=\"" + urlText + "\"";^[CLASS] StandardURLTagFragmentGenerator  [METHOD] generateURLFragment [RETURN_TYPE] String   String urlText [VARIABLES] boolean  String  urlText  

@@ -1,0 +1,3 @@
+[P8_Replace_Mix]^in =  new GZIPInputStream ( null ) ;^32^^^^^31^33^in = new GZIPInputStream ( inputStream ) ;^[CLASS] GzipCompressorInputStream  [METHOD] <init> [RETURN_TYPE] InputStream)   InputStream inputStream [VARIABLES] GZIPInputStream  in  InputStream  inputStream  boolean  
+[P7_Replace_Invocation]^return in .read (  )  ;^36^^^^^35^37^return in.read (  ) ;^[CLASS] GzipCompressorInputStream  [METHOD] read [RETURN_TYPE] int   [VARIABLES] GZIPInputStream  in  boolean  
+[P14_Delete_Statement]^^36^^^^^35^37^return in.read (  ) ;^[CLASS] GzipCompressorInputStream  [METHOD] read [RETURN_TYPE] int   [VARIABLES] GZIPInputStream  in  boolean  

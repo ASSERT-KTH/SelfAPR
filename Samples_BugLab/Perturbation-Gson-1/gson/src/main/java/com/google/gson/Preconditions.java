@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^checkArgument ( obj == null ) ;^34^^^^^33^35^checkArgument ( obj != null ) ;^[CLASS] Preconditions  [METHOD] checkNotNull [RETURN_TYPE] void   Object obj [VARIABLES] boolean  Object  obj  

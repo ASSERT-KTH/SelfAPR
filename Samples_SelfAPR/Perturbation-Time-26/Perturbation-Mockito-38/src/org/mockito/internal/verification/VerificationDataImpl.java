@@ -1,0 +1,5 @@
+[P8_Replace_Mix]^private  List<Invocation> allInvocations;^15^^^^^10^20^private final List<Invocation> allInvocations;^[CLASS] VerificationDataImpl   [VARIABLES] 
+[P8_Replace_Mix]^private  InvocationMatcher wanted;^16^^^^^11^21^private final InvocationMatcher wanted;^[CLASS] VerificationDataImpl   [VARIABLES] 
+[P5_Replace_Variable]^this.allInvocations = null;^19^^^^^18^21^this.allInvocations = allInvocations;^[CLASS] VerificationDataImpl  [METHOD] <init> [RETURN_TYPE] InvocationMatcher)   Invocation> allInvocations InvocationMatcher wanted [VARIABLES] InvocationMatcher  wanted  List  allInvocations  boolean  
+[P8_Replace_Mix]^this.wanted =  null;^20^^^^^18^21^this.wanted = wanted;^[CLASS] VerificationDataImpl  [METHOD] <init> [RETURN_TYPE] InvocationMatcher)   Invocation> allInvocations InvocationMatcher wanted [VARIABLES] InvocationMatcher  wanted  List  allInvocations  boolean  
+[P8_Replace_Mix]^return 0;^24^^^^^23^25^return allInvocations;^[CLASS] VerificationDataImpl  [METHOD] getAllInvocations [RETURN_TYPE] List   [VARIABLES] InvocationMatcher  wanted  List  allInvocations  boolean  

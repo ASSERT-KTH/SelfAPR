@@ -1,0 +1,3 @@
+[BugLab_Variable_Misuse]^return chart;^99^^^^^98^100^return this.chart;^[CLASS] ChartMouseEvent  [METHOD] getChart [RETURN_TYPE] JFreeChart   [VARIABLES] MouseEvent  trigger  ChartEntity  entity  boolean  long  serialVersionUID  JFreeChart  chart  
+[BugLab_Variable_Misuse]^return trigger;^108^^^^^107^109^return this.trigger;^[CLASS] ChartMouseEvent  [METHOD] getTrigger [RETURN_TYPE] MouseEvent   [VARIABLES] MouseEvent  trigger  ChartEntity  entity  boolean  long  serialVersionUID  JFreeChart  chart  
+[BugLab_Variable_Misuse]^return entity;^117^^^^^116^118^return this.entity;^[CLASS] ChartMouseEvent  [METHOD] getEntity [RETURN_TYPE] ChartEntity   [VARIABLES] MouseEvent  trigger  ChartEntity  entity  boolean  long  serialVersionUID  JFreeChart  chart  

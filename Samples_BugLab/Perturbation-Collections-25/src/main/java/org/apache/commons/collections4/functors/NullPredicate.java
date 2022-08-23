@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^return object != null;^64^^^^^63^65^return object == null;^[CLASS] NullPredicate  [METHOD] evaluate [RETURN_TYPE] boolean   final T object [VARIABLES] boolean  T  object  long  serialVersionUID  Predicate  INSTANCE  

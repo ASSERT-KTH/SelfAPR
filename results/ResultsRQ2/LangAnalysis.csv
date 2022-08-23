@@ -1,6 +1,0 @@
-Identical	Lang_10_FastDateParser_1_1	304	1	src/main/java/org/apache/commons/lang3/time/FastDateParser.java	[REPLACE]  boolean  wasWhite  =  true;	boolean  wasWhite  =  true  ;
-Identical	Lang_33_ClassUtils_1_1	910	1	src/main/java/org/apache/commons/lang3/ClassUtils.java	[REPLACE]  classes[i]  =  array[i]  ==  null?  null  :  array[i].  getClass  (  )  ;	classes[i]  =  array[i]  ==  null?  null  :  array[i].getClass();
-Identical	Lang_59_StrBuilder_1_1	884	1	src/java/org/apache/commons/lang/text/StrBuilder.java	[REPLACE]  str.  getChars  (  0,  width,  buffer,  size  )  ;	str.getChars(0,  width,  buffer,  size);
-Identical	Lang_6_CharSequenceTranslator_1_1	95	1	src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java	[REPLACE]  pos  +=  Character.  charCount  (  Character.  codePointAt  (  input,  pt  )  )  ;	pos  +=  Character.charCount(Character.codePointAt(input,  pt));
-Identical	Lang_7_NumberUtils_2_1	452	1	src/main/java/org/apache/commons/lang3/math/NumberUtils.java	[REPLACE]	nan
-Semantic	Lang_57_LocaleUtils_1_1	223	1	src/java/org/apache/commons/lang/LocaleUtils.java	[REPLACE]  return  cAvailableLocaleList.  contains  (  locale  )  ;	return  availableLocaleList().contains(locale);

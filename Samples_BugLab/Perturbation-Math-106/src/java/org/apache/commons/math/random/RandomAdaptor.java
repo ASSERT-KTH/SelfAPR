@@ -1,1 +1,2 @@
-[buglab_swap_variables]^return n.nextInt ( randomGenerator ) ;^147^^^^^146^148^return randomGenerator.nextInt ( n ) ;^[CLASS] RandomAdaptor  [METHOD] nextInt [RETURN_TYPE] int   int n [VARIABLES] RandomGenerator  randomGenerator  int  n  boolean  
+[BugLab_Argument_Swapping]^return n.nextInt ( randomGenerator ) ;^147^^^^^146^148^return randomGenerator.nextInt ( n ) ;^[CLASS] RandomAdaptor  [METHOD] nextInt [RETURN_TYPE] int   int n [VARIABLES] RandomGenerator  randomGenerator  int  n  boolean  
+[BugLab_Wrong_Operator]^if  ( randomGenerator == null )  {^171^^^^^170^174^if  ( randomGenerator != null )  {^[CLASS] RandomAdaptor  [METHOD] setSeed [RETURN_TYPE] void   long seed [VARIABLES] RandomGenerator  randomGenerator  long  seed  boolean  

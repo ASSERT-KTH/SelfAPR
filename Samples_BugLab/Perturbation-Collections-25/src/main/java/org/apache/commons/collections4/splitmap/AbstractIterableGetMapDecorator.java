@@ -1,0 +1,2 @@
+[BugLab_Wrong_Operator]^if  ( object != this )  {^109^^^^^108^113^if  ( object == this )  {^[CLASS] AbstractIterableGetMapDecorator  [METHOD] equals [RETURN_TYPE] boolean   Object object [VARIABLES] Map  decorated  map  Object  object  boolean  
+[BugLab_Wrong_Literal]^return false;^110^^^^^108^113^return true;^[CLASS] AbstractIterableGetMapDecorator  [METHOD] equals [RETURN_TYPE] boolean   Object object [VARIABLES] Map  decorated  map  Object  object  boolean  

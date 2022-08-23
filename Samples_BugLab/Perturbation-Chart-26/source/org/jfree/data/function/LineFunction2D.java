@@ -1,2 +1,8 @@
-[buglab_swap_variables]^return x + this.b * this.a;^76^^^^^75^77^return this.a + this.b * x;^[CLASS] LineFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
-[buglab_swap_variables]^return this.a + x * this.b;^76^^^^^75^77^return this.a + this.b * x;^[CLASS] LineFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[BugLab_Variable_Misuse]^this.a = b;^64^^^^^63^66^this.a = a;^[CLASS] LineFunction2D  [METHOD] <init> [RETURN_TYPE] LineFunction2D(double,double)   double a double b [VARIABLES] double  a  b  boolean  
+[BugLab_Variable_Misuse]^this.b = a;^65^^^^^63^66^this.b = b;^[CLASS] LineFunction2D  [METHOD] <init> [RETURN_TYPE] LineFunction2D(double,double)   double a double b [VARIABLES] double  a  b  boolean  
+[BugLab_Variable_Misuse]^return this.a + this.b * b;^76^^^^^75^77^return this.a + this.b * x;^[CLASS] LineFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[BugLab_Variable_Misuse]^return x + this.b * x;^76^^^^^75^77^return this.a + this.b * x;^[CLASS] LineFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[BugLab_Variable_Misuse]^return this.a + b * x;^76^^^^^75^77^return this.a + this.b * x;^[CLASS] LineFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[BugLab_Argument_Swapping]^return x + this.b * this.a;^76^^^^^75^77^return this.a + this.b * x;^[CLASS] LineFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[BugLab_Argument_Swapping]^return this.b + this.a * x;^76^^^^^75^77^return this.a + this.b * x;^[CLASS] LineFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  
+[BugLab_Wrong_Operator]^return - this.a + this.b * x;^76^^^^^75^77^return this.a + this.b * x;^[CLASS] LineFunction2D  [METHOD] getValue [RETURN_TYPE] double   double x [VARIABLES] double  a  b  x  boolean  

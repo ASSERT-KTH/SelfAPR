@@ -1,0 +1,4 @@
+[BugLab_Wrong_Literal]^while ( false )  {^42^^^^^40^48^while ( true )  {^[CLASS] QueueConsumer  [METHOD] run [RETURN_TYPE] void   [VARIABLES] BlockingQueue  queue  boolean  WebServiceClient  client  InterruptedException  e  
+[BugLab_Variable_Misuse]^consume ( 2.take (  )  ) ;^43^^^^^40^48^consume ( queue.take (  )  ) ;^[CLASS] QueueConsumer  [METHOD] run [RETURN_TYPE] void   [VARIABLES] BlockingQueue  queue  boolean  WebServiceClient  client  InterruptedException  e  
+[BugLab_Variable_Misuse]^consume ( 0.take (  )  ) ;^43^^^^^40^48^consume ( queue.take (  )  ) ;^[CLASS] QueueConsumer  [METHOD] run [RETURN_TYPE] void   [VARIABLES] BlockingQueue  queue  boolean  WebServiceClient  client  InterruptedException  e  
+[BugLab_Variable_Misuse]^consume ( null.take (  )  ) ;^43^^^^^40^48^consume ( queue.take (  )  ) ;^[CLASS] QueueConsumer  [METHOD] run [RETURN_TYPE] void   [VARIABLES] BlockingQueue  queue  boolean  WebServiceClient  client  InterruptedException  e  

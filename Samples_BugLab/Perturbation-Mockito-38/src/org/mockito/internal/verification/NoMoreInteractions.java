@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^if  ( unverified == null )  {^18^^^^^15^21^if  ( unverified != null )  {^[CLASS] NoMoreInteractions  [METHOD] verify [RETURN_TYPE] void   VerificationData data [VARIABLES] boolean  Invocation  unverified  VerificationData  data  

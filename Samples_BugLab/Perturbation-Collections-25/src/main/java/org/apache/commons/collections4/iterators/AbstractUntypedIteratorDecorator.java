@@ -1,0 +1,3 @@
+[BugLab_Wrong_Operator]^if  ( iterator != null )  {^42^^^^^40^46^if  ( iterator == null )  {^[CLASS] AbstractUntypedIteratorDecorator  [METHOD] <init> [RETURN_TYPE] Iterator)   Iterator<I> iterator [VARIABLES] Iterator  iterator  boolean  
+[BugLab_Variable_Misuse]^return 1;^54^^^^^53^55^return iterator;^[CLASS] AbstractUntypedIteratorDecorator  [METHOD] getIterator [RETURN_TYPE] Iterator   [VARIABLES] Iterator  iterator  boolean  
+[BugLab_Variable_Misuse]^return 2.hasNext (  ) ;^58^^^^^57^59^return iterator.hasNext (  ) ;^[CLASS] AbstractUntypedIteratorDecorator  [METHOD] hasNext [RETURN_TYPE] boolean   [VARIABLES] Iterator  iterator  boolean  

@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^return Collection.class.isAssignableFrom ( rawClass )  && isArray (  ) ;^62^^^^^61^63^return Collection.class.isAssignableFrom ( rawClass )  || isArray (  ) ;^[CLASS] TypeInfo  [METHOD] isCollectionOrArray [RETURN_TYPE] boolean   [VARIABLES] Type  actualType  Class  rawClass  boolean  

@@ -1,0 +1,5 @@
+[P3_Replace_Literal]^sb.append ( "u" ) ;^40^^^^^39^41^sb.append ( "null" ) ;^[CLASS] JsonNull  [METHOD] toString [RETURN_TYPE] void   Appendable sb Escaper escaper [VARIABLES] boolean  Escaper  escaper  JsonNull  INSTANCE  Appendable  sb  
+[P14_Delete_Statement]^^40^^^^^39^41^sb.append ( "null" ) ;^[CLASS] JsonNull  [METHOD] toString [RETURN_TYPE] void   Appendable sb Escaper escaper [VARIABLES] boolean  Escaper  escaper  JsonNull  INSTANCE  Appendable  sb  
+[P7_Replace_Invocation]^return JsonNull.class .hashCode (  )  ;^48^^^^^47^49^return JsonNull.class.hashCode (  ) ;^[CLASS] JsonNull  [METHOD] hashCode [RETURN_TYPE] int   [VARIABLES] JsonNull  INSTANCE  boolean  
+[P14_Delete_Statement]^^48^^^^^47^49^return JsonNull.class.hashCode (  ) ;^[CLASS] JsonNull  [METHOD] hashCode [RETURN_TYPE] int   [VARIABLES] JsonNull  INSTANCE  boolean  
+[P2_Replace_Operator]^return other  ==  JsonNull;^56^^^^^55^57^return other instanceof JsonNull;^[CLASS] JsonNull  [METHOD] equals [RETURN_TYPE] boolean   Object other [VARIABLES] Object  other  JsonNull  INSTANCE  boolean  

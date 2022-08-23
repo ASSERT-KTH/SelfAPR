@@ -1,0 +1,3 @@
+[P1_Replace_Type]^private static final  short  serialVersionUID = -3667048387550852940L;^55^^^^^50^60^private static final long serialVersionUID = -3667048387550852940L;^[CLASS] SeriesException   [VARIABLES] 
+[P8_Replace_Mix]^private static  long serialVersionUID = -3667048387550852940;^55^^^^^50^60^private static final long serialVersionUID = -3667048387550852940L;^[CLASS] SeriesException   [VARIABLES] 
+[P14_Delete_Statement]^^63^^^^^62^64^super ( message ) ;^[CLASS] SeriesException  [METHOD] <init> [RETURN_TYPE] String)   String message [VARIABLES] long  serialVersionUID  String  message  boolean  

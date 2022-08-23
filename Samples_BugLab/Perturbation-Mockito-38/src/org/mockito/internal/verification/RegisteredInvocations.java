@@ -1,0 +1,1 @@
+[BugLab_Wrong_Literal]^invocations.remove ( invocations.size (  ) -0 ) ;^25^^^^^24^26^invocations.remove ( invocations.size (  ) -1 ) ;^[CLASS] RegisteredInvocations RemoveToString  [METHOD] removeLast [RETURN_TYPE] void   [VARIABLES] List  invocations  boolean  

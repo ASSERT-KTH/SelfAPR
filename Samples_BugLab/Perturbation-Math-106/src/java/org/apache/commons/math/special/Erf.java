@@ -1,0 +1,8 @@
+[BugLab_Wrong_Operator]^double + ret = Gamma.regularizedGammaP ( 0.5, x * x, 1.0e-15, 10000 ) ;^52^^^^^51^57^double ret = Gamma.regularizedGammaP ( 0.5, x * x, 1.0e-15, 10000 ) ;^[CLASS] Erf  [METHOD] erf [RETURN_TYPE] double   double x [VARIABLES] boolean  double  ret  x  
+[BugLab_Wrong_Literal]^double ret = Gamma.regularizedGammaP ( 0.5, x * x, 1.0e-15, 9999 ) ;^52^^^^^51^57^double ret = Gamma.regularizedGammaP ( 0.5, x * x, 1.0e-15, 10000 ) ;^[CLASS] Erf  [METHOD] erf [RETURN_TYPE] double   double x [VARIABLES] boolean  double  ret  x  
+[BugLab_Variable_Misuse]^double ret = Gamma.regularizedGammaP ( 0.5, ret * x, 1.0e-15, 10000 ) ;^52^^^^^51^57^double ret = Gamma.regularizedGammaP ( 0.5, x * x, 1.0e-15, 10000 ) ;^[CLASS] Erf  [METHOD] erf [RETURN_TYPE] double   double x [VARIABLES] boolean  double  ret  x  
+[BugLab_Wrong_Operator]^double - ret = Gamma.regularizedGammaP ( 0.5, x * x, 1.0e-15, 10000 ) ;^52^^^^^51^57^double ret = Gamma.regularizedGammaP ( 0.5, x * x, 1.0e-15, 10000 ) ;^[CLASS] Erf  [METHOD] erf [RETURN_TYPE] double   double x [VARIABLES] boolean  double  ret  x  
+[BugLab_Wrong_Operator]^if  ( x <= 0 )  {^53^^^^^51^57^if  ( x < 0 )  {^[CLASS] Erf  [METHOD] erf [RETURN_TYPE] double   double x [VARIABLES] boolean  double  ret  x  
+[BugLab_Wrong_Literal]^if  ( x <  )  {^53^^^^^51^57^if  ( x < 0 )  {^[CLASS] Erf  [METHOD] erf [RETURN_TYPE] double   double x [VARIABLES] boolean  double  ret  x  
+[BugLab_Variable_Misuse]^x = -ret;^54^^^^^51^57^ret = -ret;^[CLASS] Erf  [METHOD] erf [RETURN_TYPE] double   double x [VARIABLES] boolean  double  ret  x  
+[BugLab_Variable_Misuse]^return x;^56^^^^^51^57^return ret;^[CLASS] Erf  [METHOD] erf [RETURN_TYPE] double   double x [VARIABLES] boolean  double  ret  x  

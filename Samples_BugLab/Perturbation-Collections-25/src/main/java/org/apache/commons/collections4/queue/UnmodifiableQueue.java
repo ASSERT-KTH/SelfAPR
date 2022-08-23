@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^if  ( queue  ==  Unmodifiable )  {^55^^^^^54^61^if  ( queue instanceof Unmodifiable )  {^[CLASS] UnmodifiableQueue  [METHOD] unmodifiableQueue [RETURN_TYPE] <E>   Queue<? extends E> queue [VARIABLES] Queue  queue  tmpQueue  long  serialVersionUID  boolean  

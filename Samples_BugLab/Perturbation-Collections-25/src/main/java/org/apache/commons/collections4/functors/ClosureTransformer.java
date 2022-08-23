@@ -1,0 +1,1 @@
+[BugLab_Wrong_Operator]^if  ( closure != null )  {^48^^^^^47^52^if  ( closure == null )  {^[CLASS] ClosureTransformer  [METHOD] closureTransformer [RETURN_TYPE] <T>   Closure<? super T> closure [VARIABLES] Closure  closure  iClosure  long  serialVersionUID  boolean  

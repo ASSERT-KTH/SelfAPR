@@ -1,0 +1,1 @@
+[BugLab_Variable_Misuse]^_annotations = _annotations;^28^^^^^26^29^_annotations = annotations;^[CLASS] AnnotatedMember  [METHOD] <init> [RETURN_TYPE] AnnotationMap)   AnnotationMap annotations [VARIABLES] AnnotationMap  _annotations  annotations  long  serialVersionUID  boolean  

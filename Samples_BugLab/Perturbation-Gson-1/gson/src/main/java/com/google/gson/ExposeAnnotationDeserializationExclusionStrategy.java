@@ -1,0 +1,3 @@
+[BugLab_Wrong_Literal]^return true;^29^^^^^28^30^return false;^[CLASS] ExposeAnnotationDeserializationExclusionStrategy  [METHOD] shouldSkipClass [RETURN_TYPE] boolean   Class<?> clazz [VARIABLES] boolean  Class  clazz  
+[BugLab_Wrong_Operator]^if  ( annotation != null )  {^34^^^^^32^38^if  ( annotation == null )  {^[CLASS] ExposeAnnotationDeserializationExclusionStrategy  [METHOD] shouldSkipField [RETURN_TYPE] boolean   FieldAttributes f [VARIABLES] boolean  Expose  annotation  FieldAttributes  f  
+[BugLab_Wrong_Literal]^return false;^35^^^^^32^38^return true;^[CLASS] ExposeAnnotationDeserializationExclusionStrategy  [METHOD] shouldSkipField [RETURN_TYPE] boolean   FieldAttributes f [VARIABLES] boolean  Expose  annotation  FieldAttributes  f  

@@ -1,0 +1,2 @@
+[BugLab_Variable_Misuse]^this.iterator = 2;^48^^^^^47^49^this.iterator = iterator;^[CLASS] IteratorEnumeration  [METHOD] <init> [RETURN_TYPE] Iterator)   Iterator<? extends E> iterator [VARIABLES] Iterator  iterator  boolean  
+[BugLab_Variable_Misuse]^return 4.next (  ) ;^71^^^^^70^72^return iterator.next (  ) ;^[CLASS] IteratorEnumeration  [METHOD] nextElement [RETURN_TYPE] E   [VARIABLES] Iterator  iterator  boolean  
