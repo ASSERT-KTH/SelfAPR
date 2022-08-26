@@ -61,7 +61,7 @@ public class Replace {
 		P7_Replace_Invocation.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
 		P8_Replace_Mix.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
 		P9_Replace_Statement.perturb(st, type, methStart, methEnd, groundTruth, lineNo1, lineNo2, lineNo3, lineNo4,lineNo5);
-
+		P10_Move_Statement.insert(st, type, methStart, methEnd);
 	
 
 	}
