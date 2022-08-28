@@ -1,4 +1,31 @@
-# SelfAPR: Self-supervised Program Repair with Test Execution Diagnostics (Paper Under Review)
+# SelfAPR: Self-supervised Program Repair with Test Execution Diagnostics
+
+
+
+## Folder Structure
+ ```bash
+├── perturbation_model: the source code of java implemented perturbation model
+│ 
+├── Samples_BugLab: the generated perturbation-based samples with four BugLab repair actions
+│ 
+├── Samples_BugLab: the generated perturbation-based samples with 16 SelfAPR repair actions
+│   
+├── Dataset
+│   ├── SelfAPR.csv.tar.gz : the dataset used to train SelfAPR model
+│   ├── SelfAPR_ALL.csv.tar.gz : all generated training samples
+│   ├── SelfAPR_FE.csv.tar.gz  : functional error training samples
+│   ├── SelfAPR_CE.csv.tar.gz : compilation error training samples
+│   ├── test.csv : the testing set from Defects4j bug dataset
+│ 
+├── result 
+│   ├──patch_execution_result.csv : the execution results for patches generated for test set.
+│   ├──valid_patches.csv : the patches classified as plausible or identical to the human-written patches.
+└──  
+
+```
+
+
+
 
 
 
@@ -22,7 +49,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 ##### We upload the build jar package on Zenodo. Download the jar file and execute it as below.
 ```
 https://doi.org/10.5281/zenodo.6582348
-java -jar ./perturbation_model/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar Your/JAVA/FILE/PATH Options=SelfAPR|BugLab|test
+java -jar ./perturbation_model/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar Your/JAVA/FILE/PATH Options=SelfAPR|BugLab|test-'buggyLineNo'
 ```
 ##### Check the source code and build the package as below.
 
@@ -65,12 +92,12 @@ python3 3_prepare_test_data.py
 ```
 pip install transformers
 pip install sentencepiece
-python3 4-train.py
+python3 4_train.py
 ```
 
 #### To test the trained model:
 ```
-python3 5-test.py
+python3 5_test.py
 ```
 
 #### To evaluat the test results:
