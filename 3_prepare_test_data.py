@@ -9,15 +9,22 @@ def start(bugId,repodir,rootdir):
     print('bugid'+bugId)
 
     targetfile = getBuggyFile(bugId,repodir)
-    #split , for multiple files
-    tfiles = targetfile.split(',')
+    print('target......'+targetfile)
+    if ',' in targetfile:
+        return
+    
+    tfiles = targetfile.split(',')   
+    firstTFile=targetfile.split(',')[0]
 
     for tf in tfiles:
         if '.java' not in tf:
             tf=tf+'.java'
         diffLists = getBuggyLines(bugId,repodir,tf)
         print('======diffLists========='+str(diffLists))
-
+        
+        if len(diffLists)>1:
+            return;
+        
         for k in range(0,len(diffLists)):
             diff=diffLists[k]
             startLineNo=diff.split('[buggy]')[0]
@@ -25,11 +32,12 @@ def start(bugId,repodir,rootdir):
             buggyLines=buggyLines.split('[patch]')[0]
             patchLines = diff.split('[patch]')[1]
             patchLines = patchLines.split('[buggyLineNo]')[0]
-            buggyLineNo = diff.split('[buggyLineNo]')[1]
+            buggyLineCount = diff.split('[buggyLineNo]')[1]
         
 
             if str(startLineNo) not in '':
-                constructTrainSample(bugId, k, tf, repodir, rootdir,str(startLineNo),buggyLines,patchLines,str(len(diffLists)),str(buggyLineNo))
+                constructTestSample(bugId, k, tf, repodir, rootdir,str(startLineNo),buggyLines,patchLines,str(len(diffLists)),str(buggyLineCount))
+   
     if os.path.exists(repodir+'/'+bugId):
         os.system('rm -rf '+repodir+'/'+bugId)
 
@@ -41,15 +49,16 @@ def getBuggyFile(bugId,repodir):
     with open(diffDir,'r') as meta:
         lines = meta.readlines()
         for l in lines:
-            bid = l.split('\t')[1]
-            if bugIdUnderScore in bid and bid in bugIdUnderScore:
-                targetFile = l.split('\t')[2]
-                break
+            if '\t' in l:
+                bid = l.split('\t')[1]
+                if bugIdUnderScore in bid and bid in bugIdUnderScore:           
+                    targetFile = l.split('\t')[2]
+                    break
     return targetFile
 
 def getBuggyLines(bugId,repodir,tf):
     tclass=tf.split('/')[-1]
-    tclass=tclass.replace('.java','').replace('\n','').replace('\r','')
+    tclass=tclass.replace('.java','').replace('\n',' ').replace('\r',' ')
     print(tclass)
     projectPath=repodir+repodir
     tdiff = repodir+'scripts/D4JDiff/'+bugId+'_'+tclass+'.diff'
@@ -64,20 +73,23 @@ def getBuggyLines(bugId,repodir,tf):
             buggyLines=''
             patchLines=''
             buggyLineNo=0
-            print(h)
+            print('*********hunk hunk hunk***********'+h)
             lines = h.split("\\n', '")
             for l in lines:
-                print(l)
                 if '@@' in l and '+' in l and ',' in l:
                     startLineNo= l.split(',')[0]
                     startLineNo= str(int(startLineNo)+1)   
                 
                 if l.startswith('-'):
                     startword = l[1:]
+                    startword = startword.replace("\\n', \"+ ",' ')
+                    startword = startword.replace("\\n\", '",' ')
                     startword =  startword.strip()
                     if not startword.startswith('/') and not startword.startswith('*') and not startword.startswith('import') and not startword.startswith('System.out') and not startword.startswith('Logger') and not startword.startswith('log.info') and  not startword.startswith('logger')  and  not startword.startswith('//'):
                         startword = startword.split('//')[0]
+                        print('*********buggyLines buggyLines***********'+startword)
                         buggyLines = buggyLines + startword+' '
+                                               
                         buggyLineNo+=1
                                       
                 if l.startswith('+'):
@@ -85,6 +97,9 @@ def getBuggyLines(bugId,repodir,tf):
                     startword =  startword.strip()
                     if not startword.startswith('/') and not startword.startswith('*') and not startword.startswith('import') and not startword.startswith('System.out') and not startword.startswith('Logger') and not startword.startswith('log.info') and  not startword.startswith('logger') and  not startword.startswith('//'):
                         startword = startword.split('//')[0]
+                        startword = startword.replace("\\n', \"+ ",' ')
+                        print('*********patchLines patchLines***********'+startword)
+
                         patchLines = patchLines + startword+' '
 
 
@@ -94,7 +109,7 @@ def getBuggyLines(bugId,repodir,tf):
     return diffList
 
 
-def constructTrainSample(bugId, indexId, targetfile, repodir, rootdir,startLineNo,buggyLines,patchLines,totalhunk,bno):   
+def constructTestSample(bugId, indexId, targetfile, repodir, rootdir,startLineNo,buggyLines,patchLines,totalhunk,bno):   
     origTargetFile=targetfile.replace('\r','').replace('\n','')
     className = targetfile.split('/')[-1]
     className = className.replace('.java','').replace('\r','').replace('\n','')
@@ -107,31 +122,48 @@ def constructTrainSample(bugId, indexId, targetfile, repodir, rootdir,startLineN
     print('buggyLines'+buggyLines)
     cxt=''
     metaInfo=''
-    # get diagnostic by execution
     diagnosticMsg = executePerturbation(bugId,repodir,rootdir)
     print(diagnosticMsg)
 
 
-    cmd = 'java -jar ./perturbation/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar test '+startLineNo+ '  '+targetfile
+    cmd = 'timeout 200 java -jar /path/to/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar '+targetfile+' test-'+startLineNo
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     print(result)
-    result = str(result).split('stdout=b\'')[1]
+    result = str(result)
     if '[CLASS]' in result:
-        metaInfo = result.split('\\')[0]
+        metaInfo = result.split('[CLASS]')[-1]
     if 'startline:' in result:
         cxtStart=result.split('startline:')[1]
-        cxtStart=cxtStart.split('\\')[0]
+        cxtStart=cxtStart.split(' ')[0]
     else:
         cxtStart = int(startLineNo)-10
     if 'endline:' in result:
         cxtEnd=result.split('endline:')[1]
-        cxtEnd=cxtEnd.split('\\')[0]
+        if '\'' in cxtEnd:
+            cxtEnd=cxtEnd.split('\'')[0]
+        if '\"' in cxtEnd:
+            cxtEnd=cxtEnd.split('\"')[0]
     else:
         cxtEnd=int(startLineNo)+10
 
 
+    print('meta=========meta====='+metaInfo)
+    
+    if 'startline' in metaInfo:
+        metaInfo = metaInfo.split('startline')[0]
+        
+
+        
+    if (int(cxtEnd) - int(startLineNo))>10:
+        cxtEnd = str(int(startLineNo)+10)
+    if (int(startLineNo) - int(cxtStart))>10:
+        cxtStart = str(int(startLineNo)-10)       
     cxtStart=str(cxtStart)
     cxtEnd=str(cxtEnd)
+      
+    print('cxtStart=========cxtStart====='+cxtStart)
+    print('cxtEnd=========cxtEnd====='+cxtEnd)
+
     sample=''
     #get context info
     if cxtStart not in '' and cxtEnd not in '':
@@ -145,13 +177,22 @@ def constructTrainSample(bugId, indexId, targetfile, repodir, rootdir,startLineN
                     if  l.startswith('/') or l.startswith('*'):
                         l = ' '
                     l = l.replace('  ','').replace('\r','').replace('\n','')
-                    if i == int(startLineNo)-1:
-                        l='[BUGGY] '+l
+                    l = l.split('// ')[0]
+                    if int(bno) > 0:
+                        if i == int(startLineNo)-1:
+                            l=' [BUGGY] '+l
+                        elif i == int(startLineNo)+ int(bno) -1:
+                            l= ' [BUGGY] '+l
+                    elif int(bno) == 0:
+                        if i == int(startLineNo)-1:
+                            l=' [BUGGY] [BUGGY] '+l
+      
                     cxt+=l+' '
 
     
-    sample+='[BUGGY] ' + buggyLines +' '+ diagnosticMsg+' '+ metaInfo+' [CONTEXT] ' + cxt
-    sample = sample.replace(',',' , ').replace(';',' ; ').replace('=',' = ').replace('  ',' ').replace('\r','').replace('\n','').replace('\t','').replace('(',' ( ').replace(')',' ) ').replace('.',' . ')
+    sample+='[BUG] [BUGGY] ' + buggyLines +' '+ diagnosticMsg+' '+' [CONTEXT] ' + cxt + ' [CLASS]  '+ metaInfo
+
+    sample = sample.replace('\r','').replace('\n','').replace('\t','')
     sample = sample.replace('  ',' ')
     print(sample)
 
@@ -159,7 +200,7 @@ def constructTrainSample(bugId, indexId, targetfile, repodir, rootdir,startLineN
     with open(repodir+'/test.csv','a')  as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
                                 quoting=csv.QUOTE_NONE)               
-        filewriter.writerow([str(countindex),patchLines,sample,bugId+'_'+className+'_'+totalhunk+'_'+str(int(indexId)+1),startLineNo,str(bno),origTargetFile])
+        filewriter.writerow([str(countindex),'[PATCH] '+patchLines,sample,bugId+'_'+className+'_'+totalhunk+'_'+str(int(indexId)+1),startLineNo,str(bno),origTargetFile])
         countindex+=1
 
 
@@ -176,7 +217,7 @@ def executePerturbation(bugId,repodir,rootdir):
    
     #get test result
     cmd = "cd " + program_path + ";"
-    cmd += "/Users/sophie/Documents/newD4J/defects4j/framework/bin/defects4j info -p "+project +"  -b "+bugNo
+    cmd += "defects4j info -p "+project +"  -b "+bugNo
     result=''
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     print(result)
@@ -187,7 +228,7 @@ def executePerturbation(bugId,repodir,rootdir):
     if '--------' in str(result):
         result=str(result).split('--------')[0]
     print(result)
-    resultLines = result.split('\\')
+    resultLines = str(result).split('\\')
     for l in resultLines:
         if '-' in l and '::' in l and failingtest  in '':
             failingtest = l.split('-')[1]
@@ -204,113 +245,26 @@ def executePerturbation(bugId,repodir,rootdir):
     print('==========failingtest======='+failingtest)
     print('==========faildiag======='+faildiag)
 
-    failTestCode = getFailingTestSourceCode(failingtest,program_path)
-    exectresult = '[FE] ' + faildiag +' '+failTestCode
-    
-
-
+    failingTestMethod=failingtest.split('::')[1]
+    exectresult = '[FE] ' + faildiag +' '+failingTestMethod
     os.chdir(rootdir)
 
-    with open(repodir+'/diagnostic.csv','a')  as csvfile:
-        filewriter = csv.writer(csvfile, delimiter='\t',  escapechar=' ', 
-                                quoting=csv.QUOTE_NONE)               
-        filewriter.writerow([exectresult])
-
     return exectresult
-
-
-
-def getFailingTestDiagnostic(failingtest,program_path):
-    testclass = failingtest.split("::")[0]
-
-    cmd = "cd " + program_path + ";"
-    cmd += "gtimeout 500  /Users/sophie/Documents/newD4J/defects4j/framework/bin/defects4j monitor.test -t "+failingtest
-    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-    print(result)
-    cmd = program_path+'/build-tests:'+'./lib/hamcrest-core-1.3.jar:./lib/junit-4.12.jar org.junit.runner.JUnitCore '+  failingtest.split("::")[0]
-    
-    if 'failed!' in str(result) :
-        result = str(result).split('failed!')[1]
-        if testclass in str(result):
-            result = str(result).split(testclass)[1]
-            if '):' in str(result):
-                result = str(result).split('):')[1]
-                if '\\' in str(result):
-                    result = str(result).split('\\')[0]
-    else:
-        result =''
-
-    if 'null' in result and result in 'null':
-        result = 'NullPointerException'
-    elif 'expected' in result and 'but' in result:
-        result =  'AssertionFailedError  ' +result
-    elif 'Size' in result and 'Index' in result:
-        result =  'IndexOutOfBoundsException ' + result
-    elif 'Requires' in result :
-        result =  'IllegalArgumentException ' + result
-    
-    return str(result)
-
-
-
-def getFailingTestSourceCode(failingtest,program_path):
-    print('&&&&&&&program_path&&&&&'+program_path)
-    if os.path.exists((program_path+'/tests')):
-        program_path = program_path+'/tests/'
-    elif os.path.exists(program_path+'/test'):
-        program_path = program_path+'/test/'
-    elif os.path.exists(program_path+'/src/test/java'):
-        program_path = program_path+'/src/test/java/'
-    elif os.path.exists(program_path+'/src/test'):
-        program_path = program_path+'/src/test/'
-    elif os.path.exists(program_path+'/gson/src/test/java'):
-        program_path = program_path+'/gson/src/test/java/'
-    
-    testclass = failingtest.split("::")[0]
-    testmethod = failingtest.split("::")[1]
-    testclass=testclass.replace('.','/')
-    testclass = testclass+'.java'
-
-    fullpath = program_path+testclass
-
-    
-    startflag=False
-    code =''
-    with open(fullpath,'r',encoding='latin1') as codefile:
-        lines=codefile.readlines()
-        for l in lines:
-            if 'public' in l  and 'void' in l and testmethod in l:
-                startflag=True
-            if 'public' in l and 'void' in l and testmethod not in l:
-                startflag=False
-            if startflag:
-                if 'assert' in l:
-                    l = l.strip()
-                    if l not in code:
-                        code=l
-    return code
-
-
-
-
-
 
 
 
 if __name__ == '__main__':
 
     global countindex
-    countindex=2138
-    # 'Chart-26','Math-106','Closure-1', 'Cli-1',  'Codec-1','Compress-1', 'Csv-1',  'Gson-1','JacksonCore-1','JacksonDatabind-1','JacksonXml-1',
-#    '1-25','98-105','170-176','7-40',  '15-18',  '2-47', '2-16',   '17-18','2-26','2-112','2-6',
-    bugIds = [ 'Jsoup-1','JxPath-1','Mockito-38','Time-26','Lang-65','Collections-25']
-    bugNos = [ '72-93','2-22','1-37','22-25','3-64','26-28' ]
+    countindex=497
 
+    bugIds = ['Chart-26','Math-106','Lang-65','Cli-1','Closure-134','Codec-1','Mockito-38','Jsoup-1','JacksonDatabind-1','JacksonCore-1','Compress-1','Collections-25','Time-26','JacksonXml-1','Gson-1','Csv-1','JxPath-1']   
+    bugNos = ['1-25','1-105','1-64','2-40','1-170','2-18','1-37','2-93','2-112','2-26','2-47','26-28','1-27','2-6','2-18','2-16','2-22',]
     
-    rootdir= 'your/project/patch/'
+    rootdir= '/path/to/SelfAPR'
     repodir = rootdir+'/'
 
-    for i in range(5,6):
+    for i in range(0,17):
         proj=bugIds[i]
         project=proj.split('-')[0]
         bugNo = bugNos[i]
@@ -321,6 +275,9 @@ if __name__ == '__main__':
             bugId = project+'_'+str(i)
             if os.path.exists(repodir+'/'+bugId):
                 os.system('rm -rf '+repodir+'/'+bugId)
-            os.system('/Users/sophie/Documents/newD4J/defects4j/framework/bin/defects4j checkout -p '+ str(project)+' -v '+str(i)+'b   -w '+repodir+'/'+bugId)
-
-            start(bugId,repodir,rootdir)
+            os.system('rm -rf '+repodir+'/'+project+'*')
+            try:
+                os.system('defects4j checkout -p '+ str(project)+' -v '+str(i)+'b   -w '+repodir+'/'+bugId)
+                start(bugId,repodir,rootdir)
+            except (RuntimeError, TypeError, NameError,FileNotFoundError):
+                print(RuntimeError)

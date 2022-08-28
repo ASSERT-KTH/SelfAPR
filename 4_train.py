@@ -38,22 +38,22 @@ def training(generator, gen_opt, gen_tokenizer, adv_loader, device,epoch):
             gen_opt.step()
 
             #we record the training log
-            if _%300 == 0:
+            if _%1000 == 0:
                 recordDataSimple(epoch,str(_),loss)
 
-            if _%8000 == 0:
-                generator.save_pretrained('./model/SelfAPR'+str(epoch+1))
-                gen_tokenizer.save_pretrained('./model/SelfAPR'+str(epoch+1))
+            if _%5000 == 0:
+                generator.save_pretrained('./model_SelfAPR/SelfAPR'+str(epoch+1))
+                gen_tokenizer.save_pretrained('./model_SelfAPR/SelfAPR'+str(epoch+1))
             
 
 
 def recordData(epoch, bugid, crossEntropLoss, reward, preds, groundTruth):
-    with open('./training_log.csv', 'a') as csvfile:
+    with open('./training_log_selfaprALL.csv', 'a') as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',quotechar='"',quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow([epoch, bugid, crossEntropLoss, reward, preds,groundTruth])
 
 def recordDataSimple(epoch,count, loss):
-    with open('./training_log.csv', 'a') as csvfile:
+    with open('./training_log_selfaprALL.csv', 'a') as csvfile:
         filewriter = csv.writer(csvfile, delimiter='\t',quotechar='"',quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow([epoch, count, loss])
 
@@ -123,7 +123,7 @@ def test(tokenizer, model, device, loader,epoch):
             generated_ids = model.generate(
                 input_ids = ids,
                 attention_mask = mask, 
-                max_length=150, 
+                max_length=100, 
                 num_beams=100,
                 repetition_penalty=5.0, 
                 length_penalty=1.0, 
@@ -174,37 +174,33 @@ def run_training(epoch):
         gen_tokenizer.add_tokens(['{', '}','<','^','<=','>=','==','!=','<<','>>','[PATCH]','[BUG]','[CE]','[FE]','[CONTEXT]','[BUGGY]','[CLASS]','[METHOD]','[RETURN_TYPE]','[VARIABLES]','[Delete]'])
 
     else:
-        gen = T5ForConditionalGeneration.from_pretrained('./model/SelfAPR'+str(epoch), output_hidden_states=True)      
-        gen_tokenizer = T5Tokenizer.from_pretrained('./model/SelfAPR'+str(epoch),truncation=True)
+        gen = T5ForConditionalGeneration.from_pretrained('./model_SelfAPR/SelfAPR'+str(epoch), output_hidden_states=True)      
+        gen_tokenizer = T5Tokenizer.from_pretrained('./model_SelfAPR/SelfAPR'+str(epoch),truncation=True)
                 
     gen = gen.to(device)
     gen_optimizer = torch.optim.Adam(params = gen.parameters(), lr=LEARNING_RATE)
 
 
-    adv_loader=getGeneratorDataLoader(TRAIN_PATH,gen_tokenizer,11)   
+    adv_loader=getGeneratorDataLoader(TRAIN_PATH,gen_tokenizer,32)   
 
 
     print('\n--------\nEPOCH %d\n--------' % (epoch+1))
     print('\nTraining Generator : ', end='')
     training(gen, gen_optimizer, gen_tokenizer, adv_loader, device, epoch)         
 
-    gen.save_pretrained('./model/SelfAPR'+str(epoch+1))
-    gen_tokenizer.save_pretrained('./model/SelfAPR'+str(epoch+1))
-
-        
-        
-        
+    gen.save_pretrained('./model_SelfAPR/SelfAPR'+str(epoch+1))
+    gen_tokenizer.save_pretrained('./model_SelfAPR/SelfAPR'+str(epoch+1))      
         
         
 if __name__ == '__main__':
     warnings.filterwarnings('ignore')
     SEED=42
-    TRAIN_EPOCHS = 15
+    TRAIN_EPOCHS = 10
     LEARNING_RATE = 1e-4
-    MAX_LEN = 256
+    MAX_LEN = 384
     PATCH_LEN = 76 
     device = 'cuda' if cuda.is_available() else 'cpu'
-    TRAIN_PATH= './SelfAPR/Samples_SelfAPR/train.csv'
+    TRAIN_PATH= './dataset/SelfAPR.csv'
     
     for epoch in range(0,TRAIN_EPOCHS):
         run_training(epoch)

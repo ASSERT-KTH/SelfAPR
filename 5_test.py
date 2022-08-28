@@ -15,13 +15,13 @@ import sys, subprocess,fnmatch, shutil, csv,re, datetime
 
 
 def getBugName(bugid):
-    
+    print(bugid)
     bugid=str(bugid).replace(' ','')
     buginfo=''
     startNo=''
     removeNo=''
     filepath=''
-    with open('test.csv') as testfile:
+    with open(TEST_PATH) as testfile:
         lines = testfile.readlines()
         for l in lines:
             bid=l.split('\t')[0]
@@ -31,9 +31,12 @@ def getBugName(bugid):
                 buginfo=buginfo.replace('\n','').replace('\t','').replace('\r','')
                 startNo=l.split('\t')[4]
                 removeNo=l.split('\t')[5]
-                filepath=l.split('\t')[6]
-                filepath=filepath.replace('\n','').replace('\t','').replace('\r','')
-
+                infos = l.split('\t')
+                if len(infos) > 6:
+                    filepath=l.split('\t')[6]
+                    filepath=filepath.replace('\n','').replace('\t','').replace('\r','')
+                else:
+                    filepath=''
                 break
     
     
@@ -48,7 +51,7 @@ def getBugName(bugid):
         
 def test( model, tokenizer, device, loader,epoch):
     
-    return_sequences = 100
+    return_sequences = 50
     model.eval()
     identicalset=[]
     
@@ -83,38 +86,11 @@ def test( model, tokenizer, device, loader,epoch):
                 
                 bugname,startNo,removeNo,filepath  = getBugName(bugid.item())
 
-                with open('./test_result_small'+str(return_sequences)+'.csv', 'a') as csvfile:
+                with open('./raw_results.csv', 'a') as csvfile:
                     filewriter = csv.writer(csvfile, delimiter='\t',escapechar=' ',quoting=csv.QUOTE_NONE)
+                   
                     for i in range(0,return_sequences):
-                        pr = preds[i]
-                        pr=pr.replace('\n','').replace('\r','').replace('\t','').replace(' ','')
-                        targetTrim=target.replace('\n','').replace('\r','').replace('\t','').replace(' ','')                       
-                            
-                        
-                        if targetTrim in '' and pr in '[REMOVE]':
-                            identicalset.append(bugname+'\t'+pr+'\t'+targetTrim)
-                        elif targetTrim in 'nan' and pr in '[REMOVE]':
-                            identicalset.append(bugname+'\t'+pr+'\t'+targetTrim)
-                        elif targetTrim not in '[REMOVE]':
-                            targetTrimNoST=targetTrim
-                            if '[ADD]' in targetTrim:
-                                targetTrimNoST=targetTrim.replace('[ADD]','')
-                            if '[REPLACE]' in targetTrim:
-                                targetTrimNoST=targetTrim.replace('[REPLACE]','')
-                            if targetTrimNoST in pr and pr in targetTrimNoST:
-                                identicalset.append(bugname+'\t'+pr+'\t'+targetTrim)
-                     
-                            
                         filewriter.writerow([bugname, startNo,removeNo,filepath,preds[i],target])
-      
-    identicalset = list(dict.fromkeys(identicalset))
-    print(identicalset)
-    with open('./identical-Top-'+str(return_sequences)+'.csv', 'a') as stat:
-        stat.write(str(len(identicalset))+'\n')
-        for l in identicalset:
-            l=l.replace('\n','').replace('\r','')
-            stat.write(str(l)+'\n')
-
 
 
 
@@ -126,7 +102,7 @@ def getGeneratorDataLoader(filepatch,tokenizer,batchsize):
     df = pd.read_csv(filepatch,encoding='latin-1',delimiter='\t')
     print(df.head(1))
     
-    df = df[['bugid','buggy','patch']]
+    df = df[['bugid','patch','buggy']]
 
     params = {
         'batch_size': batchsize,
@@ -143,29 +119,27 @@ def getGeneratorDataLoader(filepatch,tokenizer,batchsize):
 
 
 def run_test(epoch):
-    gen = T5ForConditionalGeneration.from_pretrained('./model/SUPRE15',output_hidden_states=True)      
-    
-    gen_tokenizer = T5Tokenizer.from_pretrained('./model/SUPRE15',truncation=True)
-    gen_tokenizer.add_tokens(['{', '}','<','^','<=','>=','==','!=','<<','>>','[ADD]','[REMOVE]','[REPLACE]','[CE]','[FE]','[CONTEXT]','[BUGGY]','[CLASS]','[TYPE]','[METHOD]','[PARAMETER]','[PATCH]'])
-    
-    gen = gen.to(device)       
-
-    test_loader=getGeneratorDataLoader(TEST_PATH,gen_tokenizer,1) 
-    
-    test(gen,gen_tokenizer,  device, test_loader, epoch+1)
-        
-        
+      
+    for i in range(0,10):
+        gen = T5ForConditionalGeneration.from_pretrained('./model_SelfAPR_ALL/SelfAPR'+str(i+1),output_hidden_states=True)       
+        gen_tokenizer = T5Tokenizer.from_pretrained('./model_SelfAPR_ALL/SelfAPR'+str(i+1),truncation=True)
+        gen_tokenizer.add_tokens(['[PATCH]','[BUG]','{', '}','<','^','<=','>=','==','!=','<<','>>','[CE]','[FE]','[CONTEXT]','[BUGGY]','[CLASS]','[METHOD]','[RETURN_TYPE]','[VARIABLES]','[Delete]'])   
+        gen = gen.to(device)       
+        test_loader=getGeneratorDataLoader(TEST_PATH,gen_tokenizer,1)
+        test(gen, gen_tokenizer, device, test_loader, epoch+1)
+          
         
 if __name__ == '__main__':
     warnings.filterwarnings('ignore')
     SEED=42
     LEARNING_RATE = 1e-4
     VALID_BATCH_SIZE = 1
-    MAX_LEN = 768
-    PATCH_LEN = 128 
+    MAX_LEN = 384
+    PATCH_LEN = 76 
     device = 'cuda' if cuda.is_available() else 'cpu'
 
-    TEST_PATH='./test.csv'
+    TEST_PATH='./dataset/test.csv'
         
     run_test(0)
+
 
