@@ -8,7 +8,7 @@
 │ 
 ├── Samples_BugLab: the generated perturbation-based samples with four BugLab repair actions
 │ 
-├── Samples_BugLab: the generated perturbation-based samples with 16 SelfAPR repair actions
+├── Samples_SelfAPR: the generated perturbation-based samples with 16 SelfAPR repair actions
 │   
 ├── Dataset
 │   ├── SelfAPR.csv.tar.gz : the dataset used to train SelfAPR model
