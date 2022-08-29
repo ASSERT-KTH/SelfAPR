@@ -43,19 +43,16 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
  ```
  
+For python, install the prerequisities with:
 
+   pip3 install -r requirements.txt
  
-## Go to the perturbation_model folder to check the source code and build the model:
+## Building the Java code
 
-##### We upload the build jar package on Zenodo. Download the jar file and execute it as below.
-```
-https://doi.org/10.5281/zenodo.6582348
-java -jar ./perturbation_model/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar Your/JAVA/FILE/PATH Options=SelfAPR|BugLab|test-'buggyLineNo'
-```
 ##### Check the source code and build the package as below.
 
  ```
-cd perturbation
+cd perturbation_model
 mvn package assembly:single
 ```
 Please check perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar under perturbation_model/target folder.
@@ -69,7 +66,11 @@ With option test: we extract context information for testing samples.
 
 ```
 
-
+##### We also uploaded a jar package on Zenodo. Download the jar file and execute it as below.
+```
+https://doi.org/10.5281/zenodo.6582348
+java -jar ./perturbation_model/target/perturbation-0.0.1-SNAPSHOT-jar-with-dependencies.jar Your/JAVA/FILE/PATH Options=SelfAPR|BugLab|test-'buggyLineNo'
+```
 
 
 
