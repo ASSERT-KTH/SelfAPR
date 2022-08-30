@@ -18,7 +18,7 @@
 │   ├── test.csv : the testing set from Defects4j bug dataset
 │ 
 ├── result 
-│   ├──result.csv : the correctly generated patches by SelfAPR trained model.
+│   ├──defects4j-patches.txt : the correctly generated patches by SelfAPR trained model.
 │   ├──patch_execution_result.csv : the execution results for patches generated for test set.
 │   ├──valid_patches.csv : the patches classified as plausible or identical to the human-written patches.
 └──  
