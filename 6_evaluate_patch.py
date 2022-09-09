@@ -168,11 +168,11 @@ if __name__ == '__main__':
                     groundtruthNoSpace=''
                 if preditNoSpace in groundtruthNoSpace and groundtruthNoSpace in preditNoSpace:
                     with open(patchToPath,'a') as targetFile:
-                        targetFile.write('Identical\t'+str(i))+'\t'+patch)
+                        targetFile.write('Identical\t'+str(i)+'\t'+patch)
                 else:
                     exeresult = executePatch(projectId,bugId,startNo,removedNo,path,predit,repodir)
                     with open(patchToPath,'a') as targetFile:
-                        targetFile.write(exeresult+'\t'+str(i))+'\t'+patch)
+                        targetFile.write(exeresult+'\t'+str(i)+'\t'+patch)
             except (IndexError, RuntimeError, TypeError, NameError,FileNotFoundError):
                 print(RuntimeError)
                 

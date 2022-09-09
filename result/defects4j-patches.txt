@@ -4814,7 +4814,7 @@ Plausible   Lang_45_WordUtils_1_1
 src/java/org/apache/commons/lang/WordUtils.java 619 
 +  if(upper  >  0  &&  lower  >=  str.length())  {  lower  =  str.length();  }
 [Human-written Patch]
-+if(lower  >=  upper)  {
+if (lower > str.length()) {   lower = str.length(); }         
 ************************************************************************************************************************
 
 Plausible   Codec_2_Base64_1_1 
