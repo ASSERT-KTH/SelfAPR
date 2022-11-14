@@ -1,5 +1,14 @@
 # SelfAPR: Self-supervised Program Repair with Test Execution Diagnostics
 
+```bibtex
+@inproceedings{selfAPR2022,
+ title = {SelfAPR: Self-supervised Program Repair with Test Execution Diagnostics},
+ booktitle = {Proceedings of ASE},
+ year = {2022},
+ author = {He Ye and Matias Martinez and Xiapu Luo and Tao Zhang and Martin Monperrus},
+ url = {http://arxiv.org/pdf/2203.12755},
+}
+```
 
 
 ## Folder Structure
