@@ -3,10 +3,13 @@
 ```bibtex
 @inproceedings{selfAPR2022,
  title = {SelfAPR: Self-supervised Program Repair with Test Execution Diagnostics},
- booktitle = {Proceedings of ASE},
+ author = {Ye, He and Martinez, Matias and Luo, Xiapu and Zhang, Tao and Monperrus, Martin},
  year = {2022},
- author = {He Ye and Matias Martinez and Xiapu Luo and Tao Zhang and Martin Monperrus},
- url = {http://arxiv.org/pdf/2203.12755},
+ booktitle = {37th IEEE/ACM International Conference on Automated Software Engineering},
+ articleno = {92},
+ numpages = {13},
+ publisher = {Association for Computing Machinery},
+ series = {ASE22}
 }
 ```
 
