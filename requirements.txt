@@ -1,0 +1,5 @@
+transformers==4.33.0
+torch==1.13.1
+sentencepiece==0.1.99
+pandas
+numpy
