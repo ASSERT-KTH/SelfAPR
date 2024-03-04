@@ -1,0 +1,837 @@
+1	Chart_1	source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java		
+2	Chart_2	source/org/jfree/data/general/DatasetUtilities.java		
+3	Chart_3	source/org/jfree/data/time/TimeSeries.java		
+4	Chart_4	source/org/jfree/chart/plot/XYPlot.java		
+5	Chart_5	source/org/jfree/data/xy/XYSeries.java		
+6	Chart_6	source/org/jfree/chart/util/ShapeList.java		
+7	Chart_7	source/org/jfree/data/time/TimePeriodValues.java		
+8	Chart_8	source/org/jfree/data/time/Week.java		
+9	Chart_9	source/org/jfree/data/time/TimeSeries.java		
+10	Chart_10	source/org/jfree/chart/imagemap/StandardToolTipTagFragmentGenerator.java		
+11	Chart_11	source/org/jfree/chart/util/ShapeUtilities.java		
+12	Chart_12	source/org/jfree/chart/plot/MultiplePiePlot.java		
+13	Chart_13	source/org/jfree/chart/block/BorderArrangement.java		
+14	Chart_14	source/org/jfree/chart/plot/CategoryPlot,source/org/jfree/chart/plot/XYPlot.java		
+15	Chart_15	source/org/jfree/chart/plot/PiePlot.java		
+16	Chart_16	source/org/jfree/data/category/DefaultIntervalCategoryDataset.java		
+17	Chart_17	source/org/jfree/data/time/TimeSeries.java		
+18	Chart_18	source/org/jfree/data/DefaultKeyedValues,org/jfree/data/DefaultKeyedValues2D.java		
+19	Chart_19	source/org/jfree/chart/plot/CategoryPlot.java		
+20	Chart_20	source/org/jfree/chart/plot/ValueMarker.java		
+21	Chart_21	source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java		
+22	Chart_22	source/org/jfree/data/KeyedObjects2D.java		
+23	Chart_23	source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java		
+24	Chart_24	source/org/jfree/chart/renderer/GrayPaintScale.java		
+25	Chart_25	source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java		
+26	Chart_26	source/org/jfree/chart/axis/Axis.java		
+27	Cli_1	src/java/org/apache/commons/cli/CommandLine.java		
+28	Cli_2	src/java/org/apache/commons/cli/PosixParser.java	305	replace-2
+29	Cli_3	src/java/org/apache/commons/cli/TypeHandler.java		
+30	Cli_4	src/java/org/apache/commons/cli/Parser.java	298	replace-1
+31	Cli_5	src/java/org/apache/commons/cli/Util.java	36	add
+32	Cli_7	src/java/org/apache/commons/cli2/builder/PatternBuilder.java		
+33	Cli_8	src/java/org/apache/commons/cli/HelpFormatter.java	812	replace-1
+34	Cli_9	src/java/org/apache/commons/cli/Parser.java	320	replace-1
+35	Cli_10	src/java/org/apache/commons/cli/Parser.java		
+36	Cli_11	src/java/org/apache/commons/cli/HelpFormatter.java	632	replace-1
+37	Cli_12	src/java/org/apache/commons/cli/GnuParser.java	81	replace-1
+38	Cli_13	src/java/org/apache/commons/cli2/WriteableCommandLine,org/apache/commons/cli2/commandline/WriteableCommandLineImpl,org/apache/commons/cli2/option/ArgumentImpl.java	47	add
+39	Cli_14	src/java/org/apache/commons/cli2/option/GroupImpl.java		
+40	Cli_15	src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java		
+41	Cli_16	src/java/org/apache/commons/cli2/Option,org/apache/commons/cli2/commandline/WriteableCommandLineImpl,org/apache/commons/cli2/option/GroupImpl,org/apache/commons/cli2/option/OptionImpl.java	74	add
+42	Cli_17	src/java/org/apache/commons/cli/PosixParser.java	303	add
+43	Cli_18	src/java/org/apache/commons/cli/PosixParser.java		
+44	Cli_19	src/java/org/apache/commons/cli/PosixParser.java	232	replace-2
+45	Cli_20	src/java/org/apache/commons/cli/PosixParser.java	114	replace-4
+46	Cli_21	src/java/org/apache/commons/cli2/WriteableCommandLine,org/apache/commons/cli2/commandline/WriteableCommandLineImpl,org/apache/commons/cli2/option/GroupImpl.java		
+47	Cli_22	src/java/org/apache/commons/cli/PosixParser.java		
+48	Cli_23	src/java/org/apache/commons/cli/HelpFormatter.java		
+49	Cli_24	src/java/org/apache/commons/cli/HelpFormatter.java	825	replace-2
+50	Cli_25	src/java/org/apache/commons/cli/HelpFormatter.java	825	replace-1
+51	Cli_26	src/java/org/apache/commons/cli/OptionBuilder.java		
+52	Cli_27	src/java/org/apache/commons/cli/OptionGroup.java	98	replace-2
+53	Cli_28	src/java/org/apache/commons/cli/Parser.java	290	replace-1
+54	Cli_29	src/java/org/apache/commons/cli/Util.java	65	replace-6
+55	Cli_30	src/main/java/org/apache/commons/cli/DefaultParser,org/apache/commons/cli/Parser.java		
+56	Cli_31	src/main/java/org/apache/commons/cli/HelpFormatter,org/apache/commons/cli/Option,org/apache/commons/cli/OptionBuilder.java	653	replace-2
+57	Cli_32	src/main/java/org/apache/commons/cli/HelpFormatter.java	937	replace-5
+58	Cli_33	src/main/java/org/apache/commons/cli/HelpFormatter.java		
+59	Cli_34	src/main/java/org/apache/commons/cli/Option,src/main/java/org/apache/commons/cli/OptionBuilder.java	84	replace-1
+60	Cli_35	src/main/java/org/apache/commons/cli/Options.java	240	add
+61	Cli_36	src/main/java/org/apache/commons/cli/OptionGroup,org/apache/commons/cli/Options.java		
+62	Cli_37	src/main/java/org/apache/commons/cli/DefaultParser.java	302	replace-1
+63	Cli_38	src/main/java/org/apache/commons/cli/DefaultParser.java	310	replace-1
+64	Cli_39	src/main/java/org/apache/commons/cli/TypeHandler.java		
+65	Collections_25	src/main/java/org/apache/commons/collections4/IteratorUtils.java		
+66	Collections_26	src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java	277	replace-1
+67	Collections_27	src/main/java/org/apache/commons/collections4/map/MultiValueMap.java	568	add
+68	Collections_28	src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java	2262	add
+69	Closure_1	src/com/google/javascript/jscomp/RemoveUnusedVars.java		
+70	Closure_2	src/com/google/javascript/jscomp/TypeCheck.java		
+71	Closure_3	src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java		
+72	Closure_4	src/com/google/javascript/rhino/jstype/NamedType.java		
+73	Closure_5	src/com/google/javascript/jscomp/InlineObjectLiterals.java		
+74	Closure_6	src/com/google/javascript/jscomp/TypeValidator.java		
+75	Closure_7	src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java		
+76	Closure_8	src/com/google/javascript/jscomp/CollapseVariableDeclarations.java		
+77	Closure_9	src/com/google/javascript/jscomp/ProcessCommonJSModules.java		
+78	Closure_10	src/com/google/javascript/jscomp/NodeUtil.java		
+79	Closure_11	src/com/google/javascript/jscomp/TypeCheck.java		
+80	Closure_12	src/com/google/javascript/jscomp/MaybeReachingVariableUse.java		
+81	Closure_13	src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java		
+82	Closure_14	src/com/google/javascript/jscomp/ControlFlowAnalysis.java		
+83	Closure_15	src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java		
+84	Closure_16	src/com/google/javascript/jscomp/ScopedAliases.java		
+85	Closure_17	src/com/google/javascript/jscomp/TypedScopeCreator.java		
+86	Closure_18	src/com/google/javascript/jscomp/Compiler.java		
+87	Closure_19	src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java		
+88	Closure_20	src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java		
+89	Closure_21	src/com/google/javascript/jscomp/CheckSideEffects.java		
+90	Closure_22	src/com/google/javascript/jscomp/CheckSideEffects.java		
+91	Closure_23	src/com/google/javascript/jscomp/PeepholeFoldConstants.java		
+92	Closure_24	src/com/google/javascript/jscomp/ScopedAliases.java		
+93	Closure_25	src/com/google/javascript/jscomp/TypeInference.java		
+94	Closure_26	src/com/google/javascript/jscomp/ProcessCommonJSModules.java		
+95	Closure_27	src/com/google/javascript/rhino/IR.java		
+96	Closure_28	src/com/google/javascript/jscomp/InlineCostEstimator.java		
+97	Closure_29	src/com/google/javascript/jscomp/InlineObjectLiterals.java		
+98	Closure_30	src/com/google/javascript/jscomp/FlowSensitiveInlineVariables,com/google/javascript/jscomp/MustBeReachingVariableDef.java		
+99	Closure_31	src/com/google/javascript/jscomp/Compiler.java		
+100	Closure_32	src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java		
+101	Closure_33	src/com/google/javascript/rhino/jstype/PrototypeObjectType.java		
+102	Closure_34	src/com/google/javascript/jscomp/CodeGenerator,com/google/javascript/jscomp/CodePrinter.java		
+103	Closure_35	src/com/google/javascript/jscomp/TypeInference.java		
+104	Closure_36	src/com/google/javascript/jscomp/InlineVariables.java		
+105	Closure_37	src/com/google/javascript/jscomp/NodeTraversal,com/google/javascript/jscomp/parsing/IRFactory.java		
+106	Closure_38	src/com/google/javascript/jscomp/CodeConsumer.java		
+107	Closure_39	src/com/google/javascript/rhino/jstype/PrototypeObjectType.java		
+108	Closure_40	src/com/google/javascript/jscomp/NameAnalyzer.java		
+109	Closure_41	src/com/google/javascript/jscomp/FunctionTypeBuilder.java		
+110	Closure_42	src/com/google/javascript/jscomp/parsing/IRFactory.java		
+111	Closure_43	src/com/google/javascript/jscomp/TypedScopeCreator.java		
+112	Closure_44	src/com/google/javascript/jscomp/CodeConsumer.java		
+113	Closure_45	src/com/google/javascript/jscomp/RemoveUnusedVars.java		
+114	Closure_46	src/com/google/javascript/rhino/jstype/RecordType.java		
+115	Closure_47	src/com/google/debugging/sourcemap/SourceMapConsumerV3,com/google/javascript/jscomp/SourceMap.java		
+116	Closure_48	src/com/google/javascript/jscomp/TypedScopeCreator.java		
+117	Closure_49	src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java		
+118	Closure_50	src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java		
+119	Closure_51	src/com/google/javascript/jscomp/CodeConsumer.java		
+120	Closure_52	src/com/google/javascript/jscomp/CodeGenerator.java		
+121	Closure_53	src/com/google/javascript/jscomp/InlineObjectLiterals.java		
+122	Closure_54	src/com/google/javascript/jscomp/TypedScopeCreator,com/google/javascript/rhino/jstype/FunctionType.java		
+123	Closure_55	src/com/google/javascript/jscomp/FunctionRewriter.java		
+124	Closure_56	src/com/google/javascript/jscomp/SourceFile.java		
+125	Closure_57	src/com/google/javascript/jscomp/ClosureCodingConvention.java		
+126	Closure_58	src/com/google/javascript/jscomp/LiveVariablesAnalysis.java		
+127	Closure_59	src/com/google/javascript/jscomp/Compiler.java		
+128	Closure_60	src/com/google/javascript/jscomp/NodeUtil.java		
+129	Closure_61	src/com/google/javascript/jscomp/NodeUtil.java		
+130	Closure_62	src/com/google/javascript/jscomp/LightweightMessageFormatter.java		
+131	Closure_64	src/com/google/javascript/jscomp/Compiler.java		
+132	Closure_65	src/com/google/javascript/jscomp/CodeGenerator.java		
+133	Closure_66	src/com/google/javascript/jscomp/TypeCheck.java		
+134	Closure_67	src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java		
+135	Closure_68	src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java		
+136	Closure_69	src/com/google/javascript/jscomp/TypeCheck.java		
+137	Closure_70	src/com/google/javascript/jscomp/TypedScopeCreator.java		
+138	Closure_71	src/com/google/javascript/jscomp/CheckAccessControls.java		
+139	Closure_72	src/com/google/javascript/jscomp/FunctionToBlockMutator,com/google/javascript/jscomp/RenameLabels.java		
+140	Closure_73	src/com/google/javascript/jscomp/CodeGenerator.java		
+141	Closure_74	src/com/google/javascript/jscomp/PeepholeFoldConstants.java		
+142	Closure_75	src/com/google/javascript/jscomp/NodeUtil.java		
+143	Closure_76	src/com/google/javascript/jscomp/DeadAssignmentsElimination.java		
+144	Closure_77	src/com/google/javascript/jscomp/CodeGenerator.java		
+145	Closure_78	src/com/google/javascript/jscomp/PeepholeFoldConstants.java		
+146	Closure_79	src/com/google/javascript/jscomp/Normalize,src/com/google/javascript/jscomp/VarCheck.java		
+147	Closure_80	src/com/google/javascript/jscomp/NodeUtil.java		
+148	Closure_81	src/com/google/javascript/jscomp/parsing/IRFactory.java		
+149	Closure_82	src/com/google/javascript/rhino/jstype/JSType.java		
+150	Closure_83	src/com/google/javascript/jscomp/CommandLineRunner.java		
+151	Closure_84	src/com/google/javascript/jscomp/parsing/IRFactory.java		
+152	Closure_85	src/com/google/javascript/jscomp/UnreachableCodeElimination.java		
+153	Closure_86	src/com/google/javascript/jscomp/NodeUtil.java		
+154	Closure_87	src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java		
+155	Closure_88	src/com/google/javascript/jscomp/DeadAssignmentsElimination.java		
+156	Closure_89	src/com/google/javascript/jscomp/CollapseProperties,src/com/google/javascript/jscomp/GlobalNamespace.java		
+157	Closure_90	src/com/google/javascript/jscomp/FunctionTypeBuilder,src/com/google/javascript/rhino/jstype/FunctionType.java		
+158	Closure_91	src/com/google/javascript/jscomp/CheckGlobalThis.java		
+159	Closure_92	src/com/google/javascript/jscomp/ProcessClosurePrimitives.java		
+160	Closure_94	src/com/google/javascript/jscomp/NodeUtil.java		
+161	Closure_95	src/com/google/javascript/jscomp/TypedScopeCreator.java		
+162	Closure_96	src/com/google/javascript/jscomp/TypeCheck.java		
+163	Closure_97	src/com/google/javascript/jscomp/PeepholeFoldConstants.java		
+164	Closure_98	src/com/google/javascript/jscomp/ReferenceCollectingCallback.java		
+165	Closure_99	src/com/google/javascript/jscomp/CheckGlobalThis.java		
+166	Closure_100	src/com/google/javascript/jscomp/CheckGlobalThis.java		
+167	Closure_101	src/com/google/javascript/jscomp/CommandLineRunner.java		
+168	Closure_102	src/com/google/javascript/jscomp/Normalize.java		
+169	Closure_103	src/com/google/javascript/jscomp/ControlFlowAnalysis,com/google/javascript/jscomp/DisambiguateProperties.java		
+170	Closure_104	src/com/google/javascript/rhino/jstype/UnionType.java		
+171	Closure_105	src/com/google/javascript/jscomp/FoldConstants.java		
+172	Closure_106	src/com/google/javascript/jscomp/GlobalNamespace,src/com/google/javascript/rhino/JSDocInfoBuilder.java		
+173	Closure_107	src/com/google/javascript/jscomp/CommandLineRunner.java		
+174	Closure_108	src/com/google/javascript/jscomp/ScopedAliases.java		
+175	Closure_109	src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java		
+176	Closure_110	src/com/google/javascript/jscomp/ScopedAliases,com/google/javascript/rhino/Node.java		
+177	Closure_111	src/com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java		
+178	Closure_112	src/com/google/javascript/jscomp/TypeInference.java		
+179	Closure_113	src/com/google/javascript/jscomp/ProcessClosurePrimitives.java		
+180	Closure_114	src/com/google/javascript/jscomp/NameAnalyzer.java		
+181	Closure_115	src/com/google/javascript/jscomp/FunctionInjector.java		
+182	Closure_116	src/com/google/javascript/jscomp/FunctionInjector.java		
+183	Closure_117	src/com/google/javascript/jscomp/TypeValidator.java		
+184	Closure_118	src/com/google/javascript/jscomp/DisambiguateProperties.java		
+185	Closure_119	src/com/google/javascript/jscomp/GlobalNamespace.java		
+186	Closure_120	src/com/google/javascript/jscomp/ReferenceCollectingCallback.java		
+187	Closure_121	src/com/google/javascript/jscomp/InlineVariables.java		
+188	Closure_122	src/com/google/javascript/jscomp/parsing/IRFactory.java		
+189	Closure_123	src/com/google/javascript/jscomp/CodeGenerator.java		
+190	Closure_124	src/com/google/javascript/jscomp/ExploitAssigns.java		
+191	Closure_125	src/com/google/javascript/jscomp/TypeCheck.java		
+192	Closure_126	src/com/google/javascript/jscomp/MinimizeExitPoints.java		
+193	Closure_127	src/com/google/javascript/jscomp/UnreachableCodeElimination.java		
+194	Closure_128	src/com/google/javascript/jscomp/CodeGenerator.java		
+195	Closure_129	src/com/google/javascript/jscomp/PrepareAst.java		
+196	Closure_130	src/com/google/javascript/jscomp/CollapseProperties.java		
+197	Closure_131	src/com/google/javascript/rhino/TokenStream.java		
+198	Closure_132	src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java		
+199	Closure_133	src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java		
+200	Closure_134	src/com/google/javascript/jscomp/AmbiguateProperties,com/google/javascript/jscomp/TypedScopeCreator.java		
+201	Closure_135	src/com/google/javascript/jscomp/DevirtualizePrototypeMethods,com/google/javascript/rhino/jstype/FunctionType.java		
+202	Closure_136	src/com/google/javascript/jscomp/MethodCompilerPass,com/google/javascript/jscomp/RenameVars.java		
+203	Closure_137	src/com/google/javascript/jscomp/MakeDeclaredNamesUnique,com/google/javascript/jscomp/NodeUtil,com/google/javascript/jscomp/Normalize.java		
+204	Closure_138	src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter,com/google/javascript/jscomp/TypeInference.java		
+205	Closure_139	src/com/google/javascript/jscomp/Normalize.java		
+206	Closure_140	src/com/google/javascript/jscomp/Compiler.java		
+207	Closure_141	src/com/google/javascript/jscomp/NodeUtil,com/google/javascript/jscomp/PureFunctionIdentifier.java		
+208	Closure_142	src/com/google/javascript/jscomp/CoalesceVariableNames,com/google/javascript/jscomp/parsing/JsDocInfoParser.java		
+209	Closure_143	src/com/google/javascript/jscomp/AbstractCommandLineRunner,com/google/javascript/jscomp/RemoveConstantExpressions.java		
+210	Closure_144	src/com/google/javascript/jscomp/FunctionTypeBuilder,com/google/javascript/jscomp/TypedScopeCreator,com/google/javascript/rhino/jstype/FunctionBuilder,com/google/javascript/rhino/jstype/FunctionType.java		
+211	Closure_145	src/com/google/javascript/jscomp/CodeGenerator.java		
+212	Closure_146	src/com/google/javascript/rhino/jstype/JSType.java		
+213	Closure_147	src/com/google/javascript/jscomp/CheckGlobalThis,com/google/javascript/jscomp/RuntimeTypeCheck.java		
+214	Closure_148	src/com/google/javascript/jscomp/PeepholeFoldConstants,com/google/javascript/jscomp/SourceMap.java		
+215	Closure_149	src/com/google/javascript/jscomp/AbstractCommandLineRunner,com/google/javascript/jscomp/CommandLineRunner,com/google/javascript/jscomp/Compiler,com/google/javascript/jscomp/CompilerOptions.java		
+216	Closure_150	src/com/google/javascript/jscomp/TypedScopeCreator.java		
+217	Closure_151	src/com/google/javascript/jscomp/CommandLineRunner.java		
+218	Closure_152	src/com/google/javascript/rhino/jstype/FunctionType.java		
+219	Closure_153	src/com/google/javascript/jscomp/Normalize,com/google/javascript/jscomp/SyntacticScopeCreator.java		
+220	Closure_154	src/com/google/javascript/jscomp/TypeCheck,com/google/javascript/jscomp/TypeValidator.java		
+221	Closure_155	src/com/google/javascript/jscomp/InlineVariables,com/google/javascript/jscomp/ReferenceCollectingCallback,com/google/javascript/jscomp/Scope.java		
+222	Closure_156	src/com/google/javascript/jscomp/CollapseProperties.java		
+223	Closure_157	src/com/google/javascript/jscomp/CodeGenerator,com/google/javascript/jscomp/parsing/IRFactory,com/google/javascript/jscomp/RenamePrototypes.java		
+224	Closure_158	src/com/google/javascript/jscomp/AbstractCommandLineRunner,com/google/javascript/jscomp/CommandLineRunner,com/google/javascript/jscomp/DiagnosticGroups.java		
+225	Closure_159	src/com/google/javascript/jscomp/InlineFunctions.java		
+226	Closure_160	src/com/google/javascript/jscomp/Compiler.java		
+227	Closure_161	src/com/google/javascript/jscomp/PeepholeFoldConstants.java		
+228	Closure_162	src/com/google/javascript/jscomp/Scope,com/google/javascript/jscomp/ScopedAliases.java		
+229	Closure_163	src/com/google/javascript/jscomp/AnalyzePrototypeProperties,com/google/javascript/jscomp/CrossModuleMethodMotion.java		
+230	Closure_164	src/com/google/javascript/rhino/jstype/ArrowType.java		
+231	Closure_165	src/com/google/javascript/rhino/jstype/JSTypeRegistry,com/google/javascript/rhino/jstype/ObjectType,com/google/javascript/rhino/jstype/RecordType,com/google/javascript/rhino/jstype/RecordTypeBuilder.java		
+232	Closure_166	src/com/google/javascript/rhino/jstype/PrototypeObjectType.java		
+233	Closure_167	src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter,com/google/javascript/rhino/jstype/JSType.java		
+234	Closure_168	src/com/google/javascript/jscomp/TypedScopeCreator.java		
+235	Closure_169	src/com/google/javascript/rhino/jstype/ArrowType,com/google/javascript/rhino/jstype/EquivalenceMethod,com/google/javascript/rhino/jstype/FunctionType,com/google/javascript/rhino/jstype/JSType,com/google/javascript/rhino/jstype/RecordType,com/google/javascript/rhino/jstype/UnionType.java		
+236	Closure_170	src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java		
+237	Closure_171	src/com/google/javascript/jscomp/TypeInference,com/google/javascript/jscomp/TypedScopeCreator.java		
+238	Closure_172	src/com/google/javascript/jscomp/TypedScopeCreator.java		
+239	Closure_173	src/com/google/javascript/jscomp/CodeGenerator,com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java		
+240	Closure_174	src/com/google/javascript/jscomp/JsAst,com/google/javascript/jscomp/NodeUtil,com/google/javascript/jscomp/ScopedAliases.java		
+241	Closure_175	src/com/google/javascript/jscomp/FunctionInjector.java		
+242	Closure_176	src/com/google/javascript/jscomp/TypeInference.java		
+243	Codec_1	src/java/org/apache/commons/codec/language/Caverphone,org/apache/commons/codec/language/Metaphone,org/apache/commons/codec/language/SoundexUtils.java	88	replace-1
+244	Codec_2	src/java/org/apache/commons/codec/binary/Base64.java	446	replace-1
+245	Codec_3	src/java/org/apache/commons/codec/language/DoubleMetaphone.java	455	replace-1
+246	Codec_4	src/java/org/apache/commons/codec/binary/Base64.java	225	replace-1
+247	Codec_5	src/java/org/apache/commons/codec/binary/Base64.java	586	add
+248	Codec_6	src/java/org/apache/commons/codec/binary/Base64InputStream.java		
+249	Codec_7	src/java/org/apache/commons/codec/binary/Base64.java	670	replace-1
+250	Codec_8	src/java/org/apache/commons/codec/binary/Base64,src/java/org/apache/commons/codec/binary/Base64InputStream.java	169	remove-3
+251	Codec_9	src/java/org/apache/commons/codec/binary/Base64.java	827	replace-1
+252	Codec_10	src/java/org/apache/commons/codec/language/Caverphone.java	76	replace-1
+253	Codec_11	src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java		
+254	Codec_12	src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java		
+255	Codec_13	src/main/java/org/apache/commons/codec/binary/CharSequenceUtils,org/apache/commons/codec/binary/StringUtils,org/apache/commons/codec/language/DoubleMetaphone.java		
+256	Codec_14	src/main/java/org/apache/commons/codec/language/bm/Lang,org/apache/commons/codec/language/bm/PhoneticEngine,org/apache/commons/codec/language/bm/Rule,src/main/resources/org/apache/commons/codec/language/bm/ash_lang/txt,src/main/resources/org/apache/commons/codec/language/bm/gen_lang/txt,src/main/resources/org/apache/commons/codec/language/bm/sep_lang/txt.java		
+257	Codec_15	src/main/java/org/apache/commons/codec/language/Soundex.java	188	replace-5
+258	Codec_16	src/main/java/org/apache/commons/codec/binary/Base32.java	99	replace-1
+259	Codec_17	src/main/java/org/apache/commons/codec/binary/StringUtils.java	339	replace-1
+260	Codec_18	src/main/java/org/apache/commons/codec/binary/StringUtils.java	81	replace-1
+261	Compress_1	src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java	346	add
+262	Compress_2	src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java		
+263	Compress_3	src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java		
+264	Compress_4	src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream,org/apache/commons/compress/archivers/tar/TarArchiveOutputStream,org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream,org/apache/commons/compress/changes/ChangeSetPerformer.java	128	add
+265	Compress_5	src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java	239	replace-2
+266	Compress_6	src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java		
+267	Compress_7	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	98	replace-2
+268	Compress_8	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	53	replace-10
+269	Compress_9	src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java		
+270	Compress_10	src/main/java/org/apache/commons/compress/archivers/zip/ZipFile.java		
+271	Compress_11	src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java		
+272	Compress_12	src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java	198	replace-1
+273	Compress_13	src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java	512	add
+274	Compress_14	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	65	replace-8
+275	Compress_15	src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java	669	replace-5
+276	Compress_16	src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java	244	replace-1
+277	Compress_17	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	135	replace-1
+278	Compress_18	src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java	457	add
+279	Compress_19	src/main/java/org/apache/commons/compress/archivers/zip/Zip64ExtendedInformationExtraField.java	259	replace-1
+280	Compress_20	src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java		
+281	Compress_21	src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java	639	replace-3
+282	Compress_22	src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java		
+283	Compress_23	src/main/java/org/apache/commons/compress/archivers/sevenz/Coders.java	112	replace-1
+284	Compress_24	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	129	replace-8
+285	Compress_25	src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java	184	add
+286	Compress_26	src/main/java/org/apache/commons/compress/utils/IOUtils.java	104	add
+287	Compress_27	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	133	remove-4
+288	Compress_28	src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java	583	replace-1
+289	Compress_29	src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory,org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream,org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream,org/apache/commons/compress/archivers/dump/DumpArchiveInputStream,org/apache/commons/compress/archivers/tar/TarArchiveInputStream,org/apache/commons/compress/archivers/tar/TarArchiveOutputStream,org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java		
+290	Compress_30	src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java	168	add
+291	Compress_31	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	135	remove-3
+292	Compress_32	src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java	501	replace-2
+293	Compress_33	src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory,org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java		
+294	Compress_34	src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java		
+295	Compress_35	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java		
+296	Compress_36	src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java	902	add
+297	Compress_37	src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java	462	replace-1
+298	Compress_38	src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveEntry.java	859	replace-1
+299	Compress_39	src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java		
+300	Compress_40	src/main/java/org/apache/commons/compress/utils/BitInputStream.java		
+301	Compress_41	src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java	247	replace-1
+302	Compress_42	src/main/java/org/apache/commons/compress/archivers/zip/UnixStat,org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java	297	replace-1
+303	Compress_43	src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java		
+304	Compress_44	src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java	35	add
+305	Compress_45	src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java	487	replace-1
+306	Compress_46	src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java	529	replace-2
+307	Compress_47	src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java		
+308	Csv_1	src/main/java/org/apache/commons/csv/ExtendedBufferedReader.java	58	replace-1
+309	Csv_2	src/main/java/org/apache/commons/csv/CSVRecord.java	85	add
+310	Csv_3	src/main/java/org/apache/commons/csv/Lexer.java	111	add
+311	Csv_4	src/main/java/org/apache/commons/csv/CSVParser.java	288	replace-1
+312	Csv_5	src/main/java/org/apache/commons/csv/CSVPrinter.java	325	add
+313	Csv_6	src/main/java/org/apache/commons/csv/CSVRecord.java	182	add
+314	Csv_7	src/main/java/org/apache/commons/csv/CSVParser.java		
+315	Csv_8	src/main/java/org/apache/commons/csv/CSVFormat.java		
+316	Csv_9	src/main/java/org/apache/commons/csv/CSVRecord.java	180	add
+317	Csv_10	src/main/java/org/apache/commons/csv/CSVPrinter.java	70	add
+318	Csv_11	src/main/java/org/apache/commons/csv/CSVParser.java	384	replace-1
+319	Csv_12	src/main/java/org/apache/commons/csv/CSVFormat.java	219	replace-1
+320	Csv_13	src/main/java/org/apache/commons/csv/CSVFormat,org/apache/commons/csv/CSVPrinter.java	319	replace-1
+321	Csv_14	src/main/java/org/apache/commons/csv/CSVFormat.java	1039	replace-1
+322	Csv_15	src/main/java/org/apache/commons/csv/CSVFormat.java	1189	replace-3
+323	Csv_16	src/main/java/org/apache/commons/csv/CSVParser.java		
+324		/.java		
+325	Gson_1	gson/src/main/java/com/google/gson/TypeInfoFactory.java		
+326	Gson_2	gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java	833	replace-1
+327	Gson_3	gson/src/main/java/com/google/gson/internal/ConstructorConstructor.java		
+328	Gson_4	gson/src/main/java/com/google/gson/stream/JsonReader,com/google/gson/stream/JsonWriter.java		
+329	Gson_5	gson/src/main/java/com/google/gson/internal/bind/util/ISO8601Utils.java	214	add
+330	Gson_6	gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java	67	add
+331	Gson_7	gson/src/main/java/com/google/gson/stream/JsonReader.java		
+332	Gson_8	gson/src/main/java/com/google/gson/internal/UnsafeAllocator.java		
+333	Gson_9	gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter,com/google/gson/internal/bind/TypeAdapters,com/google/gson/stream/JsonWriter.java	162	add
+334	Gson_10	gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java	122	replace-2
+335	Gson_11	gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java	371	add
+336	Gson_12	gson/src/main/java/com/google/gson/internal/bind/JsonTreeReader.java	262	add
+337	Gson_13	gson/src/main/java/com/google/gson/stream/JsonReader.java	731	replace-1
+338	Gson_14	gson/src/main/java/com/google/gson/internal/$Gson$Types.java		
+339	Gson_15	gson/src/main/java/com/google/gson/stream/JsonWriter.java	495	replace-1
+340	Gson_16	gson/src/main/java/com/google/gson/internal/$Gson$Types.java		
+341	Gson_17	gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java	99	replace-2
+342	Gson_18	gson/src/main/java/com/google/gson/internal/$Gson$Types.java		
+343	JacksonCore_1	src/main/java/com/fasterxml/jackson/core/io/NumberInput,com/fasterxml/jackson/core/util/TextBuffer.java		
+344	JacksonCore_2	src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser,com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java		
+345	JacksonCore_3	src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java	125	add
+346	JacksonCore_4	src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java	585	replace-1
+347	JacksonCore_5	src/main/java/com/fasterxml/jackson/core/JsonPointer.java	193	replace-1
+348	JacksonCore_6	src/main/java/com/fasterxml/jackson/core/JsonPointer.java	193	replace-2
+349	JacksonCore_7	src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java	169	add
+350	JacksonCore_8	src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java	307	replace-1
+351	JacksonCore_9	src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase,com/fasterxml/jackson/core/json/ReaderBasedJsonParser,com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java		
+352	JacksonCore_10	src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java		
+353	JacksonCore_11	src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java	882	add
+354	JacksonCore_12	src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser,com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java		
+355	JacksonCore_13	src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java	127	add
+356	JacksonCore_14	src/main/java/com/fasterxml/jackson/core/io/IOContext.java	274	replace-3
+357	JacksonCore_15	src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java	227	add
+358	JacksonCore_16	src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java		
+359	JacksonCore_17	src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java		
+360	JacksonCore_18	src/main/java/com/fasterxml/jackson/core/base/GeneratorBase,com/fasterxml/jackson/core/json/UTF8JsonGenerator,com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java		
+361	JacksonCore_19	src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser,com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java	1418	add
+362	JacksonCore_20	src/main/java/com/fasterxml/jackson/core/JsonGenerator.java	1330	replace-1
+363	JacksonCore_21	src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java		
+364	JacksonCore_22	src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java		
+365	JacksonCore_23	src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java	255	add
+366	JacksonCore_24	src/main/java/com/fasterxml/jackson/core/base/ParserBase,com/fasterxml/jackson/core/base/ParserMinimalBase.java		
+367	JacksonCore_25	src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java	1963	replace-1
+368	JacksonCore_26	src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParser.java	108	add
+369	JacksonDatabind_1	src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java	592	add
+370	JacksonDatabind_2	src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java	783	add
+371	JacksonDatabind_3	src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java		
+372	JacksonDatabind_4	src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java		
+373	JacksonDatabind_5	src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java	658	add
+374	JacksonDatabind_6	src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java		
+375	JacksonDatabind_7	src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java	405	add
+376	JacksonDatabind_8	src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java		
+377	JacksonDatabind_9	src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java	27	replace-1
+378	JacksonDatabind_10	src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter,com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java		
+379	JacksonDatabind_11	src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java	895	replace-2
+380	JacksonDatabind_12	src/main/java/com/fasterxml/jackson/databind/deser/std/MapDeserializer.java	303	replace-1
+381	JacksonDatabind_13	src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext,src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java	87	add
+382	JacksonDatabind_14	src/main/java/com/fasterxml/jackson/databind/ObjectReader.java		
+383	JacksonDatabind_15	src/main/java/com/fasterxml/jackson/databind/JavaType,com/fasterxml/jackson/databind/ser/BeanSerializerFactory,com/fasterxml/jackson/databind/ser/std/BeanSerializerBase,com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer,com/fasterxml/jackson/databind/ser/std/StdSerializer.java	370	replace-1
+384	JacksonDatabind_16	src/main/java/com/fasterxml/jackson/databind/introspect/AnnotationMap.java	112	replace-1
+385	JacksonDatabind_17	src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java	180	replace-1
+386	JacksonDatabind_18	src/main/java/com/fasterxml/jackson/databind/MappingIterator.java		
+387	JacksonDatabind_19	src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java	1021	add
+388	JacksonDatabind_20	src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java		
+389	JacksonDatabind_21	src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java		
+390	JacksonDatabind_22	src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory,com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java		
+391	JacksonDatabind_23	src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java		
+392	JacksonDatabind_24	src/main/java/com/fasterxml/jackson/databind/cfg/BaseSettings.java	234	replace-2
+393	JacksonDatabind_25	src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory,com/fasterxml/jackson/databind/deser/DeserializerCache,com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase,com/fasterxml/jackson/databind/module/SimpleAbstractTypeResolver.java	1757	replace-1
+394	JacksonDatabind_26	src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java	39	replace-1
+395	JacksonDatabind_27	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java	794	replace-1
+396	JacksonDatabind_28	src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java	97	replace-4
+397	JacksonDatabind_29	src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java		
+398	JacksonDatabind_30	src/main/java/com/fasterxml/jackson/databind/ObjectMapper,com/fasterxml/jackson/databind/util/TokenBuffer.java		
+399	JacksonDatabind_31	src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java		
+400	JacksonDatabind_32	src/main/java/com/fasterxml/jackson/databind/deser/std/UntypedObjectDeserializer.java		
+401	JacksonDatabind_33	src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java	748	replace-1
+402	JacksonDatabind_34	src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java	81	replace-1
+403	JacksonDatabind_35	src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsWrapperTypeDeserializer.java	89	replace-4
+404	JacksonDatabind_36	src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java		
+405	JacksonDatabind_37	src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java	135	replace-1
+406	JacksonDatabind_38	src/main/java/com/fasterxml/jackson/databind/type/CollectionType,com/fasterxml/jackson/databind/type/MapType,com/fasterxml/jackson/databind/type/SimpleType.java		
+407	JacksonDatabind_39	src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java	35	add
+408	JacksonDatabind_40	src/main/java/com/fasterxml/jackson/databind/deser/std/NumberDeserializers.java	148	add
+409	JacksonDatabind_41	src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java		
+410	JacksonDatabind_42	src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java	284	add
+411	JacksonDatabind_43	src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java		
+412	JacksonDatabind_44	src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java	132	add
+413	JacksonDatabind_45	src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java	63	replace-1
+414	JacksonDatabind_46	src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java	156	replace-1
+415	JacksonDatabind_47	src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java	816	add
+416	JacksonDatabind_48	src/main/java/com/fasterxml/jackson/databind/DeserializationConfig,com/fasterxml/jackson/databind/SerializationConfig.java	780	add
+417	JacksonDatabind_49	src/main/java/com/fasterxml/jackson/databind/ser/impl/WritableObjectId.java	50	add
+418	JacksonDatabind_50	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java		
+419	JacksonDatabind_51	src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java	184	add
+420	JacksonDatabind_52	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase,com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java	612	replace-1
+421	JacksonDatabind_53	src/main/java/com/fasterxml/jackson/databind/type/TypeBindings,com/fasterxml/jackson/databind/type/TypeFactory.java		
+422	JacksonDatabind_54	src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java		
+423	JacksonDatabind_55	src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java		
+424	JacksonDatabind_56	src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java		
+425	JacksonDatabind_57	src/main/java/com/fasterxml/jackson/databind/ObjectReader.java	1441	replace-1
+426	JacksonDatabind_58	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java	715	add
+427	JacksonDatabind_59	src/main/java/com/fasterxml/jackson/databind/JavaType,com/fasterxml/jackson/databind/type/CollectionLikeType,com/fasterxml/jackson/databind/type/MapLikeType,com/fasterxml/jackson/databind/type/TypeFactory.java	136	add
+428	JacksonDatabind_60	src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java		
+429	JacksonDatabind_61	src/main/java/com/fasterxml/jackson/databind/ObjectMapper,com/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder.java	232	add
+430	JacksonDatabind_62	src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java	184	add
+431	JacksonDatabind_63	src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java		
+432	JacksonDatabind_64	src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java	152	replace-2
+433	JacksonDatabind_65	src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer,com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java	128	replace-1
+434	JacksonDatabind_66	src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java		
+435	JacksonDatabind_67	src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java	1403	replace-2
+436	JacksonDatabind_68	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java		
+437	JacksonDatabind_69	src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java		
+438	JacksonDatabind_70	src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java	440	replace-1
+439	JacksonDatabind_71	src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java	75	replace-1
+440	JacksonDatabind_72	src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java	93	replace-1
+441	JacksonDatabind_73	src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector,com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java		
+442	JacksonDatabind_74	src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsPropertyTypeDeserializer.java	156	add
+443	JacksonDatabind_75	src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java		
+444	JacksonDatabind_76	src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java	583	replace-21
+445	JacksonDatabind_77	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java		
+446	JacksonDatabind_78	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java		
+447	JacksonDatabind_79	src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector,com/fasterxml/jackson/databind/introspect/ObjectIdInfo,com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java		
+448	JacksonDatabind_80	src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java		
+449	JacksonDatabind_81	src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java		
+450	JacksonDatabind_82	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java	495	replace-1
+451	JacksonDatabind_83	src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java	119	remove-2
+452	JacksonDatabind_84	src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java	29	add
+453	JacksonDatabind_85	src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java		
+454	JacksonDatabind_86	src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java	29	add
+455	JacksonDatabind_87	src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java		
+456	JacksonDatabind_88	src/main/java/com/fasterxml/jackson/databind/jsontype/impl/ClassNameIdResolver.java	58	add
+457	JacksonDatabind_89	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java	65	add
+458	JacksonDatabind_90	src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator,com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java	232	add
+459	JacksonDatabind_91	src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java	541	replace-1
+460	JacksonDatabind_92	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java	64	add
+461	JacksonDatabind_93	src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java	83	replace-2
+462	JacksonDatabind_94	src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java		
+463	JacksonDatabind_95	src/main/java/com/fasterxml/jackson/databind/type/TypeFactory,com/fasterxml/jackson/databind/type/TypeParser.java	59	replace-1
+464	JacksonDatabind_96	src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java	735	replace-1
+465	JacksonDatabind_97	src/main/java/com/fasterxml/jackson/databind/node/POJONode.java	114	replace-1
+466	JacksonDatabind_98	src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java	298	replace-1
+467	JacksonDatabind_99	src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java	169	add
+468	JacksonDatabind_100	src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java	363	replace-9
+469	JacksonDatabind_101	src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java	771	replace-1
+470	JacksonDatabind_102	src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java	67	remove-3
+471	JacksonDatabind_103	src/main/java/com/fasterxml/jackson/databind/DatabindContext,com/fasterxml/jackson/databind/DeserializationContext,com/fasterxml/jackson/databind/JsonMappingException,com/fasterxml/jackson/databind/SerializerProvider,com/fasterxml/jackson/databind/deser/BasicDeserializerFactory,com/fasterxml/jackson/databind/deser/BeanDeserializerFactory,com/fasterxml/jackson/databind/deser/DeserializerCache,com/fasterxml/jackson/databind/deser/SettableAnyProperty,com/fasterxml/jackson/databind/deser/SettableBeanProperty,com/fasterxml/jackson/databind/deser/std/StdDeserializer,com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer,com/fasterxml/jackson/databind/deser/std/StdValueInstantiator,com/fasterxml/jackson/databind/introspect/BasicBeanDescription,com/fasterxml/jackson/databind/ser/DefaultSerializerProvider,com/fasterxml/jackson/databind/ser/PropertyBuilder,com/fasterxml/jackson/databind/util/ClassUtil.java		
+472	JacksonDatabind_104	src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java		
+473	JacksonDatabind_105	src/main/java/com/fasterxml/jackson/databind/deser/std/JdkDeserializers.java		
+474	JacksonDatabind_106	src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java	308	add
+475	JacksonDatabind_107	src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java	165	replace-1
+476	JacksonDatabind_108	src/main/java/com/fasterxml/jackson/databind/ObjectReader.java		
+477	JacksonDatabind_109	src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer,com/fasterxml/jackson/databind/ser/std/NumberSerializers.java		
+478	JacksonDatabind_110	src/main/java/com/fasterxml/jackson/databind/deser/impl/JavaUtilCollectionsDeserializers.java		
+479	JacksonDatabind_111	src/main/java/com/fasterxml/jackson/databind/deser/CreatorProperty,com/fasterxml/jackson/databind/deser/impl/FieldProperty,com/fasterxml/jackson/databind/deser/impl/MethodProperty,com/fasterxml/jackson/databind/deser/impl/ObjectIdReferenceProperty,com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty,com/fasterxml/jackson/databind/deser/impl/SetterlessProperty,com/fasterxml/jackson/databind/deser/std/AtomicReferenceDeserializer.java	68	replace-2
+480	JacksonDatabind_112	src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java	107	replace-1
+481	JacksonXml_1	src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java		
+482	JacksonXml_2	src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java		
+483	JacksonXml_3	src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java	669	replace-2
+484	JacksonXml_4	src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java	204	replace-1
+485	JacksonXml_5	src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java	59	replace-1
+486	JacksonXml_6	src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java		
+487	Jsoup_1	src/main/java/org/jsoup/nodes/Document.java	125	replace-2
+488	Jsoup_2	src/main/java/org/jsoup/parser/Parser.java	148	add
+489	Jsoup_3	src/main/java/org/jsoup/nodes/Element,org/jsoup/parser/Parser,org/jsoup/parser/Tag.java		
+490	Jsoup_4	src/main/java/org/jsoup/nodes/Entities.java		
+491	Jsoup_5	src/main/java/org/jsoup/parser/Parser.java	206	replace-1
+492	Jsoup_6	src/main/java/org/jsoup/nodes/Entities.java	70	replace-2
+493	Jsoup_7	src/main/java/org/jsoup/nodes/Document.java		
+494	Jsoup_8	src/main/java/org/jsoup/nodes/Node.java	363	replace-1
+495	Jsoup_9	src/main/java/org/jsoup/nodes/Entities.java	38	replace-1
+496	Jsoup_10	src/main/java/org/jsoup/nodes/Node.java	173	add
+497	Jsoup_11	src/main/java/org/jsoup/select/Selector.java		
+498	Jsoup_12	src/main/java/org/jsoup/select/Selector.java		
+499	Jsoup_13	src/main/java/org/jsoup/nodes/Node.java	107	add
+500	Jsoup_14	src/main/java/org/jsoup/parser/Tokeniser,org/jsoup/parser/TokeniserState.java	218	add
+501	Jsoup_15	src/main/java/org/jsoup/parser/TreeBuilderState.java	283	replace-1
+502	Jsoup_16	src/main/java/org/jsoup/nodes/DocumentType.java		
+503	Jsoup_17	src/main/java/org/jsoup/parser/TreeBuilderState.java	1451	replace-1
+504	Jsoup_18	src/main/java/org/jsoup/parser/CharacterReader.java		
+505	Jsoup_19	src/main/java/org/jsoup/safety/Whitelist.java	342	add
+506	Jsoup_20	src/main/java/org/jsoup/helper/DataUtil.java	98	add
+507	Jsoup_21	src/main/java/org/jsoup/select/CombiningEvaluator,org/jsoup/select/QueryParser.java	64	add
+508	Jsoup_22	src/main/java/org/jsoup/nodes/Element,org/jsoup/nodes/Node,org/jsoup/select/Elements.java		
+509	Jsoup_23	src/main/java/org/jsoup/parser/CharacterReader,org/jsoup/parser/Tokeniser.java	118	add
+510	Jsoup_24	src/main/java/org/jsoup/parser/TokeniserState.java	558	remove-1
+511	Jsoup_25	src/main/java/org/jsoup/parser/Tag.java	218	replace-1
+512	Jsoup_26	src/main/java/org/jsoup/safety/Cleaner.java	43	add
+513	Jsoup_27	src/main/java/org/jsoup/helper/DataUtil.java	132	replace-1
+514	Jsoup_28	src/main/java/org/jsoup/nodes/Entities,org/jsoup/parser/Parser,org/jsoup/parser/Tokeniser.java		
+515	Jsoup_29	src/main/java/org/jsoup/nodes/Document.java		
+516	Jsoup_30	src/main/java/org/jsoup/safety/Cleaner.java		
+517	Jsoup_31	src/main/java/org/jsoup/parser/Token,org/jsoup/parser/TokeniserState,org/jsoup/parser/XmlTreeBuilder.java	67	add
+518	Jsoup_32	src/main/java/org/jsoup/nodes/Element.java	1138	replace-1
+519	Jsoup_33	src/main/java/org/jsoup/parser/HtmlTreeBuilder.java	162	add
+520	Jsoup_34	src/main/java/org/jsoup/parser/CharacterReader.java	91	replace-1
+521	Jsoup_35	src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java	726	add
+522	Jsoup_36	src/main/java/org/jsoup/helper/DataUtil.java		
+523	Jsoup_37	src/main/java/org/jsoup/nodes/Element.java	1101	replace-1
+524	Jsoup_38	src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java	455	add
+525	Jsoup_39	src/main/java/org/jsoup/helper/DataUtil.java	119	add
+526	Jsoup_40	src/main/java/org/jsoup/nodes/DocumentType.java	22	remove-1
+527	Jsoup_41	src/main/java/org/jsoup/nodes/Element.java	1175	replace-1
+528	Jsoup_42	src/main/java/org/jsoup/nodes/FormElement.java		
+529	Jsoup_43	src/main/java/org/jsoup/nodes/Element.java	574	replace-1
+530	Jsoup_44	src/main/java/org/jsoup/parser/TreeBuilder.java	61	add
+531	Jsoup_45	src/main/java/org/jsoup/parser/HtmlTreeBuilder.java	394	replace-1
+532	Jsoup_46	src/main/java/org/jsoup/nodes/Entities.java	118	replace-1
+533	Jsoup_47	src/main/java/org/jsoup/nodes/Entities.java	122	replace-1
+534	Jsoup_48	src/main/java/org/jsoup/helper/HttpConnection.java	773	replace-1
+535	Jsoup_49	src/main/java/org/jsoup/nodes/Node.java	445	replace-1
+536	Jsoup_50	src/main/java/org/jsoup/helper/DataUtil.java		
+537	Jsoup_51	src/main/java/org/jsoup/parser/CharacterReader.java	300	replace-1
+538	Jsoup_52	src/main/java/org/jsoup/helper/DataUtil,org/jsoup/nodes/XmlDeclaration,org/jsoup/parser/XmlTreeBuilder.java	112	remove-6
+539	Jsoup_53	src/main/java/org/jsoup/parser/TokenQueue.java	265	add
+540	Jsoup_54	src/main/java/org/jsoup/helper/W3CDom.java	126	add
+541	Jsoup_55	src/main/java/org/jsoup/parser/TokeniserState.java	883	add
+542	Jsoup_56	src/main/java/org/jsoup/nodes/DocumentType,org/jsoup/parser/HtmlTreeBuilderState,org/jsoup/parser/Token,org/jsoup/parser/TokeniserState,org/jsoup/parser/XmlTreeBuilder.java		
+543	Jsoup_57	src/main/java/org/jsoup/nodes/Attributes.java	125	replace-1
+544	Jsoup_58	src/main/java/org/jsoup/Jsoup,org/jsoup/parser/Parser,org/jsoup/safety/Cleaner.java		
+545	Jsoup_59	src/main/java/org/jsoup/parser/Token.java		
+546	Jsoup_60	src/main/java/org/jsoup/parser/TokenQueue,org/jsoup/select/QueryParser.java	289	add
+547	Jsoup_61	src/main/java/org/jsoup/nodes/Element.java	1092	replace-1
+548	Jsoup_62	src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java	764	replace-1
+549	Jsoup_63	src/main/java/org/jsoup/parser/HtmlTreeBuilder,org/jsoup/parser/Tokeniser.java	227	replace-4
+550	Jsoup_64	src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java	1489	replace-1
+551	Jsoup_65	src/main/java/org/jsoup/parser/HtmlTreeBuilder,org/jsoup/parser/HtmlTreeBuilderState.java	360	replace-2
+552	Jsoup_66	src/main/java/org/jsoup/nodes/Element.java		
+553	Jsoup_67	src/main/java/org/jsoup/parser/HtmlTreeBuilder.java		
+554	Jsoup_68	src/main/java/org/jsoup/parser/HtmlTreeBuilder.java	468	replace-4
+555	Jsoup_69	src/main/java/org/jsoup/nodes/FormElement.java	49	add
+556	Jsoup_70	src/main/java/org/jsoup/nodes/Element.java	1091	replace-2
+557	Jsoup_71	src/main/java/org/jsoup/nodes/PseudoTextElement,org/jsoup/select/Evaluator,org/jsoup/select/QueryParser.java	203	add
+558	Jsoup_72	src/main/java/org/jsoup/parser/CharacterReader.java	427	add
+559	Jsoup_73	src/main/java/org/jsoup/helper/W3CDom.java		
+560	Jsoup_74	src/main/java/org/jsoup/helper/StringUtil.java		
+561	Jsoup_75	src/main/java/org/jsoup/nodes/Attributes.java	319	replace-2
+562	Jsoup_76	src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java	382	add
+563	Jsoup_77	src/main/java/org/jsoup/parser/XmlTreeBuilder.java	117	replace-1
+564	Jsoup_78	src/main/java/org/jsoup/helper/DataUtil.java		
+565	Jsoup_79	src/main/java/org/jsoup/nodes/LeafNode.java		
+566	Jsoup_80	src/main/java/org/jsoup/parser/XmlTreeBuilder.java	91	add
+567	Jsoup_81	src/main/java/org/jsoup/helper/DataUtil.java		
+568	Jsoup_82	src/main/java/org/jsoup/helper/DataUtil.java	171	add
+569	Jsoup_83	src/main/java/org/jsoup/parser/CharacterReader,org/jsoup/parser/TokeniserState.java	254	replace-1
+570	Jsoup_84	src/main/java/org/jsoup/helper/W3CDom.java	91	replace-1
+571	Jsoup_85	src/main/java/org/jsoup/nodes/Attribute.java	44	replace-1
+572	Jsoup_86	src/main/java/org/jsoup/nodes/Comment.java	78	replace-1
+573	Jsoup_87	src/main/java/org/jsoup/nodes/Element,org/jsoup/parser/HtmlTreeBuilder,org/jsoup/parser/HtmlTreeBuilderState,org/jsoup/parser/Tag.java		
+574	Jsoup_88	src/main/java/org/jsoup/nodes/Attribute.java	80	replace-1
+575	Jsoup_89	src/main/java/org/jsoup/nodes/Attribute.java	88	replace-1
+576	Jsoup_90	src/main/java/org/jsoup/helper/HttpConnection.java	424	add
+577	Jsoup_91	src/main/java/org/jsoup/UncheckedIOException,org/jsoup/parser/CharacterReader.java	10	add
+578	Jsoup_92	src/main/java/org/jsoup/nodes/Attributes,org/jsoup/parser/HtmlTreeBuilder,org/jsoup/parser/ParseSettings,org/jsoup/parser/Token,org/jsoup/parser/XmlTreeBuilder.java	38	add
+579	Jsoup_93	src/main/java/org/jsoup/nodes/FormElement.java	89	add
+580	JxPath_1	src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer,org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java	376	replace-1
+581	JxPath_2	src/java/org/apache/commons/jxpath/ri/compiler/Expression.java		
+582	JxPath_3	src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java		
+583	JxPath_4	src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer,org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java		
+584	JxPath_5	src/java/org/apache/commons/jxpath/ri/model/NodePointer.java	665	replace-3
+585	JxPath_6	src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java	57	replace-2
+586	JxPath_7	src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationGreaterThan,org/apache/commons/jxpath/ri/compiler/CoreOperationGreaterThanOrEqual,org/apache/commons/jxpath/ri/compiler/CoreOperationLessThan,org/apache/commons/jxpath/ri/compiler/CoreOperationLessThanOrEqual,org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java		
+587	JxPath_8	src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java	76	add
+588	JxPath_9	src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare,org/apache/commons/jxpath/ri/compiler/CoreOperationEqual,org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java		
+589	JxPath_10	src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java	42	replace-1
+590	JxPath_11	src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator,org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java		
+591	JxPath_12	src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java	108	replace-1
+592	JxPath_13	src/java/org/apache/commons/jxpath/ri/NamespaceResolver,org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java		
+593	JxPath_14	src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java	656	add
+594	JxPath_15	src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java		
+595	JxPath_16	src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer,org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java	391	replace-1
+596	JxPath_17	src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator,org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java		
+597	JxPath_18	src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java		
+598	JxPath_19	src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer,org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java		
+599	JxPath_20	src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java		
+600	JxPath_21	src/java/org/apache/commons/jxpath/ri/model/beans/PropertyPointer.java	152	replace-1
+601	JxPath_22	src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java	689	replace-3
+602	Lang_1	src/main/java/org/apache/commons/lang3/math/NumberUtils.java		
+603	Lang_3	src/main/java/org/apache/commons/lang3/math/NumberUtils.java		
+604	Lang_4	src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java		
+605	Lang_5	src/main/java/org/apache/commons/lang3/LocaleUtils.java		
+606	Lang_6	src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java		
+607	Lang_7	src/main/java/org/apache/commons/lang3/math/NumberUtils.java		
+608	Lang_8	src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java		
+609	Lang_9	src/main/java/org/apache/commons/lang3/time/FastDateParser.java		
+610	Lang_10	src/main/java/org/apache/commons/lang3/time/FastDateParser.java		
+611	Lang_11	src/main/java/org/apache/commons/lang3/RandomStringUtils.java		
+612	Lang_12	src/main/java/org/apache/commons/lang3/RandomStringUtils.java		
+613	Lang_13	src/main/java/org/apache/commons/lang3/SerializationUtils.java		
+614	Lang_14	src/main/java/org/apache/commons/lang3/StringUtils.java		
+615	Lang_15	src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java		
+616	Lang_16	src/main/java/org/apache/commons/lang3/math/NumberUtils.java		
+617	Lang_17	src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java		
+618	Lang_18	src/main/java/org/apache/commons/lang3/time/FastDateFormat.java		
+619	Lang_19	src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java		
+620	Lang_20	src/main/java/org/apache/commons/lang3/StringUtils.java		
+621	Lang_21	src/main/java/org/apache/commons/lang3/time/DateUtils.java		
+622	Lang_22	src/main/java/org/apache/commons/lang3/math/Fraction.java		
+623	Lang_23	src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java		
+624	Lang_24	src/main/java/org/apache/commons/lang3/math/NumberUtils.java		
+625	Lang_25	src/main/java/org/apache/commons/lang3/text/translate/EntityArrays.java		
+626	Lang_26	src/main/java/org/apache/commons/lang3/time/FastDateFormat.java		
+627	Lang_27	src/main/java/org/apache/commons/lang3/math/NumberUtils.java		
+628	Lang_28	src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java		
+629	Lang_29	src/main/java/org/apache/commons/lang3/SystemUtils.java		
+630	Lang_30	src/main/java/org/apache/commons/lang3/StringUtils.java		
+631	Lang_31	src/main/java/org/apache/commons/lang3/StringUtils.java		
+632	Lang_32	src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java		
+633	Lang_33	src/main/java/org/apache/commons/lang3/ClassUtils.java		
+634	Lang_34	src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java		
+635	Lang_35	src/main/java/org/apache/commons/lang3/ArrayUtils.java		
+636	Lang_36	src/java/org/apache/commons/lang3/math/NumberUtils.java		
+637	Lang_37	src/java/org/apache/commons/lang3/ArrayUtils.java		
+638	Lang_38	src/java/org/apache/commons/lang3/time/FastDateFormat.java		
+639	Lang_39	src/java/org/apache/commons/lang3/StringUtils.java		
+640	Lang_40	src/java/org/apache/commons/lang/StringUtils.java		
+641	Lang_41	src/java/org/apache/commons/lang/ClassUtils.java		
+642	Lang_42	src/java/org/apache/commons/lang/Entities.java		
+643	Lang_43	src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java		
+644	Lang_44	src/java/org/apache/commons/lang/NumberUtils.java		
+645	Lang_45	src/java/org/apache/commons/lang/WordUtils.java		
+646	Lang_46	src/java/org/apache/commons/lang/StringEscapeUtils.java		
+647	Lang_47	src/java/org/apache/commons/lang/text/StrBuilder.java		
+648	Lang_48	src/java/org/apache/commons/lang/builder/EqualsBuilder.java		
+649	Lang_49	src/java/org/apache/commons/lang/math/Fraction.java		
+650	Lang_50	src/java/org/apache/commons/lang/time/FastDateFormat.java		
+651	Lang_51	src/java/org/apache/commons/lang/BooleanUtils.java		
+652	Lang_52	src/java/org/apache/commons/lang/StringEscapeUtils.java		
+653	Lang_53	src/java/org/apache/commons/lang/time/DateUtils.java		
+654	Lang_54	src/java/org/apache/commons/lang/LocaleUtils.java		
+655	Lang_55	src/java/org/apache/commons/lang/time/StopWatch.java		
+656	Lang_56	src/java/org/apache/commons/lang/time/FastDateFormat.java		
+657	Lang_57	src/java/org/apache/commons/lang/LocaleUtils.java		
+658	Lang_58	src/java/org/apache/commons/lang/math/NumberUtils.java		
+659	Lang_59	src/java/org/apache/commons/lang/text/StrBuilder.java		
+660	Lang_60	src/java/org/apache/commons/lang/text/StrBuilder.java		
+661	Lang_61	src/java/org/apache/commons/lang/text/StrBuilder.java		
+662	Lang_62	src/java/org/apache/commons/lang/Entities.java		
+663	Lang_63	src/java/org/apache/commons/lang/time/DurationFormatUtils.java		
+664	Lang_64	src/java/org/apache/commons/lang/enums/ValuedEnum.java		
+665	Lang_65	src/java/org/apache/commons/lang/time/DateUtils.java		
+666	Math_1	src/main/java/org/apache/commons/math3/fraction/BigFraction,src/main/java/org/apache/commons/math3/fraction/Fraction.java		
+667	Math_2	src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java		
+668	Math_3	src/main/java/org/apache/commons/math3/util/MathArrays.java		
+669	Math_4	src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubLine,src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java		
+670	Math_5	src/main/java/org/apache/commons/math3/complex/Complex.java		
+671	Math_6	src/main/java/org/apache/commons/math3/optim/BaseOptimizer,org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer,org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer,org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer,org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer,org/apache/commons/math3/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer,org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java		
+672	Math_7	src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java		
+673	Math_8	src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java		
+674	Math_9	src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java		
+675	Math_10	src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java		
+676	Math_11	src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java		
+677	Math_12	src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java		
+678	Math_13	src/main/java/org/apache/commons/math3/optimization/general/AbstractLeastSquaresOptimizer.java		
+679	Math_14	src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/AbstractLeastSquaresOptimizer,org/apache/commons/math3/optim/nonlinear/vector/Weight.java		
+680	Math_15	src/main/java/org/apache/commons/math3/util/FastMath.java		
+681	Math_16	src/main/java/org/apache/commons/math3/util/FastMath.java		
+682	Math_17	src/main/java/org/apache/commons/math3/dfp/Dfp.java		
+683	Math_18	src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java		
+684	Math_19	src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java		
+685	Math_20	src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java		
+686	Math_21	src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java		
+687	Math_22	src/main/java/org/apache/commons/math3/distribution/FDistribution,src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java		
+688	Math_23	src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java		
+689	Math_24	src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java		
+690	Math_25	src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java		
+691	Math_26	src/main/java/org/apache/commons/math3/fraction/Fraction.java		
+692	Math_27	src/main/java/org/apache/commons/math3/fraction/Fraction.java		
+693	Math_28	src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java		
+694	Math_29	src/main/java/org/apache/commons/math3/linear/OpenMapRealVector.java		
+695	Math_30	src/main/java/org/apache/commons/math3/stat/inference/MannWhitneyUTest.java		
+696	Math_31	src/main/java/org/apache/commons/math3/util/ContinuedFraction.java		
+697	Math_32	src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java		
+698	Math_33	src/main/java/org/apache/commons/math3/optimization/linear/SimplexTableau.java		
+699	Math_34	src/main/java/org/apache/commons/math3/genetics/ListPopulation.java		
+700	Math_35	src/main/java/org/apache/commons/math3/genetics/ElitisticListPopulation.java		
+701	Math_36	src/main/java/org/apache/commons/math/fraction/BigFraction.java		
+702	Math_37	src/main/java/org/apache/commons/math/complex/Complex.java		
+703	Math_38	src/main/java/org/apache/commons/math/optimization/direct/BOBYQAOptimizer.java		
+704	Math_39	src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java		
+705	Math_40	src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java		
+706	Math_41	src/main/java/org/apache/commons/math/stat/descriptive/moment/Variance.java		
+707	Math_42	src/main/java/org/apache/commons/math/optimization/linear/SimplexTableau.java		
+708	Math_43	src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java		
+709	Math_44	src/main/java/org/apache/commons/math/ode/AbstractIntegrator.java		
+710	Math_45	src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java		
+711	Math_46	src/main/java/org/apache/commons/math/complex/Complex.java		
+712	Math_47	src/main/java/org/apache/commons/math/complex/Complex.java		
+713	Math_48	src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java		
+714	Math_49	src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java		
+715	Math_50	src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java		
+716	Math_51	src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java		
+717	Math_52	src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java		
+718	Math_53	src/main/java/org/apache/commons/math/complex/Complex.java		
+719	Math_54	src/main/java/org/apache/commons/math/dfp/Dfp.java		
+720	Math_55	src/main/java/org/apache/commons/math/geometry/Vector3D.java		
+721	Math_56	src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java		
+722	Math_57	src/main/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java		
+723	Math_58	src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java		
+724	Math_59	src/main/java/org/apache/commons/math/util/FastMath.java		
+725	Math_60	src/main/java/org/apache/commons/math/distribution/NormalDistributionImpl.java		
+726	Math_61	src/main/java/org/apache/commons/math/distribution/PoissonDistributionImpl.java		
+727	Math_62	src/main/java/org/apache/commons/math/optimization/univariate/MultiStartUnivariateRealOptimizer.java		
+728	Math_63	src/main/java/org/apache/commons/math/util/MathUtils.java		
+729	Math_64	src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java		
+730	Math_65	src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java		
+731	Math_66	src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java		
+732	Math_67	src/main/java/org/apache/commons/math/optimization/MultiStartUnivariateRealOptimizer.java		
+733	Math_68	src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java		
+734	Math_69	src/main/java/org/apache/commons/math/stat/correlation/PearsonsCorrelation.java		
+735	Math_70	src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java		
+736	Math_71	src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator,org/apache/commons/math/ode/nonstiff/RungeKuttaIntegrator.java		
+737	Math_72	src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java		
+738	Math_73	src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java		
+739	Math_74	src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java		
+740	Math_75	src/main/java/org/apache/commons/math/stat/Frequency.java		
+741	Math_76	src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java		
+742	Math_77	src/main/java/org/apache/commons/math/linear/ArrayRealVector,src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java		
+743	Math_78	src/main/java/org/apache/commons/math/ode/events/EventState.java		
+744	Math_79	src/main/java/org/apache/commons/math/util/MathUtils.java		
+745	Math_80	src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java		
+746	Math_81	src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java		
+747	Math_82	src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java		
+748	Math_83	src/main/java/org/apache/commons/math/optimization/linear/SimplexTableau.java		
+749	Math_84	src/main/java/org/apache/commons/math/optimization/direct/MultiDirectional.java		
+750	Math_85	src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java		
+751	Math_86	src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java		
+752	Math_87	src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java		
+753	Math_88	src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java		
+754	Math_89	src/java/org/apache/commons/math/stat/Frequency.java		
+755	Math_90	src/java/org/apache/commons/math/stat/Frequency.java		
+756	Math_91	src/java/org/apache/commons/math/fraction/Fraction.java		
+757	Math_92	src/java/org/apache/commons/math/util/MathUtils.java		
+758	Math_93	src/java/org/apache/commons/math/util/MathUtils.java		
+759	Math_94	src/java/org/apache/commons/math/util/MathUtils.java		
+760	Math_95	src/java/org/apache/commons/math/distribution/FDistributionImpl.java		
+761	Math_96	src/java/org/apache/commons/math/complex/Complex.java		
+762	Math_97	src/java/org/apache/commons/math/analysis/BrentSolver.java		
+763	Math_98	src/java/org/apache/commons/math/linear/BigMatrixImpl,src/java/org/apache/commons/math/linear/RealMatrixImpl.java		
+764	Math_99	src/java/org/apache/commons/math/util/MathUtils.java		
+765	Math_100	src/java/org/apache/commons/math/estimation/AbstractEstimator.java		
+766	Math_101	src/java/org/apache/commons/math/complex/ComplexFormat.java		
+767	Math_102	src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java		
+768	Math_103	src/java/org/apache/commons/math/distribution/NormalDistributionImpl.java		
+769	Math_104	src/java/org/apache/commons/math/special/Gamma.java		
+770	Math_105	src/java/org/apache/commons/math/stat/regression/SimpleRegression.java		
+771	Math_106	src/java/org/apache/commons/math/fraction/ProperFractionFormat.java		
+772	Time_1	src/main/java/org/joda/time/field/UnsupportedDurationField,org/joda/time/Partial.java		
+773	Time_2	src/main/java/org/joda/time/field/UnsupportedDurationField,org/joda/time/Partial.java		
+774	Time_3	src/main/java/org/joda/time/MutableDateTime.java		
+775	Time_4	src/main/java/org/joda/time/Partial.java		
+776	Time_5	src/main/java/org/joda/time/Period.java		
+777	Time_6	src/main/java/org/joda/time/chrono/GJChronology.java		
+778	Time_7	src/main/java/org/joda/time/format/DateTimeFormatter.java		
+779	Time_8	src/main/java/org/joda/time/DateTimeZone.java		
+780	Time_9	src/main/java/org/joda/time/DateTimeZone.java		
+781	Time_10	src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java		
+782	Time_11	src/main/java/org/joda/time/tz/ZoneInfoCompiler.java		
+783	Time_12	src/main/java/org/joda/time/LocalDate,org/joda/time/LocalDateTime.java		
+784	Time_13	src/main/java/org/joda/time/format/PeriodFormatterBuilder.java		
+785	Time_14	src/main/java/org/joda/time/chrono/BasicMonthOfYearDateTimeField.java		
+786	Time_15	src/main/java/org/joda/time/field/FieldUtils.java		
+787	Time_16	src/main/java/org/joda/time/format/DateTimeFormatter.java		
+788	Time_17	src/main/java/org/joda/time/DateTimeZone.java		
+789	Time_18	src/main/java/org/joda/time/chrono/GJChronology.java		
+790	Time_19	src/main/java/org/joda/time/DateTimeZone.java		
+791	Time_20	src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java		
+792	Time_22	src/main/java/org/joda/time/base/BasePeriod.java		
+793	Time_23	src/main/java/org/joda/time/DateTimeZone.java		
+794	Time_24	src/main/java/org/joda/time/format/DateTimeParserBucket.java		
+795	Time_25	src/main/java/org/joda/time/DateTimeZone.java		
+796	Time_26	src/main/java/org/joda/time/chrono/ZonedChronology,org/joda/time/DateTimeZone,org/joda/time/field/LenientDateTimeField.java		
+797	Time_27	src/main/java/org/joda/time/format/PeriodFormatterBuilder.java		
+798	Mockito_1	src/org/mockito/internal/invocation/InvocationMatcher.java		
+799	Mockito_2	src/org/mockito/internal/util/Timer.java		
+800	Mockito_3	src/org/mockito/internal/invocation/InvocationMatcher.java		
+801	Mockito_4	src/org/mockito/exceptions/Reporter.java		
+802	Mockito_5	src/org/mockito/internal/verification/VerificationOverTimeImpl.java		
+803	Mockito_6	src/org/mockito/Matchers.java		
+804	Mockito_7	src/org/mockito/internal/util/reflection/GenericMetadataSupport.java		
+805	Mockito_8	src/org/mockito/internal/util/reflection/GenericMetadataSupport.java		
+806	Mockito_9	src/org/mockito/internal/stubbing/answers/CallsRealMethods.java		
+807	Mockito_10	src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java		
+808	Mockito_11	src/org/mockito/internal/creation/DelegatingMethod.java		
+809	Mockito_12	src/org/mockito/internal/util/reflection/GenericMaster.java		
+810	Mockito_13	src/org/mockito/internal/MockHandler.java		
+811	Mockito_14	src/org/mockito/internal/MockHandler,org/mockito/internal/MockitoCore.java		
+812	Mockito_15	src/org/mockito/internal/configuration/injection/FinalMockCandidateFilter.java		
+813	Mockito_16	src/org/mockito/internal/MockitoCore,org/mockito/Mockito.java		
+814	Mockito_17	src/org/mockito/internal/creation/MockSettingsImpl,org/mockito/internal/util/MockUtil.java		
+815	Mockito_18	src/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java		
+816	Mockito_19	src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter,org/mockito/internal/configuration/injection/filter/MockCandidateFilter,org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter,org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter,org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java		
+817	Mockito_20	src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java		
+818	Mockito_21	src/org/mockito/internal/creation/instance/ConstructorInstantiator.java		
+819	Mockito_22	src/org/mockito/internal/matchers/Equality.java		
+820	Mockito_23	src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java		
+821	Mockito_24	src/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java		
+822	Mockito_25	src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java		
+823	Mockito_26	src/org/mockito/internal/util/Primitives.java		
+824	Mockito_27	src/org/mockito/internal/util/MockUtil.java		
+825	Mockito_28	src/org/mockito/internal/configuration/DefaultInjectionEngine.java		
+826	Mockito_29	src/org/mockito/internal/matchers/Same.java		
+827	Mockito_30	src/org/mockito/exceptions/Reporter,org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java		
+828	Mockito_31	src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java		
+829	Mockito_32	src/org/mockito/internal/configuration/SpyAnnotationEngine.java		
+830	Mockito_33	src/org/mockito/internal/invocation/InvocationMatcher.java		
+831	Mockito_34	src/org/mockito/internal/invocation/InvocationMatcher.java		
+832	Mockito_35	src/org/mockito/Matchers.java		
+833	Mockito_36	src/org/mockito/internal/invocation/Invocation.java		
+834	Mockito_37	src/org/mockito/internal/stubbing/answers/AnswersValidator.java		
+835	Mockito_38	src/org/mockito/internal/verification/argumentmatching/ArgumentMatchingTool.java		
+836	Cli_40	src/main/java/org/apache/commons/cli/TypeHandler.java		
+
